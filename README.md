@@ -1,0 +1,82 @@
+# Threat Radar
+
+**Which software flaws are attackers exploiting right now?** This site answers
+that question using CISA's
+[Known Exploited Vulnerabilities (KEV) catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog),
+and it **updates itself twice a day** with no human involved.
+
+- Summary of what's new this week and month, plus ransomware-linked entries
+- A live radar of the last 30 days (newer = closer to the centre)
+- Monthly trend and most-exploited vendors
+- Search by CVE, vendor, product or keyword, with filters
+- No trackers, no cookies, no third-party code
+
+![Threat Radar screenshot](specs/001-threat-radar/evidence/desktop-dark.png)
+
+## How it works
+
+```mermaid
+flowchart LR
+    CISA[(CISA KEV feed)] -->|06:17 & 18:17 UTC| A
+    subgraph GitHub
+        A[GitHub Actions<br/>test → fetch → validate] -->|only if data changed| R[(This repo<br/>data history)]
+        A --> P[GitHub Pages]
+        D[Dependabot] -.weekly update PRs.-> R
+    end
+    P --> V([Your browser])
+```
+
+1. **GitHub Actions** ([`refresh-and-deploy.yml`](.github/workflows/refresh-and-deploy.yml)) wakes up on a schedule.
+2. It runs all tests. If any fail, it stops and nothing is published.
+3. [`scripts/fetch_kev.py`](scripts/fetch_kev.py) downloads the catalog and **validates** it. If the feed is broken, the old data stays live and the run turns red.
+4. If the catalog changed, the new data is **committed**. Scroll the commit history to travel back in time.
+5. The [`site/`](site) folder is published to **GitHub Pages**.
+6. **Dependabot** checks weekly for updates to the Actions used here. The [Tests](.github/workflows/tests.yml) workflow checks each update before you merge.
+
+## Security choices
+
+| Threat | Defence |
+|---|---|
+| Malicious text in the feed | Feed text is only ever inserted as plain text (`textContent`), and a test fails if HTML-injection methods appear in the code |
+| Injected scripts anyway | A strict Content-Security-Policy makes the browser refuse any code not from this site |
+| Broken or truncated feed | Strict validation and a "shrink guard" (refuses a catalog that suddenly loses >10% of entries) |
+| Hijacked GitHub Action | Every action is pinned to an exact commit hash, and Dependabot proposes updates only after a 7-day cooldown |
+| Over-powered automation | Workflows start with zero permissions; each job gets only what it needs |
+
+## Run it yourself
+
+No installs needed: Python 3 and Node.js (any recent version) are enough.
+
+```bash
+# run every test
+python3 -m unittest discover -s scripts -p "test_*.py" -v
+node --test tests/stats.test.mjs tests/site.test.mjs
+
+# refresh the data from CISA
+python3 scripts/fetch_kev.py
+
+# preview the site at http://localhost:8000
+python3 -m http.server 8000 --directory site
+```
+
+## Project layout
+
+```
+.github/workflows/   the automation (refresh + deploy, tests on PRs)
+.github/dependabot.yml
+scripts/             fetch_kev.py + its tests
+site/                the website (HTML, CSS, JS) and data/
+tests/               JavaScript tests + fixtures (small sample feeds)
+specs/               the spec, plan and task list this was built from
+```
+
+## Built with spec-driven development
+
+This project was built from a written spec before any code existed. See
+[`specs/001-threat-radar/`](specs/001-threat-radar): `spec.md` (what & why),
+`plan.md` (how), `tasks.md` (the checklist) and `verification.md` (proof that
+every acceptance criterion is met).
+
+---
+
+Data: CISA KEV catalog (US government work, public domain). Not affiliated with CISA.

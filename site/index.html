@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--
+    Content-Security-Policy: the browser's own bouncer.
+    'self' means "only this website". Scripts, styles, data and images from any
+    other domain are refused, and inline <script> is blocked entirely.
+    That is a second, independent shield against injected code (spec NFR-1, AC-7).
+  -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <title>Threat Radar: actively exploited vulnerabilities</title>
+  <meta name="description" content="A self-updating view of CISA's Known Exploited Vulnerabilities catalog: what attackers are exploiting right now.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#latest">Skip to the list</a>
+
+  <header class="masthead">
+    <div class="masthead__inner">
+      <svg class="radar" id="radar" viewBox="0 0 200 200" role="img" aria-labelledby="radar-label">
+        <title id="radar-label">Radar of recently added vulnerabilities</title>
+        <circle class="radar__ring" cx="100" cy="100" r="96"/>
+        <circle class="radar__ring" cx="100" cy="100" r="64"/>
+        <circle class="radar__ring" cx="100" cy="100" r="32"/>
+        <line class="radar__axis" x1="4" y1="100" x2="196" y2="100"/>
+        <line class="radar__axis" x1="100" y1="4" x2="100" y2="196"/>
+        <g class="radar__sweep">
+          <path class="radar__beam" d="M100 100 L100 4 A96 96 0 0 1 183 52 Z"/>
+          <line class="radar__arm" x1="100" y1="100" x2="100" y2="4"/>
+        </g>
+        <g id="radar-blips"></g>
+        <circle class="radar__core" cx="100" cy="100" r="3"/>
+      </svg>
+
+      <div class="masthead__text">
+        <p class="eyebrow">CISA Known Exploited Vulnerabilities</p>
+        <h1>Threat Radar</h1>
+        <p class="lede">Software flaws that attackers are <em>actively exploiting right now</em>, updated automatically twice a day.</p>
+        <p class="freshness" id="freshness" aria-live="polite">Loading the latest catalog…</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section aria-labelledby="stats-heading" class="band">
+      <h2 id="stats-heading" class="visually-hidden">Summary</h2>
+      <dl class="stats" id="stats">
+        <div class="stat"><dt>In the catalog</dt><dd id="stat-total">–</dd></div>
+        <div class="stat stat--hot"><dt>Added in the last 7 days</dt><dd id="stat-7">–</dd></div>
+        <div class="stat"><dt>Added in the last 30 days</dt><dd id="stat-30">–</dd></div>
+        <div class="stat stat--alert"><dt>Used in ransomware campaigns</dt><dd id="stat-ransom">–</dd></div>
+      </dl>
+    </section>
+
+    <section aria-labelledby="trends-heading" class="band">
+      <h2 id="trends-heading" class="section-title">Trends</h2>
+      <div class="charts">
+        <figure class="panel">
+          <figcaption class="panel__title">Added per month <span class="muted">last 12 months</span></figcaption>
+          <div id="chart-monthly" class="chart-monthly"></div>
+        </figure>
+        <figure class="panel">
+          <figcaption class="panel__title">Most-exploited vendors <span class="muted">all time · tap to filter</span></figcaption>
+          <ol id="chart-vendors" class="vendor-bars"></ol>
+        </figure>
+      </div>
+    </section>
+
+    <section aria-labelledby="latest-heading" class="band" id="latest" tabindex="-1">
+      <h2 id="latest-heading" class="section-title">Latest additions</h2>
+
+      <form class="controls" id="controls" role="search">
+        <label class="field field--grow">
+          <span class="field__label">Search</span>
+          <input type="search" id="q" placeholder="CVE ID, product or keyword" autocomplete="off" spellcheck="false">
+        </label>
+        <label class="field">
+          <span class="field__label">Vendor</span>
+          <select id="vendor"><option value="">All vendors</option></select>
+        </label>
+        <fieldset class="field segmented">
+          <legend class="field__label">Added</legend>
+          <label><input type="radio" name="window" value="7"><span>7d</span></label>
+          <label><input type="radio" name="window" value="30"><span>30d</span></label>
+          <label><input type="radio" name="window" value="90"><span>90d</span></label>
+          <label><input type="radio" name="window" value="0" checked><span>All</span></label>
+        </fieldset>
+        <label class="toggle">
+          <input type="checkbox" id="ransom">
+          <span>Ransomware only</span>
+        </label>
+      </form>
+
+      <p class="result-count" id="result-count" aria-live="polite"></p>
+      <ul class="entries" id="entries"></ul>
+      <div class="empty" id="empty" hidden>
+        <p>No exploited vulnerabilities match those filters.</p>
+        <button type="button" class="button" id="clear">Clear filters</button>
+      </div>
+      <button type="button" class="button button--wide" id="more" hidden>Show 25 more</button>
+    </section>
+  </main>
+
+  <dialog class="detail" id="detail" aria-labelledby="detail-title">
+    <form method="dialog" class="detail__close-row">
+      <button class="icon-button" aria-label="Close details">✕</button>
+    </form>
+    <p class="detail__cve mono" id="detail-cve"></p>
+    <h2 class="detail__title" id="detail-title"></h2>
+    <p class="detail__badges" id="detail-badges"></p>
+    <p class="detail__desc" id="detail-desc"></p>
+    <dl class="detail__facts">
+      <div><dt>Vendor</dt><dd id="detail-vendor"></dd></div>
+      <div><dt>Product</dt><dd id="detail-product"></dd></div>
+      <div><dt>Added to catalog</dt><dd id="detail-added"></dd></div>
+      <div><dt>Federal fix-by date</dt><dd id="detail-due"></dd></div>
+      <div><dt>Weakness type</dt><dd id="detail-cwes"></dd></div>
+      <div><dt>Ransomware use</dt><dd id="detail-ransom"></dd></div>
+    </dl>
+    <h3 class="detail__subhead">Required action</h3>
+    <p class="detail__action" id="detail-action"></p>
+    <h3 class="detail__subhead" id="detail-notes-head">References</h3>
+    <ul class="detail__notes" id="detail-notes"></ul>
+    <p class="detail__nvd"><a id="detail-nvd" class="button" target="_blank" rel="noopener noreferrer">Open on NVD ↗</a></p>
+  </dialog>
+
+  <footer class="footer">
+    <p>Data: <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" rel="noopener noreferrer">CISA Known Exploited Vulnerabilities catalog</a> (US government, public domain). Not affiliated with CISA.</p>
+    <p>No trackers, no cookies, no third-party code. <a id="repo-link" hidden>How this site works ↗</a></p>
+  </footer>
+</body>
+</html>

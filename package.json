@@ -1,0 +1,9 @@
+{
+  "name": "threat-radar",
+  "private": true,
+  "type": "module",
+  "description": "Tells Node.js that the .js files here are ES modules (the same format browsers use). There are no dependencies.",
+  "scripts": {
+    "test": "node --test tests/stats.test.mjs tests/site.test.mjs"
+  }
+}

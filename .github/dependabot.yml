@@ -1,0 +1,23 @@
+# Dependabot: the "auto update" robot for this project's own building blocks.
+# Every Monday it checks whether the GitHub Actions used in .github/workflows/
+# have new versions, and if so opens a pull request updating the pinned hashes.
+# The Tests workflow then runs on that PR so you can see it's safe to merge.
+
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "07:00"
+      timezone: "Europe/Stockholm"
+    # Wait a week after a release before proposing it. Freshly published
+    # versions are where supply-chain attacks usually show up first.
+    cooldown:
+      default-days: 7
+    groups:
+      github-actions:
+        patterns: ["*"]   # one PR for all action updates instead of several
+    commit-message:
+      prefix: "deps"

@@ -1,0 +1,84 @@
+# The robot. Twice a day it:
+#   1. runs every test (stops here if anything fails)
+#   2. downloads + validates the CISA KEV catalog
+#   3. commits the data, but only if it changed
+#   4. publishes the site/ folder to GitHub Pages
+#
+# You can also run it by hand: Actions tab -> "Refresh data & deploy" -> "Run workflow".
+
+name: Refresh data & deploy
+
+on:
+  schedule:
+    - cron: "17 6,18 * * *"   # 06:17 and 18:17 UTC daily (odd minute = less queueing)
+  workflow_dispatch:           # the manual "Run workflow" button (spec FR-10)
+  push:
+    branches: [main]           # redeploy when the site code changes
+
+# Start with zero permissions; each job below asks for only what it needs (NFR-3).
+permissions: {}
+
+# Never let two runs deploy at the same time. A run that's queued waits its turn.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    name: Test, fetch and commit
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write   # allowed to push the data commit, nothing else
+    steps:
+      # Actions are pinned to an exact commit (the long hash) so nobody can swap
+      # the code behind a version tag. Dependabot updates these hashes weekly.
+      - name: Check out the repo
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          # Keeps the push credential in .git/ for the commit step below.
+          # Safe here: only the site/ folder is ever published, never .git/.
+          persist-credentials: true
+
+      - name: Run tests
+        run: |
+          python3 -m unittest discover -s scripts -p "test_*.py" -v
+          node --test tests/stats.test.mjs tests/site.test.mjs
+
+      - name: Fetch and validate the KEV catalog
+        run: python3 scripts/fetch_kev.py
+
+      - name: Commit the data if it changed
+        run: |
+          git add site/data/kev.json site/data/meta.json
+          if git diff --cached --quiet; then
+            echo "Catalog unchanged. Nothing to commit."
+            exit 0
+          fi
+          version=$(python3 -c "import json; print(json.load(open('site/data/meta.json'))['catalogVersion'])")
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "data: KEV catalog ${version}"
+          git pull --rebase --quiet origin main   # in case someone pushed meanwhile
+          git push origin HEAD:main
+
+      - name: Package the site for GitHub Pages
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: site
+
+  deploy:
+    name: Publish to GitHub Pages
+    needs: refresh
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write      # allowed to publish the site
+      id-token: write   # proves to GitHub Pages that this deploy came from this workflow
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1

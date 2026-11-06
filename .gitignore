@@ -1,0 +1,11 @@
+# Written fresh on every run (the "last checked" time). It is published with
+# the site but never committed, so unchanged data doesn't create a commit.
+site/data/status.json
+
+# Leftovers from an interrupted write in fetch_kev.py
+site/data/.*.tmp
+
+# Python / OS clutter
+__pycache__/
+*.pyc
+.DS_Store
