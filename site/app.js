@@ -1,18 +1,20 @@
-// app.js: everything you see on the page.
+// app.js: the Radar page.
 //
 // Flow:  load data → draw stats, radar, charts → wire up search & filters → draw the list
 //
-// SECURITY RULE for this file (spec NFR-2, AC-6):
-// Text that comes from the feed is ONLY ever placed on the page with
-// `textContent` (via the el() helper below). The browser treats textContent as
-// plain characters, never as HTML, so a description containing "<script>" just
-// shows up as the literal text "<script>". A test (tests/site.test.mjs)
-// fails if anyone adds innerHTML or similar to this file.
+// SECURITY RULE (spec 001 NFR-2, AC-6): text that comes from a feed is only ever
+// placed on the page with textContent, via el() from ui.js. The browser treats
+// that as plain characters, never as HTML, so a description containing "<script>"
+// just shows the literal text. tests/site.test.mjs enforces this.
 
 import { summarize, monthlyCounts, topVendors, vendorList, filterEntries, shiftDays } from "./stats.js";
+import { teaserLabel, CVE_ID_RE } from "./sitrep-logic.js";
+import {
+  el, svgEl, safeWebUrl, localToday, daysBetween, isoToDate, numberFmt, formatDate, formatShortDay,
+  monthFmt, monthYearFmt, timeAgo, debounce, loadJSON,
+} from "./ui.js";
 
 const PAGE_SIZE = 25;
-const SVG_NS = "http://www.w3.org/2000/svg";
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const $ = (id) => document.getElementById(id);
 
@@ -27,93 +29,13 @@ const state = {
   ransomwareOnly: false,
 };
 
-// ---------- Small helpers ----------
-
-/** Create an element. Text goes in via textContent, which is always safe. */
-function el(tag, { className, text, attrs } = {}, children = []) {
-  const node = document.createElement(tag);
-  if (className) node.className = className;
-  if (text !== undefined) node.textContent = text;
-  if (attrs) for (const [key, value] of Object.entries(attrs)) node.setAttribute(key, value);
-  node.append(...children);
-  return node;
-}
-
-/** Create an SVG element (SVG needs its own namespace). */
-function svgEl(tag, attrs = {}, text) {
-  const node = document.createElementNS(SVG_NS, tag);
-  for (const [key, value] of Object.entries(attrs)) node.setAttribute(key, String(value));
-  if (text !== undefined) node.textContent = text;
-  return node;
-}
-
-function localToday() {
-  const d = new Date();
-  const pad = (n) => String(n).padStart(2, "0");
-  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
-}
-
-function daysBetween(fromIso, toIso) {
-  const ms = (iso) => { const [y, m, d] = iso.split("-").map(Number); return Date.UTC(y, m - 1, d); };
-  return Math.round((ms(toIso) - ms(fromIso)) / 86400000);
-}
-
-const numberFmt = new Intl.NumberFormat();
-const dateFmt = new Intl.DateTimeFormat(undefined, { year: "numeric", month: "short", day: "numeric", timeZone: "UTC" });
-const monthFmt = new Intl.DateTimeFormat(undefined, { month: "short", timeZone: "UTC" });
-const monthYearFmt = new Intl.DateTimeFormat(undefined, { month: "long", year: "numeric", timeZone: "UTC" });
-const relFmt = new Intl.RelativeTimeFormat(undefined, { numeric: "auto" });
-
-function isoToDate(iso) {
-  const [y, m, d] = iso.split("-").map(Number);
-  return new Date(Date.UTC(y, (m || 1) - 1, d || 1));
-}
-const formatDate = (iso) => dateFmt.format(isoToDate(iso));
-
-function timeAgo(isoDateTime) {
-  const seconds = (new Date(isoDateTime).getTime() - Date.now()) / 1000;
-  if (!Number.isFinite(seconds)) return "";
-  const units = [["day", 86400], ["hour", 3600], ["minute", 60]];
-  for (const [unit, size] of units) {
-    if (Math.abs(seconds) >= size) return relFmt.format(Math.round(seconds / size), unit);
-  }
-  return "just now";
-}
-
-/** Only real web links become clickable. Blocks tricks like "javascript:" URLs. */
-function safeWebUrl(text) {
-  try {
-    const url = new URL(text.trim());
-    return url.protocol === "https:" || url.protocol === "http:" ? url.href : null;
-  } catch {
-    return null;
-  }
-}
-
-function debounce(fn, wait) {
-  let timer;
-  return (...args) => { clearTimeout(timer); timer = setTimeout(() => fn(...args), wait); };
-}
-
-// ---------- Loading ----------
-
-async function loadJSON(path, { optional = false } = {}) {
-  try {
-    const response = await fetch(path, { cache: "no-cache" });
-    if (!response.ok) throw new Error(`${path}: HTTP ${response.status}`);
-    return await response.json();
-  } catch (err) {
-    if (optional) return null;
-    throw err;
-  }
-}
-
 async function init() {
   try {
-    const [kev, meta, status] = await Promise.all([
+    const [kev, meta, status, sitrep] = await Promise.all([
       loadJSON("data/kev.json"),
       loadJSON("data/meta.json"),
       loadJSON("data/status.json", { optional: true }), // missing when previewing locally
+      loadJSON("data/sitrep/index.json", { optional: true }), // missing until the first Sitrep is published
     ]);
     state.all = kev;
     renderFreshness(meta, status);
@@ -125,6 +47,9 @@ async function init() {
     wireControls();
     applyFilters();
     setRepoLink();
+    renderSitrepTeaser(sitrep);
+    openFromHash();
+    window.addEventListener("hashchange", openFromHash);
   } catch (err) {
     console.error(err);
     $("freshness").textContent = "Couldn't load the catalog data. Please try refreshing the page.";
@@ -372,6 +297,30 @@ function openDetail(entry) {
 
   $("detail-nvd").href = `https://nvd.nist.gov/vuln/detail/${encodeURIComponent(entry.cveID)}`;
   $("detail").showModal();
+}
+
+// ---------- Sitrep teaser & deep links (spec 002) ----------
+
+/** Show the latest Cyber Sitrep above the stats. Stays hidden if there's none (AC-4). */
+function renderSitrepTeaser(sitrepIndex) {
+  const latest = sitrepIndex && Array.isArray(sitrepIndex.issues) ? sitrepIndex.issues[0] : null;
+  if (!latest) return;
+  const badges = [];
+  if (latest.actionNeeded) badges.push(el("span", { className: "badge badge--ransom", text: "Action needed" }));
+  $("teaser-label").textContent = `${teaserLabel(latest.date, state.today)} · ${formatShortDay(latest.date)}`;
+  $("teaser-badges").replaceChildren(...badges);
+  $("teaser-tldr").textContent = latest.tldr;
+  $("teaser-meta").textContent = `${latest.items} items · ${latest.emerging} emerging threats`;
+  $("teaser-link").href = `sitrep/?d=${encodeURIComponent(latest.date)}`;
+  $("sitrep-teaser").hidden = false;
+}
+
+/** /#CVE-2026-12345 opens that entry's detail, e.g. from an "In KEV" badge on the Sitrep page (AC-5). */
+function openFromHash() {
+  const id = decodeURIComponent(window.location.hash.slice(1)).toUpperCase();
+  if (!CVE_ID_RE.test(id)) return;
+  const entry = state.all.find((e) => e.cveID === id);
+  if (entry && !$("detail").open) openDetail(entry);
 }
 
 // ---------- Footer ----------

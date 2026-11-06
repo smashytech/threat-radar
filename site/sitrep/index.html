@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Same strict Content-Security-Policy as the Radar page: only files from this site. -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <title>Cyber Sitrep: Threat Radar</title>
+  <meta name="description" content="The daily Cyber Sitrep: the last 24–48 hours in cybersecurity, prioritised by exploitation risk, with CVEs linked to CISA's exploited-vulnerabilities catalog.">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css">
+  <script type="module" src="sitrep.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#issue">Skip to the issue</a>
+
+  <header class="masthead masthead--compact">
+    <nav class="topnav" aria-label="Sections">
+      <a class="topnav__link" href="../">Radar</a>
+      <a class="topnav__link" href="./" aria-current="page">Sitrep</a>
+    </nav>
+    <div class="masthead__inner masthead__inner--text">
+      <div class="masthead__text">
+        <p class="eyebrow">Daily briefing · weekdays</p>
+        <h1>Cyber Sitrep</h1>
+        <p class="lede">The last 24–48 hours in cybersecurity, prioritised by <em>exploitation risk and impact</em>. CVEs that attackers are actively exploiting are flagged against CISA's catalog.</p>
+        <p class="freshness" id="issue-line" aria-live="polite">Loading…</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="sitrep-layout">
+    <article class="sitrep" id="issue" tabindex="-1" aria-labelledby="issue-heading">
+      <h2 class="visually-hidden" id="issue-heading">Issue</h2>
+      <p class="notice" id="notice" hidden></p>
+
+      <section class="tldr" id="tldr-box" hidden aria-labelledby="tldr-h">
+        <h3 class="tldr__label" id="tldr-h">TL;DR</h3>
+        <p class="tldr__text" id="tldr"></p>
+      </section>
+
+      <section class="band" id="emerging-section" hidden aria-labelledby="emerging-h">
+        <h3 class="section-title section-title--emerging" id="emerging-h">Emerging threats</h3>
+        <ol class="story-list story-list--emerging" id="emerging"></ol>
+      </section>
+
+      <section class="band" id="items-section" hidden aria-labelledby="items-h">
+        <h3 class="section-title" id="items-h">Top incidents</h3>
+        <ol class="story-list" id="items"></ol>
+      </section>
+
+      <section class="action" id="action-box" hidden aria-labelledby="action-h">
+        <h3 class="action__label" id="action-h">Action needed</h3>
+        <p class="action__text" id="action"></p>
+      </section>
+    </article>
+
+    <aside class="archive" aria-labelledby="archive-h">
+      <h2 class="section-title" id="archive-h">Archive</h2>
+      <ol class="archive__list" id="archive"></ol>
+    </aside>
+  </main>
+
+  <footer class="footer">
+    <p>The Cyber Sitrep is compiled every weekday morning from public sources and mirrored here automatically. Always check the linked source before acting.</p>
+    <p>No trackers, no cookies, no third-party code. <a href="../">← Back to the Radar</a></p>
+  </footer>
+</body>
+</html>

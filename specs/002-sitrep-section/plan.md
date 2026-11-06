@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | **Spec** | [spec.md](./spec.md) |
-| **Status** | Draft, awaiting owner review |
+| **Status** | Approved 2026-11-06 |
 
 ## 1. Architecture
 
@@ -101,6 +101,7 @@ tests/sitrep.test.mjs            tests for the page's pure logic
 site/sitrep/index.html           the Sitrep page
 site/sitrep/sitrep.js            page code
 site/sitrep-logic.js             pure functions (parse ?d=, CVE/KEV matching), shared + tested
+site/ui.js                       safe DOM helpers shared by both pages (moved out of app.js)
 site/data/sitrep/                issues + index.json
 site/index.html, app.js, styles.css   teaser, deep links, nav, Sitrep styles
 .github/workflows/refresh-and-deploy.yml + tests.yml   also run add_sitrep.py --check and the new tests

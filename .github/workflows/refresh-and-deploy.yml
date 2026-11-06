@@ -43,7 +43,8 @@ jobs:
       - name: Run tests
         run: |
           python3 -m unittest discover -s scripts -p "test_*.py" -v
-          node --test tests/stats.test.mjs tests/site.test.mjs
+          python3 scripts/add_sitrep.py --check   # every published Sitrep issue must still be valid
+          node --test tests/stats.test.mjs tests/site.test.mjs tests/sitrep.test.mjs
 
       - name: Fetch and validate the KEV catalog
         run: python3 scripts/fetch_kev.py

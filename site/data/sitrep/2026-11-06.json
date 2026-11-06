@@ -1,0 +1,115 @@
+{
+  "date": "2026-11-06",
+  "tldr": "Heavy news cycle: three critical vulnerabilities under active exploitation (Zyxel GS1900 zero-day, Cisco's \"Node2Shell\" Brotli bug, a Barracuda ESG root chain), major breaches at blockchain-intel firm Chainalysis and French bank Crédit Mutuel Arkéa (~$133M), plus a Russian APT29 mobile spyware campaign. AI platforms and AI-offensive tooling are a recurring thread through both the incident list and the emerging threats below.",
+  "emerging": [
+    {
+      "title": "CERT-In flags \"Crafty Falcon\" autonomous AI attack chains hitting Indian banks, crypto firms",
+      "description": "India's CERT-In is tracking a threat actor using public AI-offensive frameworks (ARTEX, PentAGI, Cairn, CyberStrikeAI) to run full autonomous attack chains against BFSI and crypto firms, stealing keys/funds. Separately, a backdoored ARTEX Docker image gave unauthenticated root on 62 internet-facing consoles.",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/backdoored-docker-image-for-artex-ai.html",
+      "published": "2026-11-05",
+      "cves": []
+    },
+    {
+      "title": "OpenAI's AI pipeline generates 948 working Linux root exploits in one run",
+      "description": "An autonomous pipeline built on an unreleased OpenAI cyber model found and weaponized 948 Linux kernel vulnerabilities in a single ~$1.2M run using 10+ novel exploitation techniques — a signal that AI-driven vulnerability research may outpace patch cycles.",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/ai-agents-got-root-on-linux-via-948-kernel-flaws-in-openai-research/",
+      "published": "2026-11-05",
+      "cves": []
+    }
+  ],
+  "items": [
+    {
+      "title": "Zyxel patch fails to stop zero-day hitting GS1900 switches",
+      "description": "Zyxel's October fix for CVE-2026-7273 didn't block the real attack: researchers found ~1,000 GS1900 switches compromised via a separate zero-day (CVE-2026-107441, CVSS 8.8) delivering Jitterly/Sixzut malware.",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/zyxel-switch-hacks-blamed-on-patched-flaw-actually-exploited-a-zero-day/",
+      "published": "2026-11-05",
+      "cves": [
+        "CVE-2026-7273",
+        "CVE-2026-107441"
+      ]
+    },
+    {
+      "title": "Cisco's \"Node2Shell\" Brotli flaw under active exploitation across 19+ products",
+      "description": "Cisco confirmed active exploitation of CVE-2026-111497, an out-of-bounds write in Google's Brotli library, hitting 19 Cisco products (dozens more under review) and Splunk. WatchGuard and SonicWall issued related patches/EOL warnings the same day.",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/cisco-watchguard-release-patches-sonicwall-wont-fix-gms-flaws/",
+      "published": "2026-11-05",
+      "cves": [
+        "CVE-2026-111497"
+      ]
+    },
+    {
+      "title": "Barracuda patches ESG flaw chain enabling unauthenticated root access",
+      "description": "Barracuda fixed CVE-2026-116606 (auth bypass, CVSS 9.3) and CVE-2026-111560 (command injection, CVSS 8.6) in Email Security Gateway; chained, they give unauthenticated attackers root. Shared code affects five more Barracuda products.",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/barracuda-email-security-gateway-authentication-bypass-opens-path-to-root/",
+      "published": "2026-11-04",
+      "cves": [
+        "CVE-2026-116606",
+        "CVE-2026-111560"
+      ]
+    },
+    {
+      "title": "Critical OpenSSH flaw lets attackers bypass auth on musl-based Linux",
+      "description": "A crypt() quirk on Alpine Linux and other musl systems let attackers log into password-less, key-only accounts using a long dummy password on the first try. OpenSSH 10.6p2 and Alpine patches shipped Nov 5; no known exploitation yet.",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/openssh-issues-emergency-fix-for-flaw.html",
+      "published": "2026-11-05",
+      "cves": []
+    },
+    {
+      "title": "Chainalysis breach exposes credentials for all users",
+      "description": "The blockchain-analytics firm used by law enforcement and crypto regulators confirmed names, usernames, password hashes, and live tokens were exposed for every user via an \"offensive agentic\" intrusion; KYT and login pages taken offline Nov 4.",
+      "source": "The Record",
+      "url": "https://therecord.media/chainalysis-all-users-hit-by-agentic-cyberattack",
+      "published": "2026-11-05",
+      "cves": []
+    },
+    {
+      "title": "French bank Crédit Mutuel Arkéa confirms ~$133M cyber heist",
+      "description": "Attackers breached a supplier to reach the bank's systems and moved funds to other institutions over several days starting Nov 2, converting some to crypto. Customer accounts/assets unaffected; some funds frozen.",
+      "source": "The Record",
+      "url": "https://therecord.media/french-bank-confirms-cyber-heist",
+      "published": "2026-11-04",
+      "cves": []
+    },
+    {
+      "title": "Attackers target AI developer platforms for stolen model-access tokens",
+      "description": "At least a dozen AI developer platforms breached in the past month, most recently WorkOS, Northflank, Trigger.dev and Chainstack (Oct 26-30), with attackers harvesting AI access keys for resale/LLM-jacking.",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/ai-linked-breaches-mount-as-workos-northflank-trigger-dev-disclose-hacks/",
+      "published": "2026-11-04",
+      "cves": []
+    },
+    {
+      "title": "Supply-chain attack on OpsShield pushes rooted cPGuard update to ~2,950 servers",
+      "description": "Attackers hijacked OpsShield's update CDN for ~70 minutes, shipping malicious cPGuard builds that opened hidden root shells on Linux hosting servers and copied ~7,900 customer account records.",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/malicious-cpguard-updates-served-in-opsshield-supply-chain-attack/",
+      "published": "2026-11-04",
+      "cves": []
+    },
+    {
+      "title": "Russia's APT29 runs mobile watering-hole campaign with reused spyware exploits",
+      "description": "Sekoia details a Midnight Blizzard campaign hitting iOS/Android users via compromised Ukrainian, Bulgarian and political-party sites plus a hijacked analytics script (Plerdy), using the DarkSword kit and a Chrome/Qualcomm chain; CISA added CVE-2024-27834 to its KEV catalog Nov 4.",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/russia-linked-hackers-hit-ios-android-devices-with-exploit-chains-via-watering-holes/",
+      "published": "2026-11-05",
+      "cves": [
+        "CVE-2024-27834"
+      ]
+    },
+    {
+      "title": "Cyberattack hits French blood bank's cold-storage systems",
+      "description": "Attackers pushed EFS plasma freezer setpoints toward 110°C at three sites via a vulnerable Coolworld refrigeration component; staff caught it in time and no blood products were lost. Follows similar supermarket fridge attacks across France, Belgium and the Netherlands.",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/cyberattack-hits-french-blood-bank-site-but-no-blood-products-are-compromised/",
+      "published": "2026-11-05",
+      "cves": []
+    }
+  ],
+  "action": "Patch/replace Zyxel GS1900 switches (CVE-2026-107441); apply Cisco's updated Node2Shell advisory (CVE-2026-111497) across all affected Cisco/Splunk products; patch Barracuda ESG and related products (CVE-2026-116606, CVE-2026-111560); update OpenSSH to 10.6p2 on Alpine/musl systems. Chainalysis customers and users of WorkOS, Northflank, Trigger.dev and Chainstack should rotate credentials and API keys immediately."
+}

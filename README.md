@@ -9,6 +9,7 @@ and it **updates itself twice a day** with no human involved.
 - A live radar of the last 30 days (newer = closer to the centre)
 - Monthly trend and most-exploited vendors
 - Search by CVE, vendor, product or keyword, with filters
+- **Cyber Sitrep** section: the daily threat-intel bulletin with an archive, its CVEs cross-checked against KEV
 - No trackers, no cookies, no third-party code
 
 ![Threat Radar screenshot](specs/001-threat-radar/evidence/desktop-dark.png)
@@ -33,6 +34,16 @@ flowchart LR
 5. The [`site/`](site) folder is published to **GitHub Pages**.
 6. **Dependabot** checks weekly for updates to the Actions used here. The [Tests](.github/workflows/tests.yml) workflow checks each update before you merge.
 
+## The Cyber Sitrep section
+
+Every weekday a scheduled task emails the **📰 Cyber Sitrep**. A second scheduled
+task (the *publisher*) reads that sent email, copies it into a small JSON file and
+hands it to [`scripts/add_sitrep.py`](scripts/add_sitrep.py), the gatekeeper. The
+gatekeeper validates it (https links only, length limits, no unknown fields),
+detects CVE IDs itself and writes `site/data/sitrep/`. Pushing that triggers the
+normal deploy. On the page, any CVE that is also in KEV gets an **In KEV** badge
+that opens it on the Radar. Spec: [`specs/002-sitrep-section`](specs/002-sitrep-section).
+
 ## Security choices
 
 | Threat | Defence |
@@ -50,7 +61,8 @@ No installs needed: Python 3 and Node.js (any recent version) are enough.
 ```bash
 # run every test
 python3 -m unittest discover -s scripts -p "test_*.py" -v
-node --test tests/stats.test.mjs tests/site.test.mjs
+python3 scripts/add_sitrep.py --check
+node --test tests/stats.test.mjs tests/site.test.mjs tests/sitrep.test.mjs
 
 # refresh the data from CISA
 python3 scripts/fetch_kev.py

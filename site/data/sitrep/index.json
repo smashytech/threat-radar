@@ -1,0 +1,11 @@
+{
+  "issues": [
+    {
+      "date": "2026-11-06",
+      "tldr": "Heavy news cycle: three critical vulnerabilities under active exploitation (Zyxel GS1900 zero-day, Cisco's \"Node2Shell\" Brotli bug, a Barracuda ESG root chain), major breaches at blockchain-intel firm Chainalysis and French bank Crédit Mutuel Arkéa (~$133M), plus a Russian APT29 mobile spyware campaign. AI platforms and AI-offensive tooling are a recurring thread through both the incident list and the emerging threats below.",
+      "items": 10,
+      "emerging": 2,
+      "actionNeeded": true
+    }
+  ]
+}

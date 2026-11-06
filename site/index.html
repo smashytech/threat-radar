@@ -22,6 +22,10 @@
   <a class="skip-link" href="#latest">Skip to the list</a>
 
   <header class="masthead">
+    <nav class="topnav" aria-label="Sections">
+      <a class="topnav__link" href="./" aria-current="page">Radar</a>
+      <a class="topnav__link" href="sitrep/">Sitrep</a>
+    </nav>
     <div class="masthead__inner">
       <svg class="radar" id="radar" viewBox="0 0 200 200" role="img" aria-labelledby="radar-label">
         <title id="radar-label">Radar of recently added vulnerabilities</title>
@@ -48,6 +52,20 @@
   </header>
 
   <main>
+    <section class="band" id="sitrep-teaser" aria-labelledby="teaser-label" hidden>
+      <a class="teaser" id="teaser-link" href="sitrep/">
+        <span class="teaser__top">
+          <span class="teaser__label" id="teaser-label">Latest Sitrep</span>
+          <span class="teaser__badges" id="teaser-badges"></span>
+        </span>
+        <span class="teaser__tldr" id="teaser-tldr"></span>
+        <span class="teaser__foot">
+          <span class="muted" id="teaser-meta"></span>
+          <span class="teaser__cta">Read the full Sitrep →</span>
+        </span>
+      </a>
+    </section>
+
     <section aria-labelledby="stats-heading" class="band">
       <h2 id="stats-heading" class="visually-hidden">Summary</h2>
       <dl class="stats" id="stats">

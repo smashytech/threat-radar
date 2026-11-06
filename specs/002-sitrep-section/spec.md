@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | **Spec ID** | 002-sitrep-section |
-| **Status** | Draft, awaiting owner review |
+| **Status** | Approved by owner 2026-11-06 · Built, see `verification.md` |
 | **Owner** | smashytech |
 | **Builds on** | [001-threat-radar](../001-threat-radar/spec.md) |
 | **Created** | 2026-11-06 |
