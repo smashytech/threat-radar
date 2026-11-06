@@ -1,0 +1,110 @@
+{
+  "date": "2026-11-03",
+  "tldr": "Two actively-exploited vulnerabilities demand urgent patching (Ivanti Connect Secure, GitLab). A second wave of attacks on European supermarket refrigeration systems is spreading, confirmed by Sweden's CERT-SE. The FBI formally pinned the record $6.3B Binance heist on North Korea's TraderTraitor, and AI-assisted attacks keep escalating — from a Chinese APT's agentic pentesting framework to infostealers that now use LLMs to triage victims by wealth.",
+  "emerging": [
+    {
+      "title": "VOLTA Infostealer Uses Claude, Gemini and Kimi to Rank Victims by Wealth",
+      "description": "Cisco Talos documents a new infostealer that queries multiple commercial AI models to automatically assess compromised victims' financial value, letting operators prioritize which stolen data to monetize first — a first-of-its-kind AI triage step in the infostealer chain.",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/new-volta-infostealer-uses-claude.html",
+      "published": "2026-11-02",
+      "cves": []
+    },
+    {
+      "title": "Suspected AI-Generated Scripts Power New SysGoRAT Espionage Campaign",
+      "description": "A campaign against government Linux servers in Asia is deploying a new RAT (SysGoRAT) alongside scripts researchers believe were AI-generated, suggesting threat actors are now using LLMs to write operational intrusion tooling, not just phishing lures. Single-sourced — not yet independently corroborated.",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/government-linux-servers-targeted-with.html",
+      "published": "2026-11-02",
+      "cves": []
+    }
+  ],
+  "items": [
+    {
+      "title": "Two More Ivanti Connect Secure Zero-Days Chained in Active Attacks",
+      "description": "CISA added CVE-2026-111357 and CVE-2026-118527 to its KEV catalog after attackers chained them with earlier flaws since at least October 1 to compromise Connect Secure appliances. Patch now — one deadline already passed.",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/ivanti-patches-two-more-connect-secure-zero-days-chained-in-attacks/",
+      "published": "2026-11-02",
+      "cves": [
+        "CVE-2026-111357",
+        "CVE-2026-118527"
+      ]
+    },
+    {
+      "title": "1,000+ GitLab Servers Still Vulnerable to Actively Exploited RCE",
+      "description": "Over 1,000 internet-exposed GitLab servers remain unpatched against a maximum-severity code-execution flaw (CVE-2026-97229, in CISA's KEV catalog) that attackers are actively exploiting in the wild.",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/over-1-000-gitlab-servers-vulnerable-to-code-execution-attacks/",
+      "published": "2026-11-02",
+      "cves": [
+        "CVE-2026-97229"
+      ]
+    },
+    {
+      "title": "Google Dismantles 1.3-Million-Device Android TV Botnet, Bans Maker",
+      "description": "Google and partners took down a botnet built from pre-installed malware on cheap Android TV boxes sold as proxy/residential-IP access, and banned the device maker from Google Play Services.",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/google-disrupts-million-device-xcpe-android-malware-botnet-bans-tv-box-maker/",
+      "published": "2026-11-02",
+      "cves": []
+    },
+    {
+      "title": "Second Wave of Cyberattacks Hits European Supermarket Freezers",
+      "description": "Attackers remotely altered temperature controls on refrigeration/freezer systems at supermarkets across several European countries. Sweden's CERT-SE confirmed the OT campaign is ongoing and widening.",
+      "source": "CERT-SE",
+      "url": "https://www.cert.se/2026/11/cyberangrepp-mot-uppkopplade-frys-och-kylsystem.html",
+      "published": "2026-11-02",
+      "cves": []
+    },
+    {
+      "title": "FBI Formally Attributes $6.3B Binance Heist to North Korea's TraderTraitor",
+      "description": "The Bureau flagged over 600 wallet addresses tied to laundering of the record crypto theft and urged exchanges to block transactions linked to the North Korean group.",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/fbi-flags-over-600-addresses-tied-to-north-koreas-binance-heist/",
+      "published": "2026-11-02",
+      "cves": []
+    },
+    {
+      "title": "China-Linked Hackers Use Agentic AI Framework \"ARTEX\" Against 200+ Orgs",
+      "description": "CrowdStrike says a China-nexus group (VAPOR PANDA) used the open-source AI pentesting agent ARTEX, running largely on DeepSeek, to automate intrusion attempts across 14 countries, confirming post-exploitation at nine targets so far.",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/chinese-hackers-use-artex-ai-in-automated-attacks-against-200-orgs/",
+      "published": "2026-11-02",
+      "cves": []
+    },
+    {
+      "title": "Synology Warns of C3RB3R Ransomware Wave Hitting NAS Devices",
+      "description": "Synology urged customers running outdated DiskStation Manager to update immediately as a Cerber-family ransomware variant (C3RB3R/L0CK3D) continues encrypting exposed, unpatched NAS devices.",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/synology-warns-customers-of-ongoing-c3rb3r-ransomware-attacks/",
+      "published": "2026-11-02",
+      "cves": []
+    },
+    {
+      "title": "BTCPay Server Flags Hot-Wallet Thefts on Outdated Instances",
+      "description": "The open-source payment processor's maintainer warned attackers are draining hot wallets on instances that haven't been updated, urging all self-hosted operators to patch immediately.",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/btcpay-server-warns-of-hot-wallet-thefts-targeting-outdated-instances/",
+      "published": "2026-11-02",
+      "cves": []
+    },
+    {
+      "title": "Polymarket Returns $3.9M After DNS Hijack via Compromised DebugBear Script",
+      "description": "A DNS hijack at performance-monitoring vendor DebugBear, reached through its domain registrar, let attackers redirect and steal from a subset of Polymarket traders; funds have now been refunded.",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/polymarket-returns-3-9-million-to-traders-as-debugbear-cites-dns-hijack/",
+      "published": "2026-11-02",
+      "cves": []
+    },
+    {
+      "title": "DarkBlinders Compromises Israeli Target and Iraqi Kurdish Government Cloud",
+      "description": "A newly tracked threat actor dubbed DarkBlinders breached cloud environments tied to an Israeli organization and the Kurdistan Regional Government. Single-sourced — not yet independently corroborated.",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/darkblinders-compromises-israeli-target.html",
+      "published": "2026-11-02",
+      "cves": []
+    }
+  ],
+  "action": "Patch Ivanti Connect Secure (CVE-2026-111357, CVE-2026-118527) and GitLab CE/EE (CVE-2026-97229) immediately — both are in CISA's KEV catalog and under active exploitation, one deadline already past. Update Synology DSM and BTCPay Server if running outdated self-hosted instances. If you operate refrigeration/BMS controls exposed to the internet, review remote-access exposure given the ongoing European OT campaign."
+}

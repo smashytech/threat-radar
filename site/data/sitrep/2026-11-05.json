@@ -1,0 +1,104 @@
+{
+  "date": "2026-11-05",
+  "tldr": "Active exploitation of a WordPress core flaw and a now KEV-listed Zyxel switch zero-day headline a busy cycle, alongside fresh detail on the $6.3B Binance heist involving abused AI tooling, and a widening refrigeration-system attack campaign that has now disrupted blood storage facilities in France. 10 core items qualified today.",
+  "emerging": [
+    {
+      "title": "AI pipeline generates 948 Linux root-escalation exploits in 30 hours",
+      "description": "An automated AI exploit-generation pipeline run against the Linux kernel produced hundreds of working root-escalation exploits in a day and a half — a striking leap in AI-assisted vulnerability discovery at scale. Single-sourced, unconfirmed by a second outlet.",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/openai-ai-pipeline-generates-948-linux.html",
+      "published": "2026-11-05",
+      "cves": []
+    },
+    {
+      "title": "Google: LLMjacking attacks rack up $1M+ in cloud AI charges",
+      "description": "Attackers are using stolen cloud credentials to run unauthorized LLM inference workloads, billing victims over $1 million — a growing monetization vector as cloud AI use scales. Single-sourced, unconfirmed by a second outlet.",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/google-llmjacking-attacks-rack-up-1-million-in-cloud-ai-charges/",
+      "published": "2026-11-03",
+      "cves": []
+    }
+  ],
+  "items": [
+    {
+      "title": "CISA confirms hackers exploiting WordPress core flaw during upgrades",
+      "description": "CISA flagged a WordPress core RCE as actively exploited in the wild, with attacks occurring specifically during plugin/core upgrade windows. Patch immediately.",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/cisa-flags-wordpress-rce-flaw-as-actively-exploited-in-attacks/",
+      "published": "2026-11-04",
+      "cves": []
+    },
+    {
+      "title": "Zyxel zero-day exploited to hack nearly 1,000 network switches",
+      "description": "A zero-day in Zyxel GS1900 switches (CVE-2026-7273) was used to compromise ~1,000 devices before a patch shipped; CISA has since added it to the KEV catalog.",
+      "source": "BleepingComputer / CISA KEV",
+      "url": "https://www.bleepingcomputer.com/news/security/zyxel-fixes-zero-day-exploited-to-hack-nearly-1-000-network-switches/",
+      "published": "2026-11-04",
+      "cves": [
+        "CVE-2026-7273"
+      ]
+    },
+    {
+      "title": "Binance CEO: fake job interview and AI-tool abuse enabled $6.3B theft; North Korea denies",
+      "description": "New detail emerged on the record-breaking Binance breach — a months-long campaign using a rigged coding assignment and abused AI tooling; Pyongyang denies involvement.",
+      "source": "The Record",
+      "url": "https://therecord.media/binance-cryptocurrency-theft-months-long-campaign-nkorea",
+      "published": "2026-11-03",
+      "cves": []
+    },
+    {
+      "title": "mSecure password manager breach prompts mass password/2FA/passkey reset",
+      "description": "mSecure confirmed suspicious access to its systems and is urging all users to change passwords and reset 2FA and passkeys — high-risk given it's a password manager.",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/msecure-password-manager-hack-prompts-password-reset-warnings/",
+      "published": "2026-11-04",
+      "cves": []
+    },
+    {
+      "title": "WorkOS says attacker used ARTEX AI tool to breach internal sales app",
+      "description": "Developer-identity platform WorkOS disclosed a breach of an internal sales application, attributing the intrusion to abuse of the ARTEX AI tool; part of a wider wave of AI-linked breaches this week (also Northflank, Trigger.dev).",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/workos-says-attacker-used-artex-ai-to-breach-internal-sales-app/",
+      "published": "2026-11-03",
+      "cves": []
+    },
+    {
+      "title": "Refrigeration-system attack spreads to blood storage in France; new wave hits Sweden, Belgium, Estonia",
+      "description": "The campaign against supermarket refrigeration controllers (Danfoss/Copeland/Dixell), first seen in France in October, widened Nov 2 to Sweden/Belgium/Estonia and has now disrupted blood-storage refrigeration in France.",
+      "source": "BleepingComputer / The Record",
+      "url": "https://www.bleepingcomputer.com/news/security/cyberattack-disrupts-blood-storage-refrigeration-systems-in-france/",
+      "cves": []
+    },
+    {
+      "title": "Google dismantles XCPE botnet built from 1.3 million Android TV boxes",
+      "description": "Google and partners took down a sprawling botnet that had turned 1.3 million Android TV set-top boxes into a residential-proxy network.",
+      "source": "Krebs on Security",
+      "url": "https://krebsonsecurity.com/2026/11/tech-firms-dismantle-botnet-that-turned-1-3m-tv-boxes-into-proxies/",
+      "cves": []
+    },
+    {
+      "title": "APT29-linked hackers hijack web analytics script to deliver iOS/Android zero-click exploits",
+      "description": "A Russia-linked APT29 campaign compromised a widely embedded web analytics script to push n-day exploits into zero-click attacks against iOS and Android devices.",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/apt29-linked-hackers-hijack-web.html",
+      "published": "2026-11-04",
+      "cves": []
+    },
+    {
+      "title": "Russia dismantles VasyGrek cybercrime group, arrests three suspects",
+      "description": "Russian police took down the infrastructure of the VasyGrek cybercrime group and detained three suspects, in a rare domestic enforcement action.",
+      "source": "The Record",
+      "url": "https://therecord.media/russia-dismantles-vasygrek-infrastructure-detains-three",
+      "published": "2026-11-03",
+      "cves": []
+    },
+    {
+      "title": "Hackers hijack cPGuard autoupdate in OpsShield supply-chain attack",
+      "description": "Attackers compromised the cPGuard update mechanism to push a backdoor and exfiltrate data via a broader \"OpsShield\" supply-chain compromise.",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/hackers-hijack-cpguard-autoupdate-to-deploy-backdoor-steal-data/",
+      "cves": []
+    }
+  ],
+  "action": "Patch WordPress core now (actively exploited); apply the Zyxel GS1900 fix (newly KEV-listed); mSecure users should rotate passwords, 2FA, and passkeys without delay."
+}

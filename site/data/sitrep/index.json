@@ -6,6 +6,27 @@
       "items": 10,
       "emerging": 2,
       "actionNeeded": true
+    },
+    {
+      "date": "2026-11-05",
+      "tldr": "Active exploitation of a WordPress core flaw and a now KEV-listed Zyxel switch zero-day headline a busy cycle, alongside fresh detail on the $6.3B Binance heist involving abused AI tooling, and a widening refrigeration-system attack campaign that has now disrupted blood storage facilities in France. 10 core items qualified today.",
+      "items": 10,
+      "emerging": 2,
+      "actionNeeded": true
+    },
+    {
+      "date": "2026-11-04",
+      "tldr": "A second wave of refrigeration-system attacks hit 100+ European supermarkets, spoiling food stocks, while Binance attributed its record $6.43B crypto theft to a North Korea-linked, AI-assisted campaign. Two vulnerabilities under active exploitation — a WordPress core flaw and a Siemens Node-RED bug — need urgent patching, alongside fresh breaches at Florida's student aid system, Chainstack, and a hijacked Linux update channel.",
+      "items": 10,
+      "emerging": 2,
+      "actionNeeded": true
+    },
+    {
+      "date": "2026-11-03",
+      "tldr": "Two actively-exploited vulnerabilities demand urgent patching (Ivanti Connect Secure, GitLab). A second wave of attacks on European supermarket refrigeration systems is spreading, confirmed by Sweden's CERT-SE. The FBI formally pinned the record $6.3B Binance heist on North Korea's TraderTraitor, and AI-assisted attacks keep escalating — from a Chinese APT's agentic pentesting framework to infostealers that now use LLMs to triage victims by wealth.",
+      "items": 10,
+      "emerging": 2,
+      "actionNeeded": true
     }
   ]
 }
