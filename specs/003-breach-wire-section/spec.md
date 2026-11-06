@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | **Spec ID** | 003-breach-wire-section |
-| **Status** | Approved by owner 2026-11-06 · Built, see `verification.md` |
+| **Status** | Approved by owner 2026-11-06 · Built, live and verified, see `verification.md` |
 | **Owner** | smashytech |
 | **Builds on** | [001](../001-threat-radar/spec.md), [002](../002-sitrep-section/spec.md) (same publishing pattern) |
 | **Created** | 2026-11-06 |
@@ -88,16 +88,16 @@ or the rest of the site).
 
 ## 8. Acceptance criteria
 
-- [ ] **AC-1** A Breach Wire issue appears at `/threat-radar/ransomware/` with no human action (live publisher run).
-- [ ] **AC-2** The page shows stats, Sweden status, regions/countries, sectors, ledger and data quality, matching the email's numbers.
-- [ ] **AC-3** No victim names: the issue format has no field for them; an issue containing any name from the victim list is refused (tests); published files contain none of the email's victim names (live check).
-- [ ] **AC-4** Inconsistent numbers are refused: country sum, sector sum, group postings, reconciliation, Sweden count (tests).
-- [ ] **AC-5** A multi-part / corrected issue is published correctly (live catch-up of the 5 Nov issue, which arrived as 4 parts plus a correction).
-- [ ] **AC-6** Invalid data is refused and nothing is written (tests).
-- [ ] **AC-7** Hostile text renders as literal text (test + browser).
-- [ ] **AC-8** Republishing the same issue changes nothing (test).
-- [ ] **AC-9** Only the owner's own sent Breach Wire emails are used.
-- [ ] **AC-10** The Breach Wire email task is unchanged.
-- [ ] **AC-11** The "Known ransomware use" panel lists KEV entries linking to the Radar; the homepage teaser links to the page.
-- [ ] **AC-12** `?d=` and archive behave like the Sitrep (bad dates get a friendly message, no stray file requests).
-- [ ] **AC-13** 360 px with no horizontal scroll, strict CSP, 0 external requests.
+- [x] **AC-1** A Breach Wire issue appears at `/threat-radar/ransomware/` with no human action (live publisher run).
+- [x] **AC-2** The page shows stats, Sweden status, regions/countries, sectors, ledger and data quality, matching the email's numbers.
+- [x] **AC-3** No victim names: the issue format has no field for them; an issue containing any name from the victim list is refused (tests); published files contain none of the email's victim names (live check).
+- [x] **AC-4** Inconsistent numbers are refused: country sum, sector sum, group postings, reconciliation, Sweden count (tests).
+- [x] **AC-5** A multi-part / corrected issue is published correctly (live catch-up of the 5 Nov issue, which arrived as 4 parts plus a correction).
+- [x] **AC-6** Invalid data is refused and nothing is written (tests).
+- [x] **AC-7** Hostile text renders as literal text (test + browser).
+- [x] **AC-8** Republishing the same issue changes nothing (test).
+- [x] **AC-9** Only the owner's own sent Breach Wire emails are used.
+- [x] **AC-10** The Breach Wire email task is unchanged.
+- [x] **AC-11** The "Known ransomware use" panel lists KEV entries linking to the Radar; the homepage teaser links to the page.
+- [x] **AC-12** `?d=` and archive behave like the Sitrep (bad dates get a friendly message, no stray file requests).
+- [x] **AC-13** 360 px with no horizontal scroll, strict CSP, 0 external requests.

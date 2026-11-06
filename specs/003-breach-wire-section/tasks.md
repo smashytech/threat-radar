@@ -26,7 +26,7 @@
 - [x] **T10** Full suite green; browser checks (desktop/mobile, XSS, bad `?d=`, empty state, 0 external requests). **→ AC-2, AC-7, AC-12, AC-13**
 
 ## Phase 6: Go live
-- [ ] **T11** Push; confirm deploy.
-- [ ] **T12** Create the Breach Wire publisher task (daily 09:00 UTC); fire once to catch up 3–5 Nov, including the multi-part/corrected 5 Nov issue. **→ AC-1, AC-5, AC-9, AC-10**
-- [ ] **T13** Live check: published files contain none of the emails' victim names. **→ AC-3**
-- [ ] **T14** `verification.md`.
+- [x] **T11** Push; confirm deploy.
+- [x] **T12** Create the Breach Wire publisher task (daily 09:00 UTC); fire once to catch up 3–5 Nov, including the multi-part/corrected 5 Nov issue. **→ AC-1, AC-5, AC-9, AC-10**
+- [x] **T13** Live check: published files contain none of the emails' victim names. **→ AC-3**
+- [x] **T14** `verification.md`.
