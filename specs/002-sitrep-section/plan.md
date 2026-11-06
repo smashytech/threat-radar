@@ -30,7 +30,7 @@ flowchart LR
 
 ## 2. How each piece works
 
-**Publisher task** (new scheduled task, weekdays 07:41 UTC, 40 min after the email)
+**Publisher task** (new scheduled task, weekdays 08:00 UTC = 09:00 CET, about an hour after the email; schedule changed from 07:41 at the owner's request)
 1. Gmail search: `in:sent from:me subject:"Cyber Sitrep" newer_than:4d` [FR-3, FR-5].
 2. For each issue from the last 3 days not yet in `site/data/sitrep/`: read the
    email and write `issue.json` following the data contract below. Every value is

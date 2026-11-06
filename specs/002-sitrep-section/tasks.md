@@ -28,7 +28,7 @@
 - [x] **T12** Browser checks: issue page, archive, `?d=` bad input, teaser, deep link, XSS issue, 360 px, 0 external requests. **→ AC-2…5, AC-7, AC-11**
 
 ## Phase 6: Go live
-- [ ] **T13** Push; confirm deploy and live pages.
-- [ ] **T14** Create the "Sitrep publisher" scheduled task; report its approval setting. **→ AC-9, AC-10**
-- [ ] **T15** Fire it once now; confirm it catches up the last 3 days' issues and publishes them. **→ AC-1**
-- [ ] **T16** `verification.md` with evidence for every AC.
+- [x] **T13** Push; confirm deploy and live pages.
+- [x] **T14** Create the "Sitrep publisher" scheduled task; report its approval setting. **→ AC-9, AC-10**
+- [x] **T15** Fire it once now; confirm it catches up the last 3 days' issues and publishes them. **→ AC-1**
+- [x] **T16** `verification.md` with evidence for every AC.

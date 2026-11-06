@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | **Spec ID** | 002-sitrep-section |
-| **Status** | Approved by owner 2026-11-06 · Built, see `verification.md` |
+| **Status** | Approved by owner 2026-11-06 · Built, live and verified, see `verification.md` |
 | **Owner** | smashytech |
 | **Builds on** | [001-threat-radar](../001-threat-radar/spec.md) |
 | **Created** | 2026-11-06 |
@@ -86,14 +86,14 @@ least privilege, $0, phone to desktop, keyboard + both themes). In addition:
 
 ## 8. Acceptance criteria
 
-- [ ] **AC-1** After a weekday Sitrep email is sent, the same issue appears at `/threat-radar/sitrep/` with no human action.
-- [ ] **AC-2** The page shows TL;DR, emerging threats, every item (title, description, source link) and the action text, matching the email.
-- [ ] **AC-3** `/sitrep/?d=<date>` opens that issue. An unknown or malformed date shows a friendly message and the archive. The archive lists every published issue.
-- [ ] **AC-4** The homepage teaser shows the latest issue's date, TL;DR and a link. With no issues, the teaser is hidden and the Radar still works.
-- [ ] **AC-5** A CVE that's in KEV shows an "In KEV" badge linking to `/#CVE-…`, and opening that link shows the CVE's detail. CVEs not in KEV show no badge.
-- [ ] **AC-6** Invalid issue data (bad JSON, missing fields, non-https link, oversized text, unknown fields, bad date) is refused, with nothing written (automated tests).
-- [ ] **AC-7** A booby-trapped issue (`<script>` in text, `javascript:` link) renders as literal text, and the link is refused (automated test + browser check).
-- [ ] **AC-8** Publishing an already-published issue again produces byte-identical files, so there's no commit (automated test).
-- [ ] **AC-9** The publisher only reads Sitrep emails sent from the owner's account (verified in the task definition and the first live run).
-- [ ] **AC-10** The existing "Daily cybersecurity bulletin" task is unchanged.
-- [ ] **AC-11** At 360 px the Sitrep page has no horizontal scroll, the same strict CSP applies, and there are 0 external requests.
+- [x] **AC-1** After a weekday Sitrep email is sent, the same issue appears at `/threat-radar/sitrep/` with no human action.
+- [x] **AC-2** The page shows TL;DR, emerging threats, every item (title, description, source link) and the action text, matching the email.
+- [x] **AC-3** `/sitrep/?d=<date>` opens that issue. An unknown or malformed date shows a friendly message and the archive. The archive lists every published issue.
+- [x] **AC-4** The homepage teaser shows the latest issue's date, TL;DR and a link. With no issues, the teaser is hidden and the Radar still works.
+- [x] **AC-5** A CVE that's in KEV shows an "In KEV" badge linking to `/#CVE-…`, and opening that link shows the CVE's detail. CVEs not in KEV show no badge.
+- [x] **AC-6** Invalid issue data (bad JSON, missing fields, non-https link, oversized text, unknown fields, bad date) is refused, with nothing written (automated tests).
+- [x] **AC-7** A booby-trapped issue (`<script>` in text, `javascript:` link) renders as literal text, and the link is refused (automated test + browser check).
+- [x] **AC-8** Publishing an already-published issue again produces byte-identical files, so there's no commit (automated test).
+- [x] **AC-9** The publisher only reads Sitrep emails sent from the owner's account (verified in the task definition and the first live run).
+- [x] **AC-10** The existing "Daily cybersecurity bulletin" task is unchanged.
+- [x] **AC-11** At 360 px the Sitrep page has no horizontal scroll, the same strict CSP applies, and there are 0 external requests.
