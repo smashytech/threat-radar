@@ -43,6 +43,6 @@ Legend: `[ ]` to do · `[x]` done · **→ AC-n** means this task produces the e
 - [x] **T16** Write the verification report: each AC with its evidence (test name, screenshot or file).
 
 ## Phase 7: Go live
-- [ ] **T17** Get the code into the owner's GitHub repo.
-- [ ] **T18** Owner switches Pages source to "GitHub Actions" (one setting, about 30 seconds).
-- [ ] **T19** Trigger the first run, confirm a green check, live site and real data. **→ AC-1**
+- [x] **T17** Get the code into the owner's GitHub repo.
+- [x] **T18** Owner switches Pages source to "GitHub Actions" (one setting, about 30 seconds).
+- [x] **T19** Trigger the first run, confirm a green check, live site and real data. **→ AC-1**

@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | **Spec** | [spec.md](./spec.md) |
-| **Verified** | 2026-11-06, against the real CISA catalog v2026.11.04 (1,768 entries) |
+| **Verified** | 2026-11-06, against the real CISA catalog v2026.11.04 (1,768 entries) · **All 10 acceptance criteria pass** |
 | **Test suite** | 21 Python tests + 18 JavaScript tests, **39/39 passing** |
 | **Browser** | Headless Chrome, 1280 px and 360 px, dark and light themes |
 
@@ -11,9 +11,9 @@
 
 | AC | Result | Evidence |
 |---|---|---|
-| **AC-1** Site live after a workflow run | ⏳ **Pending go-live** | Verified locally end to end. Ticked after the first GitHub Actions run (T19) |
+| **AC-1** Site live after a workflow run | ✅ Pass | Manual run #2 (`workflow_dispatch`, also proving FR-10): all steps green. Live at https://smashytech.github.io/threat-radar/ with catalog 2026.11.04, 1,768 entries, fetched directly from cisa.gov, 0 console errors, 0 external requests |
 | **AC-2** Bad feed fails the run, published data unchanged | ✅ Pass | `BadFeedsChangeNothing`: 9 tests (broken JSON, missing field, empty list, unreachable, no list, not an object, bad date, bad CVE, duplicate) each confirm exit code ≠ 0 **and** files untouched. `ShrinkGuard` refuses a >10% drop |
-| **AC-3** Unchanged feed means no commit | ✅ Pass | `Determinism.test_identical_output`: two runs give byte-identical `kev.json`/`meta.json`. The workflow commits only when `git diff --cached` is non-empty, and the run timestamp lives in the git-ignored `status.json` |
+| **AC-3** Unchanged feed means no commit | ✅ Pass | Live run log: "Catalog unchanged. Nothing to commit." Also `Determinism.test_identical_output`: two runs give byte-identical `kev.json`/`meta.json`. The workflow commits only when `git diff --cached` is non-empty, and the run timestamp lives in the git-ignored `status.json` |
 | **AC-4** Card numbers match an independent recount | ✅ Pass | `stats.test.mjs`: "summary cards" (hand-counted) + "summary agrees with an independent recount" |
 | **AC-5** CVE search finds Log4j; vendor search shows only that vendor | ✅ Pass | Unit tests + browser: `CVE-2021-44228` lists Log4j **first**. Vendor "Microsoft" gives 390 results, 100% Microsoft (checked across the first 50 rows) |
 | **AC-6** `<script>` in feed shows as text, never runs | ✅ Pass | Browser with booby-trapped data: description displayed literally, **0** injected elements, **0** alerts fired ([screenshot](./evidence/xss-detail.png)). `site.test.mjs` bans HTML-injection APIs in the code |
