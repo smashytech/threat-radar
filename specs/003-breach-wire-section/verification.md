@@ -5,7 +5,7 @@
 | **Spec** | [spec.md](./spec.md) |
 | **Verified** | 2026-11-06 · **All 13 acceptance criteria pass** |
 | **Test suite** | 91 Python tests (21 KEV + 32 Sitrep + 38 Breach Wire) + 46 JavaScript tests, all passing; `add_breachwire.py --check` OK |
-| **Browser** | Headless Chrome (1280 px and 360 px, dark and light) + the live site in the desktop browser pane |
+| **Browser** | Headless Chrome (1280 px and 360 px, dark and light) against the exact deployed files (deploy runs green); the desktop browser pane was offline for this section |
 
 ## Acceptance criteria
 
