@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | **Spec** | [spec.md](./spec.md) |
-| **Status** | Draft, awaiting owner review |
+| **Status** | Approved 2026-11-06 · Updated after build, see §6 |
 
 ## 1. Architecture
 
@@ -82,7 +82,7 @@ flowchart LR
 |---|---|
 | `scripts/add_breachwire.py` | Gatekeeper; reuses `add_sitrep.py`'s date, text and atomic-write helpers. Has a `--check` mode for CI |
 | `scripts/test_add_breachwire.py` | Tests first: valid issue, every consistency rule, the name guard, invalid input, idempotency, `--check` |
-| `tests/fixtures/breachwire_valid.json` | Built from the real Issue №75 (6 Nov). Name list fixture kept **only in the test**, made from the real victims, so the guard is tested against real names |
+| `tests/fixtures/breachwire_valid.json` | Built from the real Issue №75 (6 Nov), stats and groups only. The name-guard tests use **invented** names; real names are only ever checked at publish time and never committed (see §6) |
 | `site/breachwire-logic.js` + `tests/breachwire.test.mjs` | Pure logic: Sweden status text, region totals, KEV ransomware filter, chart scaling |
 | `site/ransomware/index.html` + `breachwire.js` | Page: stat cards, Sweden banner, regions, sectors, ledger, data quality, KEV panel, archive with a victims-per-day chart |
 | Homepage | Breach Wire teaser beside the Sitrep teaser; third nav button on all pages |
@@ -97,3 +97,12 @@ flowchart LR
 | AI under-counts or mis-copies on an 84-row day | It only copies **counts**, and every count is cross-checked against three independent totals plus the reconciliation |
 | A multi-part issue with a missing part | The publisher skips that day and notifies; it's caught up on the next run if the part arrives |
 | Sitrep and Breach Wire publishers push at once | Different times (09:00 vs 10:00 CET), and both `pull --rebase` before pushing |
+
+## 6. Changes made during the build
+
+| # | Change | Why |
+|---|---|---|
+| 1 | Name-guard tests use **invented** victim names | The draft plan said "real names in the test", but tests live in the repo and FR-2 forbids real names there. The real names were checked live when seeding Issue №75 (21 names, scratch file only), plus a scan of the whole repo: 0 matches |
+| 2 | "Known ransomware use" shows the **8 most recently added** KEV entries with known ransomware use, with no 90-day limit | CISA usually marks new entries "Unknown" and flips them later, so the 90-day window held just 1 entry |
+| 3 | Gatekeeper also refuses **any domain name or link** in text | The ledger mentioned a leak-site domain and a masked victim domain (`ne*****h.com`); neither belongs on the site |
+| 4 | Archive chart bars capped at 16 px and right-aligned | With one issue, a single bar filled the whole chart |

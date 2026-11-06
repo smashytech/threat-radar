@@ -431,12 +431,79 @@ input[type="search"]::placeholder { color: var(--muted); opacity: 0.8; }
   font-size: 13px; color: var(--muted); line-height: 1.45;
 }
 
+/* ---------- Homepage teasers side by side (spec 003) ---------- */
+.teasers { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.teasers > [hidden] { display: none; }
+.teasers > .teaser:only-of-type, .teasers > .teaser:not([hidden]):only-child { grid-column: 1 / -1; }
+.teaser--bw { border-left-color: var(--alert); }
+.teaser--bw:hover { border-left-color: var(--alert); }
+.teaser--bw .teaser__label { color: var(--alert); }
+.badge--clear { color: var(--accent); background: var(--accent-soft); }
+
+/* ---------- Breach Wire page ---------- */
+.eyebrow--alert { color: var(--alert); }
+.stats--compact dd { font-size: clamp(24px, 3.4vw, 30px); }
+.sweden {
+  display: flex; align-items: center; gap: 10px; margin: 12px 0 0; padding: 12px 16px;
+  border-radius: var(--radius); font-weight: 600; font-size: 15px;
+}
+.sweden__flag { font-size: 20px; }
+.sweden--clear { background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent); }
+.sweden--hit { background: var(--alert-soft); color: var(--alert); border: 1px solid var(--alert); }
+.sitrep .charts { margin-top: 12px; }
+.region + .region { margin-top: 12px; }
+.region__name { margin: 0 0 4px; font-size: 14px; }
+.bars { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.bar-row {
+  display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(40px, 1fr) 3.5ch; align-items: center; gap: 10px;
+  font-size: 14px; padding: 2px 0;
+}
+.bar-row__label { overflow-wrap: anywhere; line-height: 1.3; }
+.bar-row .vendor-bar__fill { background: var(--alert); }
+
+.ledger { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.ledger__card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 12px 14px; display: grid; gap: 4px; align-content: start; }
+.ledger__top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px; margin: 0; }
+.ledger__name { font-weight: 700; font-size: 16px; }
+.ledger__profile { margin: 0; font-size: 14px; line-height: 1.5; }
+.ledger__meta { margin: 0; font-size: 13px; color: var(--muted); }
+.ledger__meta strong { color: var(--text); font-weight: 600; }
+
+.quality { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin: 0 0 12px; }
+.quality__fact { display: grid; gap: 2px; }
+.quality__fact dt { font-size: 13px; color: var(--muted); }
+.quality__fact dd { margin: 0; font: 600 22px var(--mono); }
+.quality__fact .muted { font-size: 12px; }
+.quality__line { margin: 0 0 8px; font-size: 14px; }
+.health { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13px; }
+.health__ok { color: var(--accent); }
+.health__fail { color: var(--alert); }
+.notice--warn { margin-top: 10px; border-color: var(--hot); color: var(--hot); }
+
+.kev-ransom__lede { margin: -6px 0 10px; font-size: 14px; }
+.kev-ransom { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.kev-ransom__item {
+  display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 12px; text-decoration: none; color: var(--text);
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 10px 14px;
+}
+.kev-ransom__item:hover { border-color: var(--alert); background: var(--surface-2); }
+.kev-ransom__date { font: 13px var(--mono); color: var(--muted); white-space: nowrap; }
+.kev-ransom__body { display: grid; gap: 2px; min-width: 0; }
+.kev-ransom__name { font-size: 14px; }
+.method { margin: 26px 0 0; font-size: 13px; color: var(--muted); line-height: 1.6; }
+.archive-chart { margin: 0 0 10px; }
+.archive-chart svg { display: block; height: 90px; }
+.archive__meta--alert { color: var(--alert); font-weight: 600; }
+
 /* ---------- Smaller screens ---------- */
 @media (max-width: 860px) {
   .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .charts { grid-template-columns: minmax(0, 1fr); }
   .sitrep-layout { grid-template-columns: minmax(0, 1fr); }
   .archive { position: static; }
+  .teasers { grid-template-columns: minmax(0, 1fr); }
+  .ledger { grid-template-columns: minmax(0, 1fr); }
+  .quality { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 560px) {
   .masthead__inner { grid-template-columns: 1fr; padding-top: 20px; padding-bottom: 20px; }

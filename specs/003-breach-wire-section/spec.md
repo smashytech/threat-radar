@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | **Spec ID** | 003-breach-wire-section |
-| **Status** | Draft, awaiting owner review |
+| **Status** | Approved by owner 2026-11-06 · Built, see `verification.md` |
 | **Owner** | smashytech |
 | **Builds on** | [001](../001-threat-radar/spec.md), [002](../002-sitrep-section/spec.md) (same publishing pattern) |
 | **Created** | 2026-11-06 |

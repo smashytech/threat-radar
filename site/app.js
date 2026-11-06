@@ -9,6 +9,7 @@
 
 import { summarize, monthlyCounts, topVendors, vendorList, filterEntries, shiftDays } from "./stats.js";
 import { teaserLabel, CVE_ID_RE } from "./sitrep-logic.js";
+import { teaserSummary } from "./breachwire-logic.js";
 import {
   el, svgEl, safeWebUrl, localToday, daysBetween, isoToDate, numberFmt, formatDate, formatShortDay,
   monthFmt, monthYearFmt, timeAgo, debounce, loadJSON,
@@ -31,11 +32,12 @@ const state = {
 
 async function init() {
   try {
-    const [kev, meta, status, sitrep] = await Promise.all([
+    const [kev, meta, status, sitrep, breachwire] = await Promise.all([
       loadJSON("data/kev.json"),
       loadJSON("data/meta.json"),
       loadJSON("data/status.json", { optional: true }), // missing when previewing locally
       loadJSON("data/sitrep/index.json", { optional: true }), // missing until the first Sitrep is published
+      loadJSON("data/breachwire/index.json", { optional: true }), // missing until the first Breach Wire issue
     ]);
     state.all = kev;
     renderFreshness(meta, status);
@@ -48,6 +50,7 @@ async function init() {
     applyFilters();
     setRepoLink();
     renderSitrepTeaser(sitrep);
+    renderBreachWireTeaser(breachwire);
     openFromHash();
     window.addEventListener("hashchange", openFromHash);
   } catch (err) {
@@ -312,7 +315,23 @@ function renderSitrepTeaser(sitrepIndex) {
   $("teaser-tldr").textContent = latest.tldr;
   $("teaser-meta").textContent = `${latest.items} items · ${latest.emerging} emerging threats`;
   $("teaser-link").href = `sitrep/?d=${encodeURIComponent(latest.date)}`;
-  $("sitrep-teaser").hidden = false;
+  $("teaser-link").hidden = false;
+  $("teasers").hidden = false;
+}
+
+/** Breach Wire teaser: stats only, never victim names (spec 003). */
+function renderBreachWireTeaser(bwIndex) {
+  const latest = bwIndex && Array.isArray(bwIndex.issues) ? bwIndex.issues[0] : null;
+  if (!latest) return;
+  $("bw-label").textContent = `Breach Wire №${latest.issue} · ${formatShortDay(latest.date)}`;
+  $("bw-badges").replaceChildren(latest.sweden
+    ? el("span", { className: "badge badge--ransom", text: `Sweden: ${latest.sweden}` })
+    : el("span", { className: "badge badge--clear", text: "Sweden: none" }));
+  $("bw-summary").textContent = teaserSummary(latest);
+  $("bw-meta").textContent = `Leak-site claims from ${formatShortDay(latest.window)} (UTC)`;
+  $("bw-teaser").href = `ransomware/?d=${encodeURIComponent(latest.date)}`;
+  $("bw-teaser").hidden = false;
+  $("teasers").hidden = false;
 }
 
 /** /#CVE-2026-12345 opens that entry's detail, e.g. from an "In KEV" badge on the Sitrep page (AC-5). */

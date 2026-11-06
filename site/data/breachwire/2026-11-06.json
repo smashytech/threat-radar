@@ -1,0 +1,212 @@
+{
+  "date": "2026-11-06",
+  "issue": 75,
+  "window": "2026-11-05",
+  "stats": {
+    "victims": 16,
+    "groups": 11,
+    "countries": 5,
+    "regions": 4
+  },
+  "sweden": 0,
+  "regions": [
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 6
+        },
+        {
+          "country": "Canada",
+          "flag": "🇨🇦",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Latin America & Caribbean",
+      "countries": [
+        {
+          "country": "Brazil",
+          "flag": "🇧🇷",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Asia",
+      "countries": [
+        {
+          "country": "Vietnam",
+          "flag": "🇻🇳",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Oceania",
+      "countries": [
+        {
+          "country": "Australia",
+          "flag": "🇦🇺",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Unattributed",
+      "countries": [
+        {
+          "country": "Country not disclosed",
+          "flag": "🏳️",
+          "count": 6
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Not disclosed",
+      "count": 4
+    },
+    {
+      "sector": "Technology",
+      "count": 3
+    },
+    {
+      "sector": "Professional Services",
+      "count": 2
+    },
+    {
+      "sector": "Retail & E-Commerce",
+      "count": 2
+    },
+    {
+      "sector": "Education",
+      "count": 1
+    },
+    {
+      "sector": "Energy & Utilities",
+      "count": 1
+    },
+    {
+      "sector": "Financial Services",
+      "count": 1
+    },
+    {
+      "sector": "Healthcare",
+      "count": 1
+    },
+    {
+      "sector": "Hospitality",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "Akira",
+      "hits": 4,
+      "profile": "RaaS active since March 2023 (Ransomware.live tracking from 2023-04-26), widely linked by researchers to ex-Conti talent. Known for abusing VPN/remote-access credentials and edge-device flaws, double extortion, and “we will upload Ngb” leak notices. Today: four postings totalling 188 GB claimed.",
+      "countries": "Canada; 3 unattributed",
+      "sectors": "Energy, professional services, technology, financial services"
+    },
+    {
+      "name": "N0n",
+      "hits": 2,
+      "profile": "Data-extortion leak site tracked by Ransomware.live since 2026-09-18. Posts detailed customer-database inventories (record counts, PII fields) and “PENDING EXPOSURE” placeholders. Also posted five masked “Company #133–137” teasers this window (excluded; listed in the footer).",
+      "countries": "United States",
+      "sectors": "Healthcare (dental insurance), retail"
+    },
+    {
+      "name": "Qilin",
+      "hits": 2,
+      "profile": "Also known as Agenda; first observed July 2022. Golang/Rust RaaS, among the most prolific operations of 2025–26, with heavy healthcare and education targeting. Affiliates use valid accounts, phishing and public-facing exploits.",
+      "countries": "United States, Australia",
+      "sectors": "Financial services, education"
+    },
+    {
+      "name": "Aoqin",
+      "hits": 1,
+      "profile": "Brand new: Ransomware.live first tracked it on 2026-11-04. Posts include revenue, headcount and publication deadlines. No independent profile yet.",
+      "countries": "Brazil",
+      "sectors": "Pension & health benefits"
+    },
+    {
+      "name": "Beast",
+      "hits": 1,
+      "profile": "Beast RaaS (alias GIGAKICK), tracked since July 2025. Researchers describe it as a Monster-lineage builder with SMB scanning and geo-avoidance.",
+      "countries": "Unattributed",
+      "sectors": "Not disclosed"
+    },
+    {
+      "name": "Dark Project",
+      "hits": 1,
+      "profile": "Emerged August 2026; double extortion (data theft plus encryption). Posts long-form victim write-ups that state stolen-data volumes.",
+      "countries": "United States",
+      "sectors": "Retail / food products"
+    },
+    {
+      "name": "Majinahanashi",
+      "hits": 1,
+      "profile": "Alias Majin, tracked by Ransomware.live since 2026-08-12. Small leak site; today’s entry is title-only.",
+      "countries": "Unattributed",
+      "sectors": "Retail (department store, per name)"
+    },
+    {
+      "name": "Pear",
+      "hits": 1,
+      "profile": "“Pure Extraction And Ransom” team, tracked since August 2025. Data-theft extortion; TTPs listed include phishing, PowerShell and malicious copy-paste (ClickFix-style) execution.",
+      "countries": "Unattributed",
+      "sectors": "Not disclosed"
+    },
+    {
+      "name": "Redact",
+      "hits": 1,
+      "profile": "Leak operation tracked by Ransomware.live since 2026-06-28; little public profiling so far. Today’s listing has no proof material.",
+      "countries": "United States",
+      "sectors": "Hospitality"
+    },
+    {
+      "name": "SilentRansomGroup",
+      "hits": 1,
+      "profile": "Also known as Luna Moth / Chatty Spider / UNC3753; ex-Conti offshoot. Encryption-free data extortion via callback phishing and IT-support impersonation, with a heavy focus on US law firms. Teases masked names first, then reveals them; also posted masked “W... R...” today (excluded).",
+      "countries": "United States",
+      "sectors": "Legal"
+    },
+    {
+      "name": "Vexy Ransomware",
+      "hits": 1,
+      "profile": "Tracked by Ransomware.live since 2026-09-03 (RansomLook: “vexy”). Small operation with little public reporting.",
+      "countries": "Vietnam",
+      "sectors": "Technology (AI)"
+    }
+  ],
+  "quality": {
+    "singleSourced": 4,
+    "claimOnly": 7,
+    "sourcesDisagree": 1,
+    "newGroups": 1
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 24
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 23
+      }
+    ],
+    "merged": 27,
+    "masked": 9,
+    "reposts": 2,
+    "nonVictims": 0,
+    "lowCoverage": false
+  },
+  "lateToPress": 0
+}

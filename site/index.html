@@ -25,6 +25,7 @@
     <nav class="topnav" aria-label="Sections">
       <a class="topnav__link" href="./" aria-current="page">Radar</a>
       <a class="topnav__link" href="sitrep/">Sitrep</a>
+      <a class="topnav__link" href="ransomware/">Ransomware</a>
     </nav>
     <div class="masthead__inner">
       <svg class="radar" id="radar" viewBox="0 0 200 200" role="img" aria-labelledby="radar-label">
@@ -52,8 +53,8 @@
   </header>
 
   <main>
-    <section class="band" id="sitrep-teaser" aria-labelledby="teaser-label" hidden>
-      <a class="teaser" id="teaser-link" href="sitrep/">
+    <section class="band teasers" id="teasers" aria-label="Latest briefings" hidden>
+      <a class="teaser" id="teaser-link" href="sitrep/" hidden>
         <span class="teaser__top">
           <span class="teaser__label" id="teaser-label">Latest Sitrep</span>
           <span class="teaser__badges" id="teaser-badges"></span>
@@ -62,6 +63,17 @@
         <span class="teaser__foot">
           <span class="muted" id="teaser-meta"></span>
           <span class="teaser__cta">Read the full Sitrep →</span>
+        </span>
+      </a>
+      <a class="teaser teaser--bw" id="bw-teaser" href="ransomware/" hidden>
+        <span class="teaser__top">
+          <span class="teaser__label" id="bw-label">Breach Wire</span>
+          <span class="teaser__badges" id="bw-badges"></span>
+        </span>
+        <span class="teaser__tldr" id="bw-summary"></span>
+        <span class="teaser__foot">
+          <span class="muted" id="bw-meta"></span>
+          <span class="teaser__cta">See ransomware activity →</span>
         </span>
       </a>
     </section>

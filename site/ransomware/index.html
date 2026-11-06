@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Same strict Content-Security-Policy as every other page: only files from this site. -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <title>Breach Wire: Threat Radar</title>
+  <meta name="description" content="Daily ransomware and extortion leak-site activity as patterns: where, which sectors, which groups. Victim names are deliberately not published.">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css">
+  <script type="module" src="breachwire.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#issue">Skip to the issue</a>
+
+  <header class="masthead masthead--compact">
+    <nav class="topnav" aria-label="Sections">
+      <a class="topnav__link" href="../">Radar</a>
+      <a class="topnav__link" href="../sitrep/">Sitrep</a>
+      <a class="topnav__link" href="./" aria-current="page">Ransomware</a>
+    </nav>
+    <div class="masthead__inner masthead__inner--text">
+      <div class="masthead__text">
+        <p class="eyebrow eyebrow--alert">Daily ransomware digest · claims, not confirmations</p>
+        <h1>Breach Wire</h1>
+        <p class="lede">What ransomware and extortion gangs claimed on their leak sites, shown as <em>patterns</em>: where, which sectors, which groups. Victim names are deliberately left out, because they are unverified criminal claims.</p>
+        <p class="freshness" id="issue-line" aria-live="polite">Loading…</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="sitrep-layout">
+    <article class="sitrep" id="issue" tabindex="-1" aria-labelledby="issue-heading">
+      <h2 class="visually-hidden" id="issue-heading">Issue</h2>
+      <p class="notice" id="notice" hidden></p>
+
+      <div id="issue-body" hidden>
+        <dl class="stats stats--compact">
+          <div class="stat stat--alert"><dt>Claimed victims</dt><dd id="bw-victims">–</dd></div>
+          <div class="stat"><dt>Active groups</dt><dd id="bw-groups">–</dd></div>
+          <div class="stat"><dt>Countries</dt><dd id="bw-countries">–</dd></div>
+          <div class="stat"><dt>Regions</dt><dd id="bw-regions">–</dd></div>
+        </dl>
+
+        <p class="sweden" id="sweden"><span class="sweden__flag" aria-hidden="true">🇸🇪</span><span id="sweden-text"></span></p>
+
+        <div class="charts">
+          <section class="panel" aria-labelledby="where-h">
+            <h3 class="panel__title" id="where-h">Where <span class="muted">claimed victims by region and country</span></h3>
+            <div id="regions"></div>
+          </section>
+          <section class="panel" aria-labelledby="sectors-h">
+            <h3 class="panel__title" id="sectors-h">Sectors</h3>
+            <ol class="bars" id="sectors"></ol>
+          </section>
+        </div>
+
+        <section class="band" aria-labelledby="ledger-h">
+          <h3 class="section-title" id="ledger-h">Threat actor ledger</h3>
+          <ol class="ledger" id="ledger"></ol>
+        </section>
+
+        <section class="band" aria-labelledby="quality-h">
+          <h3 class="section-title" id="quality-h">Data quality</h3>
+          <div class="panel">
+            <dl class="quality" id="quality"></dl>
+            <p class="quality__line" id="reconciliation"></p>
+            <ul class="health" id="health"></ul>
+            <p class="notice notice--warn" id="low-coverage" hidden>Coverage looked unusually low for this window, so some postings may be missing.</p>
+          </div>
+        </section>
+      </div>
+
+      <section class="band" aria-labelledby="kev-h">
+        <h3 class="section-title" id="kev-h">Known ransomware use <span class="muted">from CISA's KEV catalog</span></h3>
+        <p class="muted kev-ransom__lede" id="kev-ransom-lede">Vulnerabilities CISA has confirmed ransomware gangs exploit, newest first.</p>
+        <ol class="kev-ransom" id="kev-ransom"></ol>
+      </section>
+
+      <p class="method">How to read this: everything here comes from postings on ransomware and extortion leak sites, collected by the public aggregators Ransomware.live and RansomLook and summarised in the daily Breach Wire digest. A posting is a <em>claim</em>, not a confirmed breach. Numbers cover one UTC day; masked postings and reposts are counted in data quality but not as victims.</p>
+    </article>
+
+    <aside class="archive" aria-labelledby="archive-h">
+      <h2 class="section-title" id="archive-h">Archive</h2>
+      <figure class="panel archive-chart">
+        <figcaption class="panel__title">Claimed victims per day</figcaption>
+        <div id="archive-chart"></div>
+      </figure>
+      <ol class="archive__list" id="archive"></ol>
+    </aside>
+  </main>
+
+  <footer class="footer">
+    <p>Breach Wire is compiled daily from public leak-site aggregators and mirrored here automatically as statistics only. Victim names are never published on this site.</p>
+    <p>No trackers, no cookies, no third-party code. <a href="../">← Back to the Radar</a></p>
+  </footer>
+</body>
+</html>

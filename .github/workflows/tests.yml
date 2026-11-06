@@ -20,7 +20,9 @@ jobs:
           persist-credentials: false
       - name: Python tests
         run: python3 -m unittest discover -s scripts -p "test_*.py" -v
-      - name: Check published Sitrep issues
-        run: python3 scripts/add_sitrep.py --check
+      - name: Check published Sitrep and Breach Wire issues
+        run: |
+          python3 scripts/add_sitrep.py --check
+          python3 scripts/add_breachwire.py --check
       - name: JavaScript tests
-        run: node --test tests/stats.test.mjs tests/site.test.mjs tests/sitrep.test.mjs
+        run: node --test tests/stats.test.mjs tests/site.test.mjs tests/sitrep.test.mjs tests/breachwire.test.mjs
