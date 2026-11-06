@@ -1,0 +1,375 @@
+{
+  "date": "2026-11-05",
+  "issue": 74,
+  "window": "2026-11-04",
+  "stats": {
+    "victims": 84,
+    "groups": 20,
+    "countries": 18,
+    "regions": 7
+  },
+  "sweden": 0,
+  "regions": [
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 19
+        },
+        {
+          "country": "Canada",
+          "flag": "🇨🇦",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "region": "Europe",
+      "countries": [
+        {
+          "country": "Germany",
+          "flag": "🇩🇪",
+          "count": 5
+        },
+        {
+          "country": "Spain",
+          "flag": "🇪🇸",
+          "count": 3
+        },
+        {
+          "country": "United Kingdom",
+          "flag": "🇬🇧",
+          "count": 3
+        },
+        {
+          "country": "Switzerland",
+          "flag": "🇨🇭",
+          "count": 2
+        },
+        {
+          "country": "Belgium",
+          "flag": "🇧🇪",
+          "count": 1
+        },
+        {
+          "country": "Slovenia",
+          "flag": "🇸🇮",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Middle East",
+      "countries": [
+        {
+          "country": "Türkiye",
+          "flag": "🇹🇷",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Africa",
+      "countries": [
+        {
+          "country": "Morocco",
+          "flag": "🇲🇦",
+          "count": 1
+        },
+        {
+          "country": "South Africa",
+          "flag": "🇿🇦",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Latin America & Caribbean",
+      "countries": [
+        {
+          "country": "Brazil",
+          "flag": "🇧🇷",
+          "count": 3
+        },
+        {
+          "country": "Argentina",
+          "flag": "🇦🇷",
+          "count": 2
+        },
+        {
+          "country": "Chile",
+          "flag": "🇨🇱",
+          "count": 1
+        },
+        {
+          "country": "Panama",
+          "flag": "🇵🇦",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Asia",
+      "countries": [
+        {
+          "country": "China",
+          "flag": "🇨🇳",
+          "count": 2
+        },
+        {
+          "country": "India",
+          "flag": "🇮🇳",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Oceania",
+      "countries": [
+        {
+          "country": "Australia",
+          "flag": "🇦🇺",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "region": "Unattributed",
+      "countries": [
+        {
+          "country": "Country not disclosed",
+          "flag": "🏳️",
+          "count": 31
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Not disclosed",
+      "count": 37
+    },
+    {
+      "sector": "Manufacturing",
+      "count": 12
+    },
+    {
+      "sector": "Professional Services",
+      "count": 8
+    },
+    {
+      "sector": "Technology",
+      "count": 5
+    },
+    {
+      "sector": "Financial Services",
+      "count": 4
+    },
+    {
+      "sector": "Agriculture & Food Production",
+      "count": 3
+    },
+    {
+      "sector": "Healthcare",
+      "count": 3
+    },
+    {
+      "sector": "Other",
+      "count": 3
+    },
+    {
+      "sector": "Education",
+      "count": 2
+    },
+    {
+      "sector": "Hospitality",
+      "count": 2
+    },
+    {
+      "sector": "Retail & E-Commerce",
+      "count": 2
+    },
+    {
+      "sector": "Energy & Utilities",
+      "count": 1
+    },
+    {
+      "sector": "Government",
+      "count": 1
+    },
+    {
+      "sector": "Transportation",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "Soul",
+      "hits": 25,
+      "profile": "Dumped 25 US-heavy company profiles (clinics, law firms, manufacturers) within 90 seconds (20:35–20:36 UTC), each with employee and revenue figures but no data inventory.",
+      "countries": "Spain (2), Argentina, Australia, Panama, United States, not disclosed (19)",
+      "sectors": "Not disclosed (25)"
+    },
+    {
+      "name": "MedusaLocker",
+      "hits": 12,
+      "profile": "Ransomware operation active since 2019, historically entering via exposed RDP and phishing (Ransomware.live's group card wrongly describes a DDoS bot of the same name). Tracked since 2022-11-15. A 17-record burst in ten minutes (22:17–22:27 UTC), Ransomware.live-only: several names do not match their descriptions, two are bare email-count entries, four are random-looking strings (excluded as masked) and one is a webmail domain (excluded as non-victim).",
+      "countries": "Brazil, Canada, China, India, Morocco, South Africa, Switzerland, United Kingdom, United States, not disclosed (3)",
+      "sectors": "Manufacturing (3), Not disclosed (3), Professional Services (2), Education, Retail & E-Commerce, Technology, Transportation"
+    },
+    {
+      "name": "Brain Cipher",
+      "hits": 11,
+      "profile": "Emerged July 2024 using a leaked LockBit Black build (Windows and Linux); suspected abuse of CVE-2023-28252; ransom demands reported from $150K to $1M in Monero. Eleven bare domain listings in two waves today, none with a description.",
+      "countries": "United States (6), Canada (2), Germany, not disclosed (2)",
+      "sectors": "Financial Services (3), Healthcare (2), Not disclosed (2), Professional Services (2), Agriculture and Food Production, Technology"
+    },
+    {
+      "name": "SafePay",
+      "hits": 8,
+      "profile": "Emerged September 2024; disavows the RaaS model and runs operations in-house; 300+ claimed victims by mid-2025. Eight postings in six minutes, five of them German organisations incl. a psychiatric hospital and a youth-welfare centre.",
+      "countries": "Germany (4), Australia, Belgium, Spain, United States",
+      "sectors": "Other (2), Education, Healthcare, Hospitality, Manufacturing, Not disclosed, Professional Services"
+    },
+    {
+      "name": "Play",
+      "hits": 5,
+      "profile": "Also PlayCrypt. Active since June 2022; double extortion, initial access via valid accounts, phishing and exposed services; tooling incl. Mimikatz, Nanodump and EDR-killer drivers. Five name-plus-country postings in four minutes.",
+      "countries": "United States (3), Argentina, Canada",
+      "sectors": "Manufacturing (2), Technology (2), Financial Services"
+    },
+    {
+      "name": "Aoqin",
+      "hits": 4,
+      "profile": "New leak site, first tracked by Ransomware.live on 2026-11-04. Four postings in two minutes (00:52–00:54 UTC), each with a screenshot, a \"Not paid\" status and a publication date of 10–11 November. Ransomware.live-only so far.",
+      "countries": "Chile, China, Slovenia, United States",
+      "sectors": "Energy & Utilities, Manufacturing, Professional Services, Technology"
+    },
+    {
+      "name": "Dark Project",
+      "hits": 3,
+      "profile": "Leak operation tracked since 2026-08-05; double extortion. Today's three US postings state volumes (500+ GB, 70+ GB) and include a nonprofit food bank.",
+      "countries": "United States (3)",
+      "sectors": "Agriculture & Food Production (2), Retail & E-Commerce"
+    },
+    {
+      "name": "Akira",
+      "hits": 2,
+      "profile": "Active since March 2023, widely linked to former Conti members; double extortion with Windows and ESXi lockers; known for abusing VPN appliances without MFA. Both posts promise uploads (538 GB, 27 GB).",
+      "countries": "Switzerland, not disclosed",
+      "sectors": "Manufacturing, Professional Services"
+    },
+    {
+      "name": "PEAR",
+      "hits": 2,
+      "profile": "Pure Extraction And Ransom (PEAR), tracked since 2025-08-05; a data-theft-and-extortion team that says it works privately with no affiliates. Both postings RansomLook-only.",
+      "countries": "not disclosed (2)",
+      "sectors": "Not disclosed (2)"
+    },
+    {
+      "name": "Rhysida",
+      "hits": 2,
+      "profile": "RaaS that emerged in May 2023; phishing and Cobalt Strike for intrusion; auctions stolen data. Both postings are unusually detailed sale lots, incl. a US city's police and 911 data (~7.8 TB).",
+      "countries": "United States, not disclosed",
+      "sectors": "Government, Professional Services"
+    },
+    {
+      "name": "BYOD",
+      "hits": 1,
+      "profile": "Leak site tracked since 2026-10-05; no published tactics profile.",
+      "countries": "United Kingdom",
+      "sectors": "Hospitality"
+    },
+    {
+      "name": "Destello",
+      "hits": 1,
+      "profile": "Brand-new leak site: Ransomware.live added it on 2026-11-05, after this window, so it is RansomLook-only today. Its posting format shows a \"verified access\" label, a staged-percentage counter and a deadline.",
+      "countries": "Brazil",
+      "sectors": "Not disclosed"
+    },
+    {
+      "name": "Doommageddon",
+      "hits": 1,
+      "profile": "Leak site tracked since 2026-07-06; direct and double extortion. Posts carry status, data size and file count.",
+      "countries": "Türkiye",
+      "sectors": "Manufacturing"
+    },
+    {
+      "name": "Global Secret Group",
+      "hits": 1,
+      "profile": "Also GSG. Tracked since 2026-07-26; posts a structured card with revenue, headcount and data volume.",
+      "countries": "United States",
+      "sectors": "Manufacturing"
+    },
+    {
+      "name": "Interlock",
+      "hits": 1,
+      "profile": "First observed September 2024; double extortion against healthcare, government, education and technology in North America and Europe; fake browser-update / ClickFix lures; tooling incl. AZCopy and BYOVD drivers.",
+      "countries": "not disclosed",
+      "sectors": "Not disclosed"
+    },
+    {
+      "name": "LockBit 5.0",
+      "hits": 1,
+      "profile": "LockBit 5.0 (\"ChuongDong\"), the brand's September 2025 relaunch after the February 2024 takedown; cross-platform Windows, Linux and ESXi payloads, affiliate RaaS model.",
+      "countries": "Brazil",
+      "sectors": "Other"
+    },
+    {
+      "name": "PayoutsKing",
+      "hits": 1,
+      "profile": "Today's entry is a bare title (as in №73).",
+      "countries": "not disclosed",
+      "sectors": "Not disclosed"
+    },
+    {
+      "name": "RansomHouse",
+      "hits": 1,
+      "profile": "Double-extortion operation active since late 2021 (\"Jolly Scorpius\"); 120+ organisations claimed. Today's entry is a bare title.",
+      "countries": "not disclosed",
+      "sectors": "Not disclosed"
+    },
+    {
+      "name": "Scarlettgroup",
+      "hits": 1,
+      "profile": "",
+      "countries": "United States",
+      "sectors": "Manufacturing"
+    },
+    {
+      "name": "Whitearmor",
+      "hits": 1,
+      "profile": "Leak site tracked since 2026-10-20.",
+      "countries": "United Kingdom",
+      "sectors": "Manufacturing"
+    }
+  ],
+  "quality": {
+    "singleSourced": 48,
+    "claimOnly": 31,
+    "sourcesDisagree": 5,
+    "newGroups": 2
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 65
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 74
+      }
+    ],
+    "merged": 96,
+    "masked": 11,
+    "reposts": 0,
+    "nonVictims": 1,
+    "lowCoverage": false
+  },
+  "lateToPress": 0
+}

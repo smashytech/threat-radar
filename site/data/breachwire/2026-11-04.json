@@ -1,0 +1,217 @@
+{
+  "date": "2026-11-04",
+  "issue": 73,
+  "window": "2026-11-03",
+  "stats": {
+    "victims": 21,
+    "groups": 11,
+    "countries": 7,
+    "regions": 3
+  },
+  "sweden": 1,
+  "regions": [
+    {
+      "region": "Europe",
+      "countries": [
+        {
+          "country": "Sweden",
+          "flag": "🇸🇪",
+          "count": 1
+        },
+        {
+          "country": "Germany",
+          "flag": "🇩🇪",
+          "count": 2
+        },
+        {
+          "country": "United Kingdom",
+          "flag": "🇬🇧",
+          "count": 1
+        },
+        {
+          "country": "France",
+          "flag": "🇫🇷",
+          "count": 1
+        },
+        {
+          "country": "Spain",
+          "flag": "🇪🇸",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 9
+        }
+      ]
+    },
+    {
+      "region": "Asia",
+      "countries": [
+        {
+          "country": "South Korea",
+          "flag": "🇰🇷",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Unattributed",
+      "countries": [
+        {
+          "country": "Country not disclosed",
+          "flag": "🏳️",
+          "count": 5
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Manufacturing",
+      "count": 4
+    },
+    {
+      "sector": "Professional Services",
+      "count": 4
+    },
+    {
+      "sector": "Healthcare",
+      "count": 3
+    },
+    {
+      "sector": "Not disclosed",
+      "count": 3
+    },
+    {
+      "sector": "Financial Services",
+      "count": 2
+    },
+    {
+      "sector": "Technology",
+      "count": 2
+    },
+    {
+      "sector": "Government & Defense",
+      "count": 1
+    },
+    {
+      "sector": "Other",
+      "count": 1
+    },
+    {
+      "sector": "Retail & E-Commerce",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "INC Ransom",
+      "hits": 6,
+      "profile": "RaaS active since July 2023, hitting healthcare, government, education and manufacturing in North America and Europe; 200+ victims in 2025 alone. Reported to exploit edge devices (e.g. Citrix NetScaler) and use spear-phishing. None appear on RansomLook yet.",
+      "countries": "United States (5), Spain",
+      "sectors": "Professional Services (3), Healthcare, Technology, Financial Services, Not disclosed"
+    },
+    {
+      "name": "Booba Project",
+      "hits": 4,
+      "profile": "Also listed as \"Booba Team\" (RansomLook). Leak site tracked by Ransomware.live since 2026-07-06; no published tactics profile. Four postings in two minutes (12:20–12:21 UTC), each giving only a sector and a stolen-data size (5–47 GB), with no samples. Includes today's only Swedish-tagged victim.",
+      "countries": "Sweden, France, United Kingdom, United States",
+      "sectors": "Healthcare, Manufacturing, Government & Defense, Other"
+    },
+    {
+      "name": "Akira",
+      "hits": 3,
+      "profile": "Active since March 2023, widely linked to former Conti members; double extortion with Windows and ESXi lockers. Known for exploiting VPN appliances without MFA. Today's three posts all promise uploads, two with volumes (80 GB, 30 GB).",
+      "countries": "South Korea, not disclosed (2)",
+      "sectors": "Technology, Retail & E-Commerce, Manufacturing"
+    },
+    {
+      "name": "Chaos",
+      "hits": 1,
+      "profile": "RaaS that emerged in early 2025, likely formed by former BlackSuit/Royal members; cross-platform lockers (Windows, Linux, ESXi, NAS); recruits on RAMP and says it excludes CIS/BRICS countries and hospitals.",
+      "countries": "United States",
+      "sectors": "Manufacturing"
+    },
+    {
+      "name": "Falcon",
+      "hits": 1,
+      "profile": "Leak site tracked by Ransomware.live since 2026-08-28; no published profile. Claiming 260 GB from a major US law firm is a high-profile claim for a little-known group; no sample attached.",
+      "countries": "United States",
+      "sectors": "Professional Services"
+    },
+    {
+      "name": "Payload",
+      "hits": 1,
+      "profile": "Emerged early 2026 (tracked since 2026-02-17) with Babuk-derived code for Windows and ESXi; double extortion against healthcare, energy, real estate and agriculture.",
+      "countries": "Germany",
+      "sectors": "Manufacturing"
+    },
+    {
+      "name": "PayoutsKing",
+      "hits": 1,
+      "profile": "Recent postings are often masked (e.g. \"Y****s\", \"i****g\"); today's entry is a bare title.",
+      "countries": "not disclosed",
+      "sectors": "Not disclosed"
+    },
+    {
+      "name": "Qilin",
+      "hits": 1,
+      "profile": "Also known as Agenda. Golang/Rust RaaS first observed July 2022 and the most prolific leak site on Ransomware.live; double extortion, with the operator controlling encryption modes.",
+      "countries": "United States",
+      "sectors": "Professional Services"
+    },
+    {
+      "name": "Rhysida",
+      "hits": 1,
+      "profile": "RaaS that emerged in May 2023; phishing and Cobalt Strike for intrusion, and auctions stolen data. Today's posting is unusually detailed (2.5 million files, ~784 GB, itemised PII and banking data).",
+      "countries": "not disclosed",
+      "sectors": "Financial Services"
+    },
+    {
+      "name": "Scarlettgroup",
+      "hits": 1,
+      "profile": "No published tactics profile.",
+      "countries": "not disclosed",
+      "sectors": "Healthcare"
+    },
+    {
+      "name": "The Gentlemen",
+      "hits": 1,
+      "profile": "Also tracked as Storm-2697. RaaS that appeared July–August 2025 with a 90% affiliate share and a Go-based locker for Windows, Linux, NAS and BSD; a compromised C2 server exposed 1,570+ linked victims. After 24 postings in №72, a single 900 GB claim today (RansomLook only; Ransomware.live has not ingested this group since 2026-10-31).",
+      "countries": "Germany",
+      "sectors": "Not disclosed (medical practice)"
+    }
+  ],
+  "quality": {
+    "singleSourced": 9,
+    "claimOnly": 10,
+    "sourcesDisagree": 0,
+    "newGroups": 2
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 37
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 27
+      }
+    ],
+    "merged": 40,
+    "masked": 14,
+    "reposts": 4,
+    "nonVictims": 1,
+    "lowCoverage": false
+  },
+  "lateToPress": 0
+}

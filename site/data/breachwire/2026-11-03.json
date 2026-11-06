@@ -1,0 +1,297 @@
+{
+  "date": "2026-11-03",
+  "issue": 72,
+  "window": "2026-11-02",
+  "stats": {
+    "victims": 41,
+    "groups": 11,
+    "countries": 19,
+    "regions": 7
+  },
+  "sweden": 0,
+  "regions": [
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 6
+        },
+        {
+          "country": "Canada",
+          "flag": "🇨🇦",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Europe",
+      "countries": [
+        {
+          "country": "Switzerland",
+          "flag": "🇨🇭",
+          "count": 2
+        },
+        {
+          "country": "Spain",
+          "flag": "🇪🇸",
+          "count": 2
+        },
+        {
+          "country": "United Kingdom",
+          "flag": "🇬🇧",
+          "count": 2
+        },
+        {
+          "country": "Belgium",
+          "flag": "🇧🇪",
+          "count": 1
+        },
+        {
+          "country": "Germany",
+          "flag": "🇩🇪",
+          "count": 1
+        },
+        {
+          "country": "France",
+          "flag": "🇫🇷",
+          "count": 1
+        },
+        {
+          "country": "Netherlands",
+          "flag": "🇳🇱",
+          "count": 1
+        },
+        {
+          "country": "Ukraine",
+          "flag": "🇺🇦",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Middle East",
+      "countries": [
+        {
+          "country": "Türkiye",
+          "flag": "🇹🇷",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Africa",
+      "countries": [
+        {
+          "country": "South Africa",
+          "flag": "🇿🇦",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Latin America & Caribbean",
+      "countries": [
+        {
+          "country": "Brazil",
+          "flag": "🇧🇷",
+          "count": 3
+        },
+        {
+          "country": "Argentina",
+          "flag": "🇦🇷",
+          "count": 1
+        },
+        {
+          "country": "Chile",
+          "flag": "🇨🇱",
+          "count": 1
+        },
+        {
+          "country": "Venezuela",
+          "flag": "🇻🇪",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Asia",
+      "countries": [
+        {
+          "country": "Malaysia",
+          "flag": "🇲🇾",
+          "count": 2
+        },
+        {
+          "country": "Singapore",
+          "flag": "🇸🇬",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "region": "Oceania",
+      "countries": [
+        {
+          "country": "New Zealand",
+          "flag": "🇳🇿",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Unattributed",
+      "countries": [
+        {
+          "country": "Country not disclosed",
+          "flag": "🏳️",
+          "count": 10
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Not disclosed",
+      "count": 31
+    },
+    {
+      "sector": "Financial Services",
+      "count": 2
+    },
+    {
+      "sector": "Manufacturing",
+      "count": 2
+    },
+    {
+      "sector": "Education",
+      "count": 1
+    },
+    {
+      "sector": "Healthcare",
+      "count": 1
+    },
+    {
+      "sector": "Other",
+      "count": 1
+    },
+    {
+      "sector": "Professional Services",
+      "count": 1
+    },
+    {
+      "sector": "Retail & E-Commerce",
+      "count": 1
+    },
+    {
+      "sector": "Transportation",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "The Gentlemen",
+      "hits": 24,
+      "profile": "Also tracked as Storm-2697. RaaS that appeared in July–August 2025 and offers affiliates a 90% revenue share; Go-based locker for Windows, Linux, NAS and BSD. Ransomware.live says a compromised C2 server exposed more than 1,570 linked victims. Tooling per Ransomware.live: AnyDesk, credential dumpers, NTLM relay, rclone. Today it posted 24 victims in about four hours (10:12–14:24 UTC on RansomLook), each with a long company profile and no screenshot or data inventory. Ransomware.live has not ingested a Gentlemen posting since 2026-10-31, so every row is RansomLook-only.",
+      "countries": "Brazil (3), Switzerland (2), Spain (2), United Kingdom (2), United States (2), Netherlands, Ukraine, South Africa, Venezuela, France, New Zealand, Canada, Germany, not disclosed (5)",
+      "sectors": "Not disclosed (profiles describe logistics, manufacturing, education, healthcare, legal, IT, real estate, public health)"
+    },
+    {
+      "name": "Orova",
+      "hits": 4,
+      "profile": "Leak site tracked by Ransomware.live since 2026-07-07; no published tactics profile. Four Singapore/Malaysia-heavy postings at 12:23 UTC, three with only a one-paragraph company blurb.",
+      "countries": "Singapore (2), Malaysia, not disclosed (1)",
+      "sectors": "Not disclosed, Retail & E-Commerce"
+    },
+    {
+      "name": "Akira",
+      "hits": 3,
+      "profile": "Active since March 2023, widely linked to former Conti members; double extortion, Windows and ESXi lockers. Known for exploiting VPN appliances without MFA. Today's three posts all promise uploads, two with volumes (130 GB, 945 GB).",
+      "countries": "United States, not disclosed (2)",
+      "sectors": "Transportation, Financial Services, Not disclosed"
+    },
+    {
+      "name": "Interlock",
+      "hits": 2,
+      "profile": "First observed September 2024; double extortion against healthcare, government, education and technology in North America and Europe (CISA advisory July 2025). Known for fake browser-update / ClickFix lures. Third straight day of paired postings; today it is two US school districts, citing FERPA and PowerSchool data.",
+      "countries": "not disclosed (2)",
+      "sectors": "Not disclosed"
+    },
+    {
+      "name": "Qilin",
+      "hits": 2,
+      "profile": "Also known as Agenda. Golang/Rust RaaS first observed July 2022 and the most prolific leak site on Ransomware.live; double extortion, with the operator controlling encryption modes. A quiet day after ten postings in №71.",
+      "countries": "Chile, Malaysia",
+      "sectors": "Healthcare, Manufacturing"
+    },
+    {
+      "name": "BYOD",
+      "hits": 1,
+      "profile": "New leak site tracked by Ransomware.live since 2026-10-05; no published profile.",
+      "countries": "United States",
+      "sectors": "Education"
+    },
+    {
+      "name": "Hyflock",
+      "hits": 1,
+      "profile": "New group tracked since 2026-10-13; Ransomware.live advises caution until claims are independently verified.",
+      "countries": "Türkiye",
+      "sectors": "Manufacturing"
+    },
+    {
+      "name": "NightSpire",
+      "hits": 1,
+      "profile": "Emerged March 2025; 250+ claimed victims across retail, manufacturing, healthcare, finance and education, with ransom deadlines as short as two days.",
+      "countries": "Argentina",
+      "sectors": "Other"
+    },
+    {
+      "name": "PEAR",
+      "hits": 1,
+      "profile": "Pure Extraction And Ransom (PEAR), tracked since 2025-08-05; a data-theft-and-extortion team that says it works privately with no affiliates.",
+      "countries": "United States",
+      "sectors": "Financial Services per Ransomware.live"
+    },
+    {
+      "name": "Redact",
+      "hits": 1,
+      "profile": "Leak site tracked by Ransomware.live since 2026-06-28; no published profile. Claiming a $2B-revenue US law firm is a high-profile claim for a little-known group.",
+      "countries": "United States",
+      "sectors": "Professional Services"
+    },
+    {
+      "name": "SafePay",
+      "hits": 1,
+      "profile": "Emerged September 2024; disavows the RaaS model and runs operations in-house; 300+ claimed victims by mid-2025.",
+      "countries": "Belgium",
+      "sectors": "Not disclosed"
+    }
+  ],
+  "quality": {
+    "singleSourced": 29,
+    "claimOnly": 29,
+    "sourcesDisagree": 1,
+    "newGroups": 0
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 20
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 51
+      }
+    ],
+    "merged": 51,
+    "masked": 8,
+    "reposts": 2,
+    "nonVictims": 0,
+    "lowCoverage": false
+  },
+  "lateToPress": 0
+}

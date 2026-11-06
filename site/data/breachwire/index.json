@@ -8,6 +8,33 @@
       "groups": 11,
       "countries": 5,
       "sweden": 0
+    },
+    {
+      "date": "2026-11-05",
+      "issue": 74,
+      "window": "2026-11-04",
+      "victims": 84,
+      "groups": 20,
+      "countries": 18,
+      "sweden": 0
+    },
+    {
+      "date": "2026-11-04",
+      "issue": 73,
+      "window": "2026-11-03",
+      "victims": 21,
+      "groups": 11,
+      "countries": 7,
+      "sweden": 1
+    },
+    {
+      "date": "2026-11-03",
+      "issue": 72,
+      "window": "2026-11-02",
+      "victims": 41,
+      "groups": 11,
+      "countries": 19,
+      "sweden": 0
     }
   ]
 }
