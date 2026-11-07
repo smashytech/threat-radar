@@ -1,0 +1,240 @@
+{
+  "date": "2026-11-07",
+  "issue": 76,
+  "window": "2026-11-06",
+  "stats": {
+    "victims": 21,
+    "groups": 11,
+    "countries": 9,
+    "regions": 4
+  },
+  "sweden": 0,
+  "regions": [
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 11
+        },
+        {
+          "country": "Canada",
+          "flag": "🇨🇦",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Europe",
+      "countries": [
+        {
+          "country": "Germany",
+          "flag": "🇩🇪",
+          "count": 1
+        },
+        {
+          "country": "Italy",
+          "flag": "🇮🇹",
+          "count": 2
+        },
+        {
+          "country": "France",
+          "flag": "🇫🇷",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Middle East",
+      "countries": [
+        {
+          "country": "Saudi Arabia",
+          "flag": "🇸🇦",
+          "count": 1
+        },
+        {
+          "country": "United Arab Emirates",
+          "flag": "🇦🇪",
+          "count": 1
+        },
+        {
+          "country": "Israel",
+          "flag": "🇮🇱",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Latin America & Caribbean",
+      "countries": [
+        {
+          "country": "Mexico",
+          "flag": "🇲🇽",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Unattributed",
+      "countries": [
+        {
+          "country": "Country not disclosed",
+          "flag": "🏳️",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Technology",
+      "count": 4
+    },
+    {
+      "sector": "Healthcare",
+      "count": 3
+    },
+    {
+      "sector": "Professional Services",
+      "count": 3
+    },
+    {
+      "sector": "Retail & E-Commerce",
+      "count": 3
+    },
+    {
+      "sector": "Financial Services",
+      "count": 2
+    },
+    {
+      "sector": "Construction",
+      "count": 1
+    },
+    {
+      "sector": "Education",
+      "count": 1
+    },
+    {
+      "sector": "Manufacturing",
+      "count": 1
+    },
+    {
+      "sector": "Not disclosed",
+      "count": 1
+    },
+    {
+      "sector": "Retail",
+      "count": 1
+    },
+    {
+      "sector": "Transportation",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "N0n",
+      "hits": 8,
+      "profile": "Data-extortion leak site tracked by Ransomware.live since 2026-09-18. Posts detailed dataset inventories (record counts, PII fields) tagged “NOT PAID — EXPOSED”, often naming downstream client data; also runs masked “Company #NN” teasers. Today: two batches (01:22–01:24 and 10:51–10:54 UTC), including two Gulf fashion-retail loyalty databases of ~3M customers each.",
+      "countries": "United States, Italy, Saudi Arabia, United Arab Emirates",
+      "sectors": "Healthcare, technology, retail, financial services"
+    },
+    {
+      "name": "Akira",
+      "hits": 2,
+      "profile": "RaaS active since March 2023, widely linked by researchers to ex-Conti talent. Known for abusing VPN/remote-access credentials and edge-device flaws, double extortion, and “we will upload Ngb” notices. Today: 160 GB claimed across two new listings; two further postings were data-release follow-ups on victims already covered (reposts, see footer).",
+      "countries": "United States, France",
+      "sectors": "Manufacturing, retail"
+    },
+    {
+      "name": "Genesis",
+      "hits": 2,
+      "profile": "Emerging double-extortion group first observed late 2025 (Ransomware.live tracking since 2025-10-21), focused on small and mid-sized US organisations and on data exfiltration and leaking. Posts terse one-line victim descriptions.",
+      "countries": "United States",
+      "sectors": "Construction, IT services"
+    },
+    {
+      "name": "SilentRansomGroup",
+      "hits": 2,
+      "profile": "Also known as Luna Moth / Chatty Spider / UNC3753; ex-Conti offshoot. Encryption-free data extortion via callback phishing and IT-support impersonation, heavily focused on US law firms. RansomLook: “leakeddata”.",
+      "countries": "United States",
+      "sectors": "Legal"
+    },
+    {
+      "name": "Brain Cipher",
+      "hits": 1,
+      "profile": "",
+      "countries": "Germany",
+      "sectors": "Private equity / holding"
+    },
+    {
+      "name": "Dire Wolf",
+      "hits": 1,
+      "profile": "Human-operated ransomware first documented May 2025; Golang encryptor (Curve25519/ChaCha20), run by a tight core team rather than a broad affiliate programme; ransoms reported up to $500,000; manufacturing and technology focus across 13+ countries.",
+      "countries": "United States",
+      "sectors": "Technology"
+    },
+    {
+      "name": "Eclipse",
+      "hits": 1,
+      "profile": "Leak operation tracked by Ransomware.live since 2026-08-11; little public profiling so far. Posts long company profiles without proof material.",
+      "countries": "Mexico",
+      "sectors": "Transportation / logistics"
+    },
+    {
+      "name": "INC Ransom",
+      "hits": 1,
+      "profile": "RaaS active since July 2023 and among the most prolific operations (200+ victims posted in 2025), with heavy healthcare, government and education targeting in North America and Europe.",
+      "countries": "Canada",
+      "sectors": "Healthcare"
+    },
+    {
+      "name": "Interlock",
+      "hits": 1,
+      "profile": "Ransomware group first observed September 2024; double extortion against healthcare, government, education and technology in North America and Europe; claimed a major US dialysis provider.",
+      "countries": "Unattributed",
+      "sectors": "Food production (per name)"
+    },
+    {
+      "name": "Qilin",
+      "hits": 1,
+      "profile": "Also known as Agenda; first observed July 2022. Golang/Rust RaaS, among the most prolific operations of 2025–26. Affiliates use valid accounts, phishing and public-facing exploits.",
+      "countries": "Israel",
+      "sectors": "Professional services"
+    },
+    {
+      "name": "Shiba",
+      "hits": 1,
+      "profile": "Leak operation tracked by Ransomware.live since 2026-07-27; little public profiling. Today’s post targets an Italian state school.",
+      "countries": "Italy",
+      "sectors": "Education"
+    }
+  ],
+  "quality": {
+    "singleSourced": 2,
+    "claimOnly": 11,
+    "sourcesDisagree": 1,
+    "newGroups": 0
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 24
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 23
+      }
+    ],
+    "merged": 26,
+    "masked": 3,
+    "reposts": 2,
+    "nonVictims": 0,
+    "lowCoverage": false
+  },
+  "lateToPress": 0
+}
