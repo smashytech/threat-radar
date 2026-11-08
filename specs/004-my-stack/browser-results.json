@@ -1,0 +1,146 @@
+[
+  {
+    "id": "FR-16",
+    "name": "Fresh visit: prompt shown, no strip, nothing stored",
+    "ok": true,
+    "detail": "{\"local\":[],\"session\":[],\"cookie\":\"\"}"
+  },
+  {
+    "id": "AC-1",
+    "name": "Picker lists every vendor with counts; vendors expand to products with counts",
+    "ok": true,
+    "detail": "291 vendors; first \"Microsoft 390 entries ▸ 72 products for Microsoft\"; Microsoft 72 products, first \"Windows 173 entries\""
+  },
+  {
+    "id": "AC-2",
+    "name": "\"vmware\" finds Broadcom's VMware products; a product name finds its vendor",
+    "ok": true,
+    "detail": "vmware → VMware, Broadcom, VMware Tanzu (Broadcom shows: VMware Aria Operations, VMware Aria Operations and VMware Tools, VMware ESX, VMware vCenter, VMware vCenter Server); \"Exchange Server\" → Microsoft"
+  },
+  {
+    "id": "AC-9",
+    "name": "Radar: My stack only filter, Your stack badges, summary strip, ringed blips",
+    "ok": true,
+    "detail": "selected \"Ticked: Zyxel, Cisco, Microsoft (1 product) · 288 entries in the catalog\"; 25 rows, 25 badged, all in stack: true; 3 ringed blips; strip \"YOUR STACK · MY STACK Edit Zyxel, Cisco, Microsoft (1 product) In the catalog 288 Added in the last 30 days 3 Used in ransomware 57\""
+  },
+  {
+    "id": "AC-4a",
+    "name": "Remember unticked (default): localStorage holds nothing",
+    "ok": true,
+    "detail": "{\"local\":[],\"session\":[\"threat-radar.presets.v1\"],\"cookie\":\"\"}"
+  },
+  {
+    "id": "AC-5",
+    "name": "Presets: save as, switch (stack + view), rename, delete; duplicates/empty refused; last one protected",
+    "ok": true,
+    "detail": "saved→Work; dup \"There's already a preset called \"work\".\"; empty \"Give the preset a name.\"; My stack: Cisco true, view true; Work: Cisco false, view false; renamed My stack,Customer A; armed \"Click again to delete \"Customer A\"\"; after delete My stack; delete disabled true"
+  },
+  {
+    "id": "AC-12a",
+    "name": "Markup in a preset name shows as plain text",
+    "ok": true,
+    "detail": "option \"<img src=x onerror=alert(1)>\", strip \"<img src=x onerror=alert(1)>\", <img> elements: 0"
+  },
+  {
+    "id": "AC-4b",
+    "name": "Remember ticked: active preset, stack and view are back after closing and reopening the tab",
+    "ok": true,
+    "detail": "stored {\"local\":[\"threat-radar.presets.v1\"],\"session\":[\"threat-radar.visit.v1\"],\"cookie\":\"\"}; hint \"Kept in this browser until you untick this. Untick it on shared or work computers.\"; reopened → {\"name\":\"<img src=x onerror=alert(1)>\",\"count\":\"3\",\"view\":true}"
+  },
+  {
+    "id": "AC-4c",
+    "name": "Unticking removes stored data at once; a new tab then starts empty",
+    "ok": true,
+    "detail": "after untick {\"local\":[],\"session\":[\"threat-radar.presets.v1\"],\"cookie\":\"\"}; new tab shows prompt: true"
+  },
+  {
+    "id": "AC-6",
+    "name": "Forget everything leaves no Threat Radar keys in either storage",
+    "ok": true,
+    "detail": "{\"local\":[],\"session\":[],\"cookie\":\"\"}; \"Done. Threat Radar has nothing stored in this browser now.\""
+  },
+  {
+    "id": "AC-8",
+    "name": "After ticking and reloading, no request and no cookie contains stack data",
+    "ok": true,
+    "detail": "64 requests checked; leaked 0; cookies 0"
+  },
+  {
+    "id": "AC-9b",
+    "name": "\"New since your last visit\" when remembered; same tab keeps it across pages; next visit starts over",
+    "ok": true,
+    "detail": "expected 2, shown 2; after Sitrep and back 2; new tab 0"
+  },
+  {
+    "id": "AC-5b",
+    "name": "Two open tabs: a change in one shows up in the other, so neither overwrites the other",
+    "ok": true,
+    "detail": "tab Y sees [\"Work\",\"From tab X\"]; stored [[\"Work\",[\"Cisco\"]],[\"From tab X\",[\"Cisco\",\"Fortinet\"]]]; tab X now \"Ticked: Cisco, Fortinet · 134 entries in the catalog\" / \"Updated with changes made in another tab.\""
+  },
+  {
+    "id": "AC-10a",
+    "name": "Sitrep tags in-stack KEV CVEs and vendor mentions; stack line with Edit",
+    "ok": true,
+    "detail": "no stack: \"Tick your stack on the Radar to highlight what affects the software you run.\", 0 tags; Zyxel chip \"cve-chip cve-chip--kev cve-chip--mine\"; Apple chip \"cve-chip cve-chip--kev\"; mentions [\"Mentions Zyxel\",\"Mentions Cisco\"]; line \"Your stack: Work · Zyxel, Cisco, Microsoft · Edit\""
+  },
+  {
+    "id": "AC-10b",
+    "name": "The Edit link opens the picker on the Radar (and tidies the address)",
+    "ok": true,
+    "detail": "hash after open: \"\""
+  },
+  {
+    "id": "AC-10c",
+    "name": "Ransomware KEV panel lists and highlights the stack's entries, with a count",
+    "ok": true,
+    "detail": "8 listed, 8 highlighted; lede \"361 vulnerabilities in CISA's catalog are confirmed as used by ransomware. 126 of them affect your stack \"Work\".\""
+  },
+  {
+    "id": "AC-11a",
+    "name": "Share link in a fresh browser: offer only, nothing stored until \"Add as preset\"; then a new preset",
+    "ok": true,
+    "detail": "offer \"Fortinet, Microsoft (1 product) · 49 entries in the catalog\"; before click {\"local\":[],\"session\":[],\"cookie\":\"\"}; after Ignore {\"hidden\":true,\"hash\":\"\",\"storage\":{\"local\":[],\"session\":[],\"cookie\":\"\"}}; then [\"My stack\",\"Shared stack\"], \"Added \"Shared stack\" from the link. Tick Remember below to keep it for next time.\""
+  },
+  {
+    "id": "AC-11b",
+    "name": "Existing presets are never overwritten; a repeat becomes \"Shared stack 2\"",
+    "ok": true,
+    "detail": "[\"Work\",\"Shared stack\",\"Shared stack 2\"]; note \"It's the same as your preset \"Shared stack\". Adding it makes a copy.\""
+  },
+  {
+    "id": "AC-12b",
+    "name": "Hostile share links and stored records are ignored safely (no errors, nothing stored, page starts fresh)",
+    "ok": true,
+    "detail": "shares [{\"h\":\"#stack=%E0%A4%A\",\"title\":\"This shared link couldn't be read\",\"add\":false,\"errors\":0,\"stored\":0},{\"h\":\"#stack=%7B%22__proto__%22%3A%5\",\"title\":\"This shared link couldn't be read\",\"add\":false,\"errors\":0,\"stored\":0},{\"h\":\"#stack=xxxxxxxxxxxxxxxxxxxxxxx\",\"title\":\"This shared link couldn't be read\",\"add\":false,\"errors\":0,\"stored\":0},{\"h\":\"#stack=%5B%22Cisco%22%5D\",\"title\":\"This shared link couldn't be read\",\"add\":false,\"errors\":0,\"stored\":0},{\"h\":\"#%E0%A4%A\",\"title\":\"(no offer)\",\"add\":false,\"errors\":0,\"stored\":0},{\"h\":\"#stack=\",\"title\":\"This shared link couldn't be read\",\"add\":false,\"errors\":0,\"stored\":0}]; stored [{\"label\":\"bad JSON\",\"fresh\":true,\"removed\":true,\"errors\":0},{\"label\":\"500 presets\",\"fresh\":true,\"removed\":true,\"errors\":0},{\"label\":\"301 vendors\",\"fresh\":true,\"removed\":true,\"errors\":0},{\"label\":\"markup field\",\"fresh\":true,\"removed\":true,\"errors\":0},{\"label\":\"wrong types\",\"fresh\":true,\"removed\":true,\"errors\":0}]"
+  },
+  {
+    "id": "AC-7",
+    "name": "Storage blocked: works in memory with no errors; the tickbox says remembering isn't available",
+    "ok": true,
+    "detail": "blocked: tickbox disabled true, hint \"This browser is blocking storage, so remembering isn't available. Your stack lasts until you leave or reload this page.\", strip shown true; full storage: {\"checked\":false,\"status\":\"Couldn't save in this browser (its storage may be full). Your stack lasts while this tab is open.\"}"
+  },
+  {
+    "id": "AC-13a",
+    "name": "360 px without horizontal scroll on all three pages and in the picker",
+    "ok": true,
+    "detail": "{\"radar\":360,\"picker\":360,\"sitrep/\":360,\"ransomware/\":360}"
+  },
+  {
+    "id": "AC-13b",
+    "name": "Keyboard only: open, search, tick, save a preset, Escape closes the form then the picker",
+    "ok": true,
+    "detail": "open true; tab lands on Fortinet tick true; ticked true; name field focused preset-name; preset \"Home lab\"; Esc closes form only true; Esc closes picker true; focus back on \"stack-open\""
+  },
+  {
+    "id": "AC-13c",
+    "name": "0 external requests across every check",
+    "ok": true,
+    "detail": "733 requests, external: none"
+  },
+  {
+    "id": "ALL",
+    "name": "No page errors, console errors or pop-up dialogs during the whole run",
+    "ok": true,
+    "detail": "none"
+  }
+]

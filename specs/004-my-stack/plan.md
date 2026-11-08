@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | **Spec** | [spec.md](./spec.md) |
-| **Status** | Draft v2 (presets added), awaiting owner review |
+| **Status** | Approved v2 (owner: "Go!", 2026-11-08). Built; see §8 for changes during build |
 
 ## 1. The big picture
 
@@ -43,7 +43,7 @@ flowchart LR
 {
   "v": 1,
   "active": "Customer A",
-  "lastSeen": "2026-11-08",
+  "lastSeen": { "through": "2026-11-06", "ids": ["CVE-2026-19868"] },
   "presets": [
     { "name": "Work",       "myStackOnly": true,  "vendors": { "Microsoft": ["Windows", "Exchange Server"], "Fortinet": [] } },
     { "name": "Customer A", "myStackOnly": false, "vendors": { "Cisco": [], "Citrix": ["NetScaler"] } }
@@ -51,8 +51,8 @@ flowchart LR
 }
 ```
 - An empty product list means "all products of this vendor".
-- `lastSeen` is only kept when remembered. On each Radar visit, the previous
-  value drives "new since last visit", and then it is replaced with today's date.
+- `lastSeen` is only kept when remembered. It marks where the catalog stood at
+  the last visit: the newest date plus the CVEs added that day (see §8).
 - Presets are an ordered list, so the dropdown order is stable.
 
 **Share link**: `https://…/#stack=` + URL-encoded JSON of the active preset's `vendors`.
@@ -86,7 +86,7 @@ record is ignored (the page starts fresh) rather than half-loaded.
 | `saveAs(record, name)`, `rename(record, old, new)`, `remove(record, name)`, `switchTo(record, name)` | Preset operations; return `{record}` or `{error}` (duplicate, empty, too long, last preset) |
 | `setVendors(record, vendors)`, `setMyStackOnly(record, on)` | Update the active preset |
 | `addShared(record, vendors)` | Adds "Shared stack" / "Shared stack 2" … |
-| `touchLastSeen(record, today)` | Returns `{ previous, record }` |
+| `touchLastSeen(record, mark)` | Returns `{ previous, record }` |
 
 **`site/stack-store.js`** (the only file that touches storage)
 - `load()` checks localStorage first (remembered), then sessionStorage.
@@ -122,3 +122,17 @@ record is ignored (the page starts fresh) rather than half-loaded.
 | A corrupted or tampered record in storage | Whole record ignored and the page starts fresh; never half-loaded |
 | Visitor expects revisit to work but never ticked Remember | When a stack exists and Remember is off, the picker shows a gentle hint: "Tick Remember to keep this for next time" |
 | Sitrep vendor-mention tags give false positives | Labelled "Mentions …", not "Affects …"; whole-word matching only |
+
+## 8. Changes during build
+
+| Change | Why |
+|---|---|
+| `lastSeen` is a **catalog mark** `{ through, ids }` (newest date + the CVEs added that day), not a date | CISA sometimes adds entries later on the same day. With a date alone, those would never count as "new since your last visit" |
+| A **visit lasts as long as the tab**: a second sessionStorage key, `threat-radar.visit.v1`, holds where the catalog stood when the tab's visit began | Otherwise Radar → Sitrep → Radar would reset "new since your last visit" to 0. Only used when remembered; removed by unticking Remember and by Forget |
+| **Two tabs stay in step**: a remembered tab follows the browser's `storage` event and reloads the presets another tab saved | Found by the browser check: a tab holding an older copy could overwrite presets saved in another tab |
+| Footer link is the fixed address `github.com/smashytech/threat-radar` | The old code worked the repo out from the `*.github.io` address, which breaks on a custom domain |
+| Global rule `[hidden] { display: none !important; }` | Components with `display: grid/flex` were overriding the `hidden` attribute |
+| Radar blips are drawn once; stack rings live in their own layer | Redrawing the blips would knock their ping out of step with the sweeping beam |
+| Reading `#…` from the address can't crash on a malformed `%` sequence | Found while adding `#mystack` and `#stack=` |
+| "Copy link" falls back to a selectable text box | The clipboard API isn't always available or allowed |
+| On narrow screens the word "products" in the expand button is hidden visually (screen readers still hear it) | At 360 px, long vendor names were breaking mid-word |

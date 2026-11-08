@@ -104,6 +104,48 @@ test("localStorage blocked but sessionStorage works: Remember falls back honestl
   assert.deepEqual(session.keys(), [STORAGE_KEY]);
 });
 
+// A "visit" lasts as long as the tab: the last-visit mark is read once per tab, so
+// moving Radar → Sitrep → Radar doesn't reset "new since last visit" to zero.
+const MARK = { through: "2026-11-04", ids: ["CVE-2024-27834"] };
+
+test("visit start: none yet, then kept for this tab only", () => {
+  const local = new FakeStorage(), session = new FakeStorage();
+  const store = createStore({ local, session });
+  assert.equal(store.visitStart(), undefined, "no visit started in this tab yet");
+  store.startVisit(MARK);
+  assert.deepEqual(createStore({ local, session }).visitStart(), MARK, "same tab, next page: same starting point");
+  store.startVisit(null);
+  assert.equal(createStore({ local, session }).visitStart(), null, "a visit with no previous mark");
+  assert.equal(createStore({ local, session: new FakeStorage() }).visitStart(), undefined, "a new tab is a new visit");
+});
+
+test("Forget and Remember off also remove the visit mark", () => {
+  const local = new FakeStorage(), session = new FakeStorage();
+  const store = createStore({ local, session });
+  store.save(withStack(), true);
+  store.startVisit(MARK);
+  store.save(withStack(), false);
+  assert.equal(store.visitStart(), undefined, "no visit tracking unless remembered");
+  store.save(withStack(), true);
+  store.startVisit(MARK);
+  store.forget();
+  assert.deepEqual(local.keys(), []);
+  assert.deepEqual(session.keys(), []);
+});
+
+test("a tampered visit mark is ignored and removed; blocked storage falls back to memory", () => {
+  const session = new FakeStorage();
+  for (const bad of ["{oops", '{"previous":"2026-11-04"}', '{"previous":null,"x":1}', '{"previous":{"through":"2026-11-04","ids":["<b>"]}}']) {
+    session.setItem("threat-radar.visit.v1", bad);
+    assert.equal(createStore({ local: new FakeStorage(), session }).visitStart(), undefined, bad);
+    assert.deepEqual(session.keys(), [], "cleaned up");
+  }
+  const blocked = createStore({ local: new BlockedStorage(), session: new BlockedStorage() });
+  assert.equal(blocked.visitStart(), undefined);
+  blocked.startVisit(MARK);
+  assert.deepEqual(blocked.visitStart(), MARK, "kept in memory for this page");
+});
+
 test("a full localStorage falls back to sessionStorage instead of failing", () => {
   const session = new FakeStorage();
   const result = createStore({ local: new FullStorage(), session }).save(withStack(), true);

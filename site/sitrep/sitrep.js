@@ -2,6 +2,8 @@
 //
 // Flow: load the index → pick the issue from ?d= → draw the issue and archive
 //       → load KEV data and add "In KEV" badges to matching CVEs.
+// My stack (spec 004): KEV chips in the visitor's stack get a "Your stack" tag,
+// and stories naming a ticked vendor get "Mentions <vendor>" tags.
 //
 // Issue text was written by an AI from web sources, so it's untrusted. It is
 // only ever placed on the page as text (el() / textContent), and links go
@@ -9,12 +11,16 @@
 
 import { el, externalLink, formatDate, formatLongDate, formatShortDay, loadJSON } from "../ui.js";
 import { pickIssueDate, kevSet, markCves, isActionNeeded } from "../sitrep-logic.js";
+import { inStack, mentionedVendors } from "../stack-logic.js";
+import { readStack, renderStackLine } from "../stack-page.js";
 
 const $ = (id) => document.getElementById(id);
 const NVD = "https://nvd.nist.gov/vuln/detail/";
+const stack = readStack();
 
 async function init() {
   let issues = [];
+  renderStackLine($("stack-line"), stack, "../#mystack");
   try {
     const index = await loadJSON("../data/sitrep/index.json", { optional: true });
     issues = index && Array.isArray(index.issues) ? index.issues : [];
@@ -35,7 +41,7 @@ async function init() {
     renderIssue(issue);
 
     const kev = await loadJSON("../data/kev.json", { optional: true });
-    if (kev) applyKev(kevSet(kev));
+    if (kev) applyKev(kev);
   } catch (err) {
     console.error(err);
     $("issue-line").textContent = "Couldn't load the Sitrep. Please try refreshing the page.";
@@ -81,6 +87,12 @@ function story(entry, number) {
   cves.append(...markCves(entry.cves, null).map(cveChip));
   cves.hidden = !(entry.cves || []).length;
 
+  // "Mentions", not "Affects": a vendor being named doesn't mean your setup is hit.
+  const mentions = stack.has ? mentionedVendors(`${entry.title} ${entry.description}`, stack.vendors) : [];
+  const tags = el("p", { className: "story__mentions" },
+    mentions.map((vendor) => el("span", { className: "badge badge--mine", text: `Mentions ${vendor}` })));
+  tags.hidden = mentions.length === 0;
+
   return el("li", { className: "story" }, [
     el("span", { className: number ? "story__num" : "story__num story__num--emerging", text: number ? String(number) : "◆", attrs: { "aria-hidden": "true" } }),
     el("div", { className: "story__body" }, [
@@ -88,17 +100,20 @@ function story(entry, number) {
       el("p", { className: "story__desc", text: entry.description }),
       el("p", { className: "story__meta" }, meta),
       cves,
+      tags,
     ]),
   ]);
 }
 
 /** A CVE chip: links to the Radar entry if it's in KEV, otherwise to NVD. */
-function cveChip({ cve, inKev }) {
+function cveChip({ cve, inKev, mine }) {
   if (inKev) {
+    const parts = [el("span", { className: "mono", text: cve }), el("span", { className: "cve-chip__tag", text: "In KEV" })];
+    if (mine) parts.push(el("span", { className: "cve-chip__tag cve-chip__tag--mine", text: "Your stack" }));
     return el("a", {
-      className: "cve-chip cve-chip--kev",
+      className: mine ? "cve-chip cve-chip--kev cve-chip--mine" : "cve-chip cve-chip--kev",
       attrs: { href: `../#${encodeURIComponent(cve)}`, title: "In CISA's Known Exploited Vulnerabilities catalog. Open it on the Radar." },
-    }, [el("span", { className: "mono", text: cve }), el("span", { className: "cve-chip__tag", text: "In KEV" })]);
+    }, parts);
   }
   return el("a", {
     className: "cve-chip",
@@ -106,11 +121,13 @@ function cveChip({ cve, inKev }) {
   }, [el("span", { className: "mono", text: cve })]);
 }
 
-/** Once KEV data has loaded, redraw every CVE chip with its KEV status (AC-5). */
-function applyKev(kev) {
+/** Once KEV data has loaded, redraw every CVE chip with its KEV status (AC-5) and stack match. */
+function applyKev(kevEntries) {
+  const kev = kevSet(kevEntries);
+  const mine = new Set(stack.has ? kevEntries.filter((e) => inStack(e, stack.vendors)).map((e) => e.cveID) : []);
   for (const holder of document.querySelectorAll(".story__cves")) {
     const cves = holder.dataset.cves ? holder.dataset.cves.split(" ") : [];
-    holder.replaceChildren(...markCves(cves, kev).map(cveChip));
+    holder.replaceChildren(...markCves(cves, kev).map((chip) => cveChip({ ...chip, mine: mine.has(chip.cve) })));
   }
 }
 

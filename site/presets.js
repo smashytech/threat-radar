@@ -138,13 +138,19 @@ function validDate(text) {
   return !Number.isNaN(d.getTime()) && d.toISOString().slice(0, 10) === text;
 }
 
-function parseLastSeen(value) {
-  if (value === null) return { ok: true, value: null };
+/** A catalog mark { through, ids } read from storage: a clean copy, or null if it's not a valid mark. */
+export function validMark(value) {
   if (!hasExactKeys(value, ["through", "ids"]) || !validDate(value.through) || !Array.isArray(value.ids) ||
       value.ids.length > MAX_SEEN_IDS || !value.ids.every((id) => typeof id === "string" && CVE_RE.test(id))) {
-    return { ok: false };
+    return null;
   }
-  return { ok: true, value: { through: value.through, ids: [...value.ids] } };
+  return { through: value.through, ids: [...value.ids] };
+}
+
+function parseLastSeen(value) {
+  if (value === null) return { ok: true, value: null };
+  const mark = validMark(value);
+  return mark ? { ok: true, value: mark } : { ok: false };
 }
 
 /** Parse a stored record. Anything unexpected → null, so the page starts fresh instead of half-loading. */

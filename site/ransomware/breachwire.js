@@ -3,6 +3,8 @@
 // Flow: load the index → pick the issue from ?d= → draw stats, Sweden, regions,
 //       sectors, ledger, data quality → draw the archive chart → load KEV and
 //       list vulnerabilities known to be used by ransomware.
+// My stack (spec 004): the visitor's ransomware-linked KEV entries are listed
+// first and marked in the newest list.
 //
 // Issue text is untrusted (AI-copied from an email built from leak-site data),
 // so it only reaches the page as text via el() (textContent). See ui.js.
@@ -10,10 +12,14 @@
 import { el, svgEl, numberFmt, formatDate, formatLongDate, formatShortDay, localToday, loadJSON } from "../ui.js";
 import { pickIssueDate } from "../sitrep-logic.js";
 import { swedenStatus, regionTotals, ransomwareKev, chartBars } from "../breachwire-logic.js";
+import { inStack } from "../stack-logic.js";
+import { readStack, renderStackLine } from "../stack-page.js";
 
 const $ = (id) => document.getElementById(id);
+const stack = readStack();
 
 async function init() {
+  renderStackLine($("stack-line"), stack, "../#mystack");
   // KEV loads in parallel: the "Known ransomware use" panel works even before any issue exists.
   const kevPromise = loadJSON("../data/kev.json", { optional: true });
   try {
@@ -137,18 +143,32 @@ function renderKev(kev) {
     $("kev-ransom").replaceChildren(el("li", { className: "muted", text: "KEV data unavailable right now." }));
     return;
   }
-  const { total, recent } = ransomwareKev(kev, localToday(), null, 8);
-  $("kev-ransom-lede").textContent =
-    `${numberFmt.format(total)} vulnerabilities in CISA's catalog are confirmed as used by ransomware. The most recently added:`;
-  $("kev-ransom").replaceChildren(...recent.map((e) => el("li", {}, [
-    el("a", { className: "kev-ransom__item", attrs: { href: `../#${encodeURIComponent(e.cveID)}` } }, [
+  const today = localToday();
+  const isMine = (e) => stack.has && inStack(e, stack.vendors);
+  const { total, recent } = ransomwareKev(kev, today, null, 8);
+  // Same helper, run on just the visitor's entries (spec 004 FR-12).
+  const mine = stack.has ? ransomwareKev(kev.filter(isMine), today, null, 8) : { total: 0, recent: [] };
+
+  const lede = `${numberFmt.format(total)} vulnerabilities in CISA's catalog are confirmed as used by ransomware.`;
+  $("kev-ransom-lede").textContent = !stack.has ? `${lede} The most recently added:`
+    : mine.total ? `${lede} ${numberFmt.format(mine.total)} of them affect your stack "${stack.name}".`
+    : `${lede} None of them affect your stack "${stack.name}".`;
+
+  const item = (e) => el("li", {}, [
+    el("a", { className: isMine(e) ? "kev-ransom__item kev-ransom__item--mine" : "kev-ransom__item", attrs: { href: `../#${encodeURIComponent(e.cveID)}` } }, [
       el("span", { className: "kev-ransom__date", text: formatDate(e.dateAdded) }),
       el("span", { className: "kev-ransom__body" }, [
-        el("span", { className: "entry__cve", text: e.cveID }),
+        el("span", { className: "kev-ransom__top" }, [
+          el("span", { className: "entry__cve", text: e.cveID }),
+          ...(isMine(e) ? [el("span", { className: "badge badge--mine", text: "Your stack" })] : []),
+        ]),
         el("span", { className: "kev-ransom__name", text: e.vulnerabilityName }),
       ]),
     ]),
-  ])));
+  ]);
+  $("kev-ransom-mine").replaceChildren(...mine.recent.map(item));
+  $("kev-mine").hidden = mine.recent.length === 0;
+  $("kev-ransom").replaceChildren(...recent.map(item));
   if (!recent.length) $("kev-ransom").replaceChildren(el("li", { className: "muted", text: "None listed." }));
 }
 

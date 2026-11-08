@@ -11,6 +11,7 @@ and it **updates itself twice a day** with no human involved.
 - Search by CVE, vendor, product or keyword, with filters
 - **Cyber Sitrep** section: the daily threat-intel bulletin with an archive, its CVEs cross-checked against KEV
 - **Ransomware** section: the daily Breach Wire digest as statistics and threat-group intelligence (never victim names), plus KEV entries known to be used by ransomware
+- **My stack**: tick the vendors and products you run, keep named presets, and every page highlights what affects you. It stays in your browser
 - No trackers, no cookies, no third-party code
 
 ![Threat Radar screenshot](specs/001-threat-radar/evidence/desktop-dark.png)
@@ -55,6 +56,22 @@ a **name guard**: the publisher hands it that day's victim names in a throwaway
 file that is never committed, and any match refuses the whole issue. Spec:
 [`specs/003-breach-wire-section`](specs/003-breach-wire-section).
 
+## My stack
+
+Visitors tick the vendors (or just some products) they run in the **My stack**
+picker on the Radar. The Radar then rings matching blips, badges matching
+entries, offers a "My stack only" filter and shows a summary, including **what's
+new since your last visit**. The Sitrep tags matching CVEs and stories that
+mention a ticked vendor, and the Ransomware page lists the stack's
+ransomware-linked vulnerabilities first.
+
+- **Named presets** ("Work", "Home lab", "Customer A"); each keeps its own stack and "My stack only" setting.
+- **Remember on this device** is off by default. Off, everything lives in `sessionStorage` and is gone when the tab closes. On, it moves to `localStorage`. Unticking deletes the stored copy at once, and "Forget everything" wipes both.
+- **Nothing leaves the browser.** No cookies, no requests. A share link puts the stack after `#`, which browsers never send to a server, and opening one only *offers* to add it as a new preset.
+- Logic is in pure, tested functions (`stack-logic.js`, `presets.js`); `stack-store.js` is the only file that touches storage.
+
+Spec: [`specs/004-my-stack`](specs/004-my-stack).
+
 ## Security choices
 
 | Threat | Defence |
@@ -64,6 +81,7 @@ file that is never committed, and any match refuses the whole issue. Spec:
 | Broken or truncated feed | Strict validation and a "shrink guard" (refuses a catalog that suddenly loses >10% of entries) |
 | Hijacked GitHub Action | Every action is pinned to an exact commit hash, and Dependabot proposes updates only after a 7-day cooldown |
 | Over-powered automation | Workflows start with zero permissions; each job gets only what it needs |
+| A visitor's software list (handy reconnaissance) | Kept only in their own browser, never in a cookie, request or the repo; stored or shared stacks are strictly validated and shown as text |
 
 ## Run it yourself
 

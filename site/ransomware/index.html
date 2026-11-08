@@ -28,6 +28,7 @@
         <h1>Breach Wire</h1>
         <p class="lede">What ransomware and extortion gangs claimed on their leak sites, shown as <em>patterns</em>: where, which sectors, which groups. Victim names are deliberately left out, because they are unverified criminal claims.</p>
         <p class="freshness" id="issue-line" aria-live="polite">Loading…</p>
+        <p class="stack-line" id="stack-line" hidden></p>
       </div>
     </div>
   </header>
@@ -77,6 +78,11 @@
       <section class="band" aria-labelledby="kev-h">
         <h3 class="section-title" id="kev-h">Known ransomware use <span class="muted">from CISA's KEV catalog</span></h3>
         <p class="muted kev-ransom__lede" id="kev-ransom-lede">Vulnerabilities CISA has confirmed ransomware gangs exploit, newest first.</p>
+        <div id="kev-mine" hidden>
+          <h4 class="kev-ransom__sub" id="kev-mine-h">In your stack</h4>
+          <ol class="kev-ransom" id="kev-ransom-mine" aria-labelledby="kev-mine-h"></ol>
+          <h4 class="kev-ransom__sub">Most recently added</h4>
+        </div>
         <ol class="kev-ransom" id="kev-ransom"></ol>
       </section>
 
@@ -95,6 +101,7 @@
 
   <footer class="footer">
     <p>Breach Wire is compiled daily from public leak-site aggregators and mirrored here automatically as statistics only. Victim names are never published on this site.</p>
+    <p>Your stack is kept only in this browser, and only if you tick Remember.</p>
     <p>No trackers, no cookies, no third-party code. <a href="../">← Back to the Radar</a></p>
   </footer>
 </body>

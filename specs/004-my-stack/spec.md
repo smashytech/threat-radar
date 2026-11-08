@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | **Spec ID** | 004-my-stack |
-| **Status** | Draft v2 (presets added), awaiting owner review |
+| **Status** | Approved v2 (owner: "Go!", 2026-11-08). Built and verified |
 | **Owner** | smashytech |
 | **Builds on** | [001](../001-threat-radar/spec.md), [002](../002-sitrep-section/spec.md), [003](../003-breach-wire-section/spec.md) |
 | **Created** | 2026-11-08 |

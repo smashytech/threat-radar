@@ -39,6 +39,7 @@
           <path class="radar__beam" d="M100 100 L100 4 A96 96 0 0 1 183 52 Z"/>
           <line class="radar__arm" x1="100" y1="100" x2="100" y2="4"/>
         </g>
+        <g id="radar-rings"></g>
         <g id="radar-blips"></g>
         <circle class="radar__core" cx="100" cy="100" r="3"/>
       </svg>
@@ -53,6 +54,19 @@
   </header>
 
   <main>
+    <!-- Shown when the page is opened from a "#stack=…" share link (spec 004 FR-13). -->
+    <section class="band" id="share-offer" aria-labelledby="share-title" hidden>
+      <div class="share-offer">
+        <h2 class="share-offer__title" id="share-title" tabindex="-1">A stack was shared with you</h2>
+        <p class="share-offer__desc" id="share-desc"></p>
+        <p class="share-offer__note" id="share-note"></p>
+        <div class="share-offer__actions">
+          <button type="button" class="button button--mine" id="share-add">Add as preset</button>
+          <button type="button" class="button button--quiet" id="share-ignore">Ignore</button>
+        </div>
+      </div>
+    </section>
+
     <section class="band teasers" id="teasers" aria-label="Latest briefings" hidden>
       <a class="teaser" id="teaser-link" href="sitrep/" hidden>
         <span class="teaser__top">
@@ -105,6 +119,25 @@
     <section aria-labelledby="latest-heading" class="band" id="latest" tabindex="-1">
       <h2 id="latest-heading" class="section-title">Latest additions</h2>
 
+      <!-- My stack (spec 004): a prompt when nothing is ticked, a summary when something is. -->
+      <p class="stack-prompt" id="stack-prompt" hidden>
+        <button type="button" class="link-button" id="prompt-open">Tick your stack</button>
+        to highlight what affects the software you run. It stays in this browser.
+      </p>
+      <section class="stack-strip" id="stack-strip" aria-labelledby="strip-label" hidden>
+        <div class="stack-strip__head">
+          <h3 class="stack-strip__label" id="strip-label">Your stack · <span id="strip-preset"></span></h3>
+          <button type="button" class="link-button" id="strip-edit">Edit</button>
+        </div>
+        <p class="stack-strip__desc" id="strip-desc"></p>
+        <dl class="stack-strip__stats">
+          <div><dt>In the catalog</dt><dd id="strip-total">–</dd></div>
+          <div><dt>Added in the last 30 days</dt><dd id="strip-30">–</dd></div>
+          <div id="strip-new-wrap"><dt id="strip-new-label">New since your last visit</dt><dd id="strip-new">–</dd></div>
+          <div><dt>Used in ransomware</dt><dd id="strip-ransom">–</dd></div>
+        </dl>
+      </section>
+
       <form class="controls" id="controls" role="search">
         <label class="field field--grow">
           <span class="field__label">Search</span>
@@ -125,12 +158,21 @@
           <input type="checkbox" id="ransom">
           <span>Ransomware only</span>
         </label>
+        <div class="stack-controls">
+          <button type="button" class="button button--mine" id="stack-open" aria-haspopup="dialog">
+            My stack <span class="count-pill" id="stack-count">0</span>
+          </button>
+          <label class="toggle toggle--mine" id="stack-only-wrap" hidden>
+            <input type="checkbox" id="stack-only">
+            <span>My stack only</span>
+          </label>
+        </div>
       </form>
 
       <p class="result-count" id="result-count" aria-live="polite"></p>
       <ul class="entries" id="entries"></ul>
       <div class="empty" id="empty" hidden>
-        <p>No exploited vulnerabilities match those filters.</p>
+        <p id="empty-text">No exploited vulnerabilities match those filters.</p>
         <button type="button" class="button" id="clear">Clear filters</button>
       </div>
       <button type="button" class="button button--wide" id="more" hidden>Show 25 more</button>
@@ -160,9 +202,73 @@
     <p class="detail__nvd"><a id="detail-nvd" class="button" target="_blank" rel="noopener noreferrer">Open on NVD ↗</a></p>
   </dialog>
 
+  <!-- The My stack picker (spec 004). Filled in by stack-picker.js. -->
+  <dialog class="detail picker" id="picker" aria-labelledby="picker-title">
+    <div class="picker__head">
+      <h2 class="picker__title" id="picker-title">My stack</h2>
+      <form method="dialog"><button class="icon-button" aria-label="Close My stack">✕</button></form>
+    </div>
+    <p class="picker__intro">Tick the vendors you run, or open a vendor to pick only some of its products.</p>
+
+    <div class="preset-bar">
+      <label class="field preset-bar__select">
+        <span class="field__label">Preset</span>
+        <select id="preset-select"></select>
+      </label>
+      <div class="preset-bar__actions">
+        <button type="button" class="button button--quiet" id="preset-new">Save as…</button>
+        <button type="button" class="button button--quiet" id="preset-rename">Rename</button>
+        <button type="button" class="button button--quiet button--danger" id="preset-delete">Delete</button>
+      </div>
+    </div>
+    <form class="preset-form" id="preset-form" hidden>
+      <label class="field field--grow">
+        <span class="field__label" id="preset-form-label">Name for the new preset</span>
+        <input type="text" id="preset-name" maxlength="40" autocomplete="off" spellcheck="false" aria-describedby="preset-error">
+      </label>
+      <button type="submit" class="button button--mine" id="preset-submit">Save</button>
+      <button type="button" class="button button--quiet" id="preset-cancel">Cancel</button>
+      <p class="form-error" id="preset-error" role="alert" hidden></p>
+    </form>
+
+    <p class="picker__selected" id="picker-selected"></p>
+    <div class="stale" id="picker-stale" hidden>
+      <p class="stale__intro">Not in the current catalog. CISA may have renamed them; they stay in your stack until you remove them.</p>
+      <ul class="stale__list" id="stale-list"></ul>
+    </div>
+
+    <label class="field">
+      <span class="field__label">Find a vendor or product</span>
+      <input type="search" id="picker-q" placeholder="e.g. Fortinet, Exchange, vmware" autocomplete="off" spellcheck="false">
+    </label>
+    <p class="picker__count" id="picker-count" aria-live="polite"></p>
+    <ul class="pick-list" id="picker-list" aria-label="Vendors"></ul>
+
+    <section class="picker__device" aria-labelledby="device-h">
+      <h3 class="detail__subhead" id="device-h">On this device</h3>
+      <label class="toggle toggle--remember">
+        <input type="checkbox" id="remember" aria-describedby="remember-hint">
+        <span>Remember on this device</span>
+      </label>
+      <p class="picker__hint" id="remember-hint"></p>
+      <div class="picker__actions">
+        <button type="button" class="button button--quiet" id="share-copy">Copy link to this preset</button>
+        <button type="button" class="button button--quiet button--danger" id="forget">Forget everything on this device</button>
+      </div>
+      <label class="field share-field" id="share-field" hidden>
+        <span class="field__label">Copy this link</span>
+        <input type="text" id="share-url" readonly>
+      </label>
+      <p class="picker__status" id="picker-status" role="status"></p>
+    </section>
+
+    <div class="picker__foot"><button type="button" class="button button--mine" id="picker-done">Done</button></div>
+  </dialog>
+
   <footer class="footer">
     <p>Data: <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" rel="noopener noreferrer">CISA Known Exploited Vulnerabilities catalog</a> (US government, public domain). Not affiliated with CISA.</p>
-    <p>No trackers, no cookies, no third-party code. <a id="repo-link" hidden>How this site works ↗</a></p>
+    <p>Your stack is kept only in this browser, and only if you tick Remember.</p>
+    <p>No trackers, no cookies, no third-party code. <a id="repo-link" href="https://github.com/smashytech/threat-radar" rel="noopener noreferrer">How this site works ↗</a></p>
   </footer>
 </body>
 </html>
