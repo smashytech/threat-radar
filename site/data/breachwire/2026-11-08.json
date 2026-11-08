@@ -1,0 +1,262 @@
+{
+  "date": "2026-11-08",
+  "issue": 77,
+  "window": "2026-11-07",
+  "stats": {
+    "victims": 34,
+    "groups": 10,
+    "countries": 13,
+    "regions": 5
+  },
+  "sweden": 0,
+  "regions": [
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 7
+        }
+      ]
+    },
+    {
+      "region": "Europe",
+      "countries": [
+        {
+          "country": "Germany",
+          "flag": "🇩🇪",
+          "count": 7
+        },
+        {
+          "country": "United Kingdom",
+          "flag": "🇬🇧",
+          "count": 3
+        },
+        {
+          "country": "Denmark",
+          "flag": "🇩🇰",
+          "count": 1
+        },
+        {
+          "country": "France",
+          "flag": "🇫🇷",
+          "count": 1
+        },
+        {
+          "country": "Portugal",
+          "flag": "🇵🇹",
+          "count": 1
+        },
+        {
+          "country": "Switzerland",
+          "flag": "🇨🇭",
+          "count": 1
+        },
+        {
+          "country": "Türkiye",
+          "flag": "🇹🇷",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Middle East",
+      "countries": [
+        {
+          "country": "Israel",
+          "flag": "🇮🇱",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Latin America & Caribbean",
+      "countries": [
+        {
+          "country": "Brazil",
+          "flag": "🇧🇷",
+          "count": 2
+        },
+        {
+          "country": "Mexico",
+          "flag": "🇲🇽",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Asia",
+      "countries": [
+        {
+          "country": "South Korea",
+          "flag": "🇰🇷",
+          "count": 4
+        },
+        {
+          "country": "Singapore",
+          "flag": "🇸🇬",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Unattributed",
+      "countries": [
+        {
+          "country": "Country not disclosed",
+          "flag": "🏳️",
+          "count": 3
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Manufacturing",
+      "count": 8
+    },
+    {
+      "sector": "Not disclosed",
+      "count": 5
+    },
+    {
+      "sector": "Professional Services",
+      "count": 4
+    },
+    {
+      "sector": "Retail & E-Commerce",
+      "count": 3
+    },
+    {
+      "sector": "Technology",
+      "count": 3
+    },
+    {
+      "sector": "Education",
+      "count": 2
+    },
+    {
+      "sector": "Financial Services",
+      "count": 2
+    },
+    {
+      "sector": "Other",
+      "count": 2
+    },
+    {
+      "sector": "Transportation",
+      "count": 2
+    },
+    {
+      "sector": "Business Services",
+      "count": 1
+    },
+    {
+      "sector": "Government & Defense",
+      "count": 1
+    },
+    {
+      "sector": "Healthcare",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "Qilin",
+      "hits": 10,
+      "profile": "Also known as Agenda. Golang/Rust RaaS active since July 2022 and one of the most prolific leak sites of 2025–26; double extortion. Posted ten victims across six countries today, mostly SMEs, all with bare \"N/A\" descriptions.",
+      "countries": "United Kingdom (3), Brazil, France, Germany, Mexico, Portugal, Singapore, Türkiye",
+      "sectors": "Education, Healthcare, Manufacturing, Not disclosed, Other, Professional Services"
+    },
+    {
+      "name": "MetaEncryptor",
+      "hits": 7,
+      "profile": "Data-leak and encryption crew active since 2024. Today's batch of seven leans on Korean industrial names plus three US firms.",
+      "countries": "South Korea (4), United States (3)",
+      "sectors": "Financial Services, Manufacturing, Technology"
+    },
+    {
+      "name": "N0n",
+      "hits": 4,
+      "profile": "Posts detailed data-inventory teasers stamped \"[NOT PAID — EXPOSED]\" alongside anonymised \"Company #N\" placeholders marked \"[PENDING EXPOSURE]\". Four named victims today; ten more \"Company #138–147\" placeholders (US, Canada, South Korea retail/finance) were excluded as masked.",
+      "countries": "United States (3), Germany",
+      "sectors": "Professional Services, Retail & E-Commerce, Technology"
+    },
+    {
+      "name": "Payload",
+      "hits": 4,
+      "profile": "Leak site tracked by both aggregators; today's four postings are German SMEs published in one batch with AI-style company descriptions and no data volumes.",
+      "countries": "Germany (4)",
+      "sectors": "Business Services, Professional Services, Retail & E-Commerce, Transportation"
+    },
+    {
+      "name": "Nightspire",
+      "hits": 3,
+      "profile": "Extortion group seen since early 2025, reported to exploit edge-device (FortiOS) vulnerabilities. Today's three postings appear only on RansomLook, with no country or sector data.",
+      "countries": "not disclosed (3)",
+      "sectors": "Not disclosed"
+    },
+    {
+      "name": "Rhysida",
+      "hits": 2,
+      "profile": "RaaS since May 2023; phishing and Cobalt Strike for access; auctions stolen data. Today hit a Brazilian state court and a Swiss fiduciary/real-estate firm.",
+      "countries": "Brazil, Switzerland",
+      "sectors": "Financial Services, Government & Defense"
+    },
+    {
+      "name": "Anubis",
+      "hits": 1,
+      "profile": "RaaS seen since late 2024, notable for an optional file-wiping mode. One posting today with a terse \"fertilizer, grain\" teaser.",
+      "countries": "Germany",
+      "sectors": "Manufacturing"
+    },
+    {
+      "name": "SafePay",
+      "hits": 1,
+      "profile": "Emerged late 2024 and became one of 2025's most active leak sites; runs without a public affiliate programme and has been reported to enter via VPN/RDP credentials. Today: one Israeli education organisation posted as a bare domain.",
+      "countries": "Israel",
+      "sectors": "Education"
+    },
+    {
+      "name": "SilentRansomGroup",
+      "hits": 1,
+      "profile": "Also known as Luna Moth / Chatty Spider; callback-phishing data-extortion crew focused on US law firms.",
+      "countries": "United States",
+      "sectors": "Professional Services"
+    },
+    {
+      "name": "Whitearmor",
+      "hits": 1,
+      "profile": "New data-theft/extortion DLS, first victim claimed 21 Oct 2026. RedPacket flags reports of unverified or fabricated claims.",
+      "countries": "Denmark",
+      "sectors": "Transportation"
+    }
+  ],
+  "quality": {
+    "singleSourced": 3,
+    "claimOnly": 0,
+    "sourcesDisagree": 2,
+    "newGroups": 0
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 42
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 43
+      }
+    ],
+    "merged": 45,
+    "masked": 11,
+    "reposts": 0,
+    "nonVictims": 0,
+    "lowCoverage": false
+  },
+  "lateToPress": 0
+}
