@@ -25,9 +25,9 @@
   },
   {
     "id": "AC-4a",
-    "name": "Remember unticked (default): localStorage holds nothing",
+    "name": "Remember unticked (default): localStorage holds nothing, and the picker nudges to tick Remember (from the first tick)",
     "ok": true,
-    "detail": "{\"local\":[],\"session\":[\"threat-radar.presets.v1\"],\"cookie\":\"\"}"
+    "detail": "{\"local\":[],\"session\":[\"threat-radar.presets.v1\"],\"cookie\":\"\"}; hint after first tick \"Not remembered: this is gone when you close the tab. Tick to keep it for next time.\""
   },
   {
     "id": "AC-5",

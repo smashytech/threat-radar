@@ -210,6 +210,7 @@ export function createPicker(deps) {
       return el("li", {}, [el("span", { text: name }), button]);
     }));
     $("share-copy").disabled = n === 0;
+    renderHint(); // e.g. the first tick turns "Off by default" into "Not remembered: tick to keep it"
   }
 
   // ---------- Presets ----------

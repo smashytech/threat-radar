@@ -25,5 +25,5 @@
 
 ## Phase 4: Verify
 - [x] **T13** Full suite green; browser checks: remember on/off across tabs, unticking clears storage, forget, storage blocked, no stack data in requests or cookies, share link, hostile stored data, presets end to end, 360 px, keyboard. **→ AC-4–8, AC-11–13**
-- [ ] **T14** Push, confirm deploy, check live.
-- [ ] **T15** `verification.md`.
+- [x] **T14** Push, confirm deploy, check live.
+- [x] **T15** `verification.md`.

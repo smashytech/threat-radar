@@ -82,6 +82,7 @@ const shot = (page, name, opts = {}) => page.screenshot({ path: path.join(OUT, n
     `vmware → ${vmVendors.join(', ')} (Broadcom shows: ${bcProducts.join(', ')}); "Exchange Server" → ${exVendors.join(', ')}`);
 
   await tick(page, 'Zyxel');
+  const firstTickHint = await page.textContent('#remember-hint');
   await tick(page, 'Cisco');
   await search(page, 'Microsoft');
   await row(page, 'Microsoft').locator('.pick__expand').click();
@@ -104,7 +105,11 @@ const shot = (page, name, opts = {}) => page.screenshot({ path: path.join(OUT, n
   await page.locator('#latest').scrollIntoViewIfNeeded();
   await shot(page, 'radar-my-stack-only.png');
   s = await storage(page);
-  check('AC-4a', 'Remember unticked (default): localStorage holds nothing', !s.local.length && s.session.includes(KEY), JSON.stringify(s));
+  await openPicker(page);
+  const nudge = await page.textContent('#remember-hint');
+  await closePicker(page);
+  check('AC-4a', 'Remember unticked (default): localStorage holds nothing, and the picker nudges to tick Remember (from the first tick)',
+    !s.local.length && s.session.includes(KEY) && /^Not remembered/.test(nudge) && /^Not remembered/.test(firstTickHint), `${JSON.stringify(s)}; hint after first tick "${firstTickHint}"`);
 
   // Presets (AC-5)
   await openPicker(page);
