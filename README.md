@@ -74,7 +74,7 @@ No installs needed: Python 3 and Node.js (any recent version) are enough.
 python3 -m unittest discover -s scripts -p "test_*.py" -v
 python3 scripts/add_sitrep.py --check
 python3 scripts/add_breachwire.py --check
-node --test tests/stats.test.mjs tests/site.test.mjs tests/sitrep.test.mjs tests/breachwire.test.mjs
+node --test tests/stats.test.mjs tests/site.test.mjs tests/sitrep.test.mjs tests/breachwire.test.mjs tests/stack.test.mjs tests/presets.test.mjs tests/stack-store.test.mjs
 
 # refresh the data from CISA
 python3 scripts/fetch_kev.py

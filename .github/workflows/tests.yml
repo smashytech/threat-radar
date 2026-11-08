@@ -25,4 +25,4 @@ jobs:
           python3 scripts/add_sitrep.py --check
           python3 scripts/add_breachwire.py --check
       - name: JavaScript tests
-        run: node --test tests/stats.test.mjs tests/site.test.mjs tests/sitrep.test.mjs tests/breachwire.test.mjs
+        run: node --test tests/stats.test.mjs tests/site.test.mjs tests/sitrep.test.mjs tests/breachwire.test.mjs tests/stack.test.mjs tests/presets.test.mjs tests/stack-store.test.mjs

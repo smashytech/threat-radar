@@ -6,11 +6,11 @@
 | **Rule** | Tests before code. Done = tests pass. |
 
 ## Phase 1: Logic (tested first)
-- [ ] **T01** `tests/stack.test.mjs`: index, search, matching, summary, stale names, mentions, share round trip, hostile shares. **→ AC-1, AC-2, AC-3, AC-12**
-- [ ] **T02** `site/stack-logic.js` until T01 passes.
-- [ ] **T03** `tests/presets.test.mjs`: preset operations, name rules, last-preset protection, shared naming, lastSeen, hostile records. **→ AC-5, AC-11, AC-12**
-- [ ] **T04** `site/presets.js` until T03 passes.
-- [ ] **T05** `tests/stack-store.test.mjs` with fake and throwing storages; `site/stack-store.js` until it passes. **→ AC-4, AC-6, AC-7**
+- [x] **T01** `tests/stack.test.mjs`: index, search, matching, summary, stale names, mentions, share round trip, hostile shares. **→ AC-1, AC-2, AC-3, AC-12**
+- [x] **T02** `site/stack-logic.js` until T01 passes.
+- [x] **T03** `tests/presets.test.mjs`: preset operations, name rules, last-preset protection, shared naming, lastSeen, hostile records. **→ AC-5, AC-11, AC-12**
+- [x] **T04** `site/presets.js` until T03 passes.
+- [x] **T05** `tests/stack-store.test.mjs` with fake and throwing storages; `site/stack-store.js` until it passes. **→ AC-4, AC-6, AC-7**
 
 ## Phase 2: Radar
 - [ ] **T06** Picker dialog: preset bar (dropdown, Save as, Rename, Delete), search, vendor and product ticks, counts, stale notes. **→ AC-1, AC-2, AC-5**
