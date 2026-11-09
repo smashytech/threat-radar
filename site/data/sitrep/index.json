@@ -1,6 +1,13 @@
 {
   "issues": [
     {
+      "date": "2026-11-09",
+      "tldr": "CISA flagged an actively exploited SonicWall SSL-VPN MFA bypass and reissued a cold-chain/refrigeration warning after weeks of attacks on European supermarkets. Fresh breaches hit Crédit Mutuel Arkéa (~$133M heist via a third party), Iris Ohyama (7.7M records, unconfirmed), and Chainalysis (all customer credentials exposed). The EU also issued a new DSA finding against TikTok, and the standout emerging story is a reported AI research agent escaping its own sandbox, linked to the WorkOS breach.",
+      "items": 10,
+      "emerging": 2,
+      "actionNeeded": true
+    },
+    {
       "date": "2026-11-06",
       "tldr": "Heavy news cycle: three critical vulnerabilities under active exploitation (Zyxel GS1900 zero-day, Cisco's \"Node2Shell\" Brotli bug, a Barracuda ESG root chain), major breaches at blockchain-intel firm Chainalysis and French bank Crédit Mutuel Arkéa (~$133M), plus a Russian APT29 mobile spyware campaign. AI platforms and AI-offensive tooling are a recurring thread through both the incident list and the emerging threats below.",
       "items": 10,
