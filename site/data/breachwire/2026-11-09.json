@@ -1,0 +1,235 @@
+{
+  "date": "2026-11-09",
+  "issue": 78,
+  "window": "2026-11-08",
+  "stats": {
+    "victims": 21,
+    "groups": 10,
+    "countries": 11,
+    "regions": 4
+  },
+  "sweden": 0,
+  "regions": [
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 5
+        },
+        {
+          "country": "Canada",
+          "flag": "🇨🇦",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Europe",
+      "countries": [
+        {
+          "country": "Belgium",
+          "flag": "🇧🇪",
+          "count": 1
+        },
+        {
+          "country": "Germany",
+          "flag": "🇩🇪",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Latin America & Caribbean",
+      "countries": [
+        {
+          "country": "Mexico",
+          "flag": "🇲🇽",
+          "count": 2
+        },
+        {
+          "country": "Brazil",
+          "flag": "🇧🇷",
+          "count": 1
+        },
+        {
+          "country": "Colombia",
+          "flag": "🇨🇴",
+          "count": 1
+        },
+        {
+          "country": "Costa Rica",
+          "flag": "🇨🇷",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Asia",
+      "countries": [
+        {
+          "country": "Thailand",
+          "flag": "🇹🇭",
+          "count": 2
+        },
+        {
+          "country": "India",
+          "flag": "🇮🇳",
+          "count": 1
+        },
+        {
+          "country": "Singapore",
+          "flag": "🇸🇬",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Unattributed",
+      "countries": [
+        {
+          "country": "Country not disclosed",
+          "flag": "🏳️",
+          "count": 4
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Not disclosed",
+      "count": 7
+    },
+    {
+      "sector": "Manufacturing",
+      "count": 3
+    },
+    {
+      "sector": "Healthcare",
+      "count": 2
+    },
+    {
+      "sector": "Other",
+      "count": 2
+    },
+    {
+      "sector": "Professional Services",
+      "count": 2
+    },
+    {
+      "sector": "Retail & E-Commerce",
+      "count": 2
+    },
+    {
+      "sector": "Agriculture and Food Production",
+      "count": 1
+    },
+    {
+      "sector": "Hospitality",
+      "count": 1
+    },
+    {
+      "sector": "Transportation",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "DEADLOCK",
+      "hits": 5,
+      "profile": "First seen Jun 2026 (115 claimed victims on Ransomware.live). A steady mid-volume group focused on manufacturing and professional services. Three of today's records have a country field that conflicts with the victim's own description.",
+      "countries": "IT, US, ES, PL, TR",
+      "sectors": "Manufacturing, Professional Services, Technology"
+    },
+    {
+      "name": "LOCKBIT5",
+      "hits": 4,
+      "profile": "First seen Dec 2025 as the LockBit 5.0 leak site (398 claimed victims). LockBit-branded sites have a documented history of recycled and inflated claims.",
+      "countries": "US, BR, IT, DE, MX",
+      "sectors": "Professional Services, Manufacturing, Technology, Healthcare"
+    },
+    {
+      "name": "INC RANSOM",
+      "hits": 3,
+      "profile": "RaaS active since Aug 2023 (991 claimed victims). Prolific, with heavy US healthcare and professional-services targeting. Commonly reported initial access is via exposed edge devices and stolen credentials. Today's three posts were logged by Ransomware.live only.",
+      "countries": "US, CA, DE, GB",
+      "sectors": "Professional Services, Healthcare, Manufacturing, Technology"
+    },
+    {
+      "name": "MAJINAHANASHI",
+      "hits": 3,
+      "profile": "First seen Aug 2026 (30 claimed victims). A small group whose posts often carry no country attribution. Today's three were RansomLook-only; this is its first activity since 31 Oct.",
+      "countries": "IT, GB, US, IN",
+      "sectors": "Manufacturing, Retail & E-Commerce"
+    },
+    {
+      "name": "AKIRA",
+      "hits": 1,
+      "profile": "Active since Mar–Apr 2023 (1,675 claimed victims) and one of the most prolific current operations. It is widely reported to gain access through compromised VPN appliances.",
+      "countries": "US, CA, DE, GB",
+      "sectors": "Manufacturing, Professional Services, Technology, Retail"
+    },
+    {
+      "name": "BARRACUDA",
+      "hits": 1,
+      "profile": "First seen Aug 2026 (17 claimed victims). Low volume with a broad spread of targets.",
+      "countries": "US, TR, KR, DE",
+      "sectors": "Manufacturing, Technology, Healthcare"
+    },
+    {
+      "name": "CLOAK",
+      "hits": 1,
+      "profile": "Established group active since Aug 2023 (168 claimed victims). Today's post ends a three-week quiet spell (last Ransomware.live-indexed posting 18 Oct).",
+      "countries": "US, DE, GB, CA",
+      "sectors": "Professional Services, Manufacturing, Technology"
+    },
+    {
+      "name": "ECLIPSE",
+      "hits": 1,
+      "profile": "First seen Aug 2026 (22 claimed victims). Concentrated on Singapore and India; transportation is its top sector.",
+      "countries": "SG, IN, US, BR, JP",
+      "sectors": "Transportation, Manufacturing, Technology"
+    },
+    {
+      "name": "OROVA",
+      "hits": 1,
+      "profile": "First seen Aug 2026 (64 claimed victims). Leans toward US and East-Asian targets (HK, TW, SG).",
+      "countries": "US, HK, TW, SG",
+      "sectors": "Technology, Manufacturing, Healthcare"
+    },
+    {
+      "name": "WHITEARMOR",
+      "hits": 1,
+      "profile": "Treat its claims with caution until data samples appear.",
+      "countries": "US, CO, DK, GB (many unattributed)",
+      "sectors": "Technology, Transportation, Retail & E-Commerce"
+    }
+  ],
+  "quality": {
+    "singleSourced": 11,
+    "claimOnly": 2,
+    "sourcesDisagree": 0,
+    "newGroups": 0
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 19
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 16
+      }
+    ],
+    "merged": 24,
+    "masked": 0,
+    "reposts": 1,
+    "nonVictims": 2,
+    "lowCoverage": false
+  },
+  "lateToPress": 0
+}
