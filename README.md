@@ -10,7 +10,8 @@ and it **updates itself twice a day** with no human involved.
 - Monthly trend and most-exploited vendors
 - Search by CVE, vendor, product or keyword, with filters
 - **Cyber Sitrep** section: the daily threat-intel bulletin with an archive, its CVEs cross-checked against KEV
-- **Ransomware** section: the daily Breach Wire digest as statistics and threat-group intelligence (never victim names), plus KEV entries known to be used by ransomware
+- **Breaches** section (`/ransomware/`): the daily Breach Wire digest as statistics and threat-group intelligence (never victim names), plus KEV entries known to be used by ransomware
+- **Feeds and Slack alerts**: Atom feeds for new KEV entries, the Sitrep, the Breach Wire and every vendor; a Feeds page; Slack messages to the owner's channel when something new is published
 - **My stack**: tick the vendors and products you run, keep named presets, and every page highlights what affects you. It stays in your browser
 - No trackers, no cookies, no third-party code
 
@@ -46,7 +47,7 @@ detects CVE IDs itself and writes `site/data/sitrep/`. Pushing that triggers the
 normal deploy. On the page, any CVE that is also in KEV gets an **In KEV** badge
 that opens it on the Radar. Spec: [`specs/002-sitrep-section`](specs/002-sitrep-section).
 
-## The Ransomware (Breach Wire) section
+## The Breaches (Breach Wire) section
 
 The daily **💥 Breach Wire** email lists ransomware leak-site claims. A third
 scheduled task mirrors it as **numbers and group profiles only**. Before anything
@@ -62,7 +63,7 @@ Visitors tick the vendors (or just some products) they run in the **My stack**
 picker on the Radar. The Radar then rings matching blips, badges matching
 entries, offers a "My stack only" filter and shows a summary, including **what's
 new since your last visit**. The Sitrep tags matching CVEs and stories that
-mention a ticked vendor, and the Ransomware page lists the stack's
+mention a ticked vendor, and the Breaches page lists the stack's
 ransomware-linked vulnerabilities first.
 
 - **Named presets** ("Work", "Home lab", "Customer A"); each keeps its own stack and "My stack only" setting.
@@ -71,6 +72,31 @@ ransomware-linked vulnerabilities first.
 - Logic is in pure, tested functions (`stack-logic.js`, `presets.js`); `stack-store.js` is the only file that touches storage.
 
 Spec: [`specs/004-my-stack`](specs/004-my-stack).
+
+## Feeds and Slack alerts
+
+Every deploy builds **Atom feeds** from the published data (`scripts/build_feeds.py`;
+they're never committed):
+
+| Feed | What's in it |
+|---|---|
+| `feeds/kev.xml` | The 50 newest exploited vulnerabilities |
+| `feeds/sitrep.xml` | The 30 latest Cyber Sitrep issues |
+| `feeds/breachwire.xml` | The 30 latest Breach Wire issues, statistics only |
+| `feeds/vendors/<vendor>.xml` | Each vendor's 20 newest entries (`feeds/vendors.json` lists them all) |
+
+The **Feeds page** (`/feeds/`) explains how to use them in feed readers, Slack's RSS
+app, Zapier, n8n and Power Automate. In the My stack picker, **"Subscribe in a feed
+reader"** builds an OPML file in the browser with one feed per ticked vendor.
+
+After each successful deploy, `scripts/notify_slack.py` posts what's new to the
+owner's Slack channel: new KEV entries (up to 10 listed), a new Sitrep, a new Breach
+Wire. A git tag, `alerts-sent`, marks how far the alerts have got. To set it up,
+create a Slack incoming webhook and save it as the repository secret
+`SLACK_WEBHOOK_URL`. Then run the workflow by hand with **"Send a test message to
+Slack"** ticked. Without the secret, alerts are simply skipped.
+
+Spec: [`specs/005-feeds-and-alerts`](specs/005-feeds-and-alerts).
 
 ## Security choices
 
@@ -81,6 +107,8 @@ Spec: [`specs/004-my-stack`](specs/004-my-stack).
 | Broken or truncated feed | Strict validation and a "shrink guard" (refuses a catalog that suddenly loses >10% of entries) |
 | Hijacked GitHub Action | Every action is pinned to an exact commit hash, and Dependabot proposes updates only after a 7-day cooldown |
 | Over-powered automation | Workflows start with zero permissions; each job gets only what it needs |
+| Data text sneaking markup into a feed, or `@channel` / fake links into Slack | Feeds are written by an XML library after removing forbidden characters; Slack text is escaped so `<!channel>` shows as plain text, and link previews are off |
+| The Slack webhook address leaking | Only in a GitHub secret, visible to two steps of one job, never printed; the script only accepts `https://hooks.slack.com/` addresses |
 | A visitor's software list (handy reconnaissance) | Kept only in their own browser, never in a cookie, request or the repo; stored or shared stacks are strictly validated and shown as text |
 
 ## Run it yourself
@@ -92,7 +120,7 @@ No installs needed: Python 3 and Node.js (any recent version) are enough.
 python3 -m unittest discover -s scripts -p "test_*.py" -v
 python3 scripts/add_sitrep.py --check
 python3 scripts/add_breachwire.py --check
-node --test tests/stats.test.mjs tests/site.test.mjs tests/sitrep.test.mjs tests/breachwire.test.mjs tests/stack.test.mjs tests/presets.test.mjs tests/stack-store.test.mjs
+node --test tests/stats.test.mjs tests/site.test.mjs tests/sitrep.test.mjs tests/breachwire.test.mjs tests/stack.test.mjs tests/presets.test.mjs tests/stack-store.test.mjs tests/opml.test.mjs
 
 # refresh the data from CISA
 python3 scripts/fetch_kev.py

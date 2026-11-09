@@ -1,0 +1,56 @@
+[
+  {
+    "id": "AC-6a",
+    "name": "Every page advertises the 3 main feeds, and each loads as an Atom feed",
+    "ok": true,
+    "detail": "{\"/\":{\"links\":3,\"allAtom\":true},\"sitrep/\":{\"links\":3,\"allAtom\":true},\"ransomware/\":{\"links\":3,\"allAtom\":true},\"feeds/\":{\"links\":3,\"allAtom\":true}}"
+  },
+  {
+    "id": "AC-7a",
+    "name": "Main feeds show full addresses; Copy puts the address on the clipboard",
+    "ok": true,
+    "detail": "http://localhost:8765/feeds/kev.xml, http://localhost:8765/feeds/sitrep.xml, http://localhost:8765/feeds/breachwire.xml; button \"Copied ✓\"; clipboard \"http://localhost:8765/feeds/kev.xml\""
+  },
+  {
+    "id": "AC-7b",
+    "name": "Vendor finder: finds vendors (accents ignored), caps at 20, says when nothing matches",
+    "ok": true,
+    "detail": "\"micro\" → Micro Focus, Microsoft, Trend Micro; \"systemes\" → Dassault Systèmes; \"a\" → 155 vendors match; showing the first 20. Keep typing to narrow it down.; \"zzzz\" → No vendor matches \"zzzz\".; intro \"One feed for each of the 291 vendors in the catalog, with that vendor's 20 newest exploited vulnerabilities.\""
+  },
+  {
+    "id": "AC-7c",
+    "name": "Without clipboard access, the address is selected and the button says to press Ctrl+C",
+    "ok": true,
+    "detail": "{\"focused\":true,\"selected\":true,\"button\":\"Press Ctrl+C (⌘C)\",\"status\":\"The Cyber Sitrep address is selected. Press Ctrl+C, or Command+C on a Mac, to copy it.\"}"
+  },
+  {
+    "id": "AC-8a",
+    "name": "Feeds page: OPML with exactly the ticked vendors' feeds, full addresses, valid XML, 0 requests while building",
+    "ok": true,
+    "detail": "no stack: disabled true, \"Tick your stack on the Radar, then come back here to subscribe to just the vendors you run.\"; file threat-radar-work.opml: {\"error\":false,\"title\":\"Threat Radar: Work\",\"outlines\":[{\"text\":\"Fortinet\",\"xmlUrl\":\"http://localhost:8765/feeds/vendors/fortinet.xml\",\"type\":\"rss\"},{\"text\":\"Microsoft\",\"xmlUrl\":\"http://localhost:8765/feeds/vendors/microsoft.xml\",\"type\":\"rss\"}]}; requests while building: 0; \"Downloaded threat-radar-work.opml with 2 vendor feeds. Import it in your feed reader. Feeds are per vendor, so they include all of a vendor's products, not only the ones you ticked.\""
+  },
+  {
+    "id": "AC-8b",
+    "name": "Markup in the preset name is escaped in the file; the page creates no elements from it",
+    "ok": true,
+    "detail": "threat-radar-img-src-x-onerror-alert-1-q.opml: title \"Threat Radar: <img src=x onerror=alert(1)> & \"q\"\""
+  },
+  {
+    "id": "AC-8c",
+    "name": "My stack picker: disabled with nothing ticked; then downloads the OPML with 0 requests",
+    "ok": true,
+    "detail": "empty: disabled true; threat-radar-my-stack.opml → [{\"text\":\"Ivanti\",\"xmlUrl\":\"http://localhost:8765/feeds/vendors/ivanti.xml\",\"type\":\"rss\"}]; requests 0; \"Downloaded threat-radar-my-stack.opml with 1 vendor feed. Import it in your feed reader.\""
+  },
+  {
+    "id": "AC-7d",
+    "name": "360 px without sideways scrolling; keyboard reaches and uses Copy; menu says \"Breaches\"",
+    "ok": true,
+    "detail": "feeds 360px, radar 360px; Tab lands on \"Copy address\"; Enter copied \"http://localhost:8765/feeds/vendors/cisco.xml\"; menu Radar=../, Sitrep=../sitrep/, Breaches=../ransomware/"
+  },
+  {
+    "id": "AC-7e",
+    "name": "0 external requests; no page errors, console errors or pop-ups",
+    "ok": true,
+    "detail": "196 requests, external: none; errors: none"
+  }
+]

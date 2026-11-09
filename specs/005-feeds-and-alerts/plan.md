@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | **Spec** | [spec.md](./spec.md) |
-| **Status** | Draft v1, awaiting owner review |
+| **Status** | Approved v1 (owner: "Go", 2026-11-09). Building |
 
 ## 1. The big picture
 
@@ -122,3 +122,15 @@ Browser checks (like spec 004's `browser-check.cjs`): Feeds page, copy buttons, 
 | Feed readers following `http://` addresses after HTTPS is switched on | GitHub redirects http → https once HTTPS is enforced; feed links switch automatically via `configure-pages` |
 | Vendor subscriptions reveal interests to the feed reader's service | Stated next to the button (FR-9); it's the visitor's choice |
 | 291 vendor feeds slow the deploy | They total about 3 MB and take well under a second to write |
+
+## 8. Changes during build
+
+| Change | Why |
+|---|---|
+| Vendor addresses on a collision: the vendor with **more catalog entries keeps the clean address**; the other gets the fingerprint | A fingerprint on *both* would change an established feed's address when a newcomer appears. Today no two of the 291 vendors collide |
+| KEV feed summaries leave out CISA's "required action" | It's mostly the same long boilerplate and buried the useful part; the entry's link opens the full text |
+| The vendor feed list (`feeds/vendors.json`) is fetched **ahead of time**, when the Feeds page loads or the picker opens | So "Subscribe in a feed reader" makes **zero** requests when clicked (AC-8) |
+| "Copy address" falls back to selecting the address with a "Press Ctrl+C" hint | Browsers block the clipboard on plain-http sites, which zelin.se is until HTTPS is enforced |
+| The alert job copies old data with `git archive`, and `notify_slack.py` treats an empty or broken file as "no starting point" for that kind | Found during a dry run: a file that didn't exist at the old commit would otherwise have crashed the alerts |
+| The fake Slack server in the tests handles requests in parallel | One deliberately slow request was making the following tests time out |
+| The top menu says **"Breaches"** instead of "Ransomware" on every page; the address stays `/ransomware/` | Owner's request mid-build (more descriptive); keeping the address means no existing link breaks |

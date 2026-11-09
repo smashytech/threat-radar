@@ -9,3 +9,8 @@ site/data/.*.tmp
 __pycache__/
 *.pyc
 .DS_Store
+
+# Feeds are built on every deploy from the data (scripts/build_feeds.py), never committed.
+site/feeds/*.xml
+site/feeds/vendors/
+site/feeds/vendors.json

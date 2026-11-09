@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Same strict Content-Security-Policy as every other page: only files from this site. -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <title>Feeds: Threat Radar</title>
+  <meta name="description" content="Follow Threat Radar in a feed reader, Slack or an automation tool: feeds for newly exploited vulnerabilities, the Cyber Sitrep, the Breach Wire and every vendor.">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css">
+  <!-- Feed autodiscovery: feed readers find these from the page address alone (spec 005 FR-7). -->
+  <link rel="alternate" type="application/atom+xml" title="Threat Radar: newly exploited vulnerabilities" href="kev.xml">
+  <link rel="alternate" type="application/atom+xml" title="Threat Radar: Cyber Sitrep" href="sitrep.xml">
+  <link rel="alternate" type="application/atom+xml" title="Threat Radar: Breach Wire" href="breachwire.xml">
+  <script type="module" src="feeds.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-feeds">Skip to the feeds</a>
+
+  <header class="masthead masthead--compact">
+    <nav class="topnav" aria-label="Sections">
+      <a class="topnav__link" href="../">Radar</a>
+      <a class="topnav__link" href="../sitrep/">Sitrep</a>
+      <a class="topnav__link" href="../ransomware/">Breaches</a>
+    </nav>
+    <div class="masthead__inner masthead__inner--text">
+      <div class="masthead__text">
+        <p class="eyebrow">Take it with you</p>
+        <h1>Feeds</h1>
+        <p class="lede">Follow Threat Radar in your <em>feed reader, Slack or automation tool</em>. Paste a feed address and new items show up as they're published.</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="feeds-layout">
+    <section class="band" id="main-feeds" tabindex="-1" aria-labelledby="main-feeds-h">
+      <h2 class="section-title" id="main-feeds-h">Main feeds</h2>
+      <ul class="feed-list">
+        <li class="feed-card">
+          <h3 class="feed-card__title">Newly exploited vulnerabilities</h3>
+          <p class="feed-card__desc">The 50 newest entries in CISA's catalog of vulnerabilities attackers are actively using. Updated twice a day.</p>
+          <div class="copy-row">
+            <label class="visually-hidden" for="addr-kev">Address of the newly exploited vulnerabilities feed</label>
+            <input type="text" id="addr-kev" class="copy-row__input" data-feed="feeds/kev.xml" readonly>
+            <button type="button" class="button button--quiet" data-copy="addr-kev">Copy address</button>
+          </div>
+        </li>
+        <li class="feed-card">
+          <h3 class="feed-card__title">Cyber Sitrep</h3>
+          <p class="feed-card__desc">The daily situation report, every weekday morning: TL;DR, number of items, and whether action is needed.</p>
+          <div class="copy-row">
+            <label class="visually-hidden" for="addr-sitrep">Address of the Cyber Sitrep feed</label>
+            <input type="text" id="addr-sitrep" class="copy-row__input" data-feed="feeds/sitrep.xml" readonly>
+            <button type="button" class="button button--quiet" data-copy="addr-sitrep">Copy address</button>
+          </div>
+        </li>
+        <li class="feed-card">
+          <h3 class="feed-card__title">Breach Wire</h3>
+          <p class="feed-card__desc">Daily ransomware leak-site statistics: claimed victims, countries, groups, and whether Sweden was hit. Never victim names.</p>
+          <div class="copy-row">
+            <label class="visually-hidden" for="addr-breachwire">Address of the Breach Wire feed</label>
+            <input type="text" id="addr-breachwire" class="copy-row__input" data-feed="feeds/breachwire.xml" readonly>
+            <button type="button" class="button button--quiet" data-copy="addr-breachwire">Copy address</button>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section class="band" aria-labelledby="stack-feeds-h">
+      <h2 class="section-title" id="stack-feeds-h">Just your stack</h2>
+      <div class="feed-card feed-card--mine">
+        <p class="feed-card__desc" id="opml-stack"></p>
+        <p><button type="button" class="button button--mine" id="opml-download" disabled>Subscribe in a feed reader</button></p>
+        <p class="feed-note">This downloads a small subscription file (OPML) with one feed per ticked vendor. Import it in your feed reader, usually under "Import OPML". The file is made here in your browser; the site never sees your stack. Once you're subscribed, your feed reader fetches those vendor feeds, so its service can see which ones you follow.</p>
+        <p class="picker__status" id="opml-status" role="status"></p>
+      </div>
+    </section>
+
+    <section class="band" aria-labelledby="vendor-feeds-h">
+      <h2 class="section-title" id="vendor-feeds-h">Vendor feeds</h2>
+      <p class="feed-intro" id="vendor-intro">One feed per vendor, with that vendor's 20 newest exploited vulnerabilities.</p>
+      <label class="field vendor-finder">
+        <span class="field__label">Find a vendor</span>
+        <input type="search" id="vendor-q" placeholder="e.g. Microsoft, Fortinet, Ivanti" autocomplete="off" spellcheck="false">
+      </label>
+      <p class="feed-intro" id="vendor-count" aria-live="polite"></p>
+      <ul class="vendor-results" id="vendor-results" aria-label="Matching vendor feeds"></ul>
+      <p class="feed-note">Can't find a product? CISA files some products under the parent company (VMware is under Broadcom). The My stack picker on the Radar searches product names too.</p>
+    </section>
+
+    <section class="band" aria-labelledby="howto-h">
+      <h2 class="section-title" id="howto-h">How to use them</h2>
+      <div class="howto">
+        <div class="howto__item">
+          <h3>Feed readers</h3>
+          <p>Feedly, Inoreader, NetNewsWire, Thunderbird and most others: add a feed and paste an address. Many find all three main feeds from just the site address.</p>
+        </div>
+        <div class="howto__item">
+          <h3>Slack</h3>
+          <p>Add Slack's <strong>RSS</strong> app to your workspace, then in a channel type <code>/feed subscribe</code> followed by a feed address.</p>
+        </div>
+        <div class="howto__item">
+          <h3>Automation tools</h3>
+          <p>Zapier ("RSS by Zapier → New item in feed"), n8n ("RSS Feed Trigger") and Power Automate ("RSS → When a feed item is published"): paste a feed address into the trigger, then send the items wherever you like.</p>
+        </div>
+      </div>
+      <p class="feed-note">Feed addresses stay the same over time. Items keep permanent IDs, so tools never post the same item twice. If CISA renames a vendor, that vendor's old feed stops updating.</p>
+    </section>
+    <p class="visually-hidden" id="copy-status" role="status"></p>
+  </main>
+
+  <footer class="footer">
+    <p>Data: <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" rel="noopener noreferrer">CISA Known Exploited Vulnerabilities catalog</a> (US government, public domain). Not affiliated with CISA.</p>
+    <p>Your stack is kept only in this browser, and only if you tick Remember.</p>
+    <p>No trackers, no cookies, no third-party code. <a href="../">← Back to the Radar</a></p>
+  </footer>
+</body>
+</html>

@@ -12,6 +12,7 @@
 import { el, numberFmt, debounce } from "./ui.js";
 import { searchIndex, staleNames, describeStack } from "./stack-logic.js";
 import { activePreset, saveAs, rename, remove, switchTo, setVendors, MAX_PRESETS } from "./presets.js";
+import { downloadStackOpml, vendorFeedList } from "./opml-download.js";
 
 const $ = (id) => document.getElementById(id);
 const ARM_MS = 5000; // how long a "click again to confirm" button stays armed
@@ -210,6 +211,7 @@ export function createPicker(deps) {
       return el("li", {}, [el("span", { text: name }), button]);
     }));
     $("share-copy").disabled = n === 0;
+    $("share-opml").disabled = n === 0;
     renderHint(); // e.g. the first tick turns "Off by default" into "Not remembered: tick to keep it"
   }
 
@@ -386,6 +388,13 @@ export function createPicker(deps) {
     }
   });
 
+  // "Subscribe in a feed reader" (spec 005 FR-9): an OPML file made here, never sent anywhere.
+  $("share-opml").addEventListener("click", async () => {
+    const preset = activePreset(record());
+    const result = await downloadStackOpml({ presetName: preset.name, vendors: preset.vendors, root: new URL("./", window.location.href).href });
+    status(result.message, !result.ok);
+  });
+
   const disarmForget = armable($("forget"), () => "Click again to forget everything", () => {
     forget();
     closeForm(false);
@@ -436,6 +445,7 @@ export function createPicker(deps) {
       renderAll();
       status(message);
       if (!dialog.open) dialog.showModal();
+      vendorFeedList(new URL("./", window.location.href).href).catch(() => {}); // fetched now, so "Subscribe" needs no request
     },
     /** Redraw if open, e.g. after another tab changed the presets. */
     refresh() {

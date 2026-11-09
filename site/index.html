@@ -16,6 +16,10 @@
   <meta name="description" content="A self-updating view of CISA's Known Exploited Vulnerabilities catalog: what attackers are exploiting right now.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
+  <!-- Feed autodiscovery: feed readers find these from the page address alone (spec 005 FR-7). -->
+  <link rel="alternate" type="application/atom+xml" title="Threat Radar: newly exploited vulnerabilities" href="feeds/kev.xml">
+  <link rel="alternate" type="application/atom+xml" title="Threat Radar: Cyber Sitrep" href="feeds/sitrep.xml">
+  <link rel="alternate" type="application/atom+xml" title="Threat Radar: Breach Wire" href="feeds/breachwire.xml">
   <script type="module" src="app.js"></script>
 </head>
 <body>
@@ -25,7 +29,7 @@
     <nav class="topnav" aria-label="Sections">
       <a class="topnav__link" href="./" aria-current="page">Radar</a>
       <a class="topnav__link" href="sitrep/">Sitrep</a>
-      <a class="topnav__link" href="ransomware/">Ransomware</a>
+      <a class="topnav__link" href="ransomware/">Breaches</a>
     </nav>
     <div class="masthead__inner">
       <svg class="radar" id="radar" viewBox="0 0 200 200" role="img" aria-labelledby="radar-label">
@@ -253,12 +257,14 @@
       <p class="picker__hint" id="remember-hint"></p>
       <div class="picker__actions">
         <button type="button" class="button button--quiet" id="share-copy">Copy link to this preset</button>
+        <button type="button" class="button button--quiet" id="share-opml">Subscribe in a feed reader</button>
         <button type="button" class="button button--quiet button--danger" id="forget">Forget everything on this device</button>
       </div>
       <label class="field share-field" id="share-field" hidden>
         <span class="field__label">Copy this link</span>
         <input type="text" id="share-url" readonly>
       </label>
+      <p class="picker__hint picker__hint--feeds">"Subscribe" downloads a file for your feed reader with one feed per ticked vendor, made here in your browser. More on the <a href="feeds/">Feeds page</a>.</p>
       <p class="picker__status" id="picker-status" role="status"></p>
     </section>
 
@@ -268,6 +274,7 @@
   <footer class="footer">
     <p>Data: <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" rel="noopener noreferrer">CISA Known Exploited Vulnerabilities catalog</a> (US government, public domain). Not affiliated with CISA.</p>
     <p>Your stack is kept only in this browser, and only if you tick Remember.</p>
+    <p>Follow along in a feed reader, Slack or an automation tool: <a href="feeds/">Feeds</a>.</p>
     <p>No trackers, no cookies, no third-party code. <a id="repo-link" href="https://github.com/smashytech/threat-radar" rel="noopener noreferrer">How this site works ↗</a></p>
   </footer>
 </body>

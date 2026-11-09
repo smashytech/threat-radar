@@ -1,10 +1,13 @@
-# The robot. Twice a day it:
+# The robot. Twice a day (and whenever something is pushed) it:
 #   1. runs every test (stops here if anything fails)
 #   2. downloads + validates the CISA KEV catalog
 #   3. commits the data, but only if it changed
-#   4. publishes the site/ folder to GitHub Pages
+#   4. builds the feeds from the data (spec 005; never committed)
+#   5. publishes the site/ folder to GitHub Pages
+#   6. tells Slack what's new since the last alert (spec 005; only if the secret is set)
 #
 # You can also run it by hand: Actions tab -> "Refresh data & deploy" -> "Run workflow".
+# Tick "Send a test message to Slack" there to check the Slack setup.
 
 name: Refresh data & deploy
 
@@ -12,6 +15,11 @@ on:
   schedule:
     - cron: "17 6,18 * * *"   # 06:17 and 18:17 UTC daily (odd minute = less queueing)
   workflow_dispatch:           # the manual "Run workflow" button (spec FR-10)
+    inputs:
+      test_alert:
+        description: "Send a test message to Slack (checks the alert setup)"
+        type: boolean
+        default: false
   push:
     branches: [main]           # redeploy when the site code changes
 
@@ -29,7 +37,11 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
-      contents: write   # allowed to push the data commit, nothing else
+      contents: write   # allowed to push the data commit
+      pages: read       # allowed to look up the site's address (for full links in the feeds)
+    outputs:
+      data_sha: ${{ steps.published.outputs.sha }}     # the commit whose data is being published
+      base_url: ${{ steps.pages.outputs.base_url }}    # e.g. http://zelin.se (https once enforced)
     steps:
       # Actions are pinned to an exact commit (the long hash) so nobody can swap
       # the code behind a version tag. Dependabot updates these hashes weekly.
@@ -45,7 +57,7 @@ jobs:
           python3 -m unittest discover -s scripts -p "test_*.py" -v
           python3 scripts/add_sitrep.py --check   # every published Sitrep issue must still be valid
           python3 scripts/add_breachwire.py --check   # every Breach Wire issue must still be valid
-          node --test tests/stats.test.mjs tests/site.test.mjs tests/sitrep.test.mjs tests/breachwire.test.mjs tests/stack.test.mjs tests/presets.test.mjs tests/stack-store.test.mjs
+          node --test tests/stats.test.mjs tests/site.test.mjs tests/sitrep.test.mjs tests/breachwire.test.mjs tests/stack.test.mjs tests/presets.test.mjs tests/stack-store.test.mjs tests/opml.test.mjs
 
       - name: Fetch and validate the KEV catalog
         run: python3 scripts/fetch_kev.py
@@ -63,6 +75,21 @@ jobs:
           git commit -m "data: KEV catalog ${version}"
           git pull --rebase --quiet origin main   # in case someone pushed meanwhile
           git push origin HEAD:main
+
+      - name: Remember which commit is being published
+        id: published
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      # Asks GitHub for the site's current address. It follows the custom domain,
+      # and switches to https by itself once "Enforce HTTPS" is on.
+      - name: Look up the site's address
+        id: pages
+        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
+
+      - name: Build the feeds
+        env:
+          BASE_URL: ${{ steps.pages.outputs.base_url }}   # passed as data, never pasted into the script
+        run: python3 scripts/build_feeds.py --base-url "$BASE_URL"
 
       - name: Package the site for GitHub Pages
         uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
@@ -84,3 +111,60 @@ jobs:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
+
+  # Slack alerts (spec 005). Runs only after a successful deploy, so every link works.
+  # The "alerts-sent" git tag marks the last commit whose data was alerted; what's
+  # new = the data now compared with the data at that tag.
+  alert:
+    name: Slack alerts
+    needs: [refresh, deploy]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write   # only to move the alerts-sent tag
+    steps:
+      - name: Check out the published commit, with history and tags
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ needs.refresh.outputs.data_sha }}
+          fetch-depth: 0         # the whole history, so the old data can be read back
+          fetch-tags: true
+          persist-credentials: true   # to push the tag; only site/ is ever published
+
+      - name: Send a test message
+        if: github.event_name == 'workflow_dispatch' && inputs.test_alert
+        env:
+          # The webhook address is a secret: GitHub hides it in logs, and only these two steps can see it.
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SITE_URL: ${{ needs.refresh.outputs.base_url }}
+        run: |
+          if [ -z "$SLACK_WEBHOOK_URL" ]; then
+            echo "::warning::Slack alerts aren't set up yet: add the SLACK_WEBHOOK_URL repository secret."
+            exit 0
+          fi
+          python3 scripts/notify_slack.py --test-message --site-url "$SITE_URL"
+
+      - name: Alert what's new since the last alert
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SITE_URL: ${{ needs.refresh.outputs.base_url }}
+          DATA_SHA: ${{ needs.refresh.outputs.data_sha }}
+        run: |
+          if [ -z "$SLACK_WEBHOOK_URL" ]; then
+            echo "Slack alerts aren't set up (no SLACK_WEBHOOK_URL secret). Skipping."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if ! git rev-parse -q --verify refs/tags/alerts-sent > /dev/null; then
+            echo "First run: recording the starting point. Nothing is sent this time."
+            git tag alerts-sent "$DATA_SHA"
+            git push origin refs/tags/alerts-sent
+            exit 0
+          fi
+          old="$(mktemp -d)"
+          git archive alerts-sent site/data | tar -x -C "$old" --strip-components=2   # the data as it was at the last alert
+          python3 scripts/notify_slack.py --old "$old" --new site/data --site-url "$SITE_URL"
+          # Only reached if every message went through; otherwise the news is retried next run.
+          git tag -f alerts-sent "$DATA_SHA"
+          git push -f origin refs/tags/alerts-sent

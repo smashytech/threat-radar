@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+  <head>
+    <title>Threat Radar: Work</title>
+  </head>
+  <body>
+    <outline type="rss" text="Fortinet" title="Fortinet" xmlUrl="http://localhost:8765/feeds/vendors/fortinet.xml" htmlUrl="http://localhost:8765/"/>
+    <outline type="rss" text="Microsoft" title="Microsoft" xmlUrl="http://localhost:8765/feeds/vendors/microsoft.xml" htmlUrl="http://localhost:8765/"/>
+  </body>
+</opml>

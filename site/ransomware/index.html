@@ -11,6 +11,10 @@
   <meta name="description" content="Daily ransomware and extortion leak-site activity as patterns: where, which sectors, which groups. Victim names are deliberately not published.">
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../styles.css">
+  <!-- Feed autodiscovery: feed readers find these from the page address alone (spec 005 FR-7). -->
+  <link rel="alternate" type="application/atom+xml" title="Threat Radar: newly exploited vulnerabilities" href="../feeds/kev.xml">
+  <link rel="alternate" type="application/atom+xml" title="Threat Radar: Cyber Sitrep" href="../feeds/sitrep.xml">
+  <link rel="alternate" type="application/atom+xml" title="Threat Radar: Breach Wire" href="../feeds/breachwire.xml">
   <script type="module" src="breachwire.js"></script>
 </head>
 <body>
@@ -20,7 +24,7 @@
     <nav class="topnav" aria-label="Sections">
       <a class="topnav__link" href="../">Radar</a>
       <a class="topnav__link" href="../sitrep/">Sitrep</a>
-      <a class="topnav__link" href="./" aria-current="page">Ransomware</a>
+      <a class="topnav__link" href="./" aria-current="page">Breaches</a>
     </nav>
     <div class="masthead__inner masthead__inner--text">
       <div class="masthead__text">
@@ -102,6 +106,7 @@
   <footer class="footer">
     <p>Breach Wire is compiled daily from public leak-site aggregators and mirrored here automatically as statistics only. Victim names are never published on this site.</p>
     <p>Your stack is kept only in this browser, and only if you tick Remember.</p>
+    <p>Follow along in a feed reader, Slack or an automation tool: <a href="../feeds/">Feeds</a>.</p>
     <p>No trackers, no cookies, no third-party code. <a href="../">← Back to the Radar</a></p>
   </footer>
 </body>
