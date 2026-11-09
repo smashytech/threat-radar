@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | **Spec** | [spec.md](./spec.md) |
-| **Status** | Approved v1 (owner: "Go", 2026-11-09). Building |
+| **Status** | Approved v1 (owner: "Go", 2026-11-09). Built and live; Slack test message waits for the owner's secret |
 
 ## 1. The big picture
 

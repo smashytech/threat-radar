@@ -25,6 +25,6 @@
 
 ## Phase 5: Verify and ship
 - [x] **T11** Browser checks (Feeds page, OPML download, 360 px, keyboard, 0 external requests). **→ AC-7, AC-8**
-- [ ] **T12** Deploy; W3C Feed Validation Service on the live feeds; a feed reader finds them from the site address. **→ AC-6**
+- [x] **T12** Deploy; W3C Feed Validation Service on the live feeds; a feed reader finds them from the site address. **→ AC-6**
 - [ ] **T13** Owner adds the Slack secret; first run records the starting point; test message arrives. **→ AC-12, AC-13**
-- [ ] **T14** README section, `verification.md` with evidence for every AC.
+- [x] **T14** README section, `verification.md` with evidence for every AC.
