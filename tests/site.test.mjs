@@ -84,3 +84,13 @@ test("JS that opens new tabs always adds rel=noopener", () => {
     }
   }
 });
+
+test("dates and numbers always use the site's language, never the browser's", () => {
+  for (const file of jsFiles) {
+    const code = codeOnly(readFileSync(file, "utf8"));
+    for (const match of code.matchAll(/new Intl\.\w+\(([^,)]*)/g)) {
+      assert.equal(match[1].trim(), "SITE_LOCALE", `${label(file)}: ${match[0]} must use SITE_LOCALE`);
+    }
+    assert.doesNotMatch(code, /\.toLocale(Date|Time)?String\(/, `${label(file)}: toLocale…String() follows the browser's language`);
+  }
+});

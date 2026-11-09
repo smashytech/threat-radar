@@ -57,13 +57,17 @@ export function daysBetween(fromIso, toIso) {
   return Math.round((isoToDate(toIso) - isoToDate(fromIso)) / 86400000);
 }
 
-export const numberFmt = new Intl.NumberFormat();
-const dateFmt = new Intl.DateTimeFormat(undefined, { year: "numeric", month: "short", day: "numeric", timeZone: "UTC" });
-const longDateFmt = new Intl.DateTimeFormat(undefined, { weekday: "long", year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
-const shortDayFmt = new Intl.DateTimeFormat(undefined, { weekday: "short", month: "short", day: "numeric", timeZone: "UTC" });
-export const monthFmt = new Intl.DateTimeFormat(undefined, { month: "short", timeZone: "UTC" });
-export const monthYearFmt = new Intl.DateTimeFormat(undefined, { month: "long", year: "numeric", timeZone: "UTC" });
-const relFmt = new Intl.RelativeTimeFormat(undefined, { numeric: "auto" });
+// The site is written in British English, so dates and numbers follow it too,
+// whatever language the visitor's browser uses (otherwise a Swedish browser shows
+// "söndag 8 november" in the middle of English text). Tested in tests/ui.test.mjs.
+export const SITE_LOCALE = "en-GB";
+export const numberFmt = new Intl.NumberFormat(SITE_LOCALE);
+const dateFmt = new Intl.DateTimeFormat(SITE_LOCALE, { year: "numeric", month: "short", day: "numeric", timeZone: "UTC" });
+const longDateFmt = new Intl.DateTimeFormat(SITE_LOCALE, { weekday: "long", year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
+const shortDayFmt = new Intl.DateTimeFormat(SITE_LOCALE, { weekday: "short", month: "short", day: "numeric", timeZone: "UTC" });
+export const monthFmt = new Intl.DateTimeFormat(SITE_LOCALE, { month: "short", timeZone: "UTC" });
+export const monthYearFmt = new Intl.DateTimeFormat(SITE_LOCALE, { month: "long", year: "numeric", timeZone: "UTC" });
+const relFmt = new Intl.RelativeTimeFormat(SITE_LOCALE, { numeric: "auto" });
 
 export const formatDate = (iso) => dateFmt.format(isoToDate(iso));
 export const formatLongDate = (iso) => longDateFmt.format(isoToDate(iso));

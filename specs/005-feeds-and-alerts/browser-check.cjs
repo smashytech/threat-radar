@@ -184,6 +184,26 @@ async function grabOpml(page, selector) {
     `feeds ${width}px, radar ${radarWidth}px; Tab lands on "${onCopy}"; Enter copied "${kbCopied}"; menu ${nav.join(', ')}`);
   await ctxPhone.close();
 
+  // ---- Owner's request: dates and numbers follow the site's language, not the browser's ----
+  const ctxSv = await newContext(browser, { locale: 'sv-SE', timezoneId: 'Europe/Stockholm' });
+  const swedish = /\b(måndag|tisdag|onsdag|torsdag|fredag|lördag|söndag|mån|tis|ons|tors|fre|lör|sön|i går|i dag|sedan|okt\.|nov\.|november 2026 \d)\b|\d\u00a0\d{3}/i;
+  const seen = {};
+  for (const p of ['', 'sitrep/', 'ransomware/']) {
+    const pg = await open(ctxSv, BASE + p);
+    await pg.waitForTimeout(500);
+    const text = await pg.evaluate(() => document.body.innerText);
+    const hit = text.match(swedish);
+    seen[p || '/'] = { swedishFound: hit ? hit[0] : null, sample: (text.match(/(Mon|Tue|Wed|Thu|Fri|Sat|Sun)[a-z]*,? \d{1,2} [A-Z][a-z]+( \d{4})?/) || [''])[0] };
+    if (p === 'ransomware/') await pg.locator('.masthead').screenshot({ path: path.join(OUT, 'breaches-english-dates.png') });
+    await pg.close();
+  }
+  const radarSv = await open(ctxSv, BASE);
+  const total = await radarSv.textContent('#stat-total');
+  check('LANG', 'In a Swedish browser, dates, "time ago" and numbers are still English',
+    Object.values(seen).every((s) => !s.swedishFound && s.sample) && total === '1,769',
+    `${JSON.stringify(seen)}; catalog total "${total}"`);
+  await ctxSv.close();
+
   const external = requests.filter((u) => /^https?:/.test(u) && !u.startsWith(BASE));
   check('AC-7e', '0 external requests; no page errors, console errors or pop-ups',
     external.length === 0 && errors.length === 0, `${requests.length} requests, external: ${external.join(', ') || 'none'}; errors: ${errors.join(' | ') || 'none'}`);

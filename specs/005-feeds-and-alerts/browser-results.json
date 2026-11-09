@@ -48,9 +48,15 @@
     "detail": "feeds 360px, radar 360px; Tab lands on \"Copy address\"; Enter copied \"http://localhost:8765/feeds/vendors/cisco.xml\"; menu Radar=../, Sitrep=../sitrep/, Breaches=../ransomware/"
   },
   {
+    "id": "LANG",
+    "name": "In a Swedish browser, dates, \"time ago\" and numbers are still English",
+    "ok": true,
+    "detail": "{\"/\":{\"swedishFound\":null,\"sample\":\"Sat 7 Nov\"},\"sitrep/\":{\"swedishFound\":null,\"sample\":\"Friday, 6 November 2026\"},\"ransomware/\":{\"swedishFound\":null,\"sample\":\"Sunday, 8 November 2026\"}}; catalog total \"1,769\""
+  },
+  {
     "id": "AC-7e",
     "name": "0 external requests; no page errors, console errors or pop-ups",
     "ok": true,
-    "detail": "196 requests, external: none; errors: none"
+    "detail": "259 requests, external: none; errors: none"
   }
 ]

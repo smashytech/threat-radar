@@ -25,4 +25,6 @@ jobs:
           python3 scripts/add_sitrep.py --check
           python3 scripts/add_breachwire.py --check
       - name: JavaScript tests
-        run: node --test tests/stats.test.mjs tests/site.test.mjs tests/sitrep.test.mjs tests/breachwire.test.mjs tests/stack.test.mjs tests/presets.test.mjs tests/stack-store.test.mjs tests/opml.test.mjs
+        run: node --test tests/stats.test.mjs tests/site.test.mjs tests/sitrep.test.mjs tests/breachwire.test.mjs tests/stack.test.mjs tests/presets.test.mjs tests/stack-store.test.mjs tests/opml.test.mjs tests/ui.test.mjs
+      - name: Dates stay English in a Swedish setting
+        run: env LC_ALL=sv_SE.UTF-8 LANG=sv_SE.UTF-8 node --test tests/ui.test.mjs
