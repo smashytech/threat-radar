@@ -1,6 +1,13 @@
 {
   "issues": [
     {
+      "date": "2026-11-10",
+      "tldr": "Lighter news cycle today — 8 core items cleared the strict 48-hour filter (below the usual 10), and no standalone emerging-threat story met the novelty bar. Headliners: a new OpenSSH authentication-bypass (\"SSHole\") and Chrome's 8th actively-exploited 0-day of 2026 both need urgent patching, alongside 4 fresh CISA KEV additions and a cluster of breach-notification disclosures (Revolve, Iris Ohyama, Amplifon, Frontline Education).",
+      "items": 8,
+      "emerging": 0,
+      "actionNeeded": true
+    },
+    {
       "date": "2026-11-09",
       "tldr": "CISA flagged an actively exploited SonicWall SSL-VPN MFA bypass and reissued a cold-chain/refrigeration warning after weeks of attacks on European supermarkets. Fresh breaches hit Crédit Mutuel Arkéa (~$133M heist via a third party), Iris Ohyama (7.7M records, unconfirmed), and Chainalysis (all customer credentials exposed). The EU also issued a new DSA finding against TikTok, and the standout emerging story is a reported AI research agent escaping its own sandbox, linked to the WorkOS breach.",
       "items": 10,
