@@ -1,0 +1,436 @@
+{
+  "date": "2026-11-10",
+  "issue": 79,
+  "window": "2026-11-09",
+  "stats": {
+    "victims": 63,
+    "groups": 24,
+    "countries": 12,
+    "regions": 6
+  },
+  "sweden": 0,
+  "regions": [
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 16
+        }
+      ]
+    },
+    {
+      "region": "Europe",
+      "countries": [
+        {
+          "country": "Poland",
+          "flag": "🇵🇱",
+          "count": 1
+        },
+        {
+          "country": "Turkey",
+          "flag": "🇹🇷",
+          "count": 1
+        },
+        {
+          "country": "Spain",
+          "flag": "🇪🇸",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Middle East",
+      "countries": [
+        {
+          "country": "Kuwait",
+          "flag": "🇰🇼",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Africa",
+      "countries": [
+        {
+          "country": "Libya",
+          "flag": "🇱🇾",
+          "count": 1
+        },
+        {
+          "country": "South Africa",
+          "flag": "🇿🇦",
+          "count": 1
+        },
+        {
+          "country": "Cameroon",
+          "flag": "🇨🇲",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Latin America & Caribbean",
+      "countries": [
+        {
+          "country": "Colombia",
+          "flag": "🇨🇴",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Asia",
+      "countries": [
+        {
+          "country": "Hong Kong",
+          "flag": "🇭🇰",
+          "count": 2
+        },
+        {
+          "country": "Thailand",
+          "flag": "🇹🇭",
+          "count": 2
+        },
+        {
+          "country": "South Korea",
+          "flag": "🇰🇷",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Unattributed",
+      "countries": [
+        {
+          "country": "Country not disclosed",
+          "flag": "🏳️",
+          "count": 34
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Not disclosed",
+      "count": 16
+    },
+    {
+      "sector": "Healthcare",
+      "count": 6
+    },
+    {
+      "sector": "Manufacturing",
+      "count": 5
+    },
+    {
+      "sector": "Education",
+      "count": 3
+    },
+    {
+      "sector": "Technology",
+      "count": 3
+    },
+    {
+      "sector": "Government & Defense",
+      "count": 2
+    },
+    {
+      "sector": "Hospitality",
+      "count": 2
+    },
+    {
+      "sector": "Professional Services",
+      "count": 2
+    },
+    {
+      "sector": "Retail & E-Commerce",
+      "count": 2
+    },
+    {
+      "sector": "Bus transport",
+      "count": 1
+    },
+    {
+      "sector": "Energy & Utilities",
+      "count": 1
+    },
+    {
+      "sector": "Environmental services",
+      "count": 1
+    },
+    {
+      "sector": "Financial",
+      "count": 1
+    },
+    {
+      "sector": "Financial Services",
+      "count": 1
+    },
+    {
+      "sector": "Financial solutions",
+      "count": 1
+    },
+    {
+      "sector": "Fitness / leisure",
+      "count": 1
+    },
+    {
+      "sector": "Food",
+      "count": 1
+    },
+    {
+      "sector": "Hotels",
+      "count": 1
+    },
+    {
+      "sector": "Information & media",
+      "count": 1
+    },
+    {
+      "sector": "Insurance agency",
+      "count": 1
+    },
+    {
+      "sector": "Investment holding",
+      "count": 1
+    },
+    {
+      "sector": "Life-sciences cloud / document services",
+      "count": 1
+    },
+    {
+      "sector": "Medical devices",
+      "count": 1
+    },
+    {
+      "sector": "Private security services",
+      "count": 1
+    },
+    {
+      "sector": "Real estate & construction",
+      "count": 1
+    },
+    {
+      "sector": "Real estate development",
+      "count": 1
+    },
+    {
+      "sector": "Restaurant chain",
+      "count": 1
+    },
+    {
+      "sector": "Service provider",
+      "count": 1
+    },
+    {
+      "sector": "Technology / manufacturing",
+      "count": 1
+    },
+    {
+      "sector": "Textile",
+      "count": 1
+    },
+    {
+      "sector": "Wholesale / distribution",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "CLIMAX",
+      "hits": 14,
+      "profile": "Not indexed by Ransomware.live; this is its first appearance in RansomLook’s recent feed (which goes back to 1 Nov).",
+      "countries": "not disclosed by either source",
+      "sectors": "Financial, manufacturing, hospitality, textile, transport"
+    },
+    {
+      "name": "VORTEX",
+      "hits": 11,
+      "profile": "Not indexed by Ransomware.live; first seen in RansomLook’s feed in this window.",
+      "countries": "not disclosed by either source",
+      "sectors": "Healthcare, manufacturing, real estate, construction"
+    },
+    {
+      "name": "KRYBIT",
+      "hits": 5,
+      "profile": "First seen Apr 2026 (173 claimed victims on Ransomware.live).",
+      "countries": "MX, IN, DE, FR (history); today HK, TH, LY, TR",
+      "sectors": "Professional Services, Technology, Retail"
+    },
+    {
+      "name": "AUDIT TEAM",
+      "hits": 4,
+      "profile": "First seen Apr 2026 (70 claimed victims).",
+      "countries": "RU, IT, KR, GB",
+      "sectors": "Technology, Manufacturing"
+    },
+    {
+      "name": "BLACK X",
+      "hits": 3,
+      "profile": "First seen Jun 2026 (14 claimed victims on Ransomware.live, the last indexed 9 Oct).",
+      "countries": "KR, DE, YE, GB",
+      "sectors": "Healthcare, Financial Services, Technology"
+    },
+    {
+      "name": "N0N",
+      "hits": 3,
+      "profile": "First seen 18 Sep 2026 (282 claimed victims).",
+      "countries": "US, CA, KR, BR",
+      "sectors": "Transportation, Technology, Healthcare"
+    },
+    {
+      "name": "AOQIN",
+      "hits": 2,
+      "profile": "A new entrant, first seen 4 Nov 2026 (7 claimed victims).",
+      "countries": "US, CO, BR, SI",
+      "sectors": "Technology, Retail"
+    },
+    {
+      "name": "BYOD",
+      "hits": 2,
+      "profile": "First seen Oct 2026 (17 claimed victims).",
+      "countries": "US, GB, SG, MY",
+      "sectors": "Education, Technology, Hospitality"
+    },
+    {
+      "name": "GLOBAL SECRET GROUP",
+      "hits": 2,
+      "profile": "First seen Jul 2026 (57 claimed victims).",
+      "countries": "US, IN, CA, BR",
+      "sectors": "Manufacturing, Technology, Retail"
+    },
+    {
+      "name": "METAENCRYPTOR",
+      "hits": 2,
+      "profile": "Active since Aug 2023 (66 claimed victims).",
+      "countries": "US, DE, KR, CA",
+      "sectors": "Manufacturing, Professional Services, Technology"
+    },
+    {
+      "name": "VEXY",
+      "hits": 2,
+      "profile": "First seen Sep 2026 (28 claimed victims).",
+      "countries": "IN, US, BR, VN",
+      "sectors": "Technology, Retail"
+    },
+    {
+      "name": "ANUBIS",
+      "hits": 1,
+      "profile": "Active since Feb 2025 (119 claimed victims).",
+      "countries": "US, GB, DE, AU",
+      "sectors": "Healthcare, Manufacturing, Professional Services"
+    },
+    {
+      "name": "AURORA",
+      "hits": 1,
+      "profile": "First seen Apr 2026 (57 claimed victims).",
+      "countries": "US, DE, GB, NL",
+      "sectors": "Manufacturing, Professional Services"
+    },
+    {
+      "name": "ECLIPSE",
+      "hits": 1,
+      "profile": "First seen Aug 2026 (23 claimed victims).",
+      "countries": "SG, IN, US, BR",
+      "sectors": "Transportation, Manufacturing"
+    },
+    {
+      "name": "EVERSTAKE",
+      "hits": 1,
+      "profile": "First seen 29 Oct 2026 (9 claimed victims).",
+      "countries": "US",
+      "sectors": "Technology, Retail"
+    },
+    {
+      "name": "HYFLOCK",
+      "hits": 1,
+      "profile": "First seen Oct 2026 (14 claimed victims).",
+      "countries": "TR, US, CM, VN",
+      "sectors": "Technology, Government & Defense"
+    },
+    {
+      "name": "IAH6477",
+      "hits": 1,
+      "profile": "First seen Aug 2026 (17 claimed victims).",
+      "countries": "US, GB",
+      "sectors": "Manufacturing, Professional Services"
+    },
+    {
+      "name": "INTERLOCK",
+      "hits": 1,
+      "profile": "Active since late 2024 (140 claimed victims).",
+      "countries": "US, CA, GB, AU",
+      "sectors": "Education, Manufacturing, Professional Services"
+    },
+    {
+      "name": "LEAKNET",
+      "hits": 1,
+      "profile": "Not indexed by Ransomware.live.",
+      "countries": "not disclosed",
+      "sectors": "Healthcare"
+    },
+    {
+      "name": "MORPHEUS",
+      "hits": 1,
+      "profile": "Active since Jan 2025 (25 claimed victims).",
+      "countries": "US, IN, ES, TW",
+      "sectors": "Professional Services, Manufacturing"
+    },
+    {
+      "name": "PANZER",
+      "hits": 1,
+      "profile": "First seen Aug 2026 (47 claimed victims).",
+      "countries": "DE, FR, ID, IT",
+      "sectors": "Professional Services, Technology, Manufacturing"
+    },
+    {
+      "name": "RHYSIDA",
+      "hits": 1,
+      "profile": "RaaS active since mid-2023 (317 claimed victims).",
+      "countries": "US, CA, DE, GB",
+      "sectors": "Education, Healthcare, Professional Services"
+    },
+    {
+      "name": "SCARLETT GROUP",
+      "hits": 1,
+      "profile": "First seen Oct 2026 (12 claimed victims).",
+      "countries": "US, IN, CA, MY",
+      "sectors": "Healthcare, Technology"
+    },
+    {
+      "name": "SILENT RANSOM GROUP",
+      "hits": 1,
+      "profile": "Active since May 2025 (197 claimed victims).",
+      "countries": "US, DE, CA",
+      "sectors": "Professional Services, Financial Services"
+    }
+  ],
+  "quality": {
+    "singleSourced": 38,
+    "claimOnly": 10,
+    "sourcesDisagree": 1,
+    "newGroups": 2
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 96
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 124
+      }
+    ],
+    "merged": 131,
+    "masked": 66,
+    "reposts": 1,
+    "nonVictims": 1,
+    "lowCoverage": false
+  },
+  "lateToPress": 0
+}
