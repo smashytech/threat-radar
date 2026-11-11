@@ -1,0 +1,377 @@
+{
+  "date": "2026-11-11",
+  "issue": 80,
+  "window": "2026-11-10",
+  "stats": {
+    "victims": 75,
+    "groups": 16,
+    "countries": 25,
+    "regions": 6
+  },
+  "sweden": 2,
+  "regions": [
+    {
+      "region": "Europe",
+      "countries": [
+        {
+          "country": "Sweden",
+          "flag": "🇸🇪",
+          "count": 2
+        },
+        {
+          "country": "United Kingdom",
+          "flag": "🇬🇧",
+          "count": 2
+        },
+        {
+          "country": "Germany",
+          "flag": "🇩🇪",
+          "count": 2
+        },
+        {
+          "country": "Italy",
+          "flag": "🇮🇹",
+          "count": 1
+        },
+        {
+          "country": "Switzerland",
+          "flag": "🇨🇭",
+          "count": 1
+        },
+        {
+          "country": "Turkey",
+          "flag": "🇹🇷",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 24
+        },
+        {
+          "country": "Canada",
+          "flag": "🇨🇦",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "region": "Middle East",
+      "countries": [
+        {
+          "country": "United Arab Emirates",
+          "flag": "🇦🇪",
+          "count": 2
+        },
+        {
+          "country": "Saudi Arabia",
+          "flag": "🇸🇦",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Latin America & Caribbean",
+      "countries": [
+        {
+          "country": "Mexico",
+          "flag": "🇲🇽",
+          "count": 2
+        },
+        {
+          "country": "Brazil",
+          "flag": "🇧🇷",
+          "count": 1
+        },
+        {
+          "country": "Peru",
+          "flag": "🇵🇪",
+          "count": 1
+        },
+        {
+          "country": "Jamaica",
+          "flag": "🇯🇲",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Asia",
+      "countries": [
+        {
+          "country": "India",
+          "flag": "🇮🇳",
+          "count": 3
+        },
+        {
+          "country": "Thailand",
+          "flag": "🇹🇭",
+          "count": 2
+        },
+        {
+          "country": "China",
+          "flag": "🇨🇳",
+          "count": 1
+        },
+        {
+          "country": "Japan",
+          "flag": "🇯🇵",
+          "count": 1
+        },
+        {
+          "country": "Nepal",
+          "flag": "🇳🇵",
+          "count": 1
+        },
+        {
+          "country": "Vietnam",
+          "flag": "🇻🇳",
+          "count": 1
+        },
+        {
+          "country": "Hong Kong",
+          "flag": "🇭🇰",
+          "count": 1
+        },
+        {
+          "country": "Indonesia",
+          "flag": "🇮🇩",
+          "count": 1
+        },
+        {
+          "country": "Philippines",
+          "flag": "🇵🇭",
+          "count": 1
+        },
+        {
+          "country": "South Korea",
+          "flag": "🇰🇷",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Oceania",
+      "countries": [
+        {
+          "country": "Australia",
+          "flag": "🇦🇺",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Unattributed",
+      "countries": [
+        {
+          "country": "Country not disclosed",
+          "flag": "🏳️",
+          "count": 16
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Mixed",
+      "count": 42
+    },
+    {
+      "sector": "Healthcare",
+      "count": 9
+    },
+    {
+      "sector": "Manufacturing",
+      "count": 5
+    },
+    {
+      "sector": "Technology",
+      "count": 5
+    },
+    {
+      "sector": "Professional Services",
+      "count": 4
+    },
+    {
+      "sector": "Retail & E-Commerce",
+      "count": 2
+    },
+    {
+      "sector": "Energy & Utilities",
+      "count": 1
+    },
+    {
+      "sector": "Manufacturing / retail",
+      "count": 1
+    },
+    {
+      "sector": "Non-profit",
+      "count": 1
+    },
+    {
+      "sector": "Non-profit / social services",
+      "count": 1
+    },
+    {
+      "sector": "Other",
+      "count": 1
+    },
+    {
+      "sector": "Transportation",
+      "count": 1
+    },
+    {
+      "sector": "Transportation / logistics",
+      "count": 1
+    },
+    {
+      "sector": "Wholesale / textiles",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "INC RANSOM",
+      "hits": 44,
+      "profile": "Active since mid-2023 (992 claims). All 44 today come from one RansomLook re-index that Ransomware.live has not indexed.",
+      "countries": "US, CA, DE, GB; today also SE, TH, IN",
+      "sectors": "Professional Services, Healthcare, Manufacturing"
+    },
+    {
+      "name": "BOOBA PROJECT",
+      "hits": 6,
+      "profile": "First seen Jul 2026 (64 claims); listed as “Booba Team” on RansomLook.",
+      "countries": "US, CA, MX",
+      "sectors": "Healthcare, Government"
+    },
+    {
+      "name": "PIXELLEAKS",
+      "hits": 5,
+      "profile": "New, first seen 3 Nov 2026.",
+      "countries": "IT, CN, VN, PE, SA",
+      "sectors": "Technology, Healthcare"
+    },
+    {
+      "name": "PLAY",
+      "hits": 3,
+      "profile": "Active since 2022 (1,348 claims; CISA AA23-352A).",
+      "countries": "US, CA, GB",
+      "sectors": "Manufacturing, Professional Services"
+    },
+    {
+      "name": "VORTEX",
+      "hits": 3,
+      "profile": "New, first seen 9–10 Nov 2026 (14 records); 8 more were reposts.",
+      "countries": "US, DE",
+      "sectors": "Healthcare, Manufacturing"
+    },
+    {
+      "name": "BYOD",
+      "hits": 2,
+      "profile": "First seen Oct 2026 (19 claims); sweeping claims with no samples.",
+      "countries": "US, JP, GB",
+      "sectors": "Education, Technology"
+    },
+    {
+      "name": "CLIMAX",
+      "hits": 2,
+      "profile": "“Climax Inc” on Ransomware.live (17 records); one masked entry excluded.",
+      "countries": "NP, BR, US, IN, KR",
+      "sectors": "Energy, Manufacturing, Retail"
+    },
+    {
+      "name": "DARK PROJECT",
+      "hits": 2,
+      "profile": "First seen Aug 2026 (42 claims).",
+      "countries": "US, GB, AE",
+      "sectors": "Manufacturing, Healthcare"
+    },
+    {
+      "name": "BRAVOX",
+      "hits": 1,
+      "profile": "First seen Feb 2026 (35 claims).",
+      "countries": "US, FR, CH, DE",
+      "sectors": "Technology, Healthcare"
+    },
+    {
+      "name": "HYFLOCK",
+      "hits": 1,
+      "profile": "First seen Oct 2026 (15 claims).",
+      "countries": "TR, US, AU",
+      "sectors": "Technology, Government"
+    },
+    {
+      "name": "KRYBIT",
+      "hits": 1,
+      "profile": "First seen Apr 2026 (174 claims); bulk boilerplate posts.",
+      "countries": "MX, IN, DE, US",
+      "sectors": "Professional Services, Technology"
+    },
+    {
+      "name": "MEDUSALOCKER",
+      "hits": 1,
+      "profile": "Long-running RaaS (122 claims; CISA AA22-181A).",
+      "countries": "US, GB, CA",
+      "sectors": "Manufacturing, Technology"
+    },
+    {
+      "name": "METAENCRYPTOR",
+      "hits": 1,
+      "profile": "Active since Aug 2023 (66 claims).",
+      "countries": "US, DE, KR",
+      "sectors": "Manufacturing"
+    },
+    {
+      "name": "N0N",
+      "hits": 1,
+      "profile": "First seen Sep 2026 (284 claims, many masked).",
+      "countries": "US, CA, KR, AE",
+      "sectors": "Transportation, Technology"
+    },
+    {
+      "name": "OROVA",
+      "hits": 1,
+      "profile": "First seen Aug 2026 (65 claims).",
+      "countries": "US, HK, TW, IN",
+      "sectors": "Technology, Manufacturing"
+    },
+    {
+      "name": "SILENT RANSOM GROUP",
+      "hits": 1,
+      "profile": "Active since May 2025 (199 claims); one masked entry excluded.",
+      "countries": "US, DE, GB",
+      "sectors": "Professional Services"
+    }
+  ],
+  "quality": {
+    "singleSourced": 60,
+    "claimOnly": 5,
+    "sourcesDisagree": 4,
+    "newGroups": 2
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 43
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 89
+      }
+    ],
+    "merged": 118,
+    "masked": 8,
+    "reposts": 33,
+    "nonVictims": 2,
+    "lowCoverage": false
+  },
+  "lateToPress": 0
+}
