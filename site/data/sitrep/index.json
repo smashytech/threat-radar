@@ -1,6 +1,13 @@
 {
   "issues": [
     {
+      "date": "2026-11-11",
+      "tldr": "Heavy news day. Microsoft's largest-ever Patch Tuesday shipped with an actively exploited Outlook zero-day, while CISA's KEV catalog grew with fresh Barracuda, Cisco, Openwave, IBM Aspera and SignalWire entries under active attack. A Qubole AWS supply-chain breach hit over a dozen companies, Turla stole NATO/EU diplomatic email, and France formally blamed Iran's IRGC for sabotaging supermarket refrigeration systems.",
+      "items": 10,
+      "emerging": 2,
+      "actionNeeded": true
+    },
+    {
       "date": "2026-11-10",
       "tldr": "Lighter news cycle today — 8 core items cleared the strict 48-hour filter (below the usual 10), and no standalone emerging-threat story met the novelty bar. Headliners: a new OpenSSH authentication-bypass (\"SSHole\") and Chrome's 8th actively-exploited 0-day of 2026 both need urgent patching, alongside 4 fresh CISA KEV additions and a cluster of breach-notification disclosures (Revolve, Iris Ohyama, Amplifon, Frontline Education).",
       "items": 8,

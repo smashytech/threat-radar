@@ -1,0 +1,115 @@
+{
+  "date": "2026-11-11",
+  "tldr": "Heavy news day. Microsoft's largest-ever Patch Tuesday shipped with an actively exploited Outlook zero-day, while CISA's KEV catalog grew with fresh Barracuda, Cisco, Openwave, IBM Aspera and SignalWire entries under active attack. A Qubole AWS supply-chain breach hit over a dozen companies, Turla stole NATO/EU diplomatic email, and France formally blamed Iran's IRGC for sabotaging supermarket refrigeration systems.",
+  "emerging": [
+    {
+      "title": "AI Inference Engine RCE Used to Breach NEAR AI, Steal Data From Live AI Agents",
+      "description": "An attacker exploited an RCE flaw in the SGLang inference engine to reach inside a trusted execution environment at NEAR AI, stealing data from 18 running AI agents and ~100 users — among the first confirmed breaches targeting live AI agents directly.",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/sglang-rce-exploit-breaches-near-ai.html",
+      "published": "2026-11-10",
+      "cves": []
+    },
+    {
+      "title": "Unpatched iOS Sandbox Escape Could Expose Crypto Wallet Seed Phrases",
+      "description": "Binance warned of a publicly disclosed iOS 26/27 sandbox-escape flaw letting apps read other apps' private files, potentially leaking wallet seed phrases and credentials. No Apple fix confirmed yet; users told to remove sideloaded apps.",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/binance-warns-of-ios-sandbox-escape.html",
+      "published": "2026-11-10",
+      "cves": []
+    }
+  ],
+  "items": [
+    {
+      "title": "Microsoft's Record November Patch Tuesday Fixes Actively Exploited Outlook Zero-Day",
+      "description": "Microsoft patched 1,235 vulnerabilities (63 critical), including CVE-2026-124194, an Outlook spoofing flaw already under active attack and added to CISA's KEV catalog. Patch immediately.",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-november-2026-patch-tuesday-fixes-1-235-flaws-outlook-zero-day/",
+      "published": "2026-11-10",
+      "cves": [
+        "CVE-2026-124194"
+      ]
+    },
+    {
+      "title": "Chrome's Eighth Zero-Day of 2026 Patched After Active Exploitation",
+      "description": "Google issued an emergency Chrome update for CVE-2026-125350, a use-after-free in the XML component exploited in the wild and reported anonymously on Nov 6. Update browsers now.",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/chrome-update-patches-exploited-xml-zero-day-eighth-this-year/",
+      "published": "2026-11-10",
+      "cves": [
+        "CVE-2026-125350"
+      ]
+    },
+    {
+      "title": "Barracuda ESG Flaws Actively Exploited for Root Access",
+      "description": "Attackers are exploiting two recently patched Barracuda Email Security Gateway flaws (CVE-2026-116606, CVE-2026-111560) to run commands with root privileges; CISA added both to its KEV catalog Nov 10.",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-barracuda-email-security-gateway-flaws-to-get-root-access/",
+      "published": "2026-11-10",
+      "cves": [
+        "CVE-2026-116606",
+        "CVE-2026-111560"
+      ]
+    },
+    {
+      "title": "CISA Adds Actively Exploited Cisco BroadWorks and Openwave Flaws to KEV",
+      "description": "CISA added CVE-2026-20320 (Cisco BroadWorks) and CVE-2026-111793 (Openwave Webtop Media Transcoder) to its Known Exploited Vulnerabilities catalog Nov 10-11 despite patches being available.",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/cisco-broadworks-and-openwave-flaws.html",
+      "published": "2026-11-11",
+      "cves": [
+        "CVE-2026-20320",
+        "CVE-2026-111793"
+      ]
+    },
+    {
+      "title": "Critical Xen Orchestra Auth Bypass Exploited to Hijack VM Servers",
+      "description": "An authentication bypass in Xen Orchestra (VSA-2026-062) is being actively exploited to gain admin access and potentially run code across managed XCP-ng pools; no CVE assigned yet.",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/critical-xen-orchestra-auth-bypass-flaw-exploited-to-hijack-vm-servers/",
+      "published": "2026-11-10",
+      "cves": []
+    },
+    {
+      "title": "Qubole AWS Supply-Chain Attack Breaches a Dozen-Plus Organizations",
+      "description": "Attackers abused Qubole's trusted cross-account AWS IAM access to steal customer secrets, keys, and files from multiple companies between mid-October and early November; Wiz and Sentra led the investigation.",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/over-a-dozen-organizations-hit-in-qubole-supply-chain-attack/",
+      "published": "2026-11-10",
+      "cves": []
+    },
+    {
+      "title": "Fireworks AI Breach Widens to Expose Model Weights and Customer Data",
+      "description": "The AI infrastructure startup confirmed attackers who compromised a third-party cloud provider in October also accessed datasets, incomplete model weights, secrets, and Notion AI chat logs for some accounts.",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/fireworks-ai-breach-widens-to-expose.html",
+      "published": "2026-11-10",
+      "cves": []
+    },
+    {
+      "title": "Turla's New \"Cereal\" Malware Steals NATO and EU Correspondence",
+      "description": "Russian state-backed Turla is using a new modular toolset to intercept email on government Exchange servers in Kazakhstan and Romania, harvesting NATO and EU diplomatic correspondence, per ESET.",
+      "source": "The Record",
+      "url": "https://therecord.media/russia-hackers-espionage-romania-kazakhstan",
+      "published": "2026-11-10",
+      "cves": []
+    },
+    {
+      "title": "France Blames Iran's IRGC for Refrigeration Sabotage at ~700 Retail Sites",
+      "description": "France formally attributed October's attack that overheated supermarket refrigeration controllers to an IRGC cyber unit, summoning Iran's ambassador and opening a judicial probe; EU sanctions are expected to follow.",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/france-blames-iran-for-a-cyberattack-that-heated-supermarket-refrigerators/",
+      "published": "2026-11-10",
+      "cves": []
+    },
+    {
+      "title": "N-able Takes N-central Offline After Researcher Drops 33 Alleged Zero-Days",
+      "description": "N-able pulled its hosted RMM platform offline and told on-prem customers to shut down servers after a researcher published dozens of unpatched flaws enabling RCE and admin-account creation; no confirmed exploitation yet.",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/n-able-takes-n-central-offline-as-researcher-drops-over-30-zero-days/",
+      "published": "2026-11-10",
+      "cves": []
+    }
+  ],
+  "action": "Patch immediately: Microsoft Outlook (CVE-2026-124194), Chrome (CVE-2026-125350), Barracuda ESG (CVE-2026-116606/111560), Cisco BroadWorks (CVE-2026-20320), Openwave Webtop Media Transcoder (CVE-2026-111793), and Xen Orchestra (VSA-2026-062) — all under active exploitation. Audit any AWS IAM roles/keys granted to Qubole for signs of compromise. If running N-able N-central, follow vendor guidance to shut down on-prem servers pending a hotfix. iOS users should remove untrusted sideloaded apps pending Apple's fix for the Binance-flagged sandbox-escape flaw."
+}
