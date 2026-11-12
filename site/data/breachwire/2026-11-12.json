@@ -1,0 +1,324 @@
+{
+  "date": "2026-11-12",
+  "issue": 81,
+  "window": "2026-11-11",
+  "stats": {
+    "victims": 49,
+    "groups": 12,
+    "countries": 19,
+    "regions": 7
+  },
+  "sweden": 0,
+  "regions": [
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 20
+        },
+        {
+          "country": "Canada",
+          "flag": "🇨🇦",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "region": "Europe",
+      "countries": [
+        {
+          "country": "Spain",
+          "flag": "🇪🇸",
+          "count": 2
+        },
+        {
+          "country": "Ireland",
+          "flag": "🇮🇪",
+          "count": 1
+        },
+        {
+          "country": "United Kingdom",
+          "flag": "🇬🇧",
+          "count": 1
+        },
+        {
+          "country": "France",
+          "flag": "🇫🇷",
+          "count": 1
+        },
+        {
+          "country": "Germany",
+          "flag": "🇩🇪",
+          "count": 1
+        },
+        {
+          "country": "North Macedonia",
+          "flag": "🇲🇰",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Middle East",
+      "countries": [
+        {
+          "country": "Saudi Arabia",
+          "flag": "🇸🇦",
+          "count": 2
+        },
+        {
+          "country": "Kuwait",
+          "flag": "🇰🇼",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Latin America & Caribbean",
+      "countries": [
+        {
+          "country": "Mexico",
+          "flag": "🇲🇽",
+          "count": 2
+        },
+        {
+          "country": "Brazil",
+          "flag": "🇧🇷",
+          "count": 1
+        },
+        {
+          "country": "Peru",
+          "flag": "🇵🇪",
+          "count": 1
+        },
+        {
+          "country": "Argentina",
+          "flag": "🇦🇷",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Asia",
+      "countries": [
+        {
+          "country": "Japan",
+          "flag": "🇯🇵",
+          "count": 1
+        },
+        {
+          "country": "Singapore",
+          "flag": "🇸🇬",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Africa",
+      "countries": [
+        {
+          "country": "Kenya",
+          "flag": "🇰🇪",
+          "count": 1
+        },
+        {
+          "country": "South Africa",
+          "flag": "🇿🇦",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Oceania",
+      "countries": [
+        {
+          "country": "Australia",
+          "flag": "🇦🇺",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Unattributed",
+      "countries": [
+        {
+          "country": "Country not disclosed",
+          "flag": "🏳️",
+          "count": 4
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Mixed",
+      "count": 22
+    },
+    {
+      "sector": "Healthcare",
+      "count": 9
+    },
+    {
+      "sector": "Professional Services",
+      "count": 3
+    },
+    {
+      "sector": "Education",
+      "count": 2
+    },
+    {
+      "sector": "Hospitality",
+      "count": 2
+    },
+    {
+      "sector": "Manufacturing",
+      "count": 2
+    },
+    {
+      "sector": "Technology",
+      "count": 2
+    },
+    {
+      "sector": "Construction",
+      "count": 1
+    },
+    {
+      "sector": "Gaming",
+      "count": 1
+    },
+    {
+      "sector": "HVAC services",
+      "count": 1
+    },
+    {
+      "sector": "Pharma wholesale",
+      "count": 1
+    },
+    {
+      "sector": "Real estate",
+      "count": 1
+    },
+    {
+      "sector": "Senior living / care",
+      "count": 1
+    },
+    {
+      "sector": "Transportation",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "THE GENTLEMEN",
+      "hits": 22,
+      "profile": "Active since Sep 2025 (1,081 claims on Ransomware.live). All 22 today are a RansomLook 13:36–19:48 UTC batch; Ransomware.live has not indexed this group since 5 Nov.",
+      "countries": "US, GB, DE, FR, TH; today also JP, MX, BR, MK, SG, KE, KW, PE, AR, ZA, SA, ES, CA",
+      "sectors": "Manufacturing, Technology, Professional Services"
+    },
+    {
+      "name": "CURIOUS WORM",
+      "hits": 9,
+      "profile": "New: first seen 11 Nov 2026 — all 9 claims posted 17:06–17:13 UTC, all marked “Leaked”, mostly US healthcare. No track record yet.",
+      "countries": "US, CA, IE, GB, SA",
+      "sectors": "Healthcare, Professional Services"
+    },
+    {
+      "name": "OSIRIS",
+      "hits": 4,
+      "profile": "Small operation, first seen Dec 2025 (10 claims); posts countdowns before publishing.",
+      "countries": "US, DE, GB, PH",
+      "sectors": "Healthcare, Manufacturing"
+    },
+    {
+      "name": "AKIRA",
+      "hits": 3,
+      "profile": "Prolific RaaS since Apr 2023 (1,678 claims; CISA AA24-109A).",
+      "countries": "US, CA, DE, GB",
+      "sectors": "Manufacturing, Professional Services, Technology"
+    },
+    {
+      "name": "QILIN",
+      "hits": 3,
+      "profile": "Largest active RaaS by volume, since Oct 2022 (2,573 claims).",
+      "countries": "US, GB, CA, FR, DE",
+      "sectors": "Manufacturing, Professional Services, Technology"
+    },
+    {
+      "name": "N0N",
+      "hits": 2,
+      "profile": "First seen Sep 2026 (222 claims, many masked); posts data-broker-style audience and identity-feed claims. 2 masked entries excluded today.",
+      "countries": "US, CA, KR, GB",
+      "sectors": "Transportation, Technology"
+    },
+    {
+      "name": "AOQIN",
+      "hits": 1,
+      "profile": "First seen 4 Nov 2026 (8 claims); several recent posts were re-listings.",
+      "countries": "US, CO, BR, SI, CL",
+      "sectors": "Technology"
+    },
+    {
+      "name": "INC RANSOM",
+      "hits": 1,
+      "profile": "Active since Aug 2023 (992 claims).",
+      "countries": "US, CA, DE, GB",
+      "sectors": "Professional Services, Healthcare, Manufacturing"
+    },
+    {
+      "name": "INTERLOCK",
+      "hits": 1,
+      "profile": "Active since Oct 2024 (152 claims; CISA AA25-203A); heavy on education.",
+      "countries": "US, CA, GB, AU",
+      "sectors": "Education, Manufacturing, Healthcare"
+    },
+    {
+      "name": "MEDUSALOCKER",
+      "hits": 1,
+      "profile": "Long-running RaaS since 2019, on Ransomware.live since Nov 2022 (123 claims; CISA AA22-181A).",
+      "countries": "US, GB, CA, BR",
+      "sectors": "Manufacturing, Technology"
+    },
+    {
+      "name": "PANZER",
+      "hits": 1,
+      "profile": "First seen Aug 2026 (48 claims).",
+      "countries": "DE, FR, ID, ES",
+      "sectors": "Professional Services, Technology, Manufacturing"
+    },
+    {
+      "name": "PLAY",
+      "hits": 1,
+      "profile": "Active since 2022 (1,349 claims; CISA AA23-352A).",
+      "countries": "US, CA, GB, DE",
+      "sectors": "Manufacturing, Professional Services"
+    }
+  ],
+  "quality": {
+    "singleSourced": 36,
+    "claimOnly": 2,
+    "sourcesDisagree": 3,
+    "newGroups": 1
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 31
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 38
+      }
+    ],
+    "merged": 56,
+    "masked": 4,
+    "reposts": 3,
+    "nonVictims": 0,
+    "lowCoverage": false
+  },
+  "lateToPress": 0
+}
