@@ -1,6 +1,13 @@
 {
   "issues": [
     {
+      "date": "2026-11-12",
+      "tldr": "Microsoft's record November Patch Tuesday (1,235+ flaws) included an actively exploited Outlook zero-day, while CISA flagged Cisco BroadWorks, Openwave and a critical Xen Orchestra auth-bypass as under live attack. Breach disclosures piled up at Maersk, Nitori (37.6M records), Baker Tilly and across MSPs via compromised ScreenConnect instances, alongside a GitHub supply-chain campaign that wiped its own logs after hijacking nearly 5,000 accounts.",
+      "items": 10,
+      "emerging": 1,
+      "actionNeeded": true
+    },
+    {
       "date": "2026-11-11",
       "tldr": "Heavy news day. Microsoft's largest-ever Patch Tuesday shipped with an actively exploited Outlook zero-day, while CISA's KEV catalog grew with fresh Barracuda, Cisco, Openwave, IBM Aspera and SignalWire entries under active attack. A Qubole AWS supply-chain breach hit over a dozen companies, Turla stole NATO/EU diplomatic email, and France formally blamed Iran's IRGC for sabotaging supermarket refrigeration systems.",
       "items": 10,

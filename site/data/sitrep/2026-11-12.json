@@ -1,0 +1,101 @@
+{
+  "date": "2026-11-12",
+  "tldr": "Microsoft's record November Patch Tuesday (1,235+ flaws) included an actively exploited Outlook zero-day, while CISA flagged Cisco BroadWorks, Openwave and a critical Xen Orchestra auth-bypass as under live attack. Breach disclosures piled up at Maersk, Nitori (37.6M records), Baker Tilly and across MSPs via compromised ScreenConnect instances, alongside a GitHub supply-chain campaign that wiped its own logs after hijacking nearly 5,000 accounts.",
+  "emerging": [
+    {
+      "title": "Attackers weaponize open-source AI pentesting agents against AWS",
+      "description": "Threat actors are self-hosting AntiFox, an open-source agentic AI red-teaming platform, on Alibaba Cloud to automate AWS credential theft and lateral movement — one of the first widely reported cases of offensive AI agent tooling weaponized live against production cloud environments. Unit 42 separately flagged the broader rise of AI-powered red-teaming tools (ARTEX and peers) being adopted by attackers.",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/hackers-use-antifox-ai-agents-in-aws-credential-theft-attacks/",
+      "published": "2026-11-11",
+      "cves": []
+    }
+  ],
+  "items": [
+    {
+      "title": "Microsoft's record Patch Tuesday fixes 1,235+ flaws, including an exploited Outlook zero-day",
+      "description": "November's update is Microsoft's largest ever, addressing over 60 critical bugs. CVE-2026-124194, an actively exploited Outlook flaw, may expose NTLMv2 hashes — patch immediately.",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-november-2026-patch-tuesday-fixes-1-235-flaws-outlook-zero-day/",
+      "published": "2026-11-10",
+      "cves": [
+        "CVE-2026-124194"
+      ]
+    },
+    {
+      "title": "Cisco BroadWorks and Openwave flaws actively exploited despite available patches",
+      "description": "CISA added Cisco BroadWorks (CVE-2026-20320, XXE) and Openwave Webtop (CVE-2026-111793) to its KEV catalog after confirming in-the-wild exploitation that can leak sensitive configuration data.",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/cisa-flags-cisco-broadworks-flaw-as-actively-exploited-in-attacks/",
+      "published": "2026-11-11",
+      "cves": [
+        "CVE-2026-20320",
+        "CVE-2026-111793"
+      ]
+    },
+    {
+      "title": "Critical Xen Orchestra auth-bypass flaw exploited to hijack VM hosts",
+      "description": "Vates confirms active exploitation of an authentication bypass (VSA-2026-062) granting attackers global admin access and full takeover of XCP-ng virtualization hosts.",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/critical-xen-orchestra-auth-bypass-flaw-exploited-to-hijack-vm-servers/",
+      "published": "2026-11-10",
+      "cves": []
+    },
+    {
+      "title": "Maersk confirms breach as WhiteArmor ransomware demands $5 million",
+      "description": "Shipping giant Maersk confirms attackers accessed a legacy system inherited from an acquisition and extracted data; WhiteArmor claims ~100GB stolen and demands bitcoin ransom. Maersk disputes some of the gang's claims.",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/maersk-confirms-data-breach-as-whitearmor-ransomware-demands-5-million/",
+      "published": "2026-11-11",
+      "cves": []
+    },
+    {
+      "title": "Japanese furniture giant Nitori discloses breach of up to 37.6 million customer records",
+      "description": "Nitori says unauthorized access discovered Nov 6 (breach occurred mid-to-late October) may have exposed names, addresses, phone numbers and emails; passwords and card data were not compromised.",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/japanese-furniture-giant-nitori-says-hackers-stole-376m-customer-records/",
+      "published": "2026-11-10",
+      "cves": []
+    },
+    {
+      "title": "Active ScreenConnect attacks breach MSPs, hitting dozens of organizations",
+      "description": "Attackers used compromised ScreenConnect environments to push rogue remote-access clients to customer devices; ConnectWise disabled five third-party partner extensions in response.",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/active-screenconnect-attacks-breach-msps-impact-dozens-of-organizations/",
+      "published": "2026-11-11",
+      "cves": []
+    },
+    {
+      "title": "4,837 hijacked GitHub accounts ran a CI secret-stealer across 1,806+ repos, then wiped the logs",
+      "description": "Aikido Security reports a mass supply-chain campaign using stolen GitHub credentials to plant secret-stealing workflows, followed by deliberate log deletion to hinder incident response.",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/4837-hijacked-github-accounts-ran-ci.html",
+      "published": "2026-11-12",
+      "cves": []
+    },
+    {
+      "title": "eMudhra revokes 8 more CA certificates, widening a PKI private-key incident",
+      "description": "The certificate authority revoked eight more intermediate CA certificates after finding additional improperly handled private keys it had previously declared unaffected — a trust-chain concern for any site relying on eMudhra-issued certs.",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/emudhra-revokes-8-more-ca-certificates-after-private-key-mishap/",
+      "published": "2026-11-11",
+      "cves": []
+    },
+    {
+      "title": "Russian Turla hackers breach government email servers to steal NATO/EU correspondence",
+      "description": "ESET attributes a stealthy new Exchange-server toolkit (\"Cereal\") to Russia's FSB-linked Turla group, used against Romanian and Kazakh government mail servers configured to harvest NATO- and EU-addressed messages.",
+      "source": "The Record",
+      "url": "https://therecord.media/russia-hackers-espionage-romania-kazakhstan",
+      "cves": []
+    },
+    {
+      "title": "Baker Tilly notifies clients of data breach at a third-party provider",
+      "description": "The accounting and advisory giant says a breach at a third-party vendor exposed personal information belonging to clients and their dependents.",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/baker-tilly-notifies-clients-of-data-breach-at-third-party-provider/",
+      "published": "2026-11-11",
+      "cves": []
+    }
+  ],
+  "action": "Patch immediately where actively exploited: Microsoft Outlook (CVE-2026-124194), Cisco BroadWorks (CVE-2026-20320), Openwave Webtop (CVE-2026-111793), and Xen Orchestra (VSA-2026-062). MSPs and partners running ScreenConnect should audit for rogue client installs and unauthorized extensions now. Check for eMudhra-issued certificates against the latest revocation list. Any org using GitHub Actions should review workflows for unauthorized changes and rotate CI/CD secrets as a precaution given the active credential-harvesting campaign."
+}
