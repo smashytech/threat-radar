@@ -1,6 +1,13 @@
 {
   "issues": [
     {
+      "date": "2026-11-13",
+      "tldr": "Three zero-days are under active exploitation right now — N-able N-central (even on the \"patched\" Hotfix 2), Windows CLFS (\"SignDrop\"), and Xen Orchestra — alongside fresh breaches at ConnectWise ScreenConnect-managed MSPs, shipping giant Maersk, and Notion (via AI vendor Fireworks AI). A mass GitHub credential-theft campaign and a critical Apache HTTP Server RCE round out a busy 48 hours.",
+      "items": 10,
+      "emerging": 2,
+      "actionNeeded": true
+    },
+    {
       "date": "2026-11-12",
       "tldr": "Microsoft's record November Patch Tuesday (1,235+ flaws) included an actively exploited Outlook zero-day, while CISA flagged Cisco BroadWorks, Openwave and a critical Xen Orchestra auth-bypass as under live attack. Breach disclosures piled up at Maersk, Nitori (37.6M records), Baker Tilly and across MSPs via compromised ScreenConnect instances, alongside a GitHub supply-chain campaign that wiped its own logs after hijacking nearly 5,000 accounts.",
       "items": 10,

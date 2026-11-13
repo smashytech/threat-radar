@@ -1,0 +1,107 @@
+{
+  "date": "2026-11-13",
+  "tldr": "Three zero-days are under active exploitation right now — N-able N-central (even on the \"patched\" Hotfix 2), Windows CLFS (\"SignDrop\"), and Xen Orchestra — alongside fresh breaches at ConnectWise ScreenConnect-managed MSPs, shipping giant Maersk, and Notion (via AI vendor Fireworks AI). A mass GitHub credential-theft campaign and a critical Apache HTTP Server RCE round out a busy 48 hours.",
+  "emerging": [
+    {
+      "title": "Autonomous AI Attack Framework Hits Semiconductor, Defense, Civil Society Targets",
+      "description": "Unit 42 uncovered \"Cairn,\" used by a China-nexus actor to let an AI agent independently run 25 intrusion attempts against 19 organizations, breaching 10 with minimal human oversight — among the first documented large-scale autonomous AI attack campaigns.",
+      "source": "Unit 42",
+      "url": "https://unit42.paloaltonetworks.com/cairn-framework-ai-autonomous-attacks/",
+      "published": "2026-11-12",
+      "cves": []
+    },
+    {
+      "title": "Kazakhstan-Linked Hackers Used an AI Agent to Spy on Central Asian Governments",
+      "description": "A Kazakhstan-linked threat actor deployed an AI agent to automate reconnaissance and espionage against regional government targets, another sign state-aligned groups are operationalizing agentic AI for intrusion work.",
+      "source": "The Record",
+      "url": "https://therecord.media/kazakhstan-hackers-central-asia",
+      "published": "2026-11-12",
+      "cves": []
+    }
+  ],
+  "items": [
+    {
+      "title": "N-able N-central Zero-Day Exploited Even on \"Patched\" Servers",
+      "description": "Attackers are exploiting N-central RMM flaws within hours of a PoC release; 21 servers compromised, 19 of them already on Hotfix 2, giving root/SYSTEM access on an MSP-critical platform.",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/new-n-able-4everable2shell-zero-day-exploited-hours-after-poc-released/",
+      "published": "2026-11-13",
+      "cves": []
+    },
+    {
+      "title": "New Windows CLFS \"SignDrop\" Zero-Day Grants SYSTEM Privileges",
+      "description": "A newly disclosed Windows CLFS zero-day lets attackers escalate to SYSTEM access; confirmed under active exploitation by two outlets, with no official Microsoft patch yet available.",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/new-windows-signdrop-zero-day-gives-hackers-system-privileges/",
+      "published": "2026-11-12",
+      "cves": []
+    },
+    {
+      "title": "Critical Xen Orchestra Flaws Exploited in Attacks",
+      "description": "Attackers are actively exploiting critical vulnerabilities in Xen Orchestra, the popular virtualization management platform, putting hypervisor infrastructure at risk; admins should patch immediately. (Single-sourced.)",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/critical-xen-orchestra-flaws-exploited-in-attacks/",
+      "published": "2026-11-11",
+      "cves": []
+    },
+    {
+      "title": "ConnectWise ScreenConnect Breaches Hit Dozens of MSPs",
+      "description": "New worm-like \"SCKit\" malware is abusing ScreenConnect remote-support sessions to pivot into MSP networks; ConnectWise is investigating incidents at nearly 50 organizations.",
+      "source": "The Record",
+      "url": "https://therecord.media/connectwise-screenconnect-breaches-third-party-tool",
+      "published": "2026-11-12",
+      "cves": []
+    },
+    {
+      "title": "Maersk Confirms Data Theft Amid $5 Million Extortion Attempt",
+      "description": "Shipping giant Maersk confirmed attackers stole data from a legacy system and are demanding $5 million; the WhiteArmor ransomware group claims responsibility.",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/maersk-confirms-data-theft-amid-5-million-extortion-attempt/",
+      "published": "2026-11-12",
+      "cves": []
+    },
+    {
+      "title": "Notion Customer Data Exposed via Fireworks AI Supply-Chain Hack",
+      "description": "A breach at AI infrastructure vendor Fireworks AI exposed Notion customer data, including AI chat content — a reminder of growing supply-chain risk from third-party AI providers embedded in mainstream SaaS.",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/notion-customer-data-compromised-in-fireworks-ai-hack/",
+      "published": "2026-11-11",
+      "cves": []
+    },
+    {
+      "title": "Mass GitHub Credential-Theft Campaign Hits Thousands of Repos",
+      "description": "A threat actor hijacked thousands of GitHub accounts (reports range from ~4,837 accounts/1,800+ repos to a target list of 60,000) to run malicious CI workflows stealing cloud credentials.",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/4837-hijacked-github-accounts-ran-ci.html",
+      "published": "2026-11-12",
+      "cves": []
+    },
+    {
+      "title": "Critical Apache HTTP Server RCE Patched",
+      "description": "Apache patched a critical unauthenticated RCE in mod_http2 (CVE-2026-119618), discovered by Anthropic and Google, affecting one of the world's most-used web servers; update now before public exploitation emerges.",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/apache-patches-critical-http-server-rce-found-by-anthropic-google/",
+      "published": "2026-11-12",
+      "cves": [
+        "CVE-2026-119618"
+      ]
+    },
+    {
+      "title": "European Authorities Take Down Stealc Malware Infrastructure Again",
+      "description": "European law enforcement dismantled Stealc info-stealer servers for the second time this year, though the malware-as-a-service operation has rebuilt quickly after prior takedowns. (Single-sourced.)",
+      "source": "The Record",
+      "url": "https://therecord.media/european-authorities-take-down-stealic-malware-second-time",
+      "published": "2026-11-12",
+      "cves": []
+    },
+    {
+      "title": "Poland Shuts Down Government Services Platform After Cyberattack",
+      "description": "Poland took its ePUAP government services platform offline following a cyberattack, disrupting citizen access to official digital services; the incident remains under investigation. (Single-sourced.)",
+      "source": "The Record",
+      "url": "https://therecord.media/poland-shuts-down-government-services-platform-cyberattack",
+      "published": "2026-11-11",
+      "cves": []
+    }
+  ],
+  "action": "Isolate or restrict access to N-able N-central immediately — exploitation succeeds even against the Hotfix 2 \"patched\" state; watch for Microsoft guidance on the Windows CLFS SignDrop zero-day and restrict its attack surface meanwhile; patch Xen Orchestra and Apache HTTP Server (mod_http2, CVE-2026-119618) now; audit ScreenConnect/RMM session logs for MSP-related compromise indicators; rotate any GitHub Actions/CI secrets potentially exposed in the mass account-hijacking campaign."
+}
