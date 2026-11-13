@@ -1,0 +1,243 @@
+{
+  "date": "2026-11-13",
+  "issue": 82,
+  "window": "2026-11-12",
+  "stats": {
+    "victims": 16,
+    "groups": 10,
+    "countries": 12,
+    "regions": 5
+  },
+  "sweden": 0,
+  "regions": [
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 4
+        },
+        {
+          "country": "Canada",
+          "flag": "🇨🇦",
+          "count": 2
+        },
+        {
+          "country": "Greenland",
+          "flag": "🇬🇱",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Europe",
+      "countries": [
+        {
+          "country": "Denmark",
+          "flag": "🇩🇰",
+          "count": 1
+        },
+        {
+          "country": "Cyprus",
+          "flag": "🇨🇾",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Africa",
+      "countries": [
+        {
+          "country": "Nigeria",
+          "flag": "🇳🇬",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Latin America & Caribbean",
+      "countries": [
+        {
+          "country": "Brazil",
+          "flag": "🇧🇷",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Asia",
+      "countries": [
+        {
+          "country": "Malaysia",
+          "flag": "🇲🇾",
+          "count": 1
+        },
+        {
+          "country": "Pakistan",
+          "flag": "🇵🇰",
+          "count": 1
+        },
+        {
+          "country": "India",
+          "flag": "🇮🇳",
+          "count": 1
+        },
+        {
+          "country": "Thailand",
+          "flag": "🇹🇭",
+          "count": 1
+        },
+        {
+          "country": "Indonesia",
+          "flag": "🇮🇩",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Education",
+      "count": 2
+    },
+    {
+      "sector": "Healthcare",
+      "count": 2
+    },
+    {
+      "sector": "Manufacturing",
+      "count": 2
+    },
+    {
+      "sector": "Technology",
+      "count": 2
+    },
+    {
+      "sector": "Transportation",
+      "count": 2
+    },
+    {
+      "sector": "Advertising technology",
+      "count": 1
+    },
+    {
+      "sector": "Energy",
+      "count": 1
+    },
+    {
+      "sector": "Engineering services",
+      "count": 1
+    },
+    {
+      "sector": "Government",
+      "count": 1
+    },
+    {
+      "sector": "Not disclosed",
+      "count": 1
+    },
+    {
+      "sector": "Retail & e-commerce",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "N0n",
+      "hits": 4,
+      "profile": "Data-sale / extortion leak site listed by Ransomware.live since 18 Sep 2026; posts bulk consumer, patient and customer datasets, often first anonymously (“Company #N”) and named later. 101 posts recorded so far in November. Ransomware.live maps it to Valid Accounts (T1078).",
+      "countries": "United States, Canada, Denmark, Indonesia",
+      "sectors": "Transportation, ad-tech, pharmaceuticals, e-commerce"
+    },
+    {
+      "name": "Vexy Ransomware",
+      "hits": 3,
+      "profile": "Small operation listed by Ransomware.live since 3 Sep 2026; 6 posts recorded in November. Posts are short company profiles without proof samples. No public TTP reporting.",
+      "countries": "Greenland, Nigeria, Brazil",
+      "sectors": "Energy, technology, undisclosed"
+    },
+    {
+      "name": "Qilin",
+      "hits": 2,
+      "profile": "Golang RaaS active since July 2022; double extortion; consistently one of the most active leak sites in 2026, with education a frequent target. Affiliates reported to use stolen VPN/RDP credentials and BYOVD to evade EDR. Both listings today are name-only.",
+      "countries": "Canada, United States",
+      "sectors": "Education"
+    },
+    {
+      "name": "Aoqin",
+      "hits": 1,
+      "profile": "“AOQIN Leaks” site listed by Ransomware.live since 4 Nov 2026; 9 posts so far. Uses publication countdowns. No public TTP reporting yet.",
+      "countries": "Pakistan",
+      "sectors": "Transportation (aviation)"
+    },
+    {
+      "name": "Barracuda",
+      "hits": 1,
+      "profile": "Leak site listed by Ransomware.live since 6 Aug 2026 (not the security vendor of the same name). Sells stolen data outright; today’s post lists a $50,000 price.",
+      "countries": "United States",
+      "sectors": "Technology"
+    },
+    {
+      "name": "Curious Worm",
+      "hits": 1,
+      "profile": "New leak site, listed by Ransomware.live only since 11 Nov 2026; 10 posts so far. No public profile or TTP reporting yet.",
+      "countries": "United States",
+      "sectors": "Healthcare"
+    },
+    {
+      "name": "Inc Ransom",
+      "hits": 1,
+      "profile": "Prolific RaaS active since July 2023; MITRE G1032. Uses valid accounts and public-facing exploits, exfiltrates with RClone/MEGA/Restic. Many of today’s Ransomware.live Inc records were re-listings already covered in №80.",
+      "countries": "India",
+      "sectors": "Engineering services"
+    },
+    {
+      "name": "Krybit",
+      "hits": 1,
+      "profile": "RaaS that launched in late March 2026 (80/20 affiliate split; Windows, Linux, ESXi and NAS lockers). Known for a public feud with rival 0APT in which each leaked the other’s operator data.",
+      "countries": "Cyprus (source field)",
+      "sectors": "Manufacturing"
+    },
+    {
+      "name": "Panzer",
+      "hits": 1,
+      "profile": "Leak site listed by Ransomware.live since 5 Aug 2026; earlier posts focused on Indonesian public-sector and consumer brands. Both its onion sites showed as unavailable to Ransomware.live at the time of this run.",
+      "countries": "Malaysia",
+      "sectors": "Government (health)"
+    },
+    {
+      "name": "SafePay",
+      "hits": 1,
+      "profile": "Emerged September 2024; runs all operations in-house rather than as a RaaS, and claimed more than 300 victims by mid-2025. Reported access via RDP with valid credentials, ShareFinder and WinRAR/7-Zip exfiltration.",
+      "countries": "Thailand",
+      "sectors": "Manufacturing"
+    }
+  ],
+  "quality": {
+    "singleSourced": 15,
+    "claimOnly": 9,
+    "sourcesDisagree": 1,
+    "newGroups": 2
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 53
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 0
+      }
+    ],
+    "merged": 53,
+    "masked": 0,
+    "reposts": 37,
+    "nonVictims": 0,
+    "lowCoverage": true
+  },
+  "lateToPress": 0
+}
