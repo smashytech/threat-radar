@@ -1,0 +1,233 @@
+{
+  "date": "2026-11-14",
+  "issue": 83,
+  "window": "2026-11-13",
+  "stats": {
+    "victims": 31,
+    "groups": 15,
+    "countries": 6,
+    "regions": 4
+  },
+  "sweden": 0,
+  "regions": [
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 9
+        },
+        {
+          "country": "Canada",
+          "flag": "🇨🇦",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Europe",
+      "countries": [
+        {
+          "country": "Germany",
+          "flag": "🇩🇪",
+          "count": 1
+        },
+        {
+          "country": "Turkey",
+          "flag": "🇹🇷",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Asia",
+      "countries": [
+        {
+          "country": "Malaysia",
+          "flag": "🇲🇾",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Oceania",
+      "countries": [
+        {
+          "country": "Australia",
+          "flag": "🇦🇺",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Unattributed",
+      "countries": [
+        {
+          "country": "Country not disclosed",
+          "flag": "🏳️",
+          "count": 17
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Not disclosed",
+      "count": 18
+    },
+    {
+      "sector": "Manufacturing",
+      "count": 4
+    },
+    {
+      "sector": "Professional Services",
+      "count": 4
+    },
+    {
+      "sector": "Retail & E-Commerce",
+      "count": 3
+    },
+    {
+      "sector": "Government & Defense",
+      "count": 1
+    },
+    {
+      "sector": "Hospitality",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "PixelLeaks",
+      "hits": 13,
+      "profile": "Newly tracked leak site; aggregators show its first named victim in early November 2026. Dumped 13 names on RansomLook in a single batch at one timestamp, many with descriptive detail in the title — no samples visible in the feed. Treat as low-confidence until corroborated.",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "Akira",
+      "hits": 3,
+      "profile": "Active since March 2023; double extortion with Windows/ESXi encryptors; frequent abuse of VPN credentials without MFA. Consistently one of the most prolific groups, heavily weighted to U.S. SMB manufacturing and services.",
+      "countries": "United States, not disclosed",
+      "sectors": "Manufacturing, Professional Services"
+    },
+    {
+      "name": "Inc Ransom",
+      "hits": 2,
+      "profile": "Active since mid-2023; double extortion; known for exploiting edge devices and spear-phishing; history of healthcare, education and public-sector victims in the U.S., UK and Australia.",
+      "countries": "United States",
+      "sectors": "Professional Services, Retail & E-Commerce"
+    },
+    {
+      "name": "Play",
+      "hits": 2,
+      "profile": "Active since mid-2022; intermittent encryption; historically exploits FortiOS/Exchange flaws. Posts in batches with \"United States\" boilerplate descriptions.",
+      "countries": "Australia, United States",
+      "sectors": "Government & Defense, Retail & E-Commerce"
+    },
+    {
+      "name": "Aoqin",
+      "hits": 1,
+      "profile": "Little-documented leak site (styled \"Aoqin Leaks\" on RansomLook); posts revenue, staff counts and publication deadlines. Two of its three RansomLook entries today were reposts.",
+      "countries": "United States",
+      "sectors": "Hospitality"
+    },
+    {
+      "name": "Bravox",
+      "hits": 1,
+      "profile": "Recently tracked leak site with sporadic postings; limited public reporting on TTPs.",
+      "countries": "United States",
+      "sectors": "Manufacturing"
+    },
+    {
+      "name": "Dark Project",
+      "hits": 1,
+      "profile": "Little-documented leak site; posts detailed stolen-data descriptions with volume and file counts.",
+      "countries": "Canada",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "Doommageddon",
+      "hits": 1,
+      "profile": "Little-documented operation; lists victims with negotiation status and deadline.",
+      "countries": "Turkey",
+      "sectors": "Professional Services"
+    },
+    {
+      "name": "Emperador",
+      "hits": 1,
+      "profile": "Little-documented leak site; posts company profile plus a sample-release countdown.",
+      "countries": "Malaysia",
+      "sectors": "Manufacturing"
+    },
+    {
+      "name": "Hyflock",
+      "hits": 1,
+      "profile": "Unknown/new name in RansomLook; single ambiguous post.",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "Interlock",
+      "hits": 1,
+      "profile": "Active since September 2024; fake browser-update/ClickFix initial access, RATs and data theft; education and healthcare heavy.",
+      "countries": "United States",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "LeakedData",
+      "hits": 1,
+      "profile": "",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "Panzer",
+      "hits": 1,
+      "profile": "",
+      "countries": "Germany",
+      "sectors": "Professional Services"
+    },
+    {
+      "name": "The Gentlemen",
+      "hits": 1,
+      "profile": "Emerged in 2025; high-volume poster (23 RansomLook entries in the current feed, most outside this window); reported to abuse Group Policy for deployment.",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "Wallstreet",
+      "hits": 1,
+      "profile": "Little-documented name; its only post in the window is a household-brand claim with no evidence in the feed.",
+      "countries": "United States",
+      "sectors": "Retail & E-Commerce"
+    }
+  ],
+  "quality": {
+    "singleSourced": 19,
+    "claimOnly": 15,
+    "sourcesDisagree": 3,
+    "newGroups": 2
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 19
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 49
+      }
+    ],
+    "merged": 54,
+    "masked": 6,
+    "reposts": 16,
+    "nonVictims": 1,
+    "lowCoverage": false
+  },
+  "lateToPress": 0
+}
