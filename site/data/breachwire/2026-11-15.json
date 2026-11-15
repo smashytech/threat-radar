@@ -1,0 +1,166 @@
+{
+  "date": "2026-11-15",
+  "issue": 84,
+  "window": "2026-11-14",
+  "stats": {
+    "victims": 9,
+    "groups": 8,
+    "countries": 5,
+    "regions": 3
+  },
+  "sweden": 0,
+  "regions": [
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Europe",
+      "countries": [
+        {
+          "country": "Germany",
+          "flag": "🇩🇪",
+          "count": 1
+        },
+        {
+          "country": "Spain",
+          "flag": "🇪🇸",
+          "count": 1
+        },
+        {
+          "country": "United Kingdom",
+          "flag": "🇬🇧",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Asia",
+      "countries": [
+        {
+          "country": "Malaysia",
+          "flag": "🇲🇾",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Unattributed",
+      "countries": [
+        {
+          "country": "Country not disclosed",
+          "flag": "🏳️",
+          "count": 4
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Not disclosed",
+      "count": 4
+    },
+    {
+      "sector": "Financial Services",
+      "count": 2
+    },
+    {
+      "sector": "Manufacturing",
+      "count": 2
+    },
+    {
+      "sector": "Retail & E-Commerce",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "Anubis",
+      "hits": 2,
+      "profile": "RaaS with encryptor plus wiper mode; first seen on Ransomware.live Feb 2025 (119 victims tracked). Heavy healthcare / home-care focus in 2026. Both of today's posts are title-only on RansomLook.",
+      "countries": "not disclosed today (historically US-heavy, also GB, DE)",
+      "sectors": "not disclosed today (historically Healthcare, Manufacturing)"
+    },
+    {
+      "name": "Barracuda",
+      "hits": 1,
+      "profile": "Extortion group unrelated to the security vendor; first seen Aug 2026 (19 victims).",
+      "countries": "ES",
+      "sectors": "Financial Services (wood processing per post)"
+    },
+    {
+      "name": "EndZone",
+      "hits": 1,
+      "profile": "New, small operation: first seen 18 Sep 2026, 8 victims tracked. Posts revenue-tagged profiles with exfil/encryption claims.",
+      "countries": "US",
+      "sectors": "Financial Services"
+    },
+    {
+      "name": "Everest",
+      "hits": 1,
+      "profile": "Long-running extortion/initial-access broker brand active since 2021 (431 victims tracked). Recent listings are often name-only. Recycled or overlapping claims are common.",
+      "countries": "DE",
+      "sectors": "Manufacturing"
+    },
+    {
+      "name": "PayoutsKing",
+      "hits": 1,
+      "profile": "Data-extortion group first seen Jul 2025 (119 victims). Mostly US, with DE and GB.",
+      "countries": "not disclosed today",
+      "sectors": "not disclosed today"
+    },
+    {
+      "name": "Pixelleaks",
+      "hits": 1,
+      "profile": "Very new leak site, first seen 3 Nov 2026 (3 victims tracked on Ransomware.live). Titles reference specific platforms and domains; also posted an Indonesian ISP on 15 Nov (outside window).",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "Qilin",
+      "hits": 1,
+      "profile": "Most prolific RaaS of 2025–26 (2,576 victims tracked since Oct 2022). Rust/Go encryptors, ESXi targeting, credential-based access. Today 5 more Qilin posts on RansomLook were reposts of victims already covered in №81–82.",
+      "countries": "MY",
+      "sectors": "Manufacturing"
+    },
+    {
+      "name": "Scarlettgroup",
+      "hits": 1,
+      "profile": "Emerging data-extortion crew, first seen Oct 2026 (13 victims). Profiled as a data broker that uploads leaks to file-sharing hosts.",
+      "countries": "GB",
+      "sectors": "Retail & E-Commerce / healthcare supply"
+    }
+  ],
+  "quality": {
+    "singleSourced": 7,
+    "claimOnly": 7,
+    "sourcesDisagree": 2,
+    "newGroups": 0
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 8
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 16
+      }
+    ],
+    "merged": 21,
+    "masked": 2,
+    "reposts": 10,
+    "nonVictims": 0,
+    "lowCoverage": false
+  },
+  "lateToPress": 0
+}
