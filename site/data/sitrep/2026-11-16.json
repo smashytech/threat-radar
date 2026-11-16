@@ -1,0 +1,102 @@
+{
+  "date": "2026-11-16",
+  "tldr": "Lighter news cycle (core items span roughly Nov 12–14) but notably severe: a destructive wiper campaign hit Check Point gateways via \"PHP2Shell,\" two more zero-days (N-able N-central, UnrealIRCd) saw same-day/in-the-wild exploitation, and a new state-linked actor (\"SilentAir\") has been hijacking telecom infrastructure across Asia to intercept calls and SMS. 9 core items qualified; two AI-weaponization reports (ARTEX, CAIRN) round out the emerging-threats picture.",
+  "emerging": [
+    {
+      "title": "ARTEX: open-source AI pentest framework weaponized within weeks",
+      "description": "An AI-agent pentesting framework released on GitHub in July was abused within weeks by China-nexus groups (VAPOR PANDA, Storm-0940, Storm-3358), hitting 200+ orgs and 2,250+ Microsoft 365 tenants, plus criminal crypto-theft operators.",
+      "source": "Cisco Talos",
+      "url": "https://blog.talosintelligence.com/artex-and-beyond/",
+      "published": "2026-11-13",
+      "cves": []
+    },
+    {
+      "title": "CAIRN: fully autonomous AI framework runs real intrusions",
+      "description": "Unit 42 found China-nexus actor CL-STA-1238 running a customized AI attack framework end-to-end against 19 organizations — semiconductor, defense, and civil-society targets — confirming unauthorized access or data theft at 10, with minimal human oversight after each operation's goal was set.",
+      "source": "Unit 42 (Palo Alto Networks)",
+      "url": "https://unit42.paloaltonetworks.com/cairn-framework-ai-autonomous-attacks/",
+      "published": "2026-11-12",
+      "cves": []
+    }
+  ],
+  "items": [
+    {
+      "title": "\"PHP2Shell\" exploited in destructive Check Point Gateway attacks",
+      "description": "Attackers chained CVE-2026-109618/109619 (PHP RCE) with local priv-esc CVE-2026-123039 to root Check Point Gateways, deploy backdoors, and run a wiper against Israeli orgs; a second, non-destructive wave hit multiple countries. Both flaws now on CISA's KEV list.",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/php2shell-exploited-in-destructive-check-point-gateway-attacks/",
+      "published": "2026-11-13",
+      "cves": [
+        "CVE-2026-109618",
+        "CVE-2026-123039"
+      ]
+    },
+    {
+      "title": "N-able N-central zero-day exploited within hours of PoC release",
+      "description": "A researcher's PoC for \"4EverAble2Shell,\" chaining an Apache Axis flaw with an N-central weakness, led to confirmed compromises (XMRig cryptominer) on at least 21 servers within five hours of publication — even on fully patched systems.",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/hackers-exploit-new-n-central-zero-day-hours-after-poc-publication/",
+      "published": "2026-11-13",
+      "cves": []
+    },
+    {
+      "title": "UnrealIRCd flaw actively exploited, added to CISA KEV",
+      "description": "CVE-2026-114713, a command-injection bug via an unescaped IRCv3 message tag, lets regular users gain server/IRCOp authority. The project confirmed in-the-wild exploitation; CISA added it to the KEV catalog Nov 13. Update to 6.2.7.1.",
+      "source": "CISA KEV Catalog",
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "published": "2026-11-13",
+      "cves": [
+        "CVE-2026-114713"
+      ]
+    },
+    {
+      "title": "Apify confirms customer data breach via credential-based intrusion",
+      "description": "A compromised credential let an attacker pivot into other customer accounts Nov 9–10, exposing names, emails, salted password hashes, 2FA recovery codes, and partial card data for some of Apify's ~91,000 customers.",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/apify-confirms-customer-data-accessed-in-cyberattack/",
+      "published": "2026-11-13",
+      "cves": []
+    },
+    {
+      "title": "SilentAir: new state-linked actor hijacking mobile networks",
+      "description": "Enea disclosed a previously unknown, likely state-level actor using SS7/Diameter signaling abuse from compromised telecom nodes to intercept calls and SMS across six-plus Asian countries (Taiwan the main target) plus a dozen others, tracked since 2025.",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/silentair-hackers-intercept-calls-sms-from-inside-mobile-networks/",
+      "published": "2026-11-13",
+      "cves": []
+    },
+    {
+      "title": "Law enforcement guts Gootloader, CastleRAT, StealC infrastructure",
+      "description": "A DOJ/Europol-led Operation Endgame wave seized 235 servers and 257 domains and recovered 6.4 million victim credentials across three cybercrime-as-a-service malware families that fed ransomware and data-theft operations.",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/law-enforcement-disrupts-gootloader-castlerat-and-stealc-infrastructure/",
+      "published": "2026-11-13",
+      "cves": []
+    },
+    {
+      "title": "FAA ground stop: no sign of hacking, FBI probes software update",
+      "description": "A nationwide FAA ground stop Nov 13 was traced to a crashed L3Harris air-traffic communications network following a software/equipment update, not a cyberattack, officials say; the FBI is still reviewing the update as a possible cause.",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/no-signs-of-hacking-in-faa-ground-stop-as-fbi-reportedly-probes-software-update/",
+      "published": "2026-11-14",
+      "cves": []
+    },
+    {
+      "title": "Citrix patches 10 critical NetScaler vulnerabilities",
+      "description": "Citrix fixed 28 flaws (9 critical in ADC/Gateway, 1 critical auth-bypass in NetScaler Console) spanning memory overflows in packet, SMPP, DNS, OTP and ICA-proxy handling. No in-the-wild exploitation yet, but NetScaler is a frequent target — patch now.",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/citrix-patches-10-critical-netscaler-vulnerabilities/",
+      "published": "2026-11-13",
+      "cves": []
+    },
+    {
+      "title": "Meta fined $887M in Italy over gallery photo access",
+      "description": "Italy's data protection authority fined Meta €805M ($887M) for accessing Android users' photo galleries for Facebook suggestions without specific, informed consent — enabled by default and bundled into one broad permission. Meta has 60 days to comply.",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/meta-fined-887-million-in-italy-over-android-gallery-photos-and-videos-on-facebook/",
+      "published": "2026-11-14",
+      "cves": []
+    }
+  ],
+  "action": "Patch/update immediately: Check Point Gateways (PHP2Shell hotfix SK1000302), N-able N-central (apply latest patches, restrict Legacy API), UnrealIRCd (upgrade to 6.2.7.1), and Citrix NetScaler ADC/Gateway/Console (all 28 fixes, prioritize the 10 critical). All four are either under active exploitation or sit on internet-facing, frequently-targeted infrastructure."
+}

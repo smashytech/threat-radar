@@ -1,6 +1,13 @@
 {
   "issues": [
     {
+      "date": "2026-11-16",
+      "tldr": "Lighter news cycle (core items span roughly Nov 12–14) but notably severe: a destructive wiper campaign hit Check Point gateways via \"PHP2Shell,\" two more zero-days (N-able N-central, UnrealIRCd) saw same-day/in-the-wild exploitation, and a new state-linked actor (\"SilentAir\") has been hijacking telecom infrastructure across Asia to intercept calls and SMS. 9 core items qualified; two AI-weaponization reports (ARTEX, CAIRN) round out the emerging-threats picture.",
+      "items": 9,
+      "emerging": 2,
+      "actionNeeded": true
+    },
+    {
       "date": "2026-11-13",
       "tldr": "Three zero-days are under active exploitation right now — N-able N-central (even on the \"patched\" Hotfix 2), Windows CLFS (\"SignDrop\"), and Xen Orchestra — alongside fresh breaches at ConnectWise ScreenConnect-managed MSPs, shipping giant Maersk, and Notion (via AI vendor Fireworks AI). A mass GitHub credential-theft campaign and a critical Apache HTTP Server RCE round out a busy 48 hours.",
       "items": 10,
