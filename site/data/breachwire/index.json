@@ -1,6 +1,15 @@
 {
   "issues": [
     {
+      "date": "2026-11-16",
+      "issue": 85,
+      "window": "2026-11-15",
+      "victims": 22,
+      "groups": 5,
+      "countries": 6,
+      "sweden": 0
+    },
+    {
       "date": "2026-11-15",
       "issue": 84,
       "window": "2026-11-14",

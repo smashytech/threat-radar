@@ -1,0 +1,191 @@
+{
+  "date": "2026-11-16",
+  "issue": 85,
+  "window": "2026-11-15",
+  "stats": {
+    "victims": 22,
+    "groups": 5,
+    "countries": 6,
+    "regions": 2
+  },
+  "sweden": 0,
+  "regions": [
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 13
+        },
+        {
+          "country": "Canada",
+          "flag": "🇨🇦",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "region": "Asia",
+      "countries": [
+        {
+          "country": "India",
+          "flag": "🇮🇳",
+          "count": 3
+        },
+        {
+          "country": "Indonesia",
+          "flag": "🇮🇩",
+          "count": 2
+        },
+        {
+          "country": "Malaysia",
+          "flag": "🇲🇾",
+          "count": 1
+        },
+        {
+          "country": "South Korea",
+          "flag": "🇰🇷",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Manufacturing",
+      "count": 4
+    },
+    {
+      "sector": "Healthcare",
+      "count": 2
+    },
+    {
+      "sector": "Apparel & footwear group",
+      "count": 1
+    },
+    {
+      "sector": "Apparel retail",
+      "count": 1
+    },
+    {
+      "sector": "Appliance & electronics retail",
+      "count": 1
+    },
+    {
+      "sector": "Athleisure retail",
+      "count": 1
+    },
+    {
+      "sector": "Coffee retail",
+      "count": 1
+    },
+    {
+      "sector": "Construction",
+      "count": 1
+    },
+    {
+      "sector": "Consumer electronics",
+      "count": 1
+    },
+    {
+      "sector": "Diversified manufacturing",
+      "count": 1
+    },
+    {
+      "sector": "Financial advisory",
+      "count": 1
+    },
+    {
+      "sector": "Financial planning & insurance",
+      "count": 1
+    },
+    {
+      "sector": "Live-entertainment data & publishing",
+      "count": 1
+    },
+    {
+      "sector": "Not disclosed",
+      "count": 1
+    },
+    {
+      "sector": "Outdoor footwear & apparel",
+      "count": 1
+    },
+    {
+      "sector": "Professional Services",
+      "count": 1
+    },
+    {
+      "sector": "Restaurants",
+      "count": 1
+    },
+    {
+      "sector": "Technology",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "N0n",
+      "hits": 10,
+      "profile": "Data-extortion crew first seen Sep 2026; RansomLook counts 304 posts all-time, 86 in the last 7 days. Posts numbered \"Company #NNN\" placeholders before naming victims, and often re-lists names. Today's batch of 10 household-name and SMB retail/finance brands landed at a single timestamp, RansomLook-only. RedPacket Security has cautioned that N0n listings include unverified claims.",
+      "countries": "US, CA, KR",
+      "sectors": "Retail, apparel, consumer electronics, financial services, media"
+    },
+    {
+      "name": "Qilin",
+      "hits": 6,
+      "profile": "Most prolific RaaS of 2025–26 (active since Oct 2022); Rust/Go encryptors, ESXi targeting, credential-based initial access. All six were name-only posts in both feeds.",
+      "countries": "US",
+      "sectors": "Manufacturing, construction, professional services"
+    },
+    {
+      "name": "PixelLeaks",
+      "hits": 4,
+      "profile": "Leak site first seen 3 Nov 2026. Posts uniform \"verified set of records\" notices with 3–4-day publication deadlines and platform names in titles. Ransomware.live back-filled 19 of its earlier victims today (all already in №80, №83, №84).",
+      "countries": "IN, ID",
+      "sectors": "Manufacturing, healthcare, technology"
+    },
+    {
+      "name": "Inc Ransom",
+      "hits": 1,
+      "profile": "Double-extortion operation active since mid-2023; exploits edge devices and spear-phishing; heavy on healthcare, education and public sector.",
+      "countries": "ID",
+      "sectors": "Restaurants / food service"
+    },
+    {
+      "name": "LockBit5",
+      "hits": 1,
+      "profile": "LockBit 5.0, the rebuilt LockBit brand after the 2024 Operation Cronos takedown; cross-platform builds (Windows, Linux, ESXi) and renewed hospital targeting in Asia (per DeXpose, Brinztech).",
+      "countries": "MY",
+      "sectors": "Healthcare"
+    }
+  ],
+  "quality": {
+    "singleSourced": 13,
+    "claimOnly": 17,
+    "sourcesDisagree": 3,
+    "newGroups": 0
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 31
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 20
+      }
+    ],
+    "merged": 42,
+    "masked": 0,
+    "reposts": 20,
+    "nonVictims": 0,
+    "lowCoverage": false
+  },
+  "lateToPress": 0
+}
