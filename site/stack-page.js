@@ -20,6 +20,6 @@ export function renderStackLine(host, stack, editHref) {
   const edit = el("a", { text: stack.has ? "Edit" : "Tick your stack", attrs: { href: editHref } });
   host.replaceChildren(...(stack.has
     ? ["Your stack: ", el("strong", { text: stack.name }), ` · ${describeStack(stack.vendors)} · `, edit]
-    : [edit, " on the Radar to highlight what affects the software you run."]));
+    : [edit, " on the Exploited page to highlight what affects the software you run."]));
   host.hidden = false;
 }

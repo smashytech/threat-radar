@@ -54,6 +54,7 @@ async function init() {
 function renderHero(kev, sitrep, meta, today) {
   const headline = firstSentence(sitrep?.tldr);
   $("today-headline").textContent = headline || "This week in exploited vulnerabilities";
+  $("today-headline").classList.toggle("today-hero__headline--long", (headline || "").length > 100);
   $("today-week").textContent = weekLine(kev, today);
 
   const link = $("today-sitrep-link");

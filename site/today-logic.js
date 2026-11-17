@@ -10,7 +10,12 @@ const HEADLINE_MAX = 160;
  *  A sentence ends at . ! or ? followed by a space and a capital letter, quote or bracket,
  *  so "~150,000" or "v2.1" don't end it. */
 export function firstSentence(text) {
-  const clean = String(text ?? "").replace(/\s+/g, " ").trim();
+  let clean = String(text ?? "").replace(/\s+/g, " ");
+  // Asides in brackets ("(ConnectWise ScreenConnect/SCKit, N-able N-central)") make a
+  // headline long without adding much; the full text is one click away.
+  let before;
+  do { before = clean; clean = clean.replace(/\s*\([^()]*\)/g, ""); } while (clean !== before);
+  clean = clean.replace(/\s+([.,;:!?])/g, "$1").replace(/[,;:]+([.!?])/g, "$1").trim();
   if (!clean) return null;
   const end = clean.search(/[.!?](?=\s+["“(A-Z])/);
   const sentence = end >= 0 ? clean.slice(0, end + 1) : clean;

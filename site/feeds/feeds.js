@@ -86,7 +86,7 @@ function wireStack() {
   if (!stack.has) {
     $("opml-stack").replaceChildren(
       el("a", { text: "Tick your stack", attrs: { href: "../exploited/#mystack" } }),
-      " on the Radar, then come back here to subscribe to just the vendors you run.");
+      " on the Exploited page, then come back here to subscribe to just the vendors you run.");
     return;
   }
   $("opml-stack").replaceChildren("Your stack: ", el("strong", { text: stack.name }), ` · ${describeStack(stack.vendors)}`);

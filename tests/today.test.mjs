@@ -19,6 +19,15 @@ test("headline: the first sentence of the Sitrep summary", () => {
   assert.equal(firstSentence("  spaced   out.  Next. "), "spaced out.");
 });
 
+test("headline: asides in brackets are dropped so it stays short", () => {
+  assert.equal(
+    firstSentence("Two live MSP-tooling exploitation campaigns (ConnectWise ScreenConnect/SCKit, N-able N-central) are driving crypto-mining and remote-access abuse on unpatched systems. Optimizely and Barracuda both disclosed breaches."),
+    "Two live MSP-tooling exploitation campaigns are driving crypto-mining and remote-access abuse on unpatched systems.");
+  assert.equal(firstSentence("Patch now (CVE-2026-1), (really)."), "Patch now.");
+  assert.equal(firstSentence("(Only an aside.) Then text."), "Then text.", "a sentence that is only an aside is skipped");
+  assert.equal(firstSentence("Unbalanced (bracket here. Next."), "Unbalanced (bracket here.");
+});
+
 test("headline: cut at 160 characters at a word boundary, with an ellipsis", () => {
   const long = "Lighter news cycle but notably severe: a destructive wiper campaign hit Check Point gateways via a new webshell, two more zero-days saw same-day exploitation, and a new state-linked actor appeared. Second.";
   const h = firstSentence(long);

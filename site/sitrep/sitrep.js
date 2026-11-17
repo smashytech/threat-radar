@@ -112,7 +112,7 @@ function cveChip({ cve, inKev, mine }) {
     if (mine) parts.push(el("span", { className: "cve-chip__tag cve-chip__tag--mine", text: "Your stack" }));
     return el("a", {
       className: mine ? "cve-chip cve-chip--kev cve-chip--mine" : "cve-chip cve-chip--kev",
-      attrs: { href: `../exploited/#${encodeURIComponent(cve)}`, title: "In CISA's Known Exploited Vulnerabilities catalog. Open it on the Radar." },
+      attrs: { href: `../exploited/#${encodeURIComponent(cve)}`, title: "In CISA's Known Exploited Vulnerabilities catalog. Open it on the Exploited page." },
     }, parts);
   }
   return el("a", {
