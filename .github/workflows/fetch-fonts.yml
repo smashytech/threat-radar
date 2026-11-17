@@ -1,0 +1,66 @@
+# Fetches the site's three fonts once and puts them on a branch for review
+# (spec 007). Run by hand: Actions → "Fetch fonts" → Run workflow.
+#
+# Why a workflow? The site may only load files from zelin.se itself (its
+# security policy), so the fonts must live in the repo. They come from the
+# official Fontsource packages on npm (the fonts' own free licence, SIL OFL,
+# allows this). The run prints each file's exact version, size and SHA-256
+# checksum, so what lands in the repo can be checked before it is merged.
+
+name: Fetch fonts
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write   # only to push the "fonts" branch; it never touches main
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Download the font packages
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/fonts site/fonts
+          {
+            echo "# Fonts"
+            echo
+            echo "Self-hosted so the site never contacts another server (spec 007). Each font is under the SIL Open Font License; the licence text sits next to it."
+            echo
+            echo "| File | Package | Version | Bytes | SHA-256 |"
+            echo "|---|---|---|---|---|"
+          } > site/fonts/README.md
+          for spec in "inter:@fontsource-variable/inter:inter-latin-wght-normal.woff2" \
+                      "space-grotesk:@fontsource-variable/space-grotesk:space-grotesk-latin-wght-normal.woff2" \
+                      "jetbrains-mono:@fontsource-variable/jetbrains-mono:jetbrains-mono-latin-wght-normal.woff2"; do
+            IFS=: read -r name pkg file <<< "$spec"
+            version=$(npm view "$pkg@5" version | tail -1 | awk '{print $NF}' | tr -d "'")
+            (cd /tmp/fonts && npm pack --silent "$pkg@$version" > /dev/null)
+            tarball=$(ls /tmp/fonts/*"$name"-"$version".tgz)
+            mkdir -p "/tmp/fonts/$name" && tar -xzf "$tarball" -C "/tmp/fonts/$name"
+            cp "/tmp/fonts/$name/package/files/$file" "site/fonts/$name.woff2"
+            cp "/tmp/fonts/$name/package/LICENSE" "site/fonts/OFL-$name.txt"
+            bytes=$(stat -c %s "site/fonts/$name.woff2")
+            sum=$(sha256sum "site/fonts/$name.woff2" | cut -d' ' -f1)
+            echo "| $name.woff2 | $pkg | $version | $bytes | \`$sum\` |" >> site/fonts/README.md
+          done
+          cat site/fonts/README.md
+          total=$(du -cb site/fonts/*.woff2 | tail -1 | cut -f1)
+          echo "Total font bytes: $total"
+          test "$total" -lt 409600   # spec 007 NFR-5: under 400 KB
+          # A woff2 file always starts with the four bytes "wOF2".
+          for f in site/fonts/*.woff2; do test "$(head -c 4 "$f")" = "wOF2"; done
+
+      - name: Push the "fonts" branch for review
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B fonts
+          git add site/fonts
+          git commit -m "Add self-hosted fonts (spec 007)" -m "$(cat site/fonts/README.md)"
+          git push --force origin fonts
