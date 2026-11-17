@@ -1,51 +1,90 @@
-/* Threat Radar styles
-   Dark "radar screen" theme by default, with a light variant that switches on
-   automatically when your device is set to light mode.
-   All colours live in custom properties (variables) at the top, so changing
-   the look means editing one block. */
+/* Threat Radar styles (spec 007: "morning briefing" look)
+   Light theme by default, dark when the device prefers it or the visitor picks
+   it with the moon/sun toggle (theme.js). All colours live in custom properties
+   (variables) at the top, so changing the look means editing one block, and
+   tests/contrast.test.mjs checks every colour pair stays readable. */
 
 :root {
-  color-scheme: dark light;
-  --bg: #08100c;
-  --surface: #0e1813;
-  --surface-2: #132019;
-  --border: #1e3027;
-  --border-strong: #2c4538;
-  --text: #d7e6dd;
-  --muted: #86a092;
-  --accent: #3ddc84;
-  --accent-soft: rgba(61, 220, 132, 0.14);
-  --hot: #ffb547;
-  --hot-soft: rgba(255, 181, 71, 0.14);
-  --alert: #ff6b6b;
-  --alert-soft: rgba(255, 107, 107, 0.14);
-  --mine: #6cb6ff;
-  --mine-soft: rgba(108, 182, 255, 0.14);
-  --radius: 10px;
+  color-scheme: light;
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --surface-2: #eef1f4;
+  --border: #e3e7ec;
+  --border-strong: #7d8896;
+  --text: #111827;
+  --text-2: #374151;
+  --muted: #4b5563;
+  --accent: #0f6e5c;
+  --accent-soft: rgba(15, 110, 92, 0.1);
+  --on-accent: #ffffff;
+  --hot: #b7410e;
+  --hot-soft: rgba(194, 65, 12, 0.1);
+  --alert: #b91c1c;
+  --alert-soft: rgba(185, 28, 28, 0.08);
+  --mine: #1d4ed8;
+  --mine-soft: rgba(29, 78, 216, 0.08);
+  --track: #e6eaee;
+  --radius: 14px;
   --gutter: 16px;
-  --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  --font: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --display: "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, "Liberation Mono", monospace;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    --bg: #f3f6f4;
-    --surface: #ffffff;
-    --surface-2: #eef3f0;
-    --border: #d5dfd9;
-    --border-strong: #b5c5bc;
-    --text: #13201a;
-    --muted: #55695e;
-    --accent: #0b7a43;
-    --accent-soft: rgba(11, 122, 67, 0.1);
-    --hot: #9a5800;
-    --hot-soft: rgba(154, 88, 0, 0.1);
-    --alert: #b42323;
-    --alert-soft: rgba(180, 35, 35, 0.09);
-    --mine: #1f5fa6;
-    --mine-soft: rgba(31, 95, 166, 0.1);
+/* Dark theme, twice on purpose (tests/contrast.test.mjs checks they match):
+   1. the visitor's device prefers dark and they haven't chosen light with the toggle;
+   2. they chose dark with the toggle (theme.js sets data-theme="dark"). */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+  color-scheme: dark;
+  --bg: #0e1116;
+  --surface: #161b22;
+  --surface-2: #1c232c;
+  --border: #262d36;
+  --border-strong: #66717f;
+  --text: #e8ecf1;
+  --text-2: #c3cbd5;
+  --muted: #9aa5b1;
+  --accent: #3cc8a4;
+  --accent-soft: rgba(60, 200, 164, 0.14);
+  --on-accent: #0e1116;
+  --hot: #f59a5c;
+  --hot-soft: rgba(245, 154, 92, 0.14);
+  --alert: #f87171;
+  --alert-soft: rgba(248, 113, 113, 0.14);
+  --mine: #6cb6ff;
+  --mine-soft: rgba(108, 182, 255, 0.14);
+  --track: #232a33;
   }
 }
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0e1116;
+  --surface: #161b22;
+  --surface-2: #1c232c;
+  --border: #262d36;
+  --border-strong: #66717f;
+  --text: #e8ecf1;
+  --text-2: #c3cbd5;
+  --muted: #9aa5b1;
+  --accent: #3cc8a4;
+  --accent-soft: rgba(60, 200, 164, 0.14);
+  --on-accent: #0e1116;
+  --hot: #f59a5c;
+  --hot-soft: rgba(245, 154, 92, 0.14);
+  --alert: #f87171;
+  --alert-soft: rgba(248, 113, 113, 0.14);
+  --mine: #6cb6ff;
+  --mine-soft: rgba(108, 182, 255, 0.14);
+  --track: #232a33;
+}
+
+/* Self-hosted fonts (site/fonts/README.md): no request ever leaves zelin.se.
+   "swap" shows text in a system font at once, then switches when the file arrives. */
+@font-face { font-family: "Inter"; src: url("fonts/inter.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
+@font-face { font-family: "Space Grotesk"; src: url("fonts/space-grotesk.woff2") format("woff2"); font-weight: 300 700; font-display: swap; }
+@font-face { font-family: "JetBrains Mono"; src: url("fonts/jetbrains-mono.woff2") format("woff2"); font-weight: 100 800; font-display: swap; }
 
 /* ---------- Base ---------- */
 *, *::before, *::after { box-sizing: border-box; }
