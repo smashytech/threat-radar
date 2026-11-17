@@ -55,9 +55,11 @@ export function vendorList(entries) {
     .sort((a, b) => b.count - a.count || a.vendor.localeCompare(b.vendor, "en"));
 }
 
-/** The `n` vendors with the most entries. */
-export function topVendors(entries, n = 10) {
-  return vendorList(entries).slice(0, n);
+/** The `n` vendors with the most entries. With `days` > 0, only entries added
+ *  in the last `days` days count (today is day 1, same rule as the list filter). */
+export function topVendors(entries, n = 10, { days = 0, today } = {}) {
+  const inPeriod = days > 0 ? filterEntries(entries, { windowDays: days, today }) : entries;
+  return vendorList(inPeriod).slice(0, n);
 }
 
 const SEARCH_FIELDS = ["cveID", "vendorProject", "product", "vulnerabilityName", "shortDescription"];

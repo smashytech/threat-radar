@@ -1,0 +1,62 @@
+[
+  {
+    "id": "AC-2",
+    "name": "Opens on 12 months",
+    "ok": true,
+    "detail": "last 12 months · tap to filter · Microsoft 42, Cisco 22, Google 12"
+  },
+  {
+    "id": "AC-2",
+    "name": "90 days redraws bars and subtitle",
+    "ok": true,
+    "detail": "Cisco 7, Linux 6, Microsoft 6"
+  },
+  {
+    "id": "AC-2",
+    "name": "All time shows the old totals",
+    "ok": true,
+    "detail": "Microsoft 391, Cisco 103"
+  },
+  {
+    "id": "AC-3",
+    "name": "Tap Microsoft (365): list = bar",
+    "ok": true,
+    "detail": "bar Microsoft 42, list 42 matches, Added=365, pressed=true"
+  },
+  {
+    "id": "AC-3",
+    "name": "Tap Cisco (90): list = bar",
+    "ok": true,
+    "detail": "bar Cisco 7, list 7 matches, Added=90, pressed=true"
+  },
+  {
+    "id": "AC-3",
+    "name": "Tap Microsoft (0): list = bar",
+    "ok": true,
+    "detail": "bar Microsoft 391, list 391 matches, Added=0, pressed=true"
+  },
+  {
+    "id": "AC-4",
+    "name": "Arrow key changes the period",
+    "ok": true,
+    "detail": "now 90, outline solid"
+  },
+  {
+    "id": "AC-4",
+    "name": "360 px: no horizontal scroll, switch fits",
+    "ok": true,
+    "detail": "overflow 0px, switch 33–253"
+  },
+  {
+    "id": "FR-6",
+    "name": "Swedish browser: English subtitle",
+    "ok": true,
+    "detail": "last 12 months · tap to filter"
+  },
+  {
+    "id": "AC-5",
+    "name": "No external requests, no errors",
+    "ok": true,
+    "detail": "external 0, errors 0"
+  }
+]

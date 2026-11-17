@@ -116,7 +116,15 @@
           <div id="chart-monthly" class="chart-monthly"></div>
         </figure>
         <figure class="panel">
-          <figcaption class="panel__title">Most-exploited vendors <span class="muted">all time · tap to filter</span></figcaption>
+          <figcaption class="panel__head">
+            <span class="panel__title">Most-exploited vendors <span class="muted" id="vendor-period-label">last 12 months · tap to filter</span></span>
+            <fieldset class="segmented segmented--small" id="vendor-period">
+              <legend class="visually-hidden">Count vendors over</legend>
+              <label><input type="radio" name="vendor-period" value="365" checked><span>12 mo</span></label>
+              <label><input type="radio" name="vendor-period" value="90"><span>90 days</span></label>
+              <label><input type="radio" name="vendor-period" value="0"><span>All time</span></label>
+            </fieldset>
+          </figcaption>
           <ol id="chart-vendors" class="vendor-bars"></ol>
         </figure>
       </div>
@@ -158,6 +166,7 @@
           <label><input type="radio" name="window" value="7"><span>7d</span></label>
           <label><input type="radio" name="window" value="30"><span>30d</span></label>
           <label><input type="radio" name="window" value="90"><span>90d</span></label>
+          <label><input type="radio" name="window" value="365"><span>1y</span></label>
           <label><input type="radio" name="window" value="0" checked><span>All</span></label>
         </fieldset>
         <label class="toggle">

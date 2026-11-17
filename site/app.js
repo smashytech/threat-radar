@@ -33,7 +33,10 @@ const state = {
   vendor: "",
   windowDays: 0,
   ransomwareOnly: false,
+  vendorDays: 365,  // period of the "Most-exploited vendors" chart (spec 006); 0 = all time
 };
+
+const PERIOD_LABELS = { 365: "last 12 months", 90: "last 90 days", 0: "all time" };
 
 // ---------- My stack (spec 004) ----------
 //
@@ -205,8 +208,13 @@ function renderMonthly() {
 }
 
 function renderVendors() {
-  const vendors = topVendors(state.all, 10);
+  const vendors = topVendors(state.all, 10, { days: state.vendorDays, today: state.today });
   const max = vendors.length ? vendors[0].count : 1;
+  $("vendor-period-label").textContent = `${PERIOD_LABELS[state.vendorDays]} · tap to filter`;
+  if (!vendors.length) {
+    $("chart-vendors").replaceChildren(el("li", { className: "muted", text: "Nothing added in this period." }));
+    return;
+  }
   const rows = vendors.map(({ vendor, count }) => {
     const fill = el("span", { className: "vendor-bar__fill" });
     fill.style.width = `${(count / max) * 100}%`;
@@ -219,6 +227,7 @@ function renderVendors() {
       el("span", { className: "vendor-bar__count", text: numberFmt.format(count) }),
     ]);
     button.addEventListener("click", () => {
+      if (state.vendor !== vendor) setWindow(state.vendorDays); // the list then shows the same count as the bar
       setVendor(state.vendor === vendor ? "" : vendor);
       $("latest").scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "start" });
     });
@@ -235,6 +244,13 @@ function populateVendorSelect() {
   $("vendor").append(...options);
 }
 
+/** Set the list's "Added" filter without redrawing (the caller redraws). */
+function setWindow(days) {
+  state.windowDays = days;
+  const radio = document.querySelector(`input[name="window"][value="${days}"]`);
+  if (radio) radio.checked = true;
+}
+
 function setVendor(vendor) {
   state.vendor = vendor;
   $("vendor").value = vendor;
@@ -247,6 +263,13 @@ function wireControls() {
   $("vendor").addEventListener("change", (event) => setVendor(event.target.value));
   for (const radio of document.querySelectorAll('input[name="window"]')) {
     radio.addEventListener("change", () => { state.windowDays = Number(radio.value); applyFilters(); });
+  }
+  for (const radio of document.querySelectorAll('input[name="vendor-period"]')) {
+    radio.addEventListener("change", () => {
+      state.vendorDays = Number(radio.value);
+      renderVendors();
+      applyFilters(); // restores the pressed state of the bars
+    });
   }
   $("ransom").addEventListener("change", (event) => { state.ransomwareOnly = event.target.checked; applyFilters(); });
   $("more").addEventListener("click", () => { state.shown += PAGE_SIZE; renderList(); });

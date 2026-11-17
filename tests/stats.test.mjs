@@ -67,6 +67,25 @@ test("top vendors: most entries first, ties alphabetical", () => {
   assert.equal(topVendors(entries, 10).length, 9); // only 9 distinct vendors exist
 });
 
+test("top vendors can be counted for a period (spec 006 AC-1)", () => {
+  // 90 days back from 2026-11-06 starts 2026-08-09: Cisco, JetBrains and Apache drop out.
+  assert.deepEqual(topVendors(entries, 3, { days: 90, today: TODAY }), [
+    { vendor: "Microsoft", count: 3 },
+    { vendor: "Ivanti", count: 2 },
+    { vendor: "Apple", count: 1 },
+  ]);
+  assert.equal(topVendors(entries, 10, { days: 90, today: TODAY }).length, 6); // Broadcom, GitLab, Ivanti, Microsoft, WordPress, Apple
+  // 7 days: 2026-10-31 .. 2026-11-06
+  assert.deepEqual(topVendors(entries, 10, { days: 7, today: TODAY }), [
+    { vendor: "Apple", count: 1 },
+    { vendor: "WordPress", count: 1 },
+  ]);
+  // days 0 = all time, same as before
+  assert.deepEqual(topVendors(entries, 3, { days: 0, today: TODAY }), topVendors(entries, 3));
+  // nothing in the period
+  assert.deepEqual(topVendors(entries, 10, { days: 1, today: "2030-01-01" }), []);
+});
+
 test("vendor list for the dropdown is complete", () => {
   const list = vendorList(entries);
   assert.equal(list.length, 9);
