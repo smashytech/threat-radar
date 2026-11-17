@@ -8,6 +8,8 @@ const fs = require('fs');
 const path = require('path');
 
 const BASE = 'http://localhost:8765/';
+const RADAR = BASE + 'exploited/'; // spec 007 moved the Radar here
+const KEV_TOTAL = JSON.parse(fs.readFileSync(path.join(__dirname, '..', '..', 'site', 'data', 'kev.json'), 'utf8')).length.toLocaleString('en-GB');
 const OUT = process.argv[2];
 const KEY = 'threat-radar.presets.v1';
 const results = [];
@@ -58,7 +60,7 @@ async function grabOpml(page, selector) {
   // ---- AC-6: every page advertises the three main feeds, and they load as Atom ----
   const ctx = await newContext(browser);
   const disc = {};
-  for (const p of ['', 'sitrep/', 'ransomware/', 'feeds/']) {
+  for (const p of ['', 'exploited/', 'sitrep/', 'ransomware/', 'feeds/']) {
     const page = await open(ctx, BASE + p);
     const links = await page.$$eval('link[rel="alternate"][type="application/atom+xml"]', (ls) => ls.map((l) => l.href));
     const statuses = await page.evaluate(async (urls) => Promise.all(urls.map(async (u) => {
@@ -97,7 +99,7 @@ async function grabOpml(page, selector) {
   const intro = await page.textContent('#vendor-intro');
   check('AC-7b', 'Vendor finder: finds vendors (accents ignored), caps at 20, says when nothing matches',
     micro.names.includes('Microsoft') && micro.addr.includes(`${BASE}feeds/vendors/microsoft.xml`) && accent.includes('Dassault Systèmes') &&
-    many.shown === 20 && /showing the first 20/.test(many.count) && /No vendor matches "zzzz"/.test(none) && /291 vendors/.test(intro),
+    many.shown === 20 && /showing the first 20/.test(many.count) && /No vendor matches "zzzz"/.test(none) && intro.includes(`${new Set(JSON.parse(fs.readFileSync(path.join(__dirname, '..', '..', 'site', 'data', 'kev.json'), 'utf8')).map((e) => e.vendorProject)).size} vendors`) /* counted from the data: 291 when spec 005 shipped */,
     `"micro" → ${micro.names.join(', ')}; "systemes" → ${accent.join(', ')}; "a" → ${many.count}; "zzzz" → ${none}; intro "${intro}"`);
   await page.fill('#vendor-q', 'fortinet');
   await page.waitForTimeout(250);
@@ -145,7 +147,7 @@ async function grabOpml(page, selector) {
   for (const f of [work.file, hostile.file]) fs.rmSync(f, { force: true });
 
   // In the picker on the Radar
-  page = await open(ctxStack, BASE);
+  page = await open(ctxStack, RADAR);
   await page.evaluate((k) => sessionStorage.removeItem(k), KEY);
   await page.reload({ waitUntil: 'networkidle' });
   await page.click('#stack-open');
@@ -176,8 +178,8 @@ async function grabOpml(page, selector) {
   await page.keyboard.press('Enter');
   await page.waitForTimeout(100);
   const kbCopied = await page.evaluate(() => navigator.clipboard.readText());
-  const nav = await page.$$eval('.topnav__link', (ls) => ls.map((l) => `${l.textContent}=${l.getAttribute('href')}`));
-  const radar = await open(ctxPhone, BASE);
+  const nav = await page.$$eval('.site-nav__link', (ls) => ls.map((l) => `${l.textContent}=${l.getAttribute('href')}`));
+  const radar = await open(ctxPhone, RADAR);
   const radarWidth = await radar.evaluate(() => document.documentElement.scrollWidth);
   check('AC-7d', '360 px without sideways scrolling; keyboard reaches and uses Copy; menu says "Breaches"',
     width <= 360 && radarWidth <= 360 && onCopy === 'Copy address' && kbCopied === `${BASE}feeds/vendors/cisco.xml` && nav.includes('Breaches=../ransomware/'),
@@ -188,7 +190,7 @@ async function grabOpml(page, selector) {
   const ctxSv = await newContext(browser, { locale: 'sv-SE', timezoneId: 'Europe/Stockholm' });
   const swedish = /\b(måndag|tisdag|onsdag|torsdag|fredag|lördag|söndag|mån|tis|ons|tors|fre|lör|sön|i går|i dag|sedan|okt\.|nov\.|november 2026 \d)\b|\d\u00a0\d{3}/i;
   const seen = {};
-  for (const p of ['', 'sitrep/', 'ransomware/']) {
+  for (const p of ['', 'exploited/', 'sitrep/', 'ransomware/']) {
     const pg = await open(ctxSv, BASE + p);
     await pg.waitForTimeout(500);
     const text = await pg.evaluate(() => document.body.innerText);
@@ -197,10 +199,10 @@ async function grabOpml(page, selector) {
     if (p === 'ransomware/') await pg.locator('.masthead').screenshot({ path: path.join(OUT, 'breaches-english-dates.png') });
     await pg.close();
   }
-  const radarSv = await open(ctxSv, BASE);
+  const radarSv = await open(ctxSv, RADAR);
   const total = await radarSv.textContent('#stat-total');
   check('LANG', 'In a Swedish browser, dates, "time ago" and numbers are still English',
-    Object.values(seen).every((s) => !s.swedishFound && s.sample) && total === '1,769',
+    Object.values(seen).every((s) => !s.swedishFound && s.sample) && total === KEV_TOTAL,
     `${JSON.stringify(seen)}; catalog total "${total}"`);
   await ctxSv.close();
 

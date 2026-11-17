@@ -22,7 +22,7 @@ const matches = async (page) => Number(((await page.textContent('#result-count')
 async function open(browser, opts = {}) {
   const ctx = await browser.newContext({ viewport: { width: 1280, height: 900 }, ...opts });
   const page = await ctx.newPage();
-  page.on('request', (r) => { if (!r.url().startsWith(BASE)) external.push(r.url()); });
+  page.on('request', (r) => { if (new URL(r.url()).origin !== new URL(BASE).origin) external.push(r.url()); });
   page.on('pageerror', (e) => errors.push(e.message));
   page.on('console', (m) => { if (m.type() === 'error') errors.push(m.text()); });
   await page.goto(BASE, { waitUntil: 'networkidle' });

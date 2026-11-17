@@ -6,10 +6,15 @@ const { chromium } = require('playwright');
 const fs = require('fs');
 const path = require('path');
 
-const BASE = 'http://localhost:8765/';
+// Spec 007 moved the Radar to /exploited/; SITE is the site root, BASE the Radar page.
+const SITE = process.env.SITE || 'http://localhost:8765/';
+const BASE = SITE + 'exploited/';
 const OUT = process.argv[2];
 const KEY = 'threat-radar.presets.v1';
 const kev = JSON.parse(fs.readFileSync(path.join(__dirname, '..', '..', 'site', 'data', 'kev.json'), 'utf8'));
+// Counted from the data (the catalog grows; 291 vendors / 72 Microsoft products when this spec shipped).
+const VENDOR_COUNT = new Set(kev.map((e) => e.vendorProject)).size;
+const MS_PRODUCTS = new Set(kev.filter((e) => e.vendorProject === 'Microsoft').map((e) => e.product)).size;
 const results = [];
 const check = (id, name, ok, detail = '') => results.push({ id, name, ok: Boolean(ok), detail: String(detail) });
 const allRequests = [];
@@ -70,7 +75,7 @@ const shot = (page, name, opts = {}) => page.screenshot({ path: path.join(OUT, n
   const msProducts = await row(page, 'Microsoft').locator('.pick__product').count();
   const msProductText = (await row(page, 'Microsoft').locator('.pick__product').first().innerText()).replace(/\s+/g, ' ');
   check('AC-1', 'Picker lists every vendor with counts; vendors expand to products with counts',
-    rowsCount === 291 && /\d/.test(firstRow) && msProducts === 72 && /\d/.test(msProductText), `${rowsCount} vendors; first "${firstRow}"; Microsoft ${msProducts} products, first "${msProductText}"`);
+    rowsCount === VENDOR_COUNT && /\d/.test(firstRow) && msProducts === MS_PRODUCTS && /\d/.test(msProductText), `${rowsCount} vendors; first "${firstRow}"; Microsoft ${msProducts} products, first "${msProductText}"`);
 
   await search(page, 'vmware');
   const vmVendors = await page.locator('#picker-list .pick__vendor .pick__name').allTextContents();
@@ -217,7 +222,7 @@ const shot = (page, name, opts = {}) => page.screenshot({ path: path.join(OUT, n
   const newShown = await page.textContent('#strip-new');
   await page.locator('#stack-strip').scrollIntoViewIfNeeded();
   await shot(page, 'radar-new-since-last-visit.png');
-  await page.goto(BASE + 'sitrep/', { waitUntil: 'networkidle' });
+  await page.goto(SITE + 'sitrep/', { waitUntil: 'networkidle' });
   await page.goto(BASE, { waitUntil: 'networkidle' });
   const newAfterNav = await page.textContent('#strip-new');
   const nextVisit = await open(ctxB);
@@ -250,7 +255,7 @@ const shot = (page, name, opts = {}) => page.screenshot({ path: path.join(OUT, n
 
   // ---------------- C: Sitrep and Ransomware pages ----------------
   const ctxC = await newContext(browser);
-  page = await open(ctxC, BASE + 'sitrep/?d=2026-11-06');
+  page = await open(ctxC, SITE + 'sitrep/?d=2026-11-06');
   const noStackLine = await page.textContent('#stack-line');
   const noStackTags = await page.locator('.badge--mine, .cve-chip--mine').count();
   await seed(page, { v: 1, active: 'Work', lastSeen: null, presets: [{ name: 'Work', myStackOnly: false, vendors: { Zyxel: [], Cisco: [], Microsoft: [] } }] }, 'session');
@@ -268,7 +273,7 @@ const shot = (page, name, opts = {}) => page.screenshot({ path: path.join(OUT, n
   await page.waitForSelector('#picker[open]');
   const hashAfterEdit = await page.evaluate(() => window.location.hash);
   check('AC-10b', 'The Edit link opens the picker on the Radar (and tidies the address)', hashAfterEdit === '', `hash after open: "${hashAfterEdit}"`);
-  await page.goto(BASE + 'ransomware/', { waitUntil: 'networkidle' });
+  await page.goto(SITE + 'ransomware/', { waitUntil: 'networkidle' });
   const mineItems = await page.locator('#kev-ransom-mine > li').count();
   const mineMarked = await page.locator('#kev-ransom-mine .kev-ransom__item--mine').count();
   const msRansom = kev.filter((e) => ['Zyxel', 'Cisco', 'Microsoft'].includes(e.vendorProject) && e.knownRansomwareCampaignUse === 'Known').length;
@@ -291,7 +296,7 @@ const shot = (page, name, opts = {}) => page.screenshot({ path: path.join(OUT, n
   await page.locator('#share-offer').screenshot({ path: path.join(OUT, 'share-offer.png') });
   await page.click('#share-ignore');
   const afterIgnore = { hidden: await page.isHidden('#share-offer'), hash: await page.evaluate(() => location.hash), storage: await storage(page) };
-  await page.goto(BASE + 'sitrep/');
+  await page.goto(SITE + 'sitrep/');
   page = await open(ctxD, BASE + shareHash);
   await page.click('#share-add');
   const recD = await record(page);
@@ -391,7 +396,7 @@ const shot = (page, name, opts = {}) => page.screenshot({ path: path.join(OUT, n
   widths.picker = await page.evaluate(() => Math.max(document.documentElement.scrollWidth, document.getElementById('picker').scrollWidth));
   await shot(page, 'mobile-360-picker.png');
   for (const url of ['sitrep/', 'ransomware/']) {
-    await page.goto(BASE + url, { waitUntil: 'networkidle' });
+    await page.goto(SITE + url, { waitUntil: 'networkidle' });
     widths[url] = await page.evaluate(() => document.documentElement.scrollWidth);
   }
 
@@ -440,7 +445,7 @@ const shot = (page, name, opts = {}) => page.screenshot({ path: path.join(OUT, n
   await shot(page, 'dark-theme-picker.png');
   await ctxL.close();
 
-  const external = allRequests.filter((r) => !r.url.startsWith(BASE));
+  const external = allRequests.filter((r) => !r.url.startsWith(SITE));
   check('AC-13c', '0 external requests across every check', external.length === 0, `${allRequests.length} requests, external: ${external.map((r) => r.url).join(', ') || 'none'}`);
   check('ALL', 'No page errors, console errors or pop-up dialogs during the whole run', errors.length === 0, errors.join(' | ') || 'none');
 

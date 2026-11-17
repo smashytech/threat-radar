@@ -1,0 +1,86 @@
+[
+  {
+    "id": "AC-1",
+    "name": "Today shows headline, week line, 4 numbers, 3 columns and the trend from the live data",
+    "ok": true,
+    "detail": "{\"headline\":\"Two live MSP-tooling exploitation campaigns are driving crypto-mining and remote-access abuse on unpatched systems.\",\"week\":\"CISA added 2 exploited flaws this week: Check Point and UnrealIRCd.\",\"numbers\":[\"2\",\"33\",\"22\",\"0\"],\"kev\":[\"CVE-2026-123039\",\"CVE-2026-114713\",\"CVE-2026-125350\",\"CVE-2026-124194\"],\"sitrep\":3,\"bars\":[\"22\",\"6\",\"5\"],\"months\":12,\"bwTitle\":\"Breach Wire №85\"}"
+  },
+  {
+    "id": "AC-2",
+    "name": "Headline is the Sitrep's first sentence without bracketed asides, at most 160 characters",
+    "ok": true,
+    "detail": "115 chars: \"Two live MSP-tooling exploitation campaigns are driving crypto-mining and remote-access abuse on unpatched systems.\""
+  },
+  {
+    "id": "AC-3",
+    "name": "Without a Sitrep or Breach Wire the page still renders with clear messages",
+    "ok": true,
+    "detail": "{\"headline\":\"This week in exploited vulnerabilities\",\"sitrep\":\"No Sitrep has been published yet.\",\"bw\":\"No Breach Wire issue has been published yet.\",\"claims\":\"–\",\"sitrepButton\":true}"
+  },
+  {
+    "id": "AC-4",
+    "name": "A victim name planted in the Breach Wire data never appears on Today",
+    "ok": true,
+    "detail": "planted name shown: false"
+  },
+  {
+    "id": "AC-6a",
+    "name": "Old links (#CVE-…, #mystack, #stack=…) forward to the Exploited page and open the right thing",
+    "ok": true,
+    "detail": "{\"#CVE-2026-12\":{\"landedOnExploited\":true,\"opened\":true},\"#mystack\":{\"landedOnExploited\":true,\"opened\":true},\"#stack=%7B%2\":{\"landedOnExploited\":true,\"opened\":true}}"
+  },
+  {
+    "id": "AC-6b",
+    "name": "Feed entries link to /exploited/#CVE-…, with unchanged tag: IDs",
+    "ok": true,
+    "detail": "50 links, e.g. http://localhost:8765/exploited/#CVE-2026-123039; IDs e.g. tag:zelin.se,2026:kev/CVE-2026-123039"
+  },
+  {
+    "id": "AC-7a",
+    "name": "No choice stored: the page follows the device (light → light, dark → dark)",
+    "ok": true,
+    "detail": "{\"light\":{\"bg\":\"rgb(246, 247, 249)\",\"attr\":null,\"pressed\":\"false\"},\"dark\":{\"bg\":\"rgb(14, 17, 22)\",\"attr\":null,\"pressed\":\"true\"}}"
+  },
+  {
+    "id": "AC-7b",
+    "name": "The toggle switches to dark, remembers it, and every page opens dark with no flash",
+    "ok": true,
+    "detail": "{\"bg\":\"rgb(14, 17, 22)\",\"stored\":\"dark\",\"title\":\"Switch to light mode\"}; {\"/\":{\"bg\":\"rgb(14, 17, 22)\",\"beforeBody\":\"dark\"},\"exploited/\":{\"bg\":\"rgb(14, 17, 22)\",\"beforeBody\":\"dark\"},\"sitrep/\":{\"bg\":\"rgb(14, 17, 22)\",\"beforeBody\":\"dark\"},\"ransomware/\":{\"bg\":\"rgb(14, 17, 22)\",\"beforeBody\":\"dark\"},\"feeds/\":{\"bg\":\"rgb(14, 17, 22)\",\"beforeBody\":\"dark\"}}"
+  },
+  {
+    "id": "AC-7c",
+    "name": "Tapping again returns to light and remembers that",
+    "ok": true,
+    "detail": "{\"bg\":\"rgb(246, 247, 249)\",\"stored\":\"light\"}"
+  },
+  {
+    "id": "AC-7d",
+    "name": "Blocked storage: the toggle still works for this page view, with no errors",
+    "ok": true,
+    "detail": "after click: rgb(246, 247, 249)"
+  },
+  {
+    "id": "AC-9a",
+    "name": "All five pages fit 360 px without sideways scrolling",
+    "ok": true,
+    "detail": "{\"/\":360,\"exploited/\":360,\"sitrep/\":360,\"ransomware/\":360,\"feeds/\":360}"
+  },
+  {
+    "id": "AC-9b",
+    "name": "Keyboard: skip link, logo, all five sections, then the theme toggle, each with a visible focus ring; Enter toggles",
+    "ok": true,
+    "detail": "Skip to the briefing → Threat Radar → Today → Exploited → Sitrep → Breaches → Feeds → Dark mode; Enter → dark: true"
+  },
+  {
+    "id": "AC-10",
+    "name": "All three fonts load, only from this site",
+    "ok": true,
+    "detail": "loaded [true,true,true]; /fonts/inter.woff2, /fonts/space-grotesk.woff2, /fonts/jetbrains-mono.woff2"
+  },
+  {
+    "id": "AC-9c",
+    "name": "0 external requests; no page errors, console errors or pop-ups",
+    "ok": true,
+    "detail": "494 requests, external 0; errors: none"
+  }
+]

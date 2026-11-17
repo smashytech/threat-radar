@@ -5,7 +5,9 @@ that question using CISA's
 [Known Exploited Vulnerabilities (KEV) catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog),
 and it **updates itself twice a day** with no human involved.
 
-- Summary of what's new this week and month, plus ransomware-linked entries
+- **Today**: the front page is a morning briefing: the day's headline from the Cyber Sitrep, four key numbers, the newest exploited flaws, Sitrep highlights, the latest Breach Wire and the monthly trend
+- **Light and dark mode**: follows your device, or tap the moon/sun in the header (remembered in your browser)
+- **Exploited** (`/exploited/`): summary of what's new this week and month, plus ransomware-linked entries
 - A live radar of the last 30 days (newer = closer to the centre)
 - Monthly trend and most-exploited vendors
 - Search by CVE, vendor, product or keyword, with filters
@@ -15,7 +17,7 @@ and it **updates itself twice a day** with no human involved.
 - **My stack**: tick the vendors and products you run, keep named presets, and every page highlights what affects you. It stays in your browser
 - No trackers, no cookies, no third-party code
 
-![Threat Radar screenshot](specs/001-threat-radar/evidence/desktop-dark.png)
+![Threat Radar: the Today page](specs/007-briefing-redesign/evidence/today-light.png)
 
 ## How it works
 
@@ -37,6 +39,21 @@ flowchart LR
 5. The [`site/`](site) folder is published to **GitHub Pages**.
 6. **Dependabot** checks weekly for updates to the Actions used here. The [Tests](.github/workflows/tests.yml) workflow checks each update before you merge.
 
+## The look: Today page, themes and fonts
+
+The site's front page, [`site/index.html`](site/index.html), is a **morning briefing**
+built by [`site/today.js`](site/today.js) from the same published data as every other
+page; the deciding (headline, "this week" line, overdue dates) lives in
+[`site/today-logic.js`](site/today-logic.js) and is tested. The headline is the
+first sentence of the latest Sitrep's summary, without asides in brackets. The full
+searchable list moved to `/exploited/`; old links like `zelin.se/#CVE-…` forward there.
+
+- **Themes**: all colours are variables at the top of [`site/styles.css`](site/styles.css), once for light and once for dark. [`site/theme.js`](site/theme.js) runs before the page is drawn, so there's no white flash, and [`tests/contrast.test.mjs`](tests/contrast.test.mjs) checks every colour pair meets WCAG AA in both themes.
+- **Header and footer** are identical on every page. Edit them in [`scripts/site_chrome.py`](scripts/site_chrome.py) and run it; a test fails if a page falls out of sync.
+- **Fonts** (Inter, Space Grotesk, JetBrains Mono) are stored in [`site/fonts/`](site/fonts) with their licences and checksums, fetched once by the [Fetch fonts](.github/workflows/fetch-fonts.yml) workflow, so visitors' browsers never contact another server.
+
+Spec: [`specs/007-briefing-redesign`](specs/007-briefing-redesign).
+
 ## The Cyber Sitrep section
 
 Every weekday a scheduled task emails the **📰 Cyber Sitrep**. A second scheduled
@@ -45,7 +62,7 @@ hands it to [`scripts/add_sitrep.py`](scripts/add_sitrep.py), the gatekeeper. Th
 gatekeeper validates it (https links only, length limits, no unknown fields),
 detects CVE IDs itself and writes `site/data/sitrep/`. Pushing that triggers the
 normal deploy. On the page, any CVE that is also in KEV gets an **In KEV** badge
-that opens it on the Radar. Spec: [`specs/002-sitrep-section`](specs/002-sitrep-section).
+that opens it on the Exploited page. Spec: [`specs/002-sitrep-section`](specs/002-sitrep-section).
 
 ## The Breaches (Breach Wire) section
 
@@ -60,7 +77,7 @@ file that is never committed, and any match refuses the whole issue. Spec:
 ## My stack
 
 Visitors tick the vendors (or just some products) they run in the **My stack**
-picker on the Radar. The Radar then rings matching blips, badges matching
+picker on the Exploited page. It then rings matching blips, badges matching
 entries, offers a "My stack only" filter and shows a summary, including **what's
 new since your last visit**. The Sitrep tags matching CVEs and stories that
 mention a ticked vendor, and the Breaches page lists the stack's
