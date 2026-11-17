@@ -20,7 +20,7 @@ const stack = readStack();
 
 async function init() {
   let issues = [];
-  renderStackLine($("stack-line"), stack, "../#mystack");
+  renderStackLine($("stack-line"), stack, "../exploited/#mystack");
   try {
     const index = await loadJSON("../data/sitrep/index.json", { optional: true });
     issues = index && Array.isArray(index.issues) ? index.issues : [];
@@ -112,7 +112,7 @@ function cveChip({ cve, inKev, mine }) {
     if (mine) parts.push(el("span", { className: "cve-chip__tag cve-chip__tag--mine", text: "Your stack" }));
     return el("a", {
       className: mine ? "cve-chip cve-chip--kev cve-chip--mine" : "cve-chip cve-chip--kev",
-      attrs: { href: `../#${encodeURIComponent(cve)}`, title: "In CISA's Known Exploited Vulnerabilities catalog. Open it on the Radar." },
+      attrs: { href: `../exploited/#${encodeURIComponent(cve)}`, title: "In CISA's Known Exploited Vulnerabilities catalog. Open it on the Radar." },
     }, parts);
   }
   return el("a", {

@@ -115,7 +115,7 @@ def kev_message(entries: list[dict], base: str) -> dict | None:
     blocks = [section(f":shield: *{headline}*")]
     for e in shown:
         cve = str(e["cveID"])
-        title = link(f"{base}#{cve}", cve) if CVE_RE.match(cve) else slack_escape(cve)
+        title = link(f"{base}exploited/#{cve}", cve) if CVE_RE.match(cve) else slack_escape(cve)
         line = (f"*{title}* {slack_escape(e['vulnerabilityName'], 300)}\n"
                 f"{slack_escape(e['vendorProject'], 120)} · {slack_escape(e['product'], 120)} · CISA due {slack_escape(e.get('dueDate'))}")
         if e.get("knownRansomwareCampaignUse") == "Known":

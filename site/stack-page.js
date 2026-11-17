@@ -1,7 +1,7 @@
 // stack-page.js: "My stack" on the Sitrep and Ransomware pages (spec 004 FR-11, FR-12).
 //
 // These pages only READ the active preset. Changing it happens in the picker on
-// the Radar, which the "Edit" link opens via ../#mystack.
+// the Radar, which the "Edit" link opens via ../exploited/#mystack.
 
 import { createStore } from "./stack-store.js";
 import { activePreset } from "./presets.js";

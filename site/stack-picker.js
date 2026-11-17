@@ -391,7 +391,7 @@ export function createPicker(deps) {
   // "Subscribe in a feed reader" (spec 005 FR-9): an OPML file made here, never sent anywhere.
   $("share-opml").addEventListener("click", async () => {
     const preset = activePreset(record());
-    const result = await downloadStackOpml({ presetName: preset.name, vendors: preset.vendors, root: new URL("./", window.location.href).href });
+    const result = await downloadStackOpml({ presetName: preset.name, vendors: preset.vendors, root: new URL("./", import.meta.url).href /* the site root: this file lives there */ });
     status(result.message, !result.ok);
   });
 

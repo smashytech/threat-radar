@@ -19,7 +19,7 @@ const $ = (id) => document.getElementById(id);
 const stack = readStack();
 
 async function init() {
-  renderStackLine($("stack-line"), stack, "../#mystack");
+  renderStackLine($("stack-line"), stack, "../exploited/#mystack");
   // KEV loads in parallel: the "Known ransomware use" panel works even before any issue exists.
   const kevPromise = loadJSON("../data/kev.json", { optional: true });
   try {
@@ -155,7 +155,7 @@ function renderKev(kev) {
     : `${lede} None of them affect your stack "${stack.name}".`;
 
   const item = (e) => el("li", {}, [
-    el("a", { className: isMine(e) ? "kev-ransom__item kev-ransom__item--mine" : "kev-ransom__item", attrs: { href: `../#${encodeURIComponent(e.cveID)}` } }, [
+    el("a", { className: isMine(e) ? "kev-ransom__item kev-ransom__item--mine" : "kev-ransom__item", attrs: { href: `../exploited/#${encodeURIComponent(e.cveID)}` } }, [
       el("span", { className: "kev-ransom__date", text: formatDate(e.dateAdded) }),
       el("span", { className: "kev-ransom__body" }, [
         el("span", { className: "kev-ransom__top" }, [
