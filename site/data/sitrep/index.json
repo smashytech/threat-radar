@@ -1,6 +1,13 @@
 {
   "issues": [
     {
+      "date": "2026-11-17",
+      "tldr": "Two live MSP-tooling exploitation campaigns (ConnectWise ScreenConnect/SCKit, N-able N-central) are driving crypto-mining and remote-access abuse on unpatched systems. Optimizely and Barracuda both disclosed breaches hitting high-profile customers (CNN, Fox News, BBC, Salesforce sites), and Uber disclosed a vendor breach affecting ~150,000 people. Google's threat intel team confirmed attackers are now using AI agents to auto-generate exploits straight from vendor patches.",
+      "items": 10,
+      "emerging": 2,
+      "actionNeeded": true
+    },
+    {
       "date": "2026-11-16",
       "tldr": "Lighter news cycle (core items span roughly Nov 12–14) but notably severe: a destructive wiper campaign hit Check Point gateways via \"PHP2Shell,\" two more zero-days (N-able N-central, UnrealIRCd) saw same-day/in-the-wild exploitation, and a new state-linked actor (\"SilentAir\") has been hijacking telecom infrastructure across Asia to intercept calls and SMS. 9 core items qualified; two AI-weaponization reports (ARTEX, CAIRN) round out the emerging-threats picture.",
       "items": 9,

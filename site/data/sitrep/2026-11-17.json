@@ -1,0 +1,106 @@
+{
+  "date": "2026-11-17",
+  "tldr": "Two live MSP-tooling exploitation campaigns (ConnectWise ScreenConnect/SCKit, N-able N-central) are driving crypto-mining and remote-access abuse on unpatched systems. Optimizely and Barracuda both disclosed breaches hitting high-profile customers (CNN, Fox News, BBC, Salesforce sites), and Uber disclosed a vendor breach affecting ~150,000 people. Google's threat intel team confirmed attackers are now using AI agents to auto-generate exploits straight from vendor patches.",
+  "emerging": [
+    {
+      "title": "AI agents now auto-generate exploits from vendor patches",
+      "description": "Google's Threat Intelligence Group found attackers using LLM-driven agentic frameworks to diff patched vs. unpatched code and produce working exploits automatically, demonstrated against PaperCut NG/MF — sharply compressing patch-to-exploit timelines. (Nov 16, 2026)",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/google-finds-hackers-using-ai-agents-to.html",
+      "published": "2026-11-16",
+      "cves": []
+    },
+    {
+      "title": "QUIC and Covert: HTTP/3-tunneled RATs hit SE Asian governments",
+      "description": "Unit 42 identified a cyberespionage campaign deploying the PerfectPioneer RAT and modular KUKURAT malware, with C2 traffic tunneled over HTTP/3/QUIC — a channel that slips past traditional TLS-based network inspection. (Nov 16, 2026)",
+      "source": "Unit 42",
+      "url": "https://unit42.paloaltonetworks.com/custom-rats-target-southeast-asia-governments/",
+      "published": "2026-11-16",
+      "cves": []
+    }
+  ],
+  "items": [
+    {
+      "title": "ConnectWise: ScreenConnect/SCKit attacks continue on unpatched systems",
+      "description": "ConnectWise confirms the worm-like SCKit campaign is still spreading on on-prem ScreenConnect servers running outdated software with vulnerable third-party extensions enabled; Huntress logged another spike (205 hosts/41 orgs) Nov 13. Update to 26.6.5+ and disable flagged extensions.",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/connectwise-warns-screenconnect-attacks.html",
+      "published": "2026-11-17",
+      "cves": []
+    },
+    {
+      "title": "N-able patches 17 N-central flaws as attackers deploy crypto miners via older bugs",
+      "description": "N-able shipped N-central 2026.4 Hotfix 3 fixing 17 CVEs (auth bypass, XXE, RCE path traversal), while attackers actively exploit the earlier \"4EverAble2Shell\" bugs — present when legacy API mode is enabled — to install cryptominers on unpatched servers.",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/n-able-patches-17-n-central-flaws-as.html",
+      "published": "2026-11-17",
+      "cves": []
+    },
+    {
+      "title": "UnrealIRCd flaw (CVE-2026-114713) exploited in the wild",
+      "description": "A high-severity flaw letting attackers run commands with server/IRCOp privileges is being actively exploited; CISA added it to the KEV catalog Nov 13. Patch immediately if running UnrealIRCd.",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/recent-unrealircd-vulnerability-exploited-in-attacks/",
+      "published": "2026-11-16",
+      "cves": [
+        "CVE-2026-114713"
+      ]
+    },
+    {
+      "title": "Unpatched Danfoss refrigeration controller flaws actively scanned",
+      "description": "Six unauthenticated RCE flaws in Danfoss AK-SM800A controllers have no fix even in the newest firmware; SANS ISC reports active scanning for them, following real-world attacks on French/European supermarket refrigeration systems since October.",
+      "source": "The Hacker News / SANS ISC",
+      "url": "https://thehackernews.com/2026/11/six-unpatched-danfoss-refrigeration.html",
+      "cves": []
+    },
+    {
+      "title": "Optimizely supply-chain attack hits CNN, Fox News, BBC, Salesforce sites",
+      "description": "A compromise of the Optimizely CMS/experimentation platform delivered malware through embedded widgets on major media and enterprise websites, exposing site visitors via a trusted third-party script.",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/optimizely-supply-chain-attack-delivers-malware-to-cnn-fox-news-bbc-salesforce-sites/",
+      "published": "2026-11-16",
+      "cves": []
+    },
+    {
+      "title": "Barracuda confirms breach tied to AI-powered ARTEX attack tool",
+      "description": "Barracuda linked a cloud breach to the agentic \"ARTEX\" offensive framework now being adopted by Chinese threat actors to speed up intrusions — days after the FBI warned ARTEX is powering attacks globally.",
+      "source": "SecurityWeek / BleepingComputer",
+      "url": "https://www.securityweek.com/barracuda-hacked-amid-surge-in-artex-powered-cyberattacks/",
+      "published": "2026-11-16",
+      "cves": []
+    },
+    {
+      "title": "Uber discloses third-party vendor breach, ~150,000 affected",
+      "description": "Uber says attackers used compromised credentials at an AI/infrastructure vendor (reported as Fireworks AI) to access driver's license data; notifications began Nov 10 and the impacted count is still growing via state filings.",
+      "source": "SecurityWeek / The Record",
+      "url": "https://www.securityweek.com/uber-data-breach-impacts-150000-people/",
+      "published": "2026-11-16",
+      "cves": []
+    },
+    {
+      "title": "BO Team exploits Log4Shell to reach Russian firm's code-signing server",
+      "description": "Kaspersky details a months-long BO Team (Black Owl) intrusion that exploited Log4Shell against an unpatched VMware vCenter 7.0.3 server to reach the hypervisor and ultimately compromise a Russian software developer's code-signing infrastructure.",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/bo-team-exploits-log4shell-in-vmware.html",
+      "published": "2026-11-16",
+      "cves": []
+    },
+    {
+      "title": "EU sanctions pro-Russia hackers and Doppelganger disinformation staff",
+      "description": "The EU imposed sanctions on two dozen individuals tied to a Kremlin-linked disinformation contractor and pro-Russia hacking activity, continuing pressure on Russian influence and cyber operations ahead of winter.",
+      "source": "The Record",
+      "url": "https://therecord.media/russia-europe-sanctions-doppelganger",
+      "published": "2026-11-16",
+      "cves": []
+    },
+    {
+      "title": "Microsoft rules out cyberattack in outage, warns of related phishing",
+      "description": "Microsoft confirmed a recent service outage wasn't attack-related but flagged a phishing campaign impersonating Microsoft 365 service notices that references the real outage and threatens to delete held messages.",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/microsoft-rules-out-cyberattack-in-outage-warns-of-phishing-campaign/",
+      "published": "2026-11-16",
+      "cves": []
+    }
+  ],
+  "action": "Patch/mitigate now if exposed: ConnectWise ScreenConnect (update to 26.6.5+, disable flagged third-party extensions), N-able N-central (apply Hotfix 3, disable legacy API mode), and UnrealIRCd (CVE-2026-114713) — all three are under active exploitation. Danfoss AK-SM800A controllers have no patch; isolate from the network if deployed. Review any Optimizely or Barracuda exposure in your stack."
+}
