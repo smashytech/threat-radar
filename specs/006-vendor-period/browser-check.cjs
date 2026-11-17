@@ -41,19 +41,23 @@ async function open(browser, opts = {}) {
   await page.locator('#vendor-period').scrollIntoViewIfNeeded();
   await page.locator('.charts').screenshot({ path: path.join(OUT, '12-months.png') });
 
-  await page.click('#vendor-period label:has-text("90 days")');
+  await page.click('#vendor-period label:has-text("90d")');
   const d90 = await bars(page);
   check('AC-2', '90 days redraws bars and subtitle', (await subtitle(page)).startsWith('last 90 days') && JSON.stringify(d90) !== JSON.stringify(def),
     d90.slice(0, 3).map((b) => `${b.vendor} ${b.count}`).join(', '));
   await page.locator('.charts').screenshot({ path: path.join(OUT, '90-days.png') });
+  // the chart offers exactly the same periods as the list's Added filter
+  const periods = await page.$$eval('input[name="vendor-period"]', (is) => is.map((i) => i.value + '=' + i.nextElementSibling.textContent));
+  const windows = await page.$$eval('input[name="window"]', (is) => is.map((i) => i.value + '=' + i.nextElementSibling.textContent));
+  check('FR-1', 'Same periods and labels as the list filter', JSON.stringify(periods) === JSON.stringify(windows), periods.join(' '));
 
-  await page.click('#vendor-period label:has-text("All time")');
+  await page.click('#vendor-period label:has-text("All")');
   const all = await bars(page);
   check('AC-2', 'All time shows the old totals', (await subtitle(page)).startsWith('all time') && all[0].vendor === 'Microsoft' && all[0].count > 300,
     all.slice(0, 2).map((b) => `${b.vendor} ${b.count}`).join(', '));
 
   // AC-3: tap a bar in each period → list filtered to vendor + same period, same count
-  for (const [value, windowValue] of [['365', '365'], ['90', '90'], ['0', '0']]) {
+  for (const [value, windowValue] of [['7', '7'], ['30', '30'], ['90', '90'], ['365', '365'], ['0', '0']]) {
     await page.check(`input[name="vendor-period"][value="${value}"]`);
     const top = (await bars(page))[0];
     await page.click(`#chart-vendors .vendor-bar[data-vendor="${top.vendor}"]`);
@@ -72,7 +76,7 @@ async function open(browser, opts = {}) {
   await page.keyboard.press('ArrowRight');
   const afterArrow = await page.$eval('input[name="vendor-period"]:checked', (i) => i.value);
   const focusVisible = await page.$eval('input[name="vendor-period"]:checked + span', (s) => getComputedStyle(s).outlineStyle);
-  check('AC-4', 'Arrow key changes the period', afterArrow === '90' && (await subtitle(page)).startsWith('last 90 days'), `now ${afterArrow}, outline ${focusVisible}`);
+  check('AC-4', 'Arrow key changes the period', afterArrow === '0' && (await subtitle(page)).startsWith('all time'), `now ${afterArrow}, outline ${focusVisible}`);
   await ctx.close();
 
   // AC-4: 360 px, and a Swedish browser

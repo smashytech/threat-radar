@@ -10,7 +10,7 @@
 
 ## 1. Summary
 
-The **Most-exploited vendors** chart gets a period switch: **12 months · 90 days · All time**.
+The **Most-exploited vendors** chart gets a period switch with the same choices as the list's "Added" filter: **7d · 30d · 90d · 1y · All**.
 The bars recount for the chosen period. The default is **12 months**.
 
 ## 2. Why
@@ -28,7 +28,7 @@ alone is 175) dwarfs everyone else and the chart says little about *now*.
 
 ## 3. Requirements
 
-- **FR-1** A three-way switch in the vendor panel: 12 months (365 days), 90 days, All time. Default: 12 months.
+- **FR-1** A switch in the vendor panel with exactly the list filter's periods and labels: 7d, 30d, 90d, 1y (365 days), All. Default: 1y.
 - **FR-2** The top 10 vendors and their counts recount for the chosen period, counting today as day 1 (same rule as the list's "Added" filter).
 - **FR-3** The panel subtitle names the period ("last 12 months · tap to filter").
 - **FR-4** Tapping a vendor filters the list **to the same period**, so the list shows the same number as the bar. The list's "Added" filter gains a **1y** option for this.

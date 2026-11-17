@@ -36,7 +36,7 @@ const state = {
   vendorDays: 365,  // period of the "Most-exploited vendors" chart (spec 006); 0 = all time
 };
 
-const PERIOD_LABELS = { 365: "last 12 months", 90: "last 90 days", 0: "all time" };
+const PERIOD_LABELS = { 7: "last 7 days", 30: "last 30 days", 90: "last 90 days", 365: "last 12 months", 0: "all time" };
 
 // ---------- My stack (spec 004) ----------
 //

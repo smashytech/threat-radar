@@ -22,3 +22,4 @@ and match the existing "Added" control.
 |---|---|
 | A hidden legend no longer inherits the `width: 100%` meant for visible legends | The browser check found it pushed the page 32 px wider than a 360 px phone |
 | Switch labels never wrap | "90 days" broke onto two lines on a phone |
+| Periods widened to **7d · 30d · 90d · 1y · All**, same labels as the list filter (was 12 mo · 90 days · All time) | Owner's request, 2026-11-17: "so it matches the period ticker below" |
