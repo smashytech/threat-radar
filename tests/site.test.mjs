@@ -32,7 +32,7 @@ const withoutHtmlComments = (html) => html.replace(/<!--[\s\S]*?-->/g, "");
 
 test("found the expected pages and scripts", () => {
   const names = [...jsFiles, ...htmlFiles].map(label).sort();
-  for (const expected of ["site/app.js", "site/index.html", "site/sitrep/index.html", "site/sitrep/sitrep.js", "site/ui.js"]) {
+  for (const expected of ["site/exploited/app.js", "site/exploited/index.html", "site/index.html", "site/theme.js", "site/sitrep/index.html", "site/sitrep/sitrep.js", "site/ui.js"]) {
     assert.ok(names.includes(expected), `missing ${expected}`);
   }
 });

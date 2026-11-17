@@ -14,6 +14,9 @@ import { searchIndex, staleNames, describeStack } from "./stack-logic.js";
 import { activePreset, saveAs, rename, remove, switchTo, setVendors, MAX_PRESETS } from "./presets.js";
 import { downloadStackOpml, vendorFeedList } from "./opml-download.js";
 
+// The site root (this file lives there), whichever page the picker is opened on (spec 007 moved the Radar to /exploited/).
+const SITE_ROOT = new URL("./", import.meta.url).href;
+
 const $ = (id) => document.getElementById(id);
 const ARM_MS = 5000; // how long a "click again to confirm" button stays armed
 
@@ -391,7 +394,7 @@ export function createPicker(deps) {
   // "Subscribe in a feed reader" (spec 005 FR-9): an OPML file made here, never sent anywhere.
   $("share-opml").addEventListener("click", async () => {
     const preset = activePreset(record());
-    const result = await downloadStackOpml({ presetName: preset.name, vendors: preset.vendors, root: new URL("./", window.location.href).href });
+    const result = await downloadStackOpml({ presetName: preset.name, vendors: preset.vendors, root: SITE_ROOT });
     status(result.message, !result.ok);
   });
 
@@ -445,7 +448,7 @@ export function createPicker(deps) {
       renderAll();
       status(message);
       if (!dialog.open) dialog.showModal();
-      vendorFeedList(new URL("./", window.location.href).href).catch(() => {}); // fetched now, so "Subscribe" needs no request
+      vendorFeedList(SITE_ROOT).catch(() => {}); // fetched now, so "Subscribe" needs no request
     },
     /** Redraw if open, e.g. after another tab changed the presets. */
     refresh() {

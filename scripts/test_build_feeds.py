@@ -130,7 +130,8 @@ class KevFeed(unittest.TestCase):
     def test_entry_contents(self):
         first = entries(parse(build_feeds.kev_feed(self.data, BASE)))[0]
         self.assertEqual(first.findtext(f"{ATOM}id"), "tag:zelin.se,2026:kev/CVE-2026-10000")
-        self.assertEqual(first.find(f"{ATOM}link").get("href"), BASE + "#CVE-2026-10000", "opens the entry on the Radar")
+        self.assertEqual(first.find(f"{ATOM}link").get("href"), BASE + "exploited/#CVE-2026-10000", "opens the entry on the Exploited page (spec 007)")
+        self.assertEqual(first.find(f"{ATOM}id").text, "tag:zelin.se,2026:kev/CVE-2026-10000", "IDs never change, so readers don't show old items again")
         summary = first.findtext(f"{ATOM}summary")
         for part in ("Acme · Widget", "lets an attacker run code", "Known ransomware use: Yes", "CISA due date: 2026-12-01"):
             self.assertIn(part, summary)

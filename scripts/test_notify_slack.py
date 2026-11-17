@@ -93,7 +93,7 @@ class KevMessage(unittest.TestCase):
         shown = texts(payload)
         self.assertIn("3 new exploited vulnerabilities", shown)
         for cve in ("CVE-2026-0001", "CVE-2026-0002", "CVE-2026-0003"):
-            self.assertIn(f"<{BASE}#{cve}|{cve}>", shown, "each CVE links to its Radar entry")
+            self.assertIn(f"<{BASE}exploited/#{cve}|{cve}>", shown, "each CVE links to its entry on the Exploited page (spec 007)")
         self.assertEqual(shown.count("Known ransomware use"), 1)
         self.assertIn("Acme · Widget · CISA due 2026-12-01", shown)
         self.assertFalse(payload["unfurl_links"])

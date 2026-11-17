@@ -3,292 +3,108 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!--
-    Content-Security-Policy: the browser's own bouncer.
-    'self' means "only this website". Scripts, styles, data and images from any
-    other domain are refused, and inline <script> is blocked entirely.
-    That is a second, independent shield against injected code (spec NFR-1, AC-7).
-  -->
+  <!-- Same strict Content-Security-Policy as every page: only files from this site, no inline code. -->
   <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
   <meta name="referrer" content="no-referrer">
-  <title>Threat Radar: actively exploited vulnerabilities</title>
-  <meta name="description" content="A self-updating view of CISA's Known Exploited Vulnerabilities catalog: what attackers are exploiting right now.">
+  <title>Threat Radar: today's cyber threat briefing</title>
+  <meta name="description" content="A daily briefing on what attackers are exploiting right now: CISA's Known Exploited Vulnerabilities, the Cyber Sitrep and ransomware leak-site activity.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
   <!-- Feed autodiscovery: feed readers find these from the page address alone (spec 005 FR-7). -->
   <link rel="alternate" type="application/atom+xml" title="Threat Radar: newly exploited vulnerabilities" href="feeds/kev.xml">
   <link rel="alternate" type="application/atom+xml" title="Threat Radar: Cyber Sitrep" href="feeds/sitrep.xml">
   <link rel="alternate" type="application/atom+xml" title="Threat Radar: Breach Wire" href="feeds/breachwire.xml">
-  <script type="module" src="app.js"></script>
+  <!-- Not a module and not deferred: picks light or dark before anything is drawn (spec 007). -->
+  <script src="theme.js"></script>
+  <script type="module" src="today.js"></script>
 </head>
 <body>
-  <a class="skip-link" href="#latest">Skip to the list</a>
+  <a class="skip-link" href="#main">Skip to the briefing</a>
 
-  <header class="masthead">
-    <nav class="topnav" aria-label="Sections">
-      <a class="topnav__link" href="./" aria-current="page">Radar</a>
-      <a class="topnav__link" href="sitrep/">Sitrep</a>
-      <a class="topnav__link" href="ransomware/">Breaches</a>
-    </nav>
-    <div class="masthead__inner">
-      <svg class="radar" id="radar" viewBox="0 0 200 200" role="img" aria-labelledby="radar-label">
-        <title id="radar-label">Radar of recently added vulnerabilities</title>
-        <circle class="radar__ring" cx="100" cy="100" r="96"/>
-        <circle class="radar__ring" cx="100" cy="100" r="64"/>
-        <circle class="radar__ring" cx="100" cy="100" r="32"/>
-        <line class="radar__axis" x1="4" y1="100" x2="196" y2="100"/>
-        <line class="radar__axis" x1="100" y1="4" x2="100" y2="196"/>
-        <g class="radar__sweep">
-          <path class="radar__beam" d="M100 100 L100 4 A96 96 0 0 1 183 52 Z"/>
-          <line class="radar__arm" x1="100" y1="100" x2="100" y2="4"/>
-        </g>
-        <g id="radar-rings"></g>
-        <g id="radar-blips"></g>
-        <circle class="radar__core" cx="100" cy="100" r="3"/>
-      </svg>
-
-      <div class="masthead__text">
-        <p class="eyebrow">CISA Known Exploited Vulnerabilities</p>
-        <h1>Threat Radar</h1>
-        <p class="lede">Software flaws that attackers are <em>actively exploiting right now</em>, updated automatically twice a day.</p>
-        <p class="freshness" id="freshness" aria-live="polite">Loading the latest catalog…</p>
-        <!-- A plain link, not Buy Me a Coffee's widget: no third-party scripts, no tracking, no referrer. -->
-        <p class="support-note">No ads, ever. If Threat Radar helps you, you can <a href="https://buymeacoffee.com/devzelin" target="_blank" rel="noopener noreferrer">buy me a coffee</a>.</p>
-      </div>
+  <!-- site-header -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="./"><svg class="brand__mark" viewBox="0 0 28 28" width="28" height="28" aria-hidden="true" focusable="false"><circle class="brand__ring" cx="14" cy="14" r="12.5"/><circle class="brand__ring brand__ring--inner" cx="14" cy="14" r="7"/><path class="brand__arm" d="M14 14 L24 7"/><circle class="brand__blip" cx="19" cy="18" r="2.2"/></svg><span class="brand__name">Threat Radar</span></a>
+      <nav class="site-nav" aria-label="Sections">
+        <a class="site-nav__link" href="./" aria-current="page">Today</a>
+        <a class="site-nav__link" href="exploited/">Exploited</a>
+        <a class="site-nav__link" href="sitrep/">Sitrep</a>
+        <a class="site-nav__link" href="ransomware/">Breaches</a>
+        <a class="site-nav__link" href="feeds/">Feeds</a>
+      </nav>
+      <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false" aria-label="Dark mode" title="Switch to dark mode"><svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
     </div>
   </header>
+  <!-- /site-header -->
 
-  <main>
-    <!-- Shown when the page is opened from a "#stack=…" share link (spec 004 FR-13). -->
-    <section class="band" id="share-offer" aria-labelledby="share-title" hidden>
-      <div class="share-offer">
-        <h2 class="share-offer__title" id="share-title" tabindex="-1">A stack was shared with you</h2>
-        <p class="share-offer__desc" id="share-desc"></p>
-        <p class="share-offer__note" id="share-note"></p>
-        <div class="share-offer__actions">
-          <button type="button" class="button button--mine" id="share-add">Add as preset</button>
-          <button type="button" class="button button--quiet" id="share-ignore">Ignore</button>
-        </div>
+  <main class="page today" id="main" tabindex="-1">
+    <section class="today-hero" aria-labelledby="today-headline">
+      <p class="today-hero__date" id="today-date">Today's briefing</p>
+      <h1 class="today-hero__headline" id="today-headline">Loading today's briefing…</h1>
+      <p class="today-hero__week" id="today-week"></p>
+      <p class="stack-line" id="today-stack" hidden></p>
+      <div class="today-hero__actions">
+        <a class="button button--primary" id="today-sitrep-link" href="sitrep/">Read today's Sitrep</a>
+        <a class="button" href="exploited/#mystack">Check my stack</a>
       </div>
+      <p class="freshness" id="today-fresh" aria-live="polite"></p>
+      <!-- A plain link, not Buy Me a Coffee's widget: no third-party scripts, no tracking, no referrer. -->
+      <p class="support-note">No ads, ever. If Threat Radar helps you, you can <a href="https://buymeacoffee.com/devzelin" target="_blank" rel="noopener noreferrer">buy me a coffee</a>.</p>
     </section>
 
-    <section class="band teasers" id="teasers" aria-label="Latest briefings" hidden>
-      <a class="teaser" id="teaser-link" href="sitrep/" hidden>
-        <span class="teaser__top">
-          <span class="teaser__label" id="teaser-label">Latest Sitrep</span>
-          <span class="teaser__badges" id="teaser-badges"></span>
-        </span>
-        <span class="teaser__tldr" id="teaser-tldr"></span>
-        <span class="teaser__foot">
-          <span class="muted" id="teaser-meta"></span>
-          <span class="teaser__cta">Read the full Sitrep →</span>
-        </span>
-      </a>
-      <a class="teaser teaser--bw" id="bw-teaser" href="ransomware/" hidden>
-        <span class="teaser__top">
-          <span class="teaser__label" id="bw-label">Breach Wire</span>
-          <span class="teaser__badges" id="bw-badges"></span>
-        </span>
-        <span class="teaser__tldr" id="bw-summary"></span>
-        <span class="teaser__foot">
-          <span class="muted" id="bw-meta"></span>
-          <span class="teaser__cta">See ransomware activity →</span>
-        </span>
-      </a>
-    </section>
-
-    <section aria-labelledby="stats-heading" class="band">
-      <h2 id="stats-heading" class="visually-hidden">Summary</h2>
-      <dl class="stats" id="stats">
-        <div class="stat"><dt>In the catalog</dt><dd id="stat-total">–</dd></div>
-        <div class="stat stat--hot"><dt>Added in the last 7 days</dt><dd id="stat-7">–</dd></div>
-        <div class="stat"><dt>Added in the last 30 days</dt><dd id="stat-30">–</dd></div>
-        <div class="stat stat--alert"><dt>Used in ransomware campaigns</dt><dd id="stat-ransom">–</dd></div>
+    <section aria-labelledby="glance-heading">
+      <h2 class="visually-hidden" id="glance-heading">At a glance</h2>
+      <dl class="glance">
+        <div class="glance__item"><dt>newly exploited this week</dt><dd class="glance__n glance__n--hot" id="glance-week">–</dd></div>
+        <div class="glance__item"><dt>added in the last 30 days</dt><dd class="glance__n" id="glance-month">–</dd></div>
+        <div class="glance__item"><dt id="glance-claims-label">ransomware claims in the latest Breach Wire</dt><dd class="glance__n" id="glance-claims">–</dd></div>
+        <div class="glance__item"><dt>Swedish victims claimed</dt><dd class="glance__n" id="glance-sweden">–</dd></div>
       </dl>
     </section>
 
-    <section aria-labelledby="trends-heading" class="band">
-      <h2 id="trends-heading" class="section-title">Trends</h2>
-      <div class="charts">
-        <figure class="panel">
-          <figcaption class="panel__title">Added per month <span class="muted">last 12 months</span></figcaption>
-          <div id="chart-monthly" class="chart-monthly"></div>
-        </figure>
-        <figure class="panel">
-          <figcaption class="panel__head">
-            <span class="panel__title">Most-exploited vendors <span class="muted" id="vendor-period-label">last 12 months · tap to filter</span></span>
-            <fieldset class="segmented segmented--small" id="vendor-period">
-              <legend class="visually-hidden">Count vendors over</legend>
-              <label><input type="radio" name="vendor-period" value="7"><span>7d</span></label>
-              <label><input type="radio" name="vendor-period" value="30"><span>30d</span></label>
-              <label><input type="radio" name="vendor-period" value="90"><span>90d</span></label>
-              <label><input type="radio" name="vendor-period" value="365" checked><span>1y</span></label>
-              <label><input type="radio" name="vendor-period" value="0"><span>All</span></label>
-            </fieldset>
-          </figcaption>
-          <ol id="chart-vendors" class="vendor-bars"></ol>
-        </figure>
-      </div>
-    </section>
-
-    <section aria-labelledby="latest-heading" class="band" id="latest" tabindex="-1">
-      <h2 id="latest-heading" class="section-title">Latest additions</h2>
-
-      <!-- My stack (spec 004): a prompt when nothing is ticked, a summary when something is. -->
-      <p class="stack-prompt" id="stack-prompt" hidden>
-        <button type="button" class="link-button" id="prompt-open">Tick your stack</button>
-        to highlight what affects the software you run. It stays in this browser.
-      </p>
-      <section class="stack-strip" id="stack-strip" aria-labelledby="strip-label" hidden>
-        <div class="stack-strip__head">
-          <h3 class="stack-strip__label" id="strip-label">Your stack · <span id="strip-preset"></span></h3>
-          <button type="button" class="link-button" id="strip-edit">Edit</button>
-        </div>
-        <p class="stack-strip__desc" id="strip-desc"></p>
-        <dl class="stack-strip__stats">
-          <div><dt>In the catalog</dt><dd id="strip-total">–</dd></div>
-          <div><dt>Added in the last 30 days</dt><dd id="strip-30">–</dd></div>
-          <div id="strip-new-wrap"><dt id="strip-new-label">New since your last visit</dt><dd id="strip-new">–</dd></div>
-          <div><dt>Used in ransomware</dt><dd id="strip-ransom">–</dd></div>
-        </dl>
+    <div class="today-columns">
+      <section class="today-col" aria-labelledby="col-kev">
+        <h2 class="today-col__title" id="col-kev">Newly exploited</h2>
+        <ol class="today-list" id="today-kev"></ol>
+        <a class="today-col__more" href="exploited/">All exploited vulnerabilities →</a>
       </section>
 
-      <form class="controls" id="controls" role="search">
-        <label class="field field--grow">
-          <span class="field__label">Search</span>
-          <input type="search" id="q" placeholder="CVE ID, product or keyword" autocomplete="off" spellcheck="false">
-        </label>
-        <label class="field">
-          <span class="field__label">Vendor</span>
-          <select id="vendor"><option value="">All vendors</option></select>
-        </label>
-        <fieldset class="field segmented">
-          <legend class="field__label">Added</legend>
-          <label><input type="radio" name="window" value="7"><span>7d</span></label>
-          <label><input type="radio" name="window" value="30"><span>30d</span></label>
-          <label><input type="radio" name="window" value="90"><span>90d</span></label>
-          <label><input type="radio" name="window" value="365"><span>1y</span></label>
-          <label><input type="radio" name="window" value="0" checked><span>All</span></label>
-        </fieldset>
-        <label class="toggle">
-          <input type="checkbox" id="ransom">
-          <span>Ransomware only</span>
-        </label>
-        <div class="stack-controls">
-          <button type="button" class="button button--mine" id="stack-open" aria-haspopup="dialog">
-            My stack <span class="count-pill" id="stack-count">0</span>
-          </button>
-          <label class="toggle toggle--mine" id="stack-only-wrap" hidden>
-            <input type="checkbox" id="stack-only">
-            <span>My stack only</span>
-          </label>
-        </div>
-      </form>
+      <section class="today-col" aria-labelledby="col-sitrep">
+        <h2 class="today-col__title" id="col-sitrep">Sitrep highlights</h2>
+        <p class="today-col__meta" id="sitrep-meta"></p>
+        <ol class="today-list" id="today-sitrep"></ol>
+        <a class="today-col__more" id="sitrep-more" href="sitrep/">Read the Sitrep →</a>
+      </section>
 
-      <p class="result-count" id="result-count" aria-live="polite"></p>
-      <ul class="entries" id="entries"></ul>
-      <div class="empty" id="empty" hidden>
-        <p id="empty-text">No exploited vulnerabilities match those filters.</p>
-        <button type="button" class="button" id="clear">Clear filters</button>
+      <section class="today-col" aria-labelledby="col-bw">
+        <h2 class="today-col__title" id="col-bw">Breach Wire</h2>
+        <p class="today-col__meta" id="bw-meta"></p>
+        <div class="today-bars" id="bw-bars"></div>
+        <p class="chip" id="bw-sweden" hidden></p>
+        <a class="today-col__more" id="bw-more" href="ransomware/">Breach activity →</a>
+      </section>
+    </div>
+
+    <section class="panel today-trend" aria-labelledby="trend-heading">
+      <div class="today-trend__head">
+        <h2 class="today-trend__title" id="trend-heading">Exploited vulnerabilities added per month</h2>
+        <p class="today-trend__note" id="trend-note"></p>
       </div>
-      <button type="button" class="button button--wide" id="more" hidden>Show 25 more</button>
+      <div class="today-chart" id="today-chart"></div>
     </section>
+
+    <p class="today-more">Looking for search, filters and the full list? <a href="exploited/">Open Exploited →</a></p>
   </main>
 
-  <dialog class="detail" id="detail" aria-labelledby="detail-title">
-    <form method="dialog" class="detail__close-row">
-      <button class="icon-button" aria-label="Close details">✕</button>
-    </form>
-    <p class="detail__cve mono" id="detail-cve"></p>
-    <h2 class="detail__title" id="detail-title"></h2>
-    <p class="detail__badges" id="detail-badges"></p>
-    <p class="detail__desc" id="detail-desc"></p>
-    <dl class="detail__facts">
-      <div><dt>Vendor</dt><dd id="detail-vendor"></dd></div>
-      <div><dt>Product</dt><dd id="detail-product"></dd></div>
-      <div><dt>Added to catalog</dt><dd id="detail-added"></dd></div>
-      <div><dt>Federal fix-by date</dt><dd id="detail-due"></dd></div>
-      <div><dt>Weakness type</dt><dd id="detail-cwes"></dd></div>
-      <div><dt>Ransomware use</dt><dd id="detail-ransom"></dd></div>
-    </dl>
-    <h3 class="detail__subhead">Required action</h3>
-    <p class="detail__action" id="detail-action"></p>
-    <h3 class="detail__subhead" id="detail-notes-head">References</h3>
-    <ul class="detail__notes" id="detail-notes"></ul>
-    <p class="detail__nvd"><a id="detail-nvd" class="button" target="_blank" rel="noopener noreferrer">Open on NVD ↗</a></p>
-  </dialog>
-
-  <!-- The My stack picker (spec 004). Filled in by stack-picker.js. -->
-  <dialog class="detail picker" id="picker" aria-labelledby="picker-title">
-    <div class="picker__head">
-      <h2 class="picker__title" id="picker-title">My stack</h2>
-      <form method="dialog"><button class="icon-button" aria-label="Close My stack">✕</button></form>
+  <!-- site-footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p>Data: <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" rel="noopener noreferrer">CISA Known Exploited Vulnerabilities catalog</a> (US government, public domain; not affiliated with CISA). Leak-site claims via <a href="https://www.ransomware.live/" rel="noopener noreferrer">Ransomware.live</a> and <a href="https://www.ransomlook.io/" rel="noopener noreferrer">RansomLook</a>.</p>
+      <p>Your stack is kept only in this browser, and only if you tick Remember. Follow along in a feed reader, Slack or an automation tool: <a href="feeds/">Feeds</a>.</p>
+      <p>No ads, no trackers, no cookies, no third-party code. If Threat Radar helps you, you can <a href="https://buymeacoffee.com/devzelin" target="_blank" rel="noopener noreferrer">buy me a coffee</a>. <a href="https://github.com/smashytech/threat-radar" rel="noopener noreferrer">How this site works ↗</a></p>
     </div>
-    <p class="picker__intro">Tick the vendors you run, or open a vendor to pick only some of its products.</p>
-
-    <div class="preset-bar">
-      <label class="field preset-bar__select">
-        <span class="field__label">Preset</span>
-        <select id="preset-select"></select>
-      </label>
-      <div class="preset-bar__actions">
-        <button type="button" class="button button--quiet" id="preset-new">Save as…</button>
-        <button type="button" class="button button--quiet" id="preset-rename">Rename</button>
-        <button type="button" class="button button--quiet button--danger" id="preset-delete">Delete</button>
-      </div>
-    </div>
-    <form class="preset-form" id="preset-form" hidden>
-      <label class="field field--grow">
-        <span class="field__label" id="preset-form-label">Name for the new preset</span>
-        <input type="text" id="preset-name" maxlength="40" autocomplete="off" spellcheck="false" aria-describedby="preset-error">
-      </label>
-      <button type="submit" class="button button--mine" id="preset-submit">Save</button>
-      <button type="button" class="button button--quiet" id="preset-cancel">Cancel</button>
-      <p class="form-error" id="preset-error" role="alert" hidden></p>
-    </form>
-
-    <p class="picker__selected" id="picker-selected"></p>
-    <div class="stale" id="picker-stale" hidden>
-      <p class="stale__intro">Not in the current catalog. CISA may have renamed them; they stay in your stack until you remove them.</p>
-      <ul class="stale__list" id="stale-list"></ul>
-    </div>
-
-    <label class="field">
-      <span class="field__label">Find a vendor or product</span>
-      <input type="search" id="picker-q" placeholder="e.g. Fortinet, Exchange, vmware" autocomplete="off" spellcheck="false">
-    </label>
-    <p class="picker__count" id="picker-count" aria-live="polite"></p>
-    <ul class="pick-list" id="picker-list" aria-label="Vendors"></ul>
-
-    <section class="picker__device" aria-labelledby="device-h">
-      <h3 class="detail__subhead" id="device-h">On this device</h3>
-      <label class="toggle toggle--remember">
-        <input type="checkbox" id="remember" aria-describedby="remember-hint">
-        <span>Remember on this device</span>
-      </label>
-      <p class="picker__hint" id="remember-hint"></p>
-      <div class="picker__actions">
-        <button type="button" class="button button--quiet" id="share-copy">Copy link to this preset</button>
-        <button type="button" class="button button--quiet" id="share-opml">Subscribe in a feed reader</button>
-        <button type="button" class="button button--quiet button--danger" id="forget">Forget everything on this device</button>
-      </div>
-      <label class="field share-field" id="share-field" hidden>
-        <span class="field__label">Copy this link</span>
-        <input type="text" id="share-url" readonly>
-      </label>
-      <p class="picker__hint picker__hint--feeds">"Subscribe" downloads a file for your feed reader with one feed per ticked vendor, made here in your browser. More on the <a href="feeds/">Feeds page</a>.</p>
-      <p class="picker__status" id="picker-status" role="status"></p>
-    </section>
-
-    <div class="picker__foot"><button type="button" class="button button--mine" id="picker-done">Done</button></div>
-  </dialog>
-
-  <footer class="footer">
-    <p>Data: <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" rel="noopener noreferrer">CISA Known Exploited Vulnerabilities catalog</a> (US government, public domain). Not affiliated with CISA.</p>
-    <p>Your stack is kept only in this browser, and only if you tick Remember.</p>
-    <p>Follow along in a feed reader, Slack or an automation tool: <a href="feeds/">Feeds</a>.</p>
-    <p>No trackers, no cookies, no third-party code. <a id="repo-link" href="https://github.com/smashytech/threat-radar" rel="noopener noreferrer">How this site works ↗</a></p>
   </footer>
+  <!-- /site-footer -->
 </body>
 </html>

@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | **Spec ID** | 007-briefing-redesign |
-| **Status** | Draft v1, waiting for the owner's "go" |
+| **Status** | Approved v1 (owner: "gooo", 2026-11-17). Built and verified |
 | **Owner** | smashytech |
 | **Builds on** | [001](../001-threat-radar/spec.md) – [006](../006-vendor-period/spec.md) |
 | **Created** | 2026-11-17 |

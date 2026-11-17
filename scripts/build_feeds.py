@@ -171,7 +171,7 @@ def kev_item(entry: dict, base: str) -> dict:
     return {
         "id": f"kev/{entry['cveID']}",
         "title": f"{entry['cveID']}: {entry['vulnerabilityName']}",
-        "link": f"{base}#{entry['cveID']}",
+        "link": f"{base}exploited/#{entry['cveID']}",  # spec 007: the full list moved to /exploited/
         "day": entry["dateAdded"],
         "summary": summary,
         "categories": [entry["vendorProject"]] + (["ransomware"] if ransomware else []),
@@ -182,7 +182,7 @@ def kev_feed(kev: list[dict], base: str) -> bytes:
     return atom_feed(
         "feeds/kev", "Threat Radar: newly exploited vulnerabilities",
         "The newest entries in CISA's Known Exploited Vulnerabilities catalog (public domain).",
-        f"{base}feeds/kev.xml", base, [kev_item(e, base) for e in newest(kev, SIZES["kev"])])
+        f"{base}feeds/kev.xml", f"{base}exploited/", [kev_item(e, base) for e in newest(kev, SIZES["kev"])])
 
 
 def vendor_feeds(kev: list[dict], base: str) -> tuple[dict[str, bytes], dict[str, str]]:
@@ -196,7 +196,7 @@ def vendor_feeds(kev: list[dict], base: str) -> tuple[dict[str, bytes], dict[str
         feeds[slug] = atom_feed(
             f"feeds/vendor/{slug}", f"Threat Radar: {vendor}",
             f"Newly exploited vulnerabilities in {vendor} products, from CISA's KEV catalog.",
-            f"{base}feeds/vendors/{slug}.xml", base, [kev_item(e, base) for e in newest(mine, SIZES["vendor"])])
+            f"{base}feeds/vendors/{slug}.xml", f"{base}exploited/", [kev_item(e, base) for e in newest(mine, SIZES["vendor"])])
         index[vendor] = f"feeds/vendors/{slug}.xml"
     return feeds, index
 

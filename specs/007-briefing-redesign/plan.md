@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | **Spec** | [spec.md](./spec.md) |
-| **Status** | Draft v1, waiting for "go" |
+| **Status** | Approved v1 (owner: "gooo", 2026-11-17). Built and verified |
 
 ## 1. The big picture
 
@@ -51,3 +51,15 @@
 | A long Sitrep sentence makes a huge headline | 160-character cut, and the heading size steps down for long text |
 | Font workflow fetches something unexpected | Pinned versions, PR with file list and checksums, owner merges |
 | Larger change touches every page | Done in phases with the full test suite after each; screenshots of every page in both themes in `evidence/` |
+
+## 5. Changes during build
+
+| Change | Why |
+|---|---|
+| The headline drops **asides in brackets** before the 160-character cut ("…campaigns (ConnectWise ScreenConnect/SCKit, N-able N-central) are driving…" → "…campaigns are driving…"), and the heading steps down a size above 100 characters | Today's real Sitrep sentence filled five lines at full size; without the aside it reads as a headline (115 characters) |
+| The fonts were **merged by the builder** after checking the branch (valid font files, checksums in `site/fonts/README.md` match, licences present, 111 KB total) instead of waiting for a pull request | GitHub's API for pull requests isn't reachable from the build environment; the workflow pushes a `fonts` branch, and the check of that branch is recorded here |
+| Header and footer are written into every page by `scripts/site_chrome.py`, with a test that fails if a page drifts | Five copies of the same markup would otherwise drift apart; the site still has no build step |
+| The footer now **links** Ransomware.live and RansomLook as data sources | Ransomware.live's terms ask for a link back on every page showing its data |
+| The "Subscribe in a feed reader" prefetch used the page's own address; on `/exploited/` that pointed at `/exploited/feeds/vendors.json` (404). It now uses the site root | Found by re-running spec 004's browser check at the new address |
+| Spec 004 and 005 browser checks now **count vendors and the catalog total from the data** instead of fixed numbers (291 vendors, 72 Microsoft products, 1,769 entries) | The catalog grew since those specs shipped; the checks were failing on growth, not on bugs |
+| The four numbers are a 2×2 grid on phones | A single column of four big numbers pushed the briefing far down |
