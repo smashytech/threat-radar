@@ -93,24 +93,62 @@ function renderGlance(kev, bw, today) {
   sweden.classList.toggle("glance__n--ok", n.sweden === 0);
 }
 
+const OVERDUE_HELP = "CISA's patch deadline for this flaw has passed. The deadline binds US federal agencies; " +
+  "for everyone else it shows how urgent CISA thinks it is. This site can't see whether you've patched.";
+
 function renderKev(kev, today) {
-  const items = newest(kev, 4).map((e) => {
+  const items = newest(kev, 4).map((e, i) => {
     const due = dueStatus(e, today);
-    return el("li", {}, [
+    // The due tag sits next to the link, not inside it: a button inside a link is invalid
+    // and a tap on the (i) would also open the entry.
+    const dueBox = el("span", { className: "today-due" }, [
+      el("span", {
+        className: due.overdue ? "today-item__due today-item__due--overdue" : "today-item__due",
+        text: due.overdue ? "Overdue" : due.date ? `Due ${formatDate(due.date)}` : "",
+      }),
+    ]);
+    if (due.overdue) dueBox.append(...infoTip(`due-tip-${i}`, "What does Overdue mean?", `${OVERDUE_HELP} Deadline: ${formatDate(due.date)}.`));
+    return el("li", { className: "today-entry" }, [
       el("a", { className: "today-item", attrs: { href: `exploited/#${encodeURIComponent(e.cveID)}` } }, [
-        el("span", { className: "today-item__top" }, [
-          el("span", { className: "today-item__code", text: e.cveID }),
-          el("span", {
-            className: due.overdue ? "today-item__due today-item__due--overdue" : "today-item__due",
-            text: due.overdue ? "Overdue" : due.date ? `Due ${formatDate(due.date)}` : "",
-          }),
-        ]),
+        el("span", { className: "today-item__top" }, [el("span", { className: "today-item__code", text: e.cveID })]),
         el("span", { className: "today-item__title", text: e.vulnerabilityName }),
       ]),
+      dueBox,
     ]);
   });
   $("today-kev").replaceChildren(...items);
 }
+
+/** A small (i) button with an explanation that shows on hover, keyboard focus or tap. */
+function infoTip(id, label, help) {
+  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  svg.setAttribute("viewBox", "0 0 16 16");
+  svg.setAttribute("aria-hidden", "true");
+  svg.setAttribute("focusable", "false");
+  for (const [tag, attrs] of [["circle", { cx: 8, cy: 8, r: 7 }], ["path", { d: "M8 7v4.5" }], ["circle", { cx: 8, cy: 4.6, r: 0.9, class: "info-tip__dot" }]]) {
+    const node = document.createElementNS("http://www.w3.org/2000/svg", tag);
+    for (const [k, v] of Object.entries(attrs)) node.setAttribute(k, String(v));
+    svg.append(node);
+  }
+  const button = el("button", { className: "info-tip", attrs: { type: "button", "aria-label": label, "aria-expanded": "false", "aria-describedby": id } }, [svg]);
+  const bubble = el("span", { className: "info-tip__bubble", text: help, attrs: { id, role: "tooltip" } });
+  return [button, bubble];
+}
+
+// Tap or click toggles a tip (phones have no hover); clicking elsewhere or Escape closes it.
+function closeTips(except) {
+  for (const b of document.querySelectorAll('.info-tip[aria-expanded="true"]')) if (b !== except) b.setAttribute("aria-expanded", "false");
+}
+document.addEventListener("click", (event) => {
+  const button = event.target.closest?.(".info-tip");
+  closeTips(button);
+  if (button) button.setAttribute("aria-expanded", button.getAttribute("aria-expanded") === "true" ? "false" : "true");
+});
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape") return;
+  const open = document.querySelector('.info-tip[aria-expanded="true"]');
+  if (open) { open.setAttribute("aria-expanded", "false"); open.focus(); }
+});
 
 async function renderSitrep(sitrep, today) {
   const list = $("today-sitrep");

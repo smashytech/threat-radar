@@ -24,7 +24,9 @@ Date: 2026-11-17 · Data: CISA KEV catalog 2026.11.13 (1,781 entries), Sitrep 20
 | **AC-9** | ✅ | 360 px: all five pages 360 px wide ([phone-today.png](evidence/phone-today.png), [phone-exploited.png](evidence/phone-exploited.png)). Keyboard: Skip link → logo → Today → Exploited → Sitrep → Breaches → Feeds → Dark mode, each with a visible focus ring; Enter toggles. 497 requests, 0 external; no errors. CSP unchanged (site test) |
 | **AC-10** | ✅ | Inter, Space Grotesk and JetBrains Mono load from `/fonts/` only. 111 KB total; checksums and licences in [`site/fonts/`](../../site/fonts/README.md) |
 
-Browser results: [browser-results.json](browser-results.json) (14 / 14).
+| **AC-11** | ✅ | Added 2026-11-18. 2 overdue tags, 2 tips. Hover and keyboard focus show the explanation, leaving hides it; on a phone a tap opens it without opening the entry, it fits the 360 px screen (44–344 px), and Escape or a tap elsewhere closes it. [overdue-info-phone.png](evidence/overdue-info-phone.png) |
+
+Browser results: [browser-results.json](browser-results.json) (15 / 15).
 
 ## Found and fixed during verification
 

@@ -108,3 +108,4 @@ Builder proposals (the owner can change any of these before "go"):
 | **AC-8** | Every palette text pair passes WCAG AA in both themes (automated test) |
 | **AC-9** | All five pages: 360 px without horizontal scroll, keyboard navigation with visible focus, 0 external requests, CSP unchanged |
 | **AC-10** | Fonts served from zelin.se with their licence file; total under 400 KB |
+| **AC-11** | *(Added 2026-11-18, owner's request.)* Each "Overdue" tag on Today has a small (i) that explains CISA's deadline on hover, keyboard focus and tap; Escape or a tap elsewhere closes it; tapping it never opens the entry |

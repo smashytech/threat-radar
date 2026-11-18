@@ -3,13 +3,13 @@
     "id": "AC-1",
     "name": "Today shows headline, week line, 4 numbers, 3 columns and the trend from the live data",
     "ok": true,
-    "detail": "{\"headline\":\"Two live MSP-tooling exploitation campaigns are driving crypto-mining and remote-access abuse on unpatched systems.\",\"week\":\"CISA added 2 exploited flaws this week: Check Point and UnrealIRCd.\",\"numbers\":[\"2\",\"33\",\"22\",\"0\"],\"kev\":[\"CVE-2026-123039\",\"CVE-2026-114713\",\"CVE-2026-125350\",\"CVE-2026-124194\"],\"sitrep\":3,\"bars\":[\"22\",\"6\",\"5\"],\"months\":12,\"bwTitle\":\"Breach Wire №85\"}"
+    "detail": "{\"headline\":\"CISA added a newly actively-exploited Puppet Enterprise flaw to its KEV catalog, while ConnectWise ScreenConnect and N-able N-central both shipped emergency…\",\"week\":\"CISA added 3 exploited flaws this week: Perforce, Check Point and UnrealIRCd.\",\"numbers\":[\"3\",\"34\",\"39\",\"0\"],\"kev\":[\"CVE-2026-115731\",\"CVE-2026-123039\",\"CVE-2026-114713\",\"CVE-2026-125350\"],\"sitrep\":3,\"bars\":[\"39\",\"11\",\"19\"],\"months\":12,\"bwTitle\":\"Breach Wire №87\"}"
   },
   {
     "id": "AC-2",
     "name": "Headline is the Sitrep's first sentence without bracketed asides, at most 160 characters",
     "ok": true,
-    "detail": "115 chars: \"Two live MSP-tooling exploitation campaigns are driving crypto-mining and remote-access abuse on unpatched systems.\""
+    "detail": "157 chars: \"CISA added a newly actively-exploited Puppet Enterprise flaw to its KEV catalog, while ConnectWise ScreenConnect and N-able N-central both shipped emergency…\""
   },
   {
     "id": "AC-3",
@@ -33,7 +33,7 @@
     "id": "AC-6b",
     "name": "Feed entries link to /exploited/#CVE-…, with unchanged tag: IDs",
     "ok": true,
-    "detail": "50 links, e.g. http://localhost:8765/exploited/#CVE-2026-123039; IDs e.g. tag:zelin.se,2026:kev/CVE-2026-123039"
+    "detail": "50 links, e.g. http://localhost:8765/exploited/#CVE-2026-115731; IDs e.g. tag:zelin.se,2026:kev/CVE-2026-115731"
   },
   {
     "id": "AC-7a",
@@ -72,6 +72,12 @@
     "detail": "Skip to the briefing → Threat Radar → Today → Exploited → Sitrep → Breaches → Feeds → Dark mode; Enter → dark: true"
   },
   {
+    "id": "AC-11",
+    "name": "Each \"Overdue\" has an (i) that explains it on hover, keyboard focus and tap; Escape or a tap elsewhere closes it; it never opens the entry",
+    "ok": true,
+    "detail": "2 overdue, 2 tips; hover true, leave false, focus true; tap true, stayed true, bubble 44–344 px; Escape false, outside false"
+  },
+  {
     "id": "AC-10",
     "name": "All three fonts load, only from this site",
     "ok": true,
@@ -81,6 +87,6 @@
     "id": "AC-9c",
     "name": "0 external requests; no page errors, console errors or pop-ups",
     "ok": true,
-    "detail": "494 requests, external 0; errors: none"
+    "detail": "537 requests, external 0; errors: none"
   }
 ]

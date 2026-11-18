@@ -207,6 +207,36 @@ const DARK_BG = 'rgb(14, 17, 22)';
   await ctxKb.close();
   await ctxPhone.close();
 
+  // ---------- AC-11: the (i) next to "Overdue" (added after release, owner's request) ----------
+  const ctxTip = await newContext(browser, { viewport: { width: 1280, height: 1400 } });
+  page = await open(ctxTip, SITE);
+  const overdueRows = await page.$$eval('.today-item__due--overdue', (els) => els.length);
+  const tipCount = await page.$$eval('.info-tip', (els) => els.length);
+  const bubbleShown = () => page.$eval('.info-tip__bubble', (e) => getComputedStyle(e).display === 'block');
+  await page.hover('.info-tip'); const onHover = await bubbleShown();
+  await page.mouse.move(5, 5); const afterLeave = await bubbleShown();
+  await page.focus('.info-tip'); await page.keyboard.press('Shift+Tab'); await page.keyboard.press('Tab'); const onFocus = await bubbleShown();
+  const tipText = await page.$eval('.info-tip__bubble', (e) => e.textContent);
+  const described = await page.$eval('.info-tip', (b) => document.getElementById(b.getAttribute('aria-describedby'))?.textContent.length > 0);
+  await ctxTip.close();
+  const ctxTap = await newContext(browser, { viewport: { width: 360, height: 780 }, hasTouch: true, isMobile: true, colorScheme: 'dark' });
+  page = await open(ctxTap, SITE);
+  await page.locator('.info-tip').first().scrollIntoViewIfNeeded();
+  await page.tap('.info-tip');
+  const tapOpen = await page.$eval('.info-tip', (b) => b.getAttribute('aria-expanded'));
+  const stayed = page.url() === SITE;
+  const box = await page.locator('.info-tip__bubble').first().boundingBox();
+  await page.screenshot({ path: path.join(OUT, 'overdue-info-phone.png') });
+  await page.keyboard.press('Escape');
+  const escClosed = await page.$eval('.info-tip', (b) => b.getAttribute('aria-expanded'));
+  await page.tap('.info-tip'); await page.tap('h1');
+  const outsideClosed = await page.$eval('.info-tip', (b) => b.getAttribute('aria-expanded'));
+  await ctxTap.close();
+  check('AC-11', 'Each "Overdue" has an (i) that explains it on hover, keyboard focus and tap; Escape or a tap elsewhere closes it; it never opens the entry',
+    overdueRows > 0 && tipCount === overdueRows && onHover && !afterLeave && onFocus && described && /CISA's patch deadline/.test(tipText) &&
+    tapOpen === 'true' && stayed && box.x >= 0 && box.x + box.width <= 360 && escClosed === 'false' && outsideClosed === 'false',
+    `${overdueRows} overdue, ${tipCount} tips; hover ${onHover}, leave ${afterLeave}, focus ${onFocus}; tap ${tapOpen}, stayed ${stayed}, bubble ${Math.round(box.x)}–${Math.round(box.x + box.width)} px; Escape ${escClosed}, outside ${outsideClosed}`);
+
   // ---------- AC-10: fonts from this site ----------
   const ctxF = await newContext(browser);
   page = await open(ctxF, SITE);
