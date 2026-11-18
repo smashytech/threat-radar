@@ -40,6 +40,9 @@ REGIONS = {"North America", "Europe", "Middle East", "Africa", "Latin America & 
 UNATTRIBUTED = "Unattributed"
 MAX_COUNT = 100_000
 MIN_NAME_CHARS = 4  # shorter names (e.g. "Q3") would cause false alarms
+MAX_SECTORS = 40         # most sectors shown on the page; the rest are folded into "Other"
+MAX_RAW_SECTORS = 1_000  # sanity cap on the list as it arrives, before folding
+OTHER_SECTOR = "Other"
 
 # Links and domain names are never allowed: no leak-site addresses, no (masked) victim domains.
 LINK_RE = re.compile(
@@ -93,6 +96,29 @@ def check_list(value: object, where: str, high: int) -> list:
     return value
 
 
+def sort_sectors(sectors: list[dict]) -> list[dict]:
+    """Biggest first; ties in alphabetical order, so the result is always the same."""
+    return sorted(sectors, key=lambda x: (-x["count"], x["sector"]))
+
+
+def fold_sectors(sectors: list[dict]) -> list[dict]:
+    """Keep the page's sector list readable without losing a single victim.
+
+    A busy day can bring dozens of one-off sector labels ("Golf equipment",
+    "Jewelry retail"...). If there are more than MAX_SECTORS, the biggest
+    MAX_SECTORS - 1 are kept and everything else is added together under
+    "Other" (merged with any "Other" the issue already had). The total
+    is unchanged, so the sector sum still equals the victim count.
+    """
+    sectors = sort_sectors(sectors)
+    if len(sectors) <= MAX_SECTORS:
+        return sectors
+    named = [s for s in sectors if s["sector"].lower() != OTHER_SECTOR.lower()]
+    keep = named[:MAX_SECTORS - 1]
+    rest = sum(s["count"] for s in sectors) - sum(s["count"] for s in keep)
+    return sort_sectors(keep + [{"sector": OTHER_SECTOR, "count": rest}])
+
+
 # ---------- Validation ----------
 
 def validate_issue(data: object) -> dict:
@@ -126,12 +152,11 @@ def validate_issue(data: object) -> dict:
         regions.append({"region": r["region"], "countries": countries})
 
     sectors = []
-    for n, x in enumerate(check_list(top["sectors"], "sectors", 40), 1):
+    for n, x in enumerate(check_list(top["sectors"], "sectors", MAX_RAW_SECTORS), 1):
         x = check_keys(x, f"sectors[{n}]", {"sector", "count"})
         sectors.append({"sector": check_str(x["sector"], f"sectors[{n}].sector", 2, 80),
                         "count": check_int(x["count"], f"sectors[{n}].count", 1)})
-    sectors.sort(key=lambda x: x["sector"])
-    sectors.sort(key=lambda x: x["count"], reverse=True)
+    sectors = fold_sectors(sectors)
 
     groups = []
     for n, g in enumerate(check_list(top["groups"], "groups", 120), 1):

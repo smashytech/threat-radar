@@ -15,6 +15,7 @@ import tempfile
 import unittest
 from contextlib import redirect_stderr, redirect_stdout
 from pathlib import Path
+from unittest import mock
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import add_breachwire  # noqa: E402
@@ -128,6 +129,40 @@ class NameGuard(Base):
     def test_name_list_must_cover_every_victim(self):
         self.names.write_text("\n".join(FAKE_VICTIMS[:10]) + "\n", "utf-8")
         self.assert_refused(VALID)
+
+
+class SectorFolding(Base):
+    """A day with too many one-off sector labels is published, with the small ones folded into "Other"."""
+
+    def test_short_list_untouched(self):
+        sectors = [{"sector": f"Sector {n:02}", "count": 1} for n in range(add_breachwire.MAX_SECTORS)]
+        self.assertEqual(add_breachwire.fold_sectors(sectors), sectors)
+
+    def test_long_list_folded(self):
+        big = [{"sector": "Healthcare", "count": 12}, {"sector": "Manufacturing", "count": 6}]
+        small = [{"sector": f"Niche {n:02}", "count": 1} for n in range(59)]  # 61 labels, like issue 86
+        folded = add_breachwire.fold_sectors(big + small)
+        self.assertEqual(len(folded), add_breachwire.MAX_SECTORS)
+        self.assertEqual(sum(s["count"] for s in folded), 18 + 59)  # no victim lost
+        self.assertEqual(folded[0], {"sector": "Other", "count": 22})  # 59 small - 37 kept; biggest, so first
+        self.assertEqual(folded[1:3], big)
+
+    def test_existing_other_merged(self):
+        sectors = [{"sector": "Other", "count": 2}] + [{"sector": f"Niche {n:02}", "count": 1} for n in range(45)]
+        folded = add_breachwire.fold_sectors(sectors)
+        self.assertEqual(len(folded), add_breachwire.MAX_SECTORS)
+        self.assertEqual([s["sector"] for s in folded].count("Other"), 1)
+        self.assertEqual(sum(s["count"] for s in folded), 47)
+
+    def test_issue_published_and_stored_folded(self):
+        def many_sectors(i):  # 16 victims spread over 16 labels
+            i["sectors"] = [{"sector": f"Niche {n:02}", "count": 1} for n in range(16)]
+        with mock.patch.object(add_breachwire, "MAX_SECTORS", 5):
+            self.assertEqual(self.publish(self.variant(many_sectors)), 0)
+            stored = json.loads((self.out / "2026-11-06.json").read_text("utf-8"))
+            self.assertEqual(len(stored["sectors"]), 5)
+            self.assertIn({"sector": "Other", "count": 12}, stored["sectors"])
+            self.assertEqual(run("--check", "--out", str(self.out)), 0)
 
 
 class Consistency(Base):
