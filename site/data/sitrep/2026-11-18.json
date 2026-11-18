@@ -83,8 +83,8 @@
       "cves": []
     },
     {
-      "title": "Critical \"Java4Shell\" flaw could enable RCE in major enterprise apps",
-      "description": "CVE-2026-114938 affects Java SE/OpenJDK on certain Intel/AMD CPUs, potentially exposing Keycloak, Jira, Jenkins, Confluence and Artifactory without login. Vendors disagree on severity (CVSS 8.1–9.8); per the report, no exploitation has been observed and it is not in CISA's KEV catalog.",
+      "title": "Critical \"Java4Shell\" pre-auth RCE in OpenJDK — patch now",
+      "description": "CVE-2026-114938 is a heap overflow in OpenJDK's AVX-512 VBMI Base64 intrinsic (Java 17.0.6+, 21, 25, 27; x86-64 Intel Ice Lake–Granite Rapids and AMD Zen 4+ only, ARM unaffected) that can give unauthenticated RCE in apps such as Keycloak, Jira, Jenkins, Confluence and Artifactory. CVSS 8.1 (Oracle) to 9.2 (Calif). No in-the-wild exploitation confirmed and not in CISA KEV as of Nov 17, but technique details leaked before the patch, a public PoC triggers the bug, and a researcher reports a working exploit. Fixed in Oracle 17.0.21.1 / 21.0.13.1 / 25.0.5.1 / 27.0.1.1 and Corretto 17.0.21.1.2; if you can't patch yet, restart with -XX:-UseBASE64Intrinsics. [Updated after the email was sent: severity and remediation details added.]",
       "source": "The Hacker News",
       "url": "https://thehackernews.com/2026/11/java4shell-cve-2026-114938-enables-pre.html",
       "published": "2026-11-17",
@@ -109,5 +109,5 @@
       "cves": []
     }
   ],
-  "action": "Patch CVE-2026-115731 (Perforce Puppet Enterprise) per CISA KEV deadline Dec 1. Update ConnectWise ScreenConnect technician clients to v26.6.5+ and apply N-able N-central Hotfix 3. Audit any site using Optimizely for injected JavaScript/skimmer code. Avoid or uninstall Microsoft's agent-framework PyPI versions 1.26.1/1.26.2 — pin to 1.26.0."
+  "action": "Patch CVE-2026-115731 (Perforce Puppet Enterprise) per CISA KEV deadline Dec 1. Update ConnectWise ScreenConnect technician clients to v26.6.5+ and apply N-able N-central Hotfix 3. Audit any site using Optimizely for injected JavaScript/skimmer code. Avoid or uninstall Microsoft's agent-framework PyPI versions 1.26.1/1.26.2 — pin to 1.26.0. Patch Java4Shell (CVE-2026-114938) on x86-64 hosts with AVX-512 VBMI running Java 17.0.6+ (prioritize internet-facing Keycloak, Jira, Jenkins, Confluence, Artifactory); where patching must wait, restart the JVM with -XX:-UseBASE64Intrinsics."
 }
