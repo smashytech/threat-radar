@@ -1,0 +1,113 @@
+{
+  "date": "2026-11-18",
+  "tldr": "CISA added a newly actively-exploited Puppet Enterprise flaw to its KEV catalog, while ConnectWise ScreenConnect and N-able N-central both shipped emergency patches for critical remote-management bugs under active attack. A supply-chain attack via Optimizely injected skimmer code into CNN, BBC, Salesforce and 175+ other sites, and Uber, Barracuda, Access Dental Management and Fandango all disclosed breaches. Google also linked a Russia-based espionage group to a new Google Workspace intrusion.",
+  "emerging": [
+    {
+      "title": "Attackers weaponize autonomous AI agent frameworks at \"machine speed\"",
+      "description": "Google's Threat Intelligence Group says attackers have moved beyond manual AI prompting to autonomous multi-agent offensive frameworks (named: ARTEX, CAIRN, CyberStrikeAI, PentAGI, ZeroHollow, Agent Zero) that analyze patches and build exploits faster than defenders can respond. No specific threat-actor group is named — only generic \"financially motivated\" and \"China-aligned espionage\" descriptors.",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/google-finds-hackers-using-ai-agents-to.html",
+      "published": "2026-11-16",
+      "cves": []
+    },
+    {
+      "title": "Microsoft's own \"agent-framework\" PyPI package hijacked to steal cloud credentials",
+      "description": "Malicious versions 1.26.1 and 1.26.2 of Microsoft's agent-framework meta-package (published 33 minutes apart, now quarantined) added a hidden .pth file that ran on every Python startup, stealing Azure, GitHub Actions and other cloud credentials/tokens. Pin to version 1.26.0.",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/attackers-compromise-microsofts-agent.html",
+      "published": "2026-11-17",
+      "cves": []
+    }
+  ],
+  "items": [
+    {
+      "title": "CISA adds actively-exploited Puppet Enterprise flaw to KEV catalog",
+      "description": "CVE-2026-115731, a deserialization vulnerability in Perforce Puppet Enterprise, was added to CISA's Known Exploited Vulnerabilities catalog on Nov 17, with remediation due Dec 1. Confirmed directly against the current KEV listing.",
+      "source": "CISA KEV Catalog",
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "published": "2026-11-17",
+      "cves": [
+        "CVE-2026-115731"
+      ]
+    },
+    {
+      "title": "Critical ScreenConnect flaw under month-long \"SCKit\" attack campaign",
+      "description": "Attackers are exploiting CVE-2026-84869 (CVSS 9.9) in ConnectWise ScreenConnect with a toolkit called SCKit; Huntress found 205 affected hosts across 41 organizations on Nov 13. ConnectWise disabled 5 extensions across ~400 partner environments and patched in client v26.6.5+.",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/connectwise-warns-screenconnect-attacks.html",
+      "published": "2026-11-17",
+      "cves": [
+        "CVE-2026-84869"
+      ]
+    },
+    {
+      "title": "N-able patches 17 N-central flaws, some already exploited",
+      "description": "N-central 2026.4 Hotfix 3 fixes 17 CVEs (CVE-2026-129271–129287) spanning RCE, auth bypass and SSRF; N-able says some were already exploited. A separate chain pairing an Apache Axis RCE with an N-central bug was used within hours of disclosure to deploy crypto miners.",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/n-able-kills-legacy-apis-patches-17-n-central-zero-days/",
+      "published": "2026-11-17",
+      "cves": [
+        "CVE-2026-129271"
+      ]
+    },
+    {
+      "title": "Optimizely supply-chain attack hits CNN, BBC, Salesforce and 175+ other sites",
+      "description": "Attackers injected malicious JavaScript into 188 files across 178 customer sites via Optimizely's experimentation platform, skimming payment cards and swapping crypto wallet addresses. As of Nov 16 one file was still infected — full remediation isn't yet confirmed.",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/optimizely-supply-chain-attack-delivers-malware-to-cnn-fox-news-bbc-salesforce-sites/",
+      "published": "2026-11-16",
+      "cves": []
+    },
+    {
+      "title": "Uber notifies ~149,000 drivers after third-party breach",
+      "description": "Uber confirmed unauthorized access to driver names, license numbers, birthdates and addresses after a service provider's credentials were compromised; a Maine filing puts the count at 149,346. Secondary reporting (not Uber's own statement) ties the source to an AI provider breach that also hit Cursor and Notion.",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/uber-notifies-drivers-of-data-breach-affecting-nearly-150-000-people/",
+      "published": "2026-11-17",
+      "cves": []
+    },
+    {
+      "title": "Barracuda breach tied to misuse of AI pentesting tool \"Artex\"",
+      "description": "An attacker used a leaked cloud access key to move through ~10 Barracuda cloud accounts over 44 hours, planting a Kubernetes backdoor and searching for crypto-wallet data. SecurityWeek explicitly ties the intrusion to abuse of Artex, an agentic AI pentesting framework still circulating despite removal from GitHub.",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/barracuda-hacked-amid-surge-in-artex-powered-cyberattacks/",
+      "published": "2026-11-16",
+      "cves": []
+    },
+    {
+      "title": "Russia-linked \"Cold Relic\" reuses stolen Google Workspace data in new breach",
+      "description": "Google's Mandiant/GTIG says the group (formerly COLDRIVER/UNC4057, also Callisto/Gossamer Bear/Star Blizzard) used identities stolen in a late-2025 breach to phish a second US organization's Entra ID credentials, then exfiltrated cloud drive data.",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/russian-cold-relic-hackers-use-stolen.html",
+      "published": "2026-11-18",
+      "cves": []
+    },
+    {
+      "title": "Critical \"Java4Shell\" flaw could enable RCE in major enterprise apps",
+      "description": "CVE-2026-114938 affects Java SE/OpenJDK on certain Intel/AMD CPUs, potentially exposing Keycloak, Jira, Jenkins, Confluence and Artifactory without login. Vendors disagree on severity (CVSS 8.1–9.8); per the report, no exploitation has been observed and it is not in CISA's KEV catalog.",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/java4shell-cve-2026-114938-enables-pre.html",
+      "published": "2026-11-17",
+      "cves": [
+        "CVE-2026-114938"
+      ]
+    },
+    {
+      "title": "Access Dental Management breach affects ~341,000 patients",
+      "description": "State filings show about 341,000 people had names, SSNs, medical and insurance information exposed in an intrusion discovered in May; total impact could reportedly exceed 455,000. The WorldLeaks ransomware group claimed responsibility, unconfirmed by the company.",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/access-dental-management-data-breach-impacts-over-340000/",
+      "published": "2026-11-17",
+      "cves": []
+    },
+    {
+      "title": "Fandango discloses payment card exposure from October checkout incident",
+      "description": "Fandango is notifying customers that payment card data was exposed during an Oct 8–11 incident on its checkout pages. Only partial state-filing numbers are public so far (931 across Oregon and Vermont); the company hasn't disclosed the attack method.",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/fandango-warns-ticket-buyers-of-payment-card-data-exposure/",
+      "published": "2026-11-16",
+      "cves": []
+    }
+  ],
+  "action": "Patch CVE-2026-115731 (Perforce Puppet Enterprise) per CISA KEV deadline Dec 1. Update ConnectWise ScreenConnect technician clients to v26.6.5+ and apply N-able N-central Hotfix 3. Audit any site using Optimizely for injected JavaScript/skimmer code. Avoid or uninstall Microsoft's agent-framework PyPI versions 1.26.1/1.26.2 — pin to 1.26.0."
+}

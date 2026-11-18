@@ -1,6 +1,13 @@
 {
   "issues": [
     {
+      "date": "2026-11-18",
+      "tldr": "CISA added a newly actively-exploited Puppet Enterprise flaw to its KEV catalog, while ConnectWise ScreenConnect and N-able N-central both shipped emergency patches for critical remote-management bugs under active attack. A supply-chain attack via Optimizely injected skimmer code into CNN, BBC, Salesforce and 175+ other sites, and Uber, Barracuda, Access Dental Management and Fandango all disclosed breaches. Google also linked a Russia-based espionage group to a new Google Workspace intrusion.",
+      "items": 10,
+      "emerging": 2,
+      "actionNeeded": true
+    },
+    {
       "date": "2026-11-17",
       "tldr": "Two live MSP-tooling exploitation campaigns (ConnectWise ScreenConnect/SCKit, N-able N-central) are driving crypto-mining and remote-access abuse on unpatched systems. Optimizely and Barracuda both disclosed breaches hitting high-profile customers (CNN, Fox News, BBC, Salesforce sites), and Uber disclosed a vendor breach affecting ~150,000 people. Google's threat intel team confirmed attackers are now using AI agents to auto-generate exploits straight from vendor patches.",
       "items": 10,
