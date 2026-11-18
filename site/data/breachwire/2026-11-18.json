@@ -1,0 +1,336 @@
+{
+  "date": "2026-11-18",
+  "issue": 87,
+  "window": "2026-11-17",
+  "stats": {
+    "victims": 39,
+    "groups": 19,
+    "countries": 11,
+    "regions": 6
+  },
+  "sweden": 0,
+  "regions": [
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 24
+        }
+      ]
+    },
+    {
+      "region": "Europe",
+      "countries": [
+        {
+          "country": "Germany",
+          "flag": "🇩🇪",
+          "count": 2
+        },
+        {
+          "country": "Italy",
+          "flag": "🇮🇹",
+          "count": 1
+        },
+        {
+          "country": "Portugal",
+          "flag": "🇵🇹",
+          "count": 1
+        },
+        {
+          "country": "Netherlands",
+          "flag": "🇳🇱",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Middle East",
+      "countries": [
+        {
+          "country": "Iran",
+          "flag": "🇮🇷",
+          "count": 1
+        },
+        {
+          "country": "United Arab Emirates",
+          "flag": "🇦🇪",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Asia",
+      "countries": [
+        {
+          "country": "Taiwan",
+          "flag": "🇹🇼",
+          "count": 1
+        },
+        {
+          "country": "India",
+          "flag": "🇮🇳",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Latin America & Caribbean",
+      "countries": [
+        {
+          "country": "Argentina",
+          "flag": "🇦🇷",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Oceania",
+      "countries": [
+        {
+          "country": "Australia",
+          "flag": "🇦🇺",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Unattributed",
+      "countries": [
+        {
+          "country": "Country not disclosed",
+          "flag": "🏳️",
+          "count": 4
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Healthcare",
+      "count": 12
+    },
+    {
+      "sector": "Manufacturing",
+      "count": 6
+    },
+    {
+      "sector": "Professional Services",
+      "count": 3
+    },
+    {
+      "sector": "Technology",
+      "count": 3
+    },
+    {
+      "sector": "Construction",
+      "count": 2
+    },
+    {
+      "sector": "Financial Services",
+      "count": 2
+    },
+    {
+      "sector": "Government",
+      "count": 2
+    },
+    {
+      "sector": "Construction / luxury-retail fit-out",
+      "count": 1
+    },
+    {
+      "sector": "Equipment dealer",
+      "count": 1
+    },
+    {
+      "sector": "Food & beverage",
+      "count": 1
+    },
+    {
+      "sector": "Food supply",
+      "count": 1
+    },
+    {
+      "sector": "Healthcare technology",
+      "count": 1
+    },
+    {
+      "sector": "Non-profit",
+      "count": 1
+    },
+    {
+      "sector": "Non-profit membership organisation",
+      "count": 1
+    },
+    {
+      "sector": "Telecom / pay-TV",
+      "count": 1
+    },
+    {
+      "sector": "Transportation & logistics",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "Booba",
+      "hits": 6,
+      "profile": "Data-theft brand (posts as “Booba Project” on Ransomware.live, “Booba Team” on RansomLook); little public TTP reporting. Lists sector, website and stolen-data size per victim; today’s batch was mostly small U.S. public-sector and healthcare bodies.",
+      "countries": "United States, Portugal",
+      "sectors": "Healthcare, government, non-profit, logistics"
+    },
+    {
+      "name": "Inception",
+      "hits": 5,
+      "profile": "RedPacket flags its listings as possibly unverified or fabricated — treat as low-confidence.",
+      "countries": "United States",
+      "sectors": "Technology, healthcare, food & beverage, payroll"
+    },
+    {
+      "name": "Vortex",
+      "hits": 5,
+      "profile": "RedPacket notes reports of unverified or fabricated Vortex claims.",
+      "countries": "United States",
+      "sectors": "Healthcare, manufacturing, financial services"
+    },
+    {
+      "name": "BrainCipher",
+      "hits": 4,
+      "profile": "",
+      "countries": "United States, Germany, UAE, Australia",
+      "sectors": "Healthcare, professional services"
+    },
+    {
+      "name": "Aoqin",
+      "hits": 2,
+      "profile": "“AOQIN Leaks”, tracked since 4 Nov 2026; posts revenue, staff counts, data types and publication countdowns with “not paid” status.",
+      "countries": "United States",
+      "sectors": "Professional services, manufacturing"
+    },
+    {
+      "name": "Climax",
+      "hits": 2,
+      "profile": "Little-documented leak site; posts only sector and website, no samples or volumes.",
+      "countries": "India, United States",
+      "sectors": "Healthcare, food supply"
+    },
+    {
+      "name": "Rhysida",
+      "hits": 2,
+      "profile": "RaaS active since May 2023 (CISA AA23-319A); auctions data; detailed inventories of stolen bookkeeping and mailboxes in today’s posts.",
+      "countries": "Netherlands, not disclosed",
+      "sectors": "Equipment dealer, technology"
+    },
+    {
+      "name": "The Gentlemen",
+      "hits": 2,
+      "profile": "Emerged 2025; high-volume poster, reported to abuse Group Policy for deployment. Ransomware.live re-listed 16 of its victims today that №83/№86 had already covered (reposts).",
+      "countries": "Argentina, not disclosed",
+      "sectors": "Telecom, non-profit"
+    },
+    {
+      "name": "Akira",
+      "hits": 1,
+      "profile": "Active since March 2023 (CISA AA24-109A); double extortion with Windows/ESXi encryptors; frequent abuse of VPNs without MFA.",
+      "countries": "not disclosed",
+      "sectors": "Manufacturing"
+    },
+    {
+      "name": "Aurora",
+      "hits": 1,
+      "profile": "Little-documented leak site; posts long corporate profiles with registry details.",
+      "countries": "Italy",
+      "sectors": "Construction / retail fit-out"
+    },
+    {
+      "name": "Black X",
+      "hits": 1,
+      "profile": "Little-documented actor focused on Iranian organisations; claims multi-TB thefts with file-map proof.",
+      "countries": "Iran",
+      "sectors": "Construction"
+    },
+    {
+      "name": "Curious Worm",
+      "hits": 1,
+      "profile": "New leak site first seen 11 Nov 2026; U.S. healthcare-heavy; posts masked domains as “pending”, then reveals them.",
+      "countries": "United States",
+      "sectors": "Healthcare"
+    },
+    {
+      "name": "EndZone",
+      "hits": 1,
+      "profile": "Little-documented; today’s post claims both encryption and exfiltration and says it left patient-call systems running.",
+      "countries": "United States",
+      "sectors": "Healthcare technology"
+    },
+    {
+      "name": "Helix",
+      "hits": 1,
+      "profile": "Little-documented; claims publication via GoFile archive tiers.",
+      "countries": "United States",
+      "sectors": "Manufacturing"
+    },
+    {
+      "name": "Inc Ransom",
+      "hits": 1,
+      "profile": "Prolific RaaS since mid-2023 (MITRE G1032); edge-device exploits and spear-phishing; global victim set.",
+      "countries": "Taiwan",
+      "sectors": "Manufacturing"
+    },
+    {
+      "name": "N0n",
+      "hits": 1,
+      "profile": "Data-sale/extortion site tracked since Sep 2026; often posts anonymously (“Company #N”) then names victims; Ransomware.live maps it to Valid Accounts (T1078).",
+      "countries": "United States",
+      "sectors": "Automotive software"
+    },
+    {
+      "name": "Netrunner",
+      "hits": 1,
+      "profile": "Little-documented leak site; brief company profiles only.",
+      "countries": "United States",
+      "sectors": "Construction"
+    },
+    {
+      "name": "Panzer",
+      "hits": 1,
+      "profile": "Leak site tracked since Aug 2026, focus on Indonesian and Malaysian public-sector and consumer brands.",
+      "countries": "not disclosed",
+      "sectors": "Banking"
+    },
+    {
+      "name": "Payload",
+      "hits": 1,
+      "profile": "Little-documented leak site; company-profile listings, mostly European mid-market.",
+      "countries": "Germany",
+      "sectors": "Manufacturing"
+    }
+  ],
+  "quality": {
+    "singleSourced": 7,
+    "claimOnly": 6,
+    "sourcesDisagree": 1,
+    "newGroups": 0
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 57
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 48
+      }
+    ],
+    "merged": 69,
+    "masked": 4,
+    "reposts": 26,
+    "nonVictims": 0,
+    "lowCoverage": false
+  },
+  "lateToPress": 0
+}
