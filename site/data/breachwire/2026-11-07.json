@@ -88,6 +88,10 @@
   ],
   "sectors": [
     {
+      "sector": "Retail & E-Commerce",
+      "count": 4
+    },
+    {
       "sector": "Technology",
       "count": 4
     },
@@ -97,10 +101,6 @@
     },
     {
       "sector": "Professional Services",
-      "count": 3
-    },
-    {
-      "sector": "Retail & E-Commerce",
       "count": 3
     },
     {
@@ -121,10 +121,6 @@
     },
     {
       "sector": "Not disclosed",
-      "count": 1
-    },
-    {
-      "sector": "Retail",
       "count": 1
     },
     {

@@ -208,12 +208,16 @@
   ],
   "sectors": [
     {
-      "sector": "Other",
-      "count": 24
+      "sector": "Retail & E-Commerce",
+      "count": 18
     },
     {
       "sector": "Healthcare",
       "count": 14
+    },
+    {
+      "sector": "Other",
+      "count": 13
     },
     {
       "sector": "Manufacturing",
@@ -222,10 +226,6 @@
     {
       "sector": "Financial Services",
       "count": 9
-    },
-    {
-      "sector": "Retail & E-Commerce",
-      "count": 7
     },
     {
       "sector": "Technology",
@@ -292,10 +292,6 @@
       "count": 1
     },
     {
-      "sector": "Bed retail",
-      "count": 1
-    },
-    {
       "sector": "Biopharmaceutical neuroscien",
       "count": 1
     },
@@ -305,10 +301,6 @@
     },
     {
       "sector": "Connected tv advertising age",
-      "count": 1
-    },
-    {
-      "sector": "Consumer goods",
       "count": 1
     },
     {
@@ -324,19 +316,11 @@
       "count": 1
     },
     {
-      "sector": "Eyewear",
-      "count": 1
-    },
-    {
       "sector": "Fintech",
       "count": 1
     },
     {
       "sector": "Franchise",
-      "count": 1
-    },
-    {
-      "sector": "Golf equipment",
       "count": 1
     },
     {
@@ -352,19 +336,35 @@
       "count": 1
     },
     {
-      "sector": "Jewelry retail",
-      "count": 1
-    },
-    {
       "sector": "Legal",
       "count": 1
     },
     {
-      "sector": "Licensed pop culture retail",
+      "sector": "Market research recruitment",
       "count": 1
     },
     {
-      "sector": "Market research recruitment",
+      "sector": "Marketing technology",
+      "count": 1
+    },
+    {
+      "sector": "Medical supplies manufacture",
+      "count": 1
+    },
+    {
+      "sector": "Mining & Chemicals",
+      "count": 1
+    },
+    {
+      "sector": "Non-profit",
+      "count": 1
+    },
+    {
+      "sector": "Nonprofit membership organiz",
+      "count": 1
+    },
+    {
+      "sector": "Online education",
       "count": 1
     }
   ],

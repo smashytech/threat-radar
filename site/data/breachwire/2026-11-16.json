@@ -53,6 +53,10 @@
   ],
   "sectors": [
     {
+      "sector": "Retail & E-Commerce",
+      "count": 7
+    },
+    {
       "sector": "Manufacturing",
       "count": 4
     },
@@ -61,31 +65,7 @@
       "count": 2
     },
     {
-      "sector": "Apparel & footwear group",
-      "count": 1
-    },
-    {
-      "sector": "Apparel retail",
-      "count": 1
-    },
-    {
-      "sector": "Appliance & electronics retail",
-      "count": 1
-    },
-    {
-      "sector": "Athleisure retail",
-      "count": 1
-    },
-    {
-      "sector": "Coffee retail",
-      "count": 1
-    },
-    {
       "sector": "Construction",
-      "count": 1
-    },
-    {
-      "sector": "Consumer electronics",
       "count": 1
     },
     {
@@ -106,10 +86,6 @@
     },
     {
       "sector": "Not disclosed",
-      "count": 1
-    },
-    {
-      "sector": "Outdoor footwear & apparel",
       "count": 1
     },
     {
