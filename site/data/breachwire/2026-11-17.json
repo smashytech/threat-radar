@@ -1,0 +1,546 @@
+{
+  "date": "2026-11-17",
+  "issue": 86,
+  "window": "2026-11-16",
+  "stats": {
+    "victims": 124,
+    "groups": 21,
+    "countries": 30,
+    "regions": 7
+  },
+  "sweden": 0,
+  "regions": [
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 59
+        },
+        {
+          "country": "Canada",
+          "flag": "🇨🇦",
+          "count": 14
+        }
+      ]
+    },
+    {
+      "region": "Europe",
+      "countries": [
+        {
+          "country": "United Kingdom",
+          "flag": "🇬🇧",
+          "count": 6
+        },
+        {
+          "country": "Germany",
+          "flag": "🇩🇪",
+          "count": 5
+        },
+        {
+          "country": "France",
+          "flag": "🇫🇷",
+          "count": 3
+        },
+        {
+          "country": "Italy",
+          "flag": "🇮🇹",
+          "count": 2
+        },
+        {
+          "country": "Austria",
+          "flag": "🇦🇹",
+          "count": 1
+        },
+        {
+          "country": "Belgium",
+          "flag": "🇧🇪",
+          "count": 1
+        },
+        {
+          "country": "Denmark",
+          "flag": "🇩🇰",
+          "count": 1
+        },
+        {
+          "country": "Ireland",
+          "flag": "🇮🇪",
+          "count": 1
+        },
+        {
+          "country": "Netherlands",
+          "flag": "🇳🇱",
+          "count": 1
+        },
+        {
+          "country": "Poland",
+          "flag": "🇵🇱",
+          "count": 1
+        },
+        {
+          "country": "Portugal",
+          "flag": "🇵🇹",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Middle East",
+      "countries": [
+        {
+          "country": "Saudi Arabia",
+          "flag": "🇸🇦",
+          "count": 2
+        },
+        {
+          "country": "Kuwait",
+          "flag": "🇰🇼",
+          "count": 1
+        },
+        {
+          "country": "United Arab Emirates",
+          "flag": "🇦🇪",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Africa",
+      "countries": [
+        {
+          "country": "South Africa",
+          "flag": "🇿🇦",
+          "count": 1
+        },
+        {
+          "country": "Tanzania",
+          "flag": "🇹🇿",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Latin America & Caribbean",
+      "countries": [
+        {
+          "country": "Argentina",
+          "flag": "🇦🇷",
+          "count": 1
+        },
+        {
+          "country": "Brazil",
+          "flag": "🇧🇷",
+          "count": 1
+        },
+        {
+          "country": "Peru",
+          "flag": "🇵🇪",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Asia",
+      "countries": [
+        {
+          "country": "Malaysia",
+          "flag": "🇲🇾",
+          "count": 2
+        },
+        {
+          "country": "Philippines",
+          "flag": "🇵🇭",
+          "count": 2
+        },
+        {
+          "country": "Thailand",
+          "flag": "🇹🇭",
+          "count": 2
+        },
+        {
+          "country": "Hong Kong",
+          "flag": "🇭🇰",
+          "count": 1
+        },
+        {
+          "country": "India",
+          "flag": "🇮🇳",
+          "count": 1
+        },
+        {
+          "country": "Indonesia",
+          "flag": "🇮🇩",
+          "count": 1
+        },
+        {
+          "country": "Japan",
+          "flag": "🇯🇵",
+          "count": 1
+        },
+        {
+          "country": "Taiwan",
+          "flag": "🇹🇼",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Oceania",
+      "countries": [
+        {
+          "country": "Australia",
+          "flag": "🇦🇺",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "region": "Unattributed",
+      "countries": [
+        {
+          "country": "Country not disclosed",
+          "flag": "🏳️",
+          "count": 6
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Other",
+      "count": 24
+    },
+    {
+      "sector": "Healthcare",
+      "count": 14
+    },
+    {
+      "sector": "Manufacturing",
+      "count": 11
+    },
+    {
+      "sector": "Financial Services",
+      "count": 9
+    },
+    {
+      "sector": "Retail & E-Commerce",
+      "count": 7
+    },
+    {
+      "sector": "Technology",
+      "count": 7
+    },
+    {
+      "sector": "Professional Services",
+      "count": 5
+    },
+    {
+      "sector": "Construction",
+      "count": 3
+    },
+    {
+      "sector": "Energy & Utilities",
+      "count": 3
+    },
+    {
+      "sector": "Agriculture and Food Production",
+      "count": 2
+    },
+    {
+      "sector": "Biopharmaceutical",
+      "count": 2
+    },
+    {
+      "sector": "Education",
+      "count": 2
+    },
+    {
+      "sector": "Government & Defense",
+      "count": 2
+    },
+    {
+      "sector": "Insurance",
+      "count": 2
+    },
+    {
+      "sector": "Investment advisory",
+      "count": 2
+    },
+    {
+      "sector": "Not disclosed",
+      "count": 2
+    },
+    {
+      "sector": "Pharmaceutical",
+      "count": 2
+    },
+    {
+      "sector": "Sector not disclosed",
+      "count": 2
+    },
+    {
+      "sector": "Transportation",
+      "count": 2
+    },
+    {
+      "sector": "Audience measurement",
+      "count": 1
+    },
+    {
+      "sector": "Banking",
+      "count": 1
+    },
+    {
+      "sector": "Bed retail",
+      "count": 1
+    },
+    {
+      "sector": "Biopharmaceutical neuroscien",
+      "count": 1
+    },
+    {
+      "sector": "Biopharmaceutical t cell imm",
+      "count": 1
+    },
+    {
+      "sector": "Connected tv advertising age",
+      "count": 1
+    },
+    {
+      "sector": "Consumer goods",
+      "count": 1
+    },
+    {
+      "sector": "Debt recovery",
+      "count": 1
+    },
+    {
+      "sector": "Email deliverability",
+      "count": 1
+    },
+    {
+      "sector": "Employee benefits consulting",
+      "count": 1
+    },
+    {
+      "sector": "Eyewear",
+      "count": 1
+    },
+    {
+      "sector": "Fintech",
+      "count": 1
+    },
+    {
+      "sector": "Franchise",
+      "count": 1
+    },
+    {
+      "sector": "Golf equipment",
+      "count": 1
+    },
+    {
+      "sector": "Health",
+      "count": 1
+    },
+    {
+      "sector": "Industrial distribution",
+      "count": 1
+    },
+    {
+      "sector": "Industrial property manageme",
+      "count": 1
+    },
+    {
+      "sector": "Jewelry retail",
+      "count": 1
+    },
+    {
+      "sector": "Legal",
+      "count": 1
+    },
+    {
+      "sector": "Licensed pop culture retail",
+      "count": 1
+    },
+    {
+      "sector": "Market research recruitment",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "N0n",
+      "hits": 59,
+      "profile": "Batch posts, few samples.",
+      "countries": "US (37), CA (11), FR (2), GB (2) …",
+      "sectors": "Financial Services (6), Healthcare (4), Professional Services (2), Biopharmaceutical (2) …"
+    },
+    {
+      "name": "The Gentlemen",
+      "hits": 17,
+      "profile": "Emerged 2025; high-volume, AI-style profiles; reported Group Policy abuse. All 17 today RansomLook-only.",
+      "countries": "US (6), GB, TZ, BR …",
+      "sectors": "Healthcare (4), Technology (2), Manufacturing (2), Construction (2) …"
+    },
+    {
+      "name": "Qilin",
+      "hits": 14,
+      "profile": "Most prolific RaaS of 2025–26; ESXi targeting, credential-based access. 14 name-only posts.",
+      "countries": "US (3), PH (2), AU (2), AE …",
+      "sectors": "Manufacturing (3), Transportation (2), Technology (2), Sector not disclosed …"
+    },
+    {
+      "name": "ShadowByt3$",
+      "hits": 5,
+      "profile": "Double extortion, first seen Oct 2025 (universities).",
+      "countries": "US (2), CA (2), n/d",
+      "sectors": "Energy & Utilities, Retail & E-Commerce, Education, Manufacturing …"
+    },
+    {
+      "name": "MetaEncryptor",
+      "hits": 4,
+      "profile": "Active since 2024; 4-victim batch in 2 min.",
+      "countries": "US (3), JP",
+      "sectors": "Manufacturing (2), Technology, Retail & E-Commerce"
+    },
+    {
+      "name": "Vortex",
+      "hits": 3,
+      "profile": "New (9 Nov 2026); name + 72 h deadline only.",
+      "countries": "US, DE, GB",
+      "sectors": "Healthcare, Energy & Utilities, Financial Services"
+    },
+    {
+      "name": "Aoqin",
+      "hits": 2,
+      "profile": "Little-documented; posts revenue, volume, deadlines.",
+      "countries": "SA, US",
+      "sectors": "Other, Retail & E-Commerce"
+    },
+    {
+      "name": "Chaos",
+      "hits": 2,
+      "profile": "RaaS since early 2025; spam-flood and vishing lures.",
+      "countries": "DE, n/d",
+      "sectors": "Retail & E-Commerce, Technology"
+    },
+    {
+      "name": "Curious Worm",
+      "hits": 2,
+      "profile": "New (11 Nov 2026); US healthcare; 2 masked posts excluded.",
+      "countries": "US, DE",
+      "sectors": "Healthcare (2)"
+    },
+    {
+      "name": "Global Secret Group",
+      "hits": 2,
+      "profile": "First seen Jul 2026; posts revenue and industry.",
+      "countries": "US (2)",
+      "sectors": "Agriculture and Food Production, Manufacturing"
+    },
+    {
+      "name": "INC Ransom",
+      "hits": 2,
+      "profile": "Since mid-2023; edge-device exploits, spear-phishing.",
+      "countries": "MY, n/d",
+      "sectors": "Government & Defense, Not disclosed"
+    },
+    {
+      "name": "RansomHouse",
+      "hits": 2,
+      "profile": "",
+      "countries": "IN, n/d",
+      "sectors": "Financial Services, Not disclosed"
+    },
+    {
+      "name": "Rhysida",
+      "hits": 2,
+      "profile": "RaaS since mid-2023; detailed volume claims (784 GB, 384 GB).",
+      "countries": "GB, DE",
+      "sectors": "Professional Services, Retail & E-Commerce"
+    },
+    {
+      "name": "Akira",
+      "hits": 1,
+      "profile": "Since 2023; VPN credentials without MFA.",
+      "countries": "US",
+      "sectors": "Other"
+    },
+    {
+      "name": "Daixin",
+      "hits": 1,
+      "profile": "Since 2022; healthcare focus (CISA AA22-294A).",
+      "countries": "US",
+      "sectors": "Healthcare"
+    },
+    {
+      "name": "DeadLock",
+      "hits": 1,
+      "profile": "First seen Jun 2026.",
+      "countries": "TH",
+      "sectors": "Professional Services"
+    },
+    {
+      "name": "netrunner",
+      "hits": 1,
+      "profile": "First seen Apr 2026; usually masks names.",
+      "countries": "KW",
+      "sectors": "Technology"
+    },
+    {
+      "name": "Panzer",
+      "hits": 1,
+      "profile": "Little-documented; lists data categories.",
+      "countries": "ID",
+      "sectors": "Sector not disclosed"
+    },
+    {
+      "name": "Play",
+      "hits": 1,
+      "profile": "Since 2022; FortiOS/Exchange exploitation history.",
+      "countries": "US",
+      "sectors": "Manufacturing"
+    },
+    {
+      "name": "Shiba",
+      "hits": 1,
+      "profile": "Little-documented actor.",
+      "countries": "GB",
+      "sectors": "Financial Services"
+    },
+    {
+      "name": "Soul",
+      "hits": 1,
+      "profile": "Clearnet-style site; RansomLook marks records unverified.",
+      "countries": "CA",
+      "sectors": "Healthcare"
+    }
+  ],
+  "quality": {
+    "singleSourced": 79,
+    "claimOnly": 19,
+    "sourcesDisagree": 1,
+    "newGroups": 0
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 59
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 121
+      }
+    ],
+    "merged": 135,
+    "masked": 3,
+    "reposts": 8,
+    "nonVictims": 0,
+    "lowCoverage": false
+  },
+  "lateToPress": 0
+}
