@@ -165,6 +165,39 @@ class SectorFolding(Base):
             self.assertEqual(run("--check", "--out", str(self.out)), 0)
 
 
+class RetailMerging(Base):
+    """Shop-like sector labels all count as one Retail sector."""
+
+    def test_shop_like_labels(self):
+        for label in ["Bed retail", "Online department store reta", "Online fashion", "Online grocery delivery",
+                      "Jewelry retail", "Eyewear", "Consumer goods", "Golf equipment", "Retail & e-commerce"]:
+            self.assertEqual(add_breachwire.normalize_sector(label), "Retail & E-Commerce", label)
+
+    def test_other_labels_untouched(self):
+        for label in ["Healthcare", "Restaurants", "Construction / luxury-retail fit-out", "Online health",
+                      "Manufacturing / retail", "Data storage"]:
+            self.assertEqual(add_breachwire.normalize_sector(label), label)
+
+    def test_merged_counts_added_up(self):
+        merged = add_breachwire.merge_sectors([
+            {"sector": "Retail & E-Commerce", "count": 2}, {"sector": "Bed retail", "count": 1},
+            {"sector": "Online fashion", "count": 1}, {"sector": "Healthcare", "count": 3}])
+        self.assertEqual(merged, [{"sector": "Retail & E-Commerce", "count": 4}, {"sector": "Healthcare", "count": 3}])
+
+    def test_rebuild_reapplies_rules(self):
+        self.publish(VALID)
+        path = self.out / "2026-11-06.json"
+        old = json.loads(path.read_text("utf-8"))
+        old["sectors"] = [s for s in old["sectors"] if s["sector"] != "Retail & E-Commerce"]
+        old["sectors"] += [{"sector": "Apparel retail", "count": 1}, {"sector": "Online fashion", "count": 1}]
+        path.write_text(json.dumps(old), "utf-8")  # as stored by an older version of the rules
+        self.assertNotEqual(run("--check", "--out", str(self.out)), 0)
+        self.assertEqual(run("--rebuild", "--out", str(self.out)), 0)
+        self.assertEqual(run("--check", "--out", str(self.out)), 0)
+        stored = json.loads(path.read_text("utf-8"))
+        self.assertIn({"sector": "Retail & E-Commerce", "count": 2}, stored["sectors"])
+
+
 class Consistency(Base):
     """FR-4 / AC-4: the numbers must add up."""
 

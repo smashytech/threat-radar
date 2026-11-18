@@ -18,6 +18,7 @@ must never reach the site, so this script:
 Usage:
   python3 scripts/add_breachwire.py issue.json --forbid /tmp/bw-victims.txt
   python3 scripts/add_breachwire.py --check        # validate everything stored (CI)
+  python3 scripts/add_breachwire.py --rebuild      # re-apply sector rules to stored issues
 
 Standard library only.
 """
@@ -96,6 +97,31 @@ def check_list(value: object, where: str, high: int) -> list:
     return value
 
 
+RETAIL_SECTOR = "Retail & E-Commerce"
+# Shop-like words. Matched against the label's MAIN part only (the text before " / "),
+# so "Construction / luxury-retail fit-out" stays Construction.
+RETAIL_RE = re.compile(
+    r"retail|e-?commerce|\bshops?\b|\bstores?\b|fashion|apparel|footwear|athleisure|grocer|supermarket"
+    r"|jewel|eyewear|consumer goods|consumer electronics|golf equipment|sporting goods",
+    re.IGNORECASE,
+)
+
+
+def normalize_sector(label: str) -> str:
+    """Put every shop-like label ("Bed retail", "Online fashion"...) under one Retail sector."""
+    main = label.split(" / ")[0]
+    return RETAIL_SECTOR if RETAIL_RE.search(main) else label
+
+
+def merge_sectors(sectors: list[dict]) -> list[dict]:
+    """Normalize labels and add up entries that end up with the same label."""
+    totals: dict[str, int] = {}
+    for s in sectors:
+        label = normalize_sector(s["sector"])
+        totals[label] = totals.get(label, 0) + s["count"]
+    return [{"sector": label, "count": count} for label, count in totals.items()]
+
+
 def sort_sectors(sectors: list[dict]) -> list[dict]:
     """Biggest first; ties in alphabetical order, so the result is always the same."""
     return sorted(sectors, key=lambda x: (-x["count"], x["sector"]))
@@ -156,7 +182,7 @@ def validate_issue(data: object) -> dict:
         x = check_keys(x, f"sectors[{n}]", {"sector", "count"})
         sectors.append({"sector": check_str(x["sector"], f"sectors[{n}].sector", 2, 80),
                         "count": check_int(x["count"], f"sectors[{n}].count", 1)})
-    sectors = fold_sectors(sectors)
+    sectors = fold_sectors(merge_sectors(sectors))
 
     groups = []
     for n, g in enumerate(check_list(top["groups"], "groups", 120), 1):
@@ -309,6 +335,23 @@ def check(out_dir: Path) -> int:
         raise IssueError(f"index.json is missing or invalid: {err}") from err
     if current != build_index(issues):
         raise IssueError("index.json is out of date; rebuild it with add_breachwire.py")
+    for day, issue in issues.items():
+        if (out_dir / f"{day}.json").read_text("utf-8") != to_json(issue):
+            raise IssueError(f"{day}.json is not in its cleaned-up form; run add_breachwire.py --rebuild")
+    return len(issues)
+
+
+def rebuild(out_dir: Path) -> int:
+    """Re-run the current rules (sector merging and folding) over every stored issue.
+
+    Only reshapes what is already stored and already passed the name guard;
+    every check still runs, and totals are unchanged.
+    """
+    issues = load_stored(out_dir)
+    for day, issue in issues.items():
+        write_atomic(out_dir / f"{day}.json", to_json(issue))
+    if issues:
+        write_atomic(out_dir / "index.json", to_json(build_index(issues)))
     return len(issues)
 
 
@@ -317,13 +360,16 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("issue", nargs="?", help="issue JSON file to publish")
     parser.add_argument("--forbid", help="file with that issue's victim names, one per line (required to publish)")
     parser.add_argument("--check", action="store_true", help="validate every stored issue and the index")
+    parser.add_argument("--rebuild", action="store_true", help="re-apply the current rules to every stored issue")
     parser.add_argument("--out", default=str(DEFAULT_OUT), help="breachwire data folder")
     args = parser.parse_args(argv)
 
-    if args.check == bool(args.issue):
-        parser.error("give either an issue file or --check")
+    if sum([args.check, args.rebuild, bool(args.issue)]) != 1:
+        parser.error("give exactly one of: an issue file, --check, --rebuild")
     try:
-        if args.check:
+        if args.rebuild:
+            print(f"OK: rebuilt {rebuild(Path(args.out))} stored Breach Wire issue(s)")
+        elif args.check:
             print(f"OK: {check(Path(args.out))} stored Breach Wire issue(s) valid, index up to date")
         else:
             if not args.forbid:
