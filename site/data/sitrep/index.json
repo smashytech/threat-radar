@@ -1,6 +1,13 @@
 {
   "issues": [
     {
+      "date": "2026-11-19",
+      "tldr": "CISA added five vulnerabilities to its KEV catalog this week (Apache Axis, Puppet Enterprise, Synology DSM, LiteLLM, REDCap), two with named active-exploitation targets, while a critical new Java flaw (\"Java4Shell\") and an NGINX HTTP/2 bug with public exploit code demand urgent patching. Russian state hackers chained stolen cloud credentials across two US breaches, and a supply-chain compromise hit Optimizely's experimentation platform on 178 websites.",
+      "items": 10,
+      "emerging": 2,
+      "actionNeeded": true
+    },
+    {
       "date": "2026-11-18",
       "tldr": "CISA added a newly actively-exploited Puppet Enterprise flaw to its KEV catalog, while ConnectWise ScreenConnect and N-able N-central both shipped emergency patches for critical remote-management bugs under active attack. A supply-chain attack via Optimizely injected skimmer code into CNN, BBC, Salesforce and 175+ other sites, and Uber, Barracuda, Access Dental Management and Fandango all disclosed breaches. Google also linked a Russia-based espionage group to a new Google Workspace intrusion.",
       "items": 10,

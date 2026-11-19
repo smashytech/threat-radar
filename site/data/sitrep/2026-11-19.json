@@ -1,0 +1,117 @@
+{
+  "date": "2026-11-19",
+  "tldr": "CISA added five vulnerabilities to its KEV catalog this week (Apache Axis, Puppet Enterprise, Synology DSM, LiteLLM, REDCap), two with named active-exploitation targets, while a critical new Java flaw (\"Java4Shell\") and an NGINX HTTP/2 bug with public exploit code demand urgent patching. Russian state hackers chained stolen cloud credentials across two US breaches, and a supply-chain compromise hit Optimizely's experimentation platform on 178 websites.",
+  "emerging": [
+    {
+      "title": "Physical Attack Cracks Windows Hello / BitLocker PINs in Minutes, Not Years",
+      "description": "TU Berlin researchers defeated flash-chip RPMC counters that guard TPM PIN lockouts, using an interposer board and voltage-glitching. A Windows Hello PIN fell in 57 minutes (vs. 69 days with lockout intact); a BitLocker PIN fell in under 7 minutes (vs. 19 years). AMD assigned CVE-2026-43613; Microsoft will raise the minimum Hello PIN to 6 digits but issued no fix or CVE.",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/flash-chip-attack-bypasses-tpm-lockout.html",
+      "published": "2026-11-18",
+      "cves": [
+        "CVE-2026-43613"
+      ]
+    },
+    {
+      "title": "New \"Overlord\" RAT Resolves Its C2 Address via Solana Blockchain Memos",
+      "description": "Cisco Talos links a suspected North Korea-aligned actor, UAT-12643, to a new Go-based RAT (\"Overlord\") and a Python infostealer (\"Good Game\") targeting crypto holders, gamers and VoIP users. The malware pulls its C2 address from Solana transaction memos — a technique previously reported with Lazarus — and exfiltrates stolen data via Discord webhooks and GoFile.",
+      "source": "Cisco Talos",
+      "url": "https://blog.talosintelligence.com/uat-12643-suspected-north-korea-aligned-actor-blends-blockchain-resilience-with-targeted-infostealing/",
+      "published": "2026-11-18",
+      "cves": []
+    }
+  ],
+  "items": [
+    {
+      "title": "Apache Axis RCE Actively Exploited Against Confluence, N-able N-central",
+      "description": "CVE-2026-90436 (CVSS 9.8) lets unauthenticated attackers achieve RCE via Apache Axis's unsafe reflection in SOAP fault handling. CISA added it to the KEV catalog Nov 18; Rapid7 reports in-the-wild attacks on Atlassian Confluence Data Center (patched 9.2.28) and N-able N-central (HF3). No Axis 1.x fix is planned (EOL).",
+      "source": "CISA KEV Catalog",
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "published": "2026-11-18",
+      "cves": [
+        "CVE-2026-90436"
+      ]
+    },
+    {
+      "title": "Puppet Enterprise Deserialization Flaw Exploited in Attacks",
+      "description": "CVE-2026-115731 (CVSS 9.4) lets anyone holding a CA-signed agent certificate execute code on Puppet Server; weak autosign policies may let an unauthenticated attacker obtain one. CISA added it to KEV Nov 17 and SecurityWeek confirms active exploitation. Fixed in versions released Nov 3.",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/critical-perforce-puppet-rce-exploited-in-attacks/",
+      "published": "2026-11-18",
+      "cves": [
+        "CVE-2026-115731"
+      ]
+    },
+    {
+      "title": "Apache Roller RCE Under Active Attack",
+      "description": "CVE-2026-129448 (CVSS 9.8) is an unauthenticated deserialization RCE in Roller's XML-RPC endpoint, versions 4.0.0–6.1.4. Apache's own advisory states \"this issue is being actively exploited\" but gives no attack details. Upgrade to 6.1.6 or later immediately.",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/apache-warns-of-roller-rce-vulnerability-exploited-in-attacks/",
+      "published": "2026-11-18",
+      "cves": [
+        "CVE-2026-129448"
+      ]
+    },
+    {
+      "title": "\"Java4Shell\" Critical Java Flaw Prompts Urgent Patching",
+      "description": "CVE-2026-114938 is a Base64-decoder buffer overflow enabling unauthenticated pre-auth RCE on x86-64 chips with AVX-512 VBMI, demonstrated against Jira, Jenkins, Keycloak, Confluence and PingFederate. CISA urged immediate patching Nov 17; no confirmed in-the-wild exploitation yet per Talos and SANS ISC.",
+      "source": "Cisco Talos",
+      "url": "https://blog.talosintelligence.com/java4shell/",
+      "published": "2026-11-17",
+      "cves": [
+        "CVE-2026-114938"
+      ]
+    },
+    {
+      "title": "New NGINX HTTP/2 RCE \"nginx2root\" Has Public Exploit Code",
+      "description": "CVE-2026-123007, a decade-old integer underflow in NGINX's HTTP/2 handling, allows unauthenticated RCE as the worker process on Open Source 1.9.5–1.31.8 and Plus 37.x. No confirmed exploitation yet, but limited PoC code is public on GitHub. Fixed in 1.31.9/1.30.7/Plus 37.3.0.1.",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/10-year-old-nginx-http2-flaw-lets.html",
+      "published": "2026-11-18",
+      "cves": [
+        "CVE-2026-123007"
+      ]
+    },
+    {
+      "title": "Russian \"Cold Relic\" Hackers Chain Stolen Cloud Data to Breach Second US Org",
+      "description": "Google's Mandiant/GTIG says COLD RELIC (aka COLDRIVER/Star Blizzard) stole a US firm's Google Workspace data in late 2025 via a compromised Super Admin account and MFA-fatigue attack, then reused that data to breach a second US org in 2026 through a compromised Entra ID federated-SSO account.",
+      "source": "Google Threat Intelligence Group / Mandiant",
+      "url": "https://cloud.google.com/blog/topics/threat-intelligence/cold-relic-a-case-study-in-impersonation-and-compromise",
+      "published": "2026-11-17",
+      "cves": []
+    },
+    {
+      "title": "\"OPTIMJACK\" Supply-Chain Attack Hit 178 Websites via Optimizely",
+      "description": "Attackers exploited a flaw in Optimizely's Web Experimentation platform (exploited Nov 16) to inject malicious JS via its CDN, skimming payment cards and swapping crypto wallet addresses on 178 sites (32 in finance), per Unit 42. iOS visitors were served the \"Coruna\"/\"DarkSword\" exploit kits. Optimizely patched it Nov 17.",
+      "source": "Unit 42",
+      "url": "https://unit42.paloaltonetworks.com/optimjack-supply-chain-attack/",
+      "published": "2026-11-17",
+      "cves": []
+    },
+    {
+      "title": "Malicious PyPI Package Impersonated Microsoft's Agent Framework",
+      "description": "Versions 1.26.1/1.26.2 of the `agent-framework` PyPI package (~190K downloads/month) were swapped for malware on Nov 17, installing Python startup hooks that harvested Azure CLI, Docker and Hugging Face credentials and exfiltrated them via webhook.site. Quarantined after discovery; no confirmed victim count.",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/microsofts-agent-framework-pypi-package-compromised-to-steal-credentials/",
+      "published": "2026-11-18",
+      "cves": []
+    },
+    {
+      "title": "Uber Discloses Breach of ~149,000 Drivers' Records",
+      "description": "A filing with Maine's Attorney General puts the number at 149,346: drivers' names, license numbers, dates of birth and addresses, exposed after attackers used stolen credentials to breach a third-party vendor with access to Uber data. Notification letters went out Nov 10; Uber itself did not disclose a total.",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/uber-notifies-drivers-of-data-breach-affecting-nearly-150-000-people/",
+      "published": "2026-11-17",
+      "cves": []
+    },
+    {
+      "title": "CERT-SE Warns of Active Phishing Campaigns Against Swedish Organizations",
+      "description": "Sweden's national CERT flagged several ongoing phishing campaigns against Swedish organizations using convincing fake login pages, fake invoice/PDF links and fake file-sharing links to harvest credentials or deliver malware. No victim count given; CERT-SE urges MFA/passkeys and reporting incidents to police and CERT-SE.",
+      "source": "CERT-SE",
+      "url": "https://www.cert.se/2026/11/uppmanar-till-okad-vaksamhet-natfiske.html",
+      "published": "2026-11-17",
+      "cves": []
+    }
+  ],
+  "action": "Patch immediately: Apache Axis (patch Confluence DC to 9.2.28+ / N-able N-central to 2026.4 HF3, or disable legacy SOAP/XML-RPC APIs), Puppet Enterprise (2023.8.13 / 2025.12.1 / 2026.0.1+), and Apache Roller (6.1.6+) — all under active attack. Apply Oracle's November CPU for Java4Shell (CVE-2026-114938) across any JDK-based app server (Jira, Jenkins, Keycloak, Confluence, Artifactory, PingFederate) even though exploitation isn't confirmed yet. Patch NGINX (1.31.9 / 1.30.7 / Plus 37.3.0.1) before the public \"nginx2root\" PoC matures. CISA also added Synology DSM (CVE-2024-10441), LiteLLM (CVE-2026-40217) and REDCap (CVE-2026-90817) to KEV this week — patch if you run any of these. Enforce phishing-resistant MFA and review third-party vendor access in light of the Cold Relic, Optimizely and Uber incidents."
+}
