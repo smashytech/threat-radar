@@ -1,0 +1,352 @@
+{
+  "date": "2026-11-19",
+  "issue": 88,
+  "window": "2026-11-18",
+  "stats": {
+    "victims": 39,
+    "groups": 16,
+    "countries": 20,
+    "regions": 6
+  },
+  "sweden": 1,
+  "regions": [
+    {
+      "region": "Europe",
+      "countries": [
+        {
+          "country": "Sweden",
+          "flag": "🇸🇪",
+          "count": 1
+        },
+        {
+          "country": "Germany",
+          "flag": "🇩🇪",
+          "count": 1
+        },
+        {
+          "country": "Spain",
+          "flag": "🇪🇸",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 12
+        },
+        {
+          "country": "Canada",
+          "flag": "🇨🇦",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Middle East",
+      "countries": [
+        {
+          "country": "Qatar",
+          "flag": "🇶🇦",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Africa",
+      "countries": [
+        {
+          "country": "Botswana",
+          "flag": "🇧🇼",
+          "count": 1
+        },
+        {
+          "country": "Ethiopia",
+          "flag": "🇪🇹",
+          "count": 1
+        },
+        {
+          "country": "Morocco",
+          "flag": "🇲🇦",
+          "count": 1
+        },
+        {
+          "country": "Mozambique",
+          "flag": "🇲🇿",
+          "count": 1
+        },
+        {
+          "country": "South Africa",
+          "flag": "🇿🇦",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Latin America & Caribbean",
+      "countries": [
+        {
+          "country": "Mexico",
+          "flag": "🇲🇽",
+          "count": 2
+        },
+        {
+          "country": "Argentina",
+          "flag": "🇦🇷",
+          "count": 1
+        },
+        {
+          "country": "Colombia",
+          "flag": "🇨🇴",
+          "count": 1
+        },
+        {
+          "country": "Ecuador",
+          "flag": "🇪🇨",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Asia",
+      "countries": [
+        {
+          "country": "India",
+          "flag": "🇮🇳",
+          "count": 2
+        },
+        {
+          "country": "Taiwan",
+          "flag": "🇹🇼",
+          "count": 2
+        },
+        {
+          "country": "Vietnam",
+          "flag": "🇻🇳",
+          "count": 2
+        },
+        {
+          "country": "Japan",
+          "flag": "🇯🇵",
+          "count": 1
+        },
+        {
+          "country": "Singapore",
+          "flag": "🇸🇬",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Unattributed",
+      "countries": [
+        {
+          "country": "Country not disclosed",
+          "flag": "🏳️",
+          "count": 4
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Manufacturing",
+      "count": 7
+    },
+    {
+      "sector": "Technology",
+      "count": 6
+    },
+    {
+      "sector": "Professional services",
+      "count": 5
+    },
+    {
+      "sector": "Financial services",
+      "count": 4
+    },
+    {
+      "sector": "Healthcare",
+      "count": 4
+    },
+    {
+      "sector": "Retail & E-Commerce",
+      "count": 3
+    },
+    {
+      "sector": "Other",
+      "count": 2
+    },
+    {
+      "sector": "Transportation",
+      "count": 2
+    },
+    {
+      "sector": "Education",
+      "count": 1
+    },
+    {
+      "sector": "Energy & utilities",
+      "count": 1
+    },
+    {
+      "sector": "Hospitality",
+      "count": 1
+    },
+    {
+      "sector": "Media",
+      "count": 1
+    },
+    {
+      "sector": "Not stated",
+      "count": 1
+    },
+    {
+      "sector": "Real estate",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "PixelLeaks",
+      "hits": 7,
+      "profile": "New leak site, first seen early Nov 2026. Posts “verified set of records” write-ups with ~4-day “full data leak” timers, often after a “Name upcoming” placeholder. Mixed geography, many SMEs in the Americas and Africa.",
+      "countries": "Mexico, United States, South Africa, Vietnam, Botswana",
+      "sectors": "Retail, IT services, manufacturing, healthcare, security services, payments, SaaS"
+    },
+    {
+      "name": "LockBit5",
+      "hits": 5,
+      "profile": "LockBit 5.0, the RaaS relaunched in 2025 after the 2024 Operation Cronos takedown. Today’s posts are bare domain listings with truncated blurbs, posted in a 5-minute burst.",
+      "countries": "Vietnam, India, Ecuador, United States",
+      "sectors": "Healthcare, retail, other"
+    },
+    {
+      "name": "HYFLOCK",
+      "hits": 4,
+      "profile": "Active since Oct 2026 (DeXpose), with victims across Asia, the Middle East, Africa, Europe and Australia. RedPacket flags HYFLOCK listings as possibly unverified/fabricated, so treat as low-confidence. Uses descriptive titles (“An independent asset management firm in Casablanca”) in place of names.",
+      "countries": "Taiwan, India, Colombia, Morocco",
+      "sectors": "Media, textiles, real estate, asset management"
+    },
+    {
+      "name": "The Gentlemen",
+      "hits": 4,
+      "profile": "First seen July 2025; ~700 claimed victims in a year (Cybernews), reportedly grew out of a Qilin affiliate cluster. Known for GPO-based deployment, scheduled tasks, PowerShell and log clearing (Huntress).",
+      "countries": "United States, Sweden, Taiwan, not disclosed",
+      "sectors": "Technology, manufacturing, EMS"
+    },
+    {
+      "name": "Akira",
+      "hits": 3,
+      "profile": "Active since March 2023 (CISA AA24-109A). Double extortion with Windows/ESXi encryptors; frequently abuses VPNs without MFA. Standard “we will upload N GB” posts.",
+      "countries": "United States, Spain, not disclosed",
+      "sectors": "Hospitality, engineering, lending"
+    },
+    {
+      "name": "Helix",
+      "hits": 2,
+      "profile": "Little-documented. Claims publication via GoFile archive tiers (T1–T4) with record and file counts.",
+      "countries": "United States, not disclosed",
+      "sectors": "Packaging/distribution"
+    },
+    {
+      "name": "N0n",
+      "hits": 2,
+      "profile": "Data-sale/extortion site tracked since Sep 2026. Today it dumped 25 anonymous entries (#217–#241, all masked). Ransomware.live maps it to Valid Accounts (T1078).",
+      "countries": "Ethiopia, Qatar; Ireland (late)",
+      "sectors": "Education, electrical contracting, biopharma"
+    },
+    {
+      "name": "Qilin",
+      "hits": 2,
+      "profile": "Prolific RaaS (Agenda) since 2022, among the most active brands of 2025–26.",
+      "countries": "United States, Japan",
+      "sectors": "Finance, manufacturing"
+    },
+    {
+      "name": "Rhysida",
+      "hits": 2,
+      "profile": "RaaS since May 2023 (CISA AA23-319A). Auctions data and publishes detailed inventories of accounting books, mailboxes and AD databases.",
+      "countries": "Canada, not disclosed",
+      "sectors": "Manufacturing, law firm"
+    },
+    {
+      "name": "Silent Ransom Group",
+      "hits": 2,
+      "profile": "Also known as Luna Moth / Chatty Spider; runs callback-phishing data-theft extortion without encryption, and the FBI warned in May 2025 that it targets U.S. law firms. Shown as “leakeddata” on RansomLook.",
+      "countries": "United States",
+      "sectors": "Law firms"
+    },
+    {
+      "name": "Aoqin",
+      "hits": 1,
+      "profile": "“AOQIN Leaks”, tracked since 4 Nov 2026. Posts revenue, staff, data types and publication dates with “not paid” status.",
+      "countries": "Argentina",
+      "sectors": "Retail software"
+    },
+    {
+      "name": "Direwolf",
+      "hits": 1,
+      "profile": "Double-extortion brand tracked since 2025. Today’s post is a bare listing.",
+      "countries": "United States",
+      "sectors": "Software"
+    },
+    {
+      "name": "Emperador",
+      "hits": 1,
+      "profile": "Little-documented leak site. Posts document counts, size and a ~10-day publication date.",
+      "countries": "Germany",
+      "sectors": "Auto service"
+    },
+    {
+      "name": "Krybit",
+      "hits": 1,
+      "profile": "Little-documented. Bare domain listings with truncated directory-style profiles.",
+      "countries": "Singapore",
+      "sectors": "Automatic doors"
+    },
+    {
+      "name": "MedusaLocker",
+      "hits": 1,
+      "profile": "RaaS since 2019 (CISA AA22-181A), mainly via exposed RDP. Today’s post cites only an email-count extract.",
+      "countries": "Mozambique",
+      "sectors": "Port/transport"
+    },
+    {
+      "name": "Whitearmor",
+      "hits": 1,
+      "profile": "Emerged Oct 2026 (first victim 21 Oct per Cybernews).",
+      "countries": "United States",
+      "sectors": "Manufacturing"
+    }
+  ],
+  "quality": {
+    "singleSourced": 6,
+    "claimOnly": 13,
+    "sourcesDisagree": 1,
+    "newGroups": 0
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 64
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 65
+      }
+    ],
+    "merged": 69,
+    "masked": 28,
+    "reposts": 2,
+    "nonVictims": 0,
+    "lowCoverage": false
+  },
+  "lateToPress": 1
+}
