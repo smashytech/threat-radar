@@ -1,0 +1,332 @@
+{
+  "date": "2026-11-20",
+  "issue": 89,
+  "window": "2026-11-19",
+  "stats": {
+    "victims": 37,
+    "groups": 17,
+    "countries": 13,
+    "regions": 6
+  },
+  "sweden": 0,
+  "regions": [
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 17
+        },
+        {
+          "country": "Canada",
+          "flag": "🇨🇦",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "region": "Europe",
+      "countries": [
+        {
+          "country": "France",
+          "flag": "🇫🇷",
+          "count": 2
+        },
+        {
+          "country": "Greece",
+          "flag": "🇬🇷",
+          "count": 1
+        },
+        {
+          "country": "United Kingdom",
+          "flag": "🇬🇧",
+          "count": 1
+        },
+        {
+          "country": "Ireland",
+          "flag": "🇮🇪",
+          "count": 1
+        },
+        {
+          "country": "Germany",
+          "flag": "🇩🇪",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Middle East",
+      "countries": [
+        {
+          "country": "United Arab Emirates",
+          "flag": "🇦🇪",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "region": "Africa",
+      "countries": [
+        {
+          "country": "Egypt",
+          "flag": "🇪🇬",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Latin America & Caribbean",
+      "countries": [
+        {
+          "country": "Colombia",
+          "flag": "🇨🇴",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Asia",
+      "countries": [
+        {
+          "country": "Thailand",
+          "flag": "🇹🇭",
+          "count": 1
+        },
+        {
+          "country": "Japan",
+          "flag": "🇯🇵",
+          "count": 1
+        },
+        {
+          "country": "Pakistan",
+          "flag": "🇵🇰",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Unattributed",
+      "countries": [
+        {
+          "country": "Country not disclosed",
+          "flag": "🏳️",
+          "count": 5
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Professional services",
+      "count": 8
+    },
+    {
+      "sector": "Healthcare",
+      "count": 6
+    },
+    {
+      "sector": "Manufacturing",
+      "count": 6
+    },
+    {
+      "sector": "Construction",
+      "count": 3
+    },
+    {
+      "sector": "Food production",
+      "count": 2
+    },
+    {
+      "sector": "Not stated",
+      "count": 2
+    },
+    {
+      "sector": "Advertising & marketing",
+      "count": 1
+    },
+    {
+      "sector": "Biotechnology",
+      "count": 1
+    },
+    {
+      "sector": "Digital marketing & web development",
+      "count": 1
+    },
+    {
+      "sector": "Food & beverage",
+      "count": 1
+    },
+    {
+      "sector": "Government",
+      "count": 1
+    },
+    {
+      "sector": "Hospitality",
+      "count": 1
+    },
+    {
+      "sector": "Legal services / eDiscovery",
+      "count": 1
+    },
+    {
+      "sector": "Management consulting",
+      "count": 1
+    },
+    {
+      "sector": "Retail & E-Commerce",
+      "count": 1
+    },
+    {
+      "sector": "Telecom / ISP",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "Vortex",
+      "hits": 8,
+      "profile": "Data-extortion site posting M365/Salesforce “data held” inventories; RedPacket notes unverified/fabricated claims (№87).",
+      "countries": "United States, Ireland, not disclosed",
+      "sectors": "Professional services, Healthcare, Construction"
+    },
+    {
+      "name": "Inc Ransom",
+      "hits": 5,
+      "profile": "RaaS since mid-2023 (MITRE G1032); valid accounts, edge-device exploits.",
+      "countries": "United States, France, Japan, not disclosed",
+      "sectors": "Advertising & marketing, Legal services / eDiscovery, Government, Digital marketing & web development, Management consulting"
+    },
+    {
+      "name": "Aurora",
+      "hits": 3,
+      "profile": "Little-documented; long corporate profiles.",
+      "countries": "Canada, United Kingdom, not disclosed",
+      "sectors": "Food production, Food & beverage, Not stated"
+    },
+    {
+      "name": "Handsome Boy Hacking Club",
+      "hits": 3,
+      "profile": "Low confidence.",
+      "countries": "United States",
+      "sectors": "Healthcare, Manufacturing, Telecom / ISP"
+    },
+    {
+      "name": "Krybit",
+      "hits": 3,
+      "profile": "RaaS since Mar 2026; feud with 0APT; bare domain listings.",
+      "countries": "Greece, United Arab Emirates, Thailand",
+      "sectors": "Manufacturing, Hospitality"
+    },
+    {
+      "name": "Rhysida",
+      "hits": 3,
+      "profile": "RaaS since May 2023 (CISA AA23-319A); detailed stolen-file inventories. Three small U.S. law/legal practices today.",
+      "countries": "United States",
+      "sectors": "Professional services"
+    },
+    {
+      "name": "HYFLOCK",
+      "hits": 2,
+      "profile": "Active since Oct 2026; RedPacket flags listings as possibly fabricated (№88).",
+      "countries": "France, United Arab Emirates",
+      "sectors": "Food production, Professional services"
+    },
+    {
+      "name": "Cloak",
+      "hits": 1,
+      "profile": "Active since late 2024; European (esp. German) SMEs.",
+      "countries": "Germany",
+      "sectors": "Not stated"
+    },
+    {
+      "name": "Crypto24",
+      "hits": 1,
+      "profile": "Since 2024; blends admin tools with custom malware vs larger orgs.",
+      "countries": "Pakistan",
+      "sectors": "Manufacturing"
+    },
+    {
+      "name": "DeadLock",
+      "hits": 1,
+      "profile": "Tracked since 2025; little public TTP reporting.",
+      "countries": "Canada",
+      "sectors": "Healthcare"
+    },
+    {
+      "name": "Fulcrumsec",
+      "hits": 1,
+      "profile": "Little-documented; AI-generated profile only.",
+      "countries": "United States",
+      "sectors": "Biotechnology"
+    },
+    {
+      "name": "Inception",
+      "hits": 1,
+      "profile": "Posts Fortune-500 names as “leaked”; RedPacket-flagged as possibly unverified (№87).",
+      "countries": "United States",
+      "sectors": "Retail"
+    },
+    {
+      "name": "N0n",
+      "hits": 1,
+      "profile": "Data-sale site since Sep 2026; names victims after “Company #N” teasers; T1078.",
+      "countries": "United States",
+      "sectors": "Healthcare"
+    },
+    {
+      "name": "RansomHouse",
+      "hits": 1,
+      "profile": "Data extortion since late 2021; bare listing today.",
+      "countries": "not disclosed",
+      "sectors": "Manufacturing"
+    },
+    {
+      "name": "Silent Ransom Group",
+      "hits": 1,
+      "profile": "Luna Moth / Chatty Spider; callback phishing vs U.S. law firms (FBI, May 2025); “leakeddata” on RansomLook. Plus 1 masked teaser.",
+      "countries": "United States",
+      "sectors": "Professional services"
+    },
+    {
+      "name": "SoulGroup",
+      "hits": 1,
+      "profile": "“Soul” on RansomLook; records marked unverified. Re-dumped 25 already-published victims (№74, №86); 1 new name.",
+      "countries": "Egypt",
+      "sectors": "Manufacturing"
+    },
+    {
+      "name": "Whitearmor",
+      "hits": 1,
+      "profile": "",
+      "countries": "Colombia",
+      "sectors": "Healthcare"
+    }
+  ],
+  "quality": {
+    "singleSourced": 6,
+    "claimOnly": 19,
+    "sourcesDisagree": 2,
+    "newGroups": 1
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 68
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 40
+      }
+    ],
+    "merged": 74,
+    "masked": 9,
+    "reposts": 28,
+    "nonVictims": 0,
+    "lowCoverage": false
+  },
+  "lateToPress": 0
+}
