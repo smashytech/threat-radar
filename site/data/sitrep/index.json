@@ -1,6 +1,13 @@
 {
   "issues": [
     {
+      "date": "2026-11-20",
+      "tldr": "Heavy exploitation day: a China-linked APT's VMware vCenter zero-day, four new CISA KEV additions, and active attacks on Apache Roller, Java4Shell-vulnerable Java stacks, and a clustered Cisco Expressway flaw. Also: a Russian FSB-linked APT phishing campaign, an N-able cloud breach, and the EU Commission confirming an AI-assisted intrusion.",
+      "items": 10,
+      "emerging": 2,
+      "actionNeeded": true
+    },
+    {
       "date": "2026-11-19",
       "tldr": "CISA added five vulnerabilities to its KEV catalog this week (Apache Axis, Puppet Enterprise, Synology DSM, LiteLLM, REDCap), two with named active-exploitation targets, while a critical new Java flaw (\"Java4Shell\") and an NGINX HTTP/2 bug with public exploit code demand urgent patching. Russian state hackers chained stolen cloud credentials across two US breaches, and a supply-chain compromise hit Optimizely's experimentation platform on 178 websites.",
       "items": 10,

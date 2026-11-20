@@ -1,0 +1,118 @@
+{
+  "date": "2026-11-20",
+  "tldr": "Heavy exploitation day: a China-linked APT's VMware vCenter zero-day, four new CISA KEV additions, and active attacks on Apache Roller, Java4Shell-vulnerable Java stacks, and a clustered Cisco Expressway flaw. Also: a Russian FSB-linked APT phishing campaign, an N-able cloud breach, and the EU Commission confirming an AI-assisted intrusion.",
+  "emerging": [
+    {
+      "title": "North Korea-aligned actor hides C2 inside Solana blockchain transactions",
+      "description": "Cisco Talos details \"UAT-12643\" (low-confidence NK attribution), which targets crypto holders and VoIP users with a Go-based RAT and Python infostealer. Its malware fetches encrypted C2 server addresses from memo fields of public Solana transactions — a resilient \"dead drop\" technique that's very hard to take down.",
+      "source": "Cisco Talos",
+      "url": "https://blog.talosintelligence.com/uat-12643-suspected-north-korea-aligned-actor-blends-blockchain-resilience-with-targeted-infostealing/",
+      "published": "2026-11-18",
+      "cves": []
+    },
+    {
+      "title": "Unpatched Windows flaw lets attackers run code from the lock screen",
+      "description": "A newly disclosed, unpatched Windows issue (\"FastUnlock,\" no CVE yet) lets someone with physical access to a locked PC abuse the Narrator screen reader's recovery options to launch programs under a limited account — and read BitLocker-protected drives if TPM auto-unlock is configured. No fix from Microsoft yet.",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/new-unpatched-windows-0-day-fastunlock.html",
+      "published": "2026-11-20",
+      "cves": []
+    }
+  ],
+  "items": [
+    {
+      "title": "China-linked APT exploited VMware vCenter zero-day for two months",
+      "description": "Mandiant/Google say \"Armory Castle\" (ex-UNC5221) exploited CVE-2026-123890, an unauthenticated vCenter Directory Service auth-bypass (CVSS 9.8), chaining it with a BeyondTrust zero-day to steal SAML signing keys and pivot to ESXi hosts. Patch now; no fix exists for EOL vCenter 7.0.",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/newly-patched-vmware-vcenter-flaw-exploited-as-zero-day-by-chinese-apt/",
+      "published": "2026-11-19",
+      "cves": [
+        "CVE-2026-123890"
+      ]
+    },
+    {
+      "title": "CISA adds four actively exploited flaws to KEV catalog",
+      "description": "Verified directly against the KEV catalog: Apache Axis (CVE-2026-90436), Vanderbilt REDCap (CVE-2026-90817), Synology DSM (CVE-2024-10441) and BerriAI LiteLLM (CVE-2026-40217) were all added Nov 18. Federal agencies must patch three by Nov 21 and LiteLLM by Dec 2.",
+      "source": "CISA",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/11/18/cisa-adds-four-known-exploited-vulnerabilities-catalog",
+      "published": "2026-11-18",
+      "cves": [
+        "CVE-2026-90436",
+        "CVE-2026-90817",
+        "CVE-2024-10441",
+        "CVE-2026-40217"
+      ]
+    },
+    {
+      "title": "Apache Roller critical RCE under active attack",
+      "description": "CVE-2026-129448 (CVSS 9.8), an unauthenticated deserialization flaw in Apache Roller's XML-RPC endpoint (versions 4.0.0–6.1.4), is being actively exploited. The Apache Software Foundation confirmed exploitation but hasn't disclosed targets. Fixed in Roller 6.1.6+ — patch immediately.",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/critical-apache-roller-rce-flaw-under.html",
+      "published": "2026-11-18",
+      "cves": [
+        "CVE-2026-129448"
+      ]
+    },
+    {
+      "title": "\"Java4Shell\" OpenJDK flaw triggers emergency patches, active scanning",
+      "description": "CVE-2026-114938, a memory-corruption bug in OpenJDK's Base64 handling on AVX-512-capable CPUs, prompted emergency advisories from Cisco, Red Hat, Elastic, Atlassian and Jenkins. GreyNoise and Cloudflare observed active scanning within a day; a working exploit exists but no confirmed compromises yet.",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/java4shell-exploitation-attempts-begin-as-vendors-rush-out-advisories/",
+      "published": "2026-11-19",
+      "cves": [
+        "CVE-2026-114938"
+      ]
+    },
+    {
+      "title": "\"NGINX2Root\" flaws leave ~9M exposed services at risk",
+      "description": "F5 patched five critical NGINX flaws (CVSS 9.2, one dating to 2015) that could let attackers escalate to root. Public PoCs are circulating and Censys estimates ~9 million exposed services; no in-the-wild exploitation confirmed yet. Patch to 1.30.7/1.31.9.",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/f5-patches-critical-nginx2root-flaws-as-poc-exploits-go-public/",
+      "published": "2026-11-19",
+      "cves": []
+    },
+    {
+      "title": "Cisco Expressway flaw exploited days after PoC release",
+      "description": "Threat-intel firm F6 says attackers breached a Russian organization's clustered Cisco Expressway systems via CVE-2026-76466 (CVSS 9.8, hardcoded-credential root RCE) shortly after a public PoC appeared. Fixed in X15.5.20, no workaround. (Confirmed by one outlet only.)",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/hackers-exploit-cisco-expressway-vulnerability-soon-after-poc-release/",
+      "published": "2026-11-19",
+      "cves": [
+        "CVE-2026-76466"
+      ]
+    },
+    {
+      "title": "N-able breach disrupts email security platform for MSPs",
+      "description": "Unknown attackers accessed a server hosting N-able's Mail Assure and SpamExperts platforms across three regions, taking the management portal, APIs and logging offline. N-able says core mail filtering continues and it has no evidence of customer data access. (Confirmed by one outlet only.)",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/n-able-confirms-hackers-accessed-cloud.html",
+      "published": "2026-11-19",
+      "cves": []
+    },
+    {
+      "title": "Russian FSB-linked APT impersonates breach victim to hit second target",
+      "description": "Google reports Star Blizzard (FSB-linked, aka Cold River) breached a US organization using stolen admin credentials and MFA-fatigue attacks, then impersonated that victim's employee over messaging apps to phish a second US organization and hijack Entra ID tokens.",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/russian-apt-poses-as-employee-of-hacked-firm-to-breach-another-us-organization/",
+      "published": "2026-11-18",
+      "cves": []
+    },
+    {
+      "title": "European Commission confirms AI-assisted cyberattack",
+      "description": "The EU Commission confirmed a cyberattack, first detected Oct 22, that knocked out internal payroll, leave and translation systems for over a week. CERT-EU says attackers used ARTEX, an open-source AI hacking platform that automates exploit discovery; no attribution given yet.",
+      "source": "The Record",
+      "url": "https://therecord.media/european-commission-confirms-cyberattack-using-ai",
+      "published": "2026-11-19",
+      "cves": []
+    },
+    {
+      "title": "Last Scattered Spider defendant sentenced in US crypto-theft case",
+      "description": "Tyler Buchanan, 24, received six years for wire fraud and identity theft tied to Scattered Spider's SIM-swapping/phishing campaign, which stole at least $11.6M in cryptocurrency from telecom and crypto-firm employees between 2021-2023. All five defendants are now sentenced.",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/last-of-five-defendants-sentenced-in-us-scattered-spider-hacking-case/",
+      "published": "2026-11-18",
+      "cves": []
+    }
+  ],
+  "action": "Patch immediately: VMware vCenter (CVE-2026-123890, no workaround), Apache Axis/Roller, Java4Shell-affected Java/OpenJDK components, NGINX (1.30.7/1.31.9), and clustered Cisco Expressway (X15.5.20). CISA's federal deadline for three new KEV entries is Nov 21; LiteLLM is Dec 2."
+}
