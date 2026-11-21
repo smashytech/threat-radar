@@ -1,0 +1,382 @@
+{
+  "date": "2026-11-21",
+  "issue": 90,
+  "window": "2026-11-20",
+  "stats": {
+    "victims": 43,
+    "groups": 18,
+    "countries": 17,
+    "regions": 5
+  },
+  "sweden": 1,
+  "regions": [
+    {
+      "region": "Europe",
+      "countries": [
+        {
+          "country": "Sweden",
+          "flag": "🇸🇪",
+          "count": 1
+        },
+        {
+          "country": "Italy",
+          "flag": "🇮🇹",
+          "count": 3
+        },
+        {
+          "country": "United Kingdom",
+          "flag": "🇬🇧",
+          "count": 3
+        },
+        {
+          "country": "Czechia",
+          "flag": "🇨🇿",
+          "count": 1
+        },
+        {
+          "country": "France",
+          "flag": "🇫🇷",
+          "count": 1
+        },
+        {
+          "country": "Germany",
+          "flag": "🇩🇪",
+          "count": 1
+        },
+        {
+          "country": "Norway",
+          "flag": "🇳🇴",
+          "count": 1
+        },
+        {
+          "country": "Poland",
+          "flag": "🇵🇱",
+          "count": 1
+        },
+        {
+          "country": "Switzerland",
+          "flag": "🇨🇭",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 14
+        },
+        {
+          "country": "Canada",
+          "flag": "🇨🇦",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "region": "Africa",
+      "countries": [
+        {
+          "country": "Botswana",
+          "flag": "🇧🇼",
+          "count": 1
+        },
+        {
+          "country": "Egypt",
+          "flag": "🇪🇬",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Latin America & Caribbean",
+      "countries": [
+        {
+          "country": "Argentina",
+          "flag": "🇦🇷",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Asia",
+      "countries": [
+        {
+          "country": "Japan",
+          "flag": "🇯🇵",
+          "count": 2
+        },
+        {
+          "country": "India",
+          "flag": "🇮🇳",
+          "count": 1
+        },
+        {
+          "country": "Malaysia",
+          "flag": "🇲🇾",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Unattributed",
+      "countries": [
+        {
+          "country": "Country not disclosed",
+          "flag": "🏳️",
+          "count": 7
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Not stated",
+      "count": 6
+    },
+    {
+      "sector": "Technology",
+      "count": 6
+    },
+    {
+      "sector": "Retail & E-Commerce",
+      "count": 4
+    },
+    {
+      "sector": "Healthcare",
+      "count": 3
+    },
+    {
+      "sector": "Manufacturing",
+      "count": 3
+    },
+    {
+      "sector": "Professional services",
+      "count": 3
+    },
+    {
+      "sector": "Real estate",
+      "count": 2
+    },
+    {
+      "sector": "Aerospace & defense",
+      "count": 1
+    },
+    {
+      "sector": "Automotive",
+      "count": 1
+    },
+    {
+      "sector": "Diversified",
+      "count": 1
+    },
+    {
+      "sector": "Education",
+      "count": 1
+    },
+    {
+      "sector": "Energy",
+      "count": 1
+    },
+    {
+      "sector": "Energy & utilities",
+      "count": 1
+    },
+    {
+      "sector": "Engineering",
+      "count": 1
+    },
+    {
+      "sector": "Engineering & procurement",
+      "count": 1
+    },
+    {
+      "sector": "Financial services",
+      "count": 1
+    },
+    {
+      "sector": "Government",
+      "count": 1
+    },
+    {
+      "sector": "Healthcare / biopharma",
+      "count": 1
+    },
+    {
+      "sector": "Labor union",
+      "count": 1
+    },
+    {
+      "sector": "Non-profit",
+      "count": 1
+    },
+    {
+      "sector": "Sports governance",
+      "count": 1
+    },
+    {
+      "sector": "Stage equipment",
+      "count": 1
+    },
+    {
+      "sector": "Transportation",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "Everest",
+      "hits": 10,
+      "profile": "Russian-speaking extortion crew active since late 2020; also sells initial access; known for valid-credential/RDP intrusions. Today a 10-name burst (20:16–22:04 UTC) with “[AI generated]” profiles, several reading “N/A” — names only, no proof.",
+      "countries": "Czechia, France, not disclosed, Norway, India, Japan",
+      "sectors": "Not stated, Healthcare / biopharma, Technology, Energy, Diversified"
+    },
+    {
+      "name": "Pear",
+      "hits": 4,
+      "profile": "Data-extortion group emerging in 2025, focused on U.S./Canadian SMEs; bare one-line listings. Four names in a 2-minute batch.",
+      "countries": "United States, Canada",
+      "sectors": "Technology, Professional services, Engineering & procurement, Healthcare"
+    },
+    {
+      "name": "Space Bears",
+      "hits": 4,
+      "profile": "Data-leak site since April 2024 with corporate-style branding, linked by researchers to the Phobos ecosystem. Four listings in a 3-minute batch; files “for sale” after timer.",
+      "countries": "United States, United Kingdom",
+      "sectors": "Labor union, Engineering, Non-profit, Real estate"
+    },
+    {
+      "name": "Aurora",
+      "hits": 3,
+      "profile": "Little-documented; long, precise corporate profiles with addresses and registration numbers.",
+      "countries": "Germany, Italy, United Kingdom",
+      "sectors": "Manufacturing, Retail / airport services"
+    },
+    {
+      "name": "N0n",
+      "hits": 3,
+      "profile": "Data-sale site since Sep 2026; lists victims as “Company #N” teasers, then names them as “NOT PAID — EXPOSED” (all three today were earlier teasers); T1078.",
+      "countries": "Botswana, United States, United Kingdom",
+      "sectors": "Financial services, Healthcare, Retail"
+    },
+    {
+      "name": "PixelLeaks",
+      "hits": 3,
+      "profile": "Data-leak brand active since early Nov 2026; boilerplate “verified set of records” notices with 4-day timers; earlier victims mostly Italian IT/hosting providers (DeXpose). Also posted 2 entries naming no company (see footer).",
+      "countries": "Sweden, Poland, Egypt",
+      "sectors": "Technology, Transportation"
+    },
+    {
+      "name": "Inc Ransom",
+      "hits": 2,
+      "profile": "RaaS since mid-2023 (MITRE G1032); valid accounts, edge-device exploits.",
+      "countries": "United States, Italy",
+      "sectors": "Aerospace & defense, Energy & utilities"
+    },
+    {
+      "name": "Majinahanashi",
+      "hits": 2,
+      "profile": "Little-documented, new to this digest; “PENDING” listings with scheduled publication dates. RansomLook only.",
+      "countries": "not disclosed",
+      "sectors": "Not stated"
+    },
+    {
+      "name": "Rhysida",
+      "hits": 2,
+      "profile": "RaaS since May 2023 (CISA AA23-319A); detailed file inventories. Police department and a law firm today.",
+      "countries": "United States",
+      "sectors": "Professional services, Government"
+    },
+    {
+      "name": "Settra",
+      "hits": 2,
+      "profile": "Little-documented; posts snippets of internal financials/SQL as proof rather than volumes. Listings carry attack date 4 Nov.",
+      "countries": "Argentina, United States",
+      "sectors": "Retail & e-commerce"
+    },
+    {
+      "name": "Akira",
+      "hits": 1,
+      "profile": "RaaS since Mar 2023 (CISA AA24-109A); VPN accounts lacking MFA, double extortion.",
+      "countries": "Italy",
+      "sectors": "Manufacturing"
+    },
+    {
+      "name": "Barracuda",
+      "hits": 1,
+      "profile": "Little-documented; “security audit” framing typical of pressure-style extortion posts.",
+      "countries": "United States",
+      "sectors": "Education"
+    },
+    {
+      "name": "Blackout",
+      "hits": 1,
+      "profile": "Little-documented leak site; short profiles with fixed leak deadlines.",
+      "countries": "Japan",
+      "sectors": "Stage equipment"
+    },
+    {
+      "name": "Climax",
+      "hits": 1,
+      "profile": "Little-documented; terse sector/website listings with file counts.",
+      "countries": "Malaysia",
+      "sectors": "Automotive"
+    },
+    {
+      "name": "Dark Project",
+      "hits": 1,
+      "profile": "Little-documented; press-release style posts claiming data volumes.",
+      "countries": "Canada",
+      "sectors": "Real estate"
+    },
+    {
+      "name": "Handsome Boy Hacking Club",
+      "hits": 1,
+      "profile": "Low confidence.",
+      "countries": "Switzerland",
+      "sectors": "Sports governance"
+    },
+    {
+      "name": "MedusaLocker",
+      "hits": 1,
+      "profile": "RaaS since 2019 (CISA AA22-181A); RDP exploitation; healthcare a recurring target.",
+      "countries": "United States",
+      "sectors": "Healthcare"
+    },
+    {
+      "name": "Silent Ransom Group",
+      "hits": 1,
+      "profile": "Luna Moth / Chatty Spider; callback phishing against U.S. law firms (FBI, May 2025); appears as “leakeddata” on RansomLook.",
+      "countries": "United States",
+      "sectors": "Professional services"
+    }
+  ],
+  "quality": {
+    "singleSourced": 7,
+    "claimOnly": 29,
+    "sourcesDisagree": 1,
+    "newGroups": 1
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 46
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 42
+      }
+    ],
+    "merged": 49,
+    "masked": 1,
+    "reposts": 3,
+    "nonVictims": 2,
+    "lowCoverage": false
+  },
+  "lateToPress": 0
+}
