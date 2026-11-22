@@ -1,0 +1,260 @@
+{
+  "date": "2026-11-22",
+  "issue": 91,
+  "window": "2026-11-21",
+  "stats": {
+    "victims": 20,
+    "groups": 11,
+    "countries": 12,
+    "regions": 5
+  },
+  "sweden": 0,
+  "regions": [
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "region": "Europe",
+      "countries": [
+        {
+          "country": "Ireland",
+          "flag": "🇮🇪",
+          "count": 1
+        },
+        {
+          "country": "Spain",
+          "flag": "🇪🇸",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Middle East",
+      "countries": [
+        {
+          "country": "Israel",
+          "flag": "🇮🇱",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Latin America & Caribbean",
+      "countries": [
+        {
+          "country": "Argentina",
+          "flag": "🇦🇷",
+          "count": 1
+        },
+        {
+          "country": "Chile",
+          "flag": "🇨🇱",
+          "count": 1
+        },
+        {
+          "country": "Ecuador",
+          "flag": "🇪🇨",
+          "count": 1
+        },
+        {
+          "country": "Saint Martin",
+          "flag": "🇲🇫",
+          "count": 1
+        },
+        {
+          "country": "Venezuela",
+          "flag": "🇻🇪",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Asia",
+      "countries": [
+        {
+          "country": "Singapore",
+          "flag": "🇸🇬",
+          "count": 2
+        },
+        {
+          "country": "Taiwan",
+          "flag": "🇹🇼",
+          "count": 2
+        },
+        {
+          "country": "Philippines",
+          "flag": "🇵🇭",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Unattributed",
+      "countries": [
+        {
+          "country": "Country not disclosed",
+          "flag": "🏳️",
+          "count": 2
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Other",
+      "count": 4
+    },
+    {
+      "sector": "Healthcare",
+      "count": 3
+    },
+    {
+      "sector": "Technology",
+      "count": 3
+    },
+    {
+      "sector": "Professional Services",
+      "count": 2
+    },
+    {
+      "sector": "Sector not disclosed",
+      "count": 2
+    },
+    {
+      "sector": "Education",
+      "count": 1
+    },
+    {
+      "sector": "Energy & Utilities",
+      "count": 1
+    },
+    {
+      "sector": "Financial Services",
+      "count": 1
+    },
+    {
+      "sector": "Government & Defense",
+      "count": 1
+    },
+    {
+      "sector": "Hospitality",
+      "count": 1
+    },
+    {
+      "sector": "Manufacturing",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "SafePay",
+      "hits": 9,
+      "profile": "Non-RaaS crew active since late 2024; Oct 2026 joint FBI/CISA advisory ties it to 600+ victims. Gains access via Cisco ASA/FTD edge-device flaws and stolen VPN credentials; double extortion. Posted all 9 of today's listings in a single ~6-minute batch (18:28–18:34 UTC).",
+      "countries": "Argentina, Chile, Ecuador, Israel, Philippines, Singapore, Spain, Taiwan",
+      "sectors": "Energy & Utilities, Financial Services, Healthcare, Hospitality, Other, Professional Services, Technology"
+    },
+    {
+      "name": "Pear",
+      "hits": 2,
+      "profile": "Data-extortion operation that posts in batches (four U.S. victims on 20 Nov); leans on U.S. professional-services and small manufacturers.",
+      "countries": "United States, not disclosed",
+      "sectors": "Professional Services, not disclosed"
+    },
+    {
+      "name": "Barracuda",
+      "hits": 1,
+      "profile": "",
+      "countries": "United States",
+      "sectors": "Healthcare"
+    },
+    {
+      "name": "Eclipse",
+      "hits": 1,
+      "profile": "Small leak site with sparse history; posts few victims, no published TTP profile.",
+      "countries": "Ireland",
+      "sectors": "Technology"
+    },
+    {
+      "name": "INC Ransom",
+      "hits": 1,
+      "profile": "INC Ransom, active since mid-2023; heavy U.S. healthcare and public-sector focus; known for spear-phishing and exploitation of Citrix/FortiGate edge devices.",
+      "countries": "United States",
+      "sectors": "Healthcare"
+    },
+    {
+      "name": "Inception",
+      "hits": 1,
+      "profile": "",
+      "countries": "United States",
+      "sectors": "Manufacturing"
+    },
+    {
+      "name": "LockBit 5.0",
+      "hits": 1,
+      "profile": "LockBit 5.0 relaunch of the LockBit RaaS brand; LockBit has a record of recycled and inflated claims, hence the caution flag.",
+      "countries": "Venezuela",
+      "sectors": "Other"
+    },
+    {
+      "name": "MedusaLocker",
+      "hits": 1,
+      "profile": "Long-running RaaS (since 2019) relying on exposed RDP and phishing; today's listing is an auto-generated \"emails extracted\" stub.",
+      "countries": "Saint Martin",
+      "sectors": "Technology"
+    },
+    {
+      "name": "Osiris",
+      "hits": 1,
+      "profile": "Newer leak site using countdown timers with revenue/employee metadata; today's Taiwan school listing is still pre-publication.",
+      "countries": "Taiwan",
+      "sectors": "Education"
+    },
+    {
+      "name": "Qilin",
+      "hits": 1,
+      "profile": "Prolific RaaS (aka Agenda) since 2022; Rust/Go lockers, VMware ESXi targeting, double extortion; among 2025–26's most active groups.",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "SoulGroup",
+      "hits": 1,
+      "profile": "High-volume poster — mass-dumped ~25 victims on 19 Nov per the Ransomware.live feed; today's entry withholds the victim's name.",
+      "countries": "United States",
+      "sectors": "Government & Defense"
+    }
+  ],
+  "quality": {
+    "singleSourced": 5,
+    "claimOnly": 3,
+    "sourcesDisagree": 0,
+    "newGroups": 0
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 18
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 19
+      }
+    ],
+    "merged": 22,
+    "masked": 0,
+    "reposts": 2,
+    "nonVictims": 0,
+    "lowCoverage": false
+  },
+  "lateToPress": 0
+}
