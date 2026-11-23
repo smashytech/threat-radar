@@ -1,0 +1,114 @@
+{
+  "date": "2026-11-23",
+  "tldr": "Busy cycle: CISA added three actively-exploited CVEs (VMware vCenter, Cisco Expressway, Apache Roller) to its KEV catalog, with the VMware bug tied to a suspected Chinese espionage group — federal patch deadline is today, Nov 23. Microsoft, Rackspace, GL.iNet and the OpenRouter AI-inference ecosystem each disclosed exploited flaws or breaches, and the FBI is probing a reported hack of its national crime database. Two agentic-AI stories below mark a genuine shift: AI agents being used both to find a real zero-day and, in a lab demo, to hijack another AI agent.",
+  "emerging": [
+    {
+      "title": "China-Linked Actor's AI Agents Found and Exploited a Medical-Software Zero-Day",
+      "description": "Amazon says a China-linked actor used the open-source \"Cairn\" AI pentesting framework to autonomously find and exploit a path-traversal zero-day in MONAI Label (medical imaging software, v0.8.5 and earlier), gaining root on one university server and tunneling into a second — in roughly 48 hours. Amazon rates the zero-day finding \"high confidence\"; China attribution is \"moderate confidence.\" Corroborated by The Record and BleepingComputer (Nov 20).",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/amazon-china-linked-hackers-ai-agents-exploited-medical-software-zero-day/",
+      "published": "2026-11-21",
+      "cves": []
+    },
+    {
+      "title": "Lab Demo: Malicious Webpage Could Hijack Meta's \"Muse\" AI Agent",
+      "description": "Researchers at NebuSec chained a flaw in Muse's built-in browser with a Linux kernel bug to seize full control of a user's cloud-hosted AI agent from one malicious webpage, exposing chat history and credentials with no prompt shown to the user. This was a lab demonstration, not a real-world attack; NebuSec says it was fixed pre-publication, but Meta hasn't confirmed. Single-source report — not yet independently corroborated.",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/a-single-malicious-webpage-let.html",
+      "published": "2026-11-21",
+      "cves": []
+    }
+  ],
+  "items": [
+    {
+      "title": "VMware vCenter Zero-Day Tied to Chinese Espionage Group, Added to CISA KEV",
+      "description": "CISA added CVE-2026-123890 (VMware vCenter auth bypass, CVSS 9.8) to its KEV catalog Nov 20. A suspected China-nexus group tracked as \"Armory Castle\" (ex-UNC5221) reportedly paired it with a patched BeyondTrust flaw to deploy custom backdoors. Federal patch deadline: today.",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-vmware-cisco.html",
+      "published": "2026-11-21",
+      "cves": [
+        "CVE-2026-123890"
+      ]
+    },
+    {
+      "title": "Cisco Expressway and Apache Roller Flaws Actively Exploited, Added to CISA KEV",
+      "description": "CISA added CVE-2026-76466 (Cisco Expressway hard-coded credentials) and CVE-2026-129448 (Apache Roller deserialization RCE), both CVSS 9.8, citing active exploitation. The Cisco flaw reportedly breached a Russian organization after a public PoC leaked; no attacker has been named for either.",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-vmware-cisco.html",
+      "published": "2026-11-21",
+      "cves": [
+        "CVE-2026-76466",
+        "CVE-2026-129448"
+      ]
+    },
+    {
+      "title": "Microsoft Entra Connect Health Flaw Exploited to Expose Tenant Data",
+      "description": "Microsoft disclosed attackers exploited a flaw (found Nov 9, fixed Nov 19) in its Entra Connect Health API to read tenant metadata — admin emails, tenant IDs, sync status — across customer directories. No passwords, tokens, or keys were exposed; no CVE assigned.",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/microsoft-entra-connect-health-flaw-exploited-to-steal-tenant-data/",
+      "published": "2026-11-21",
+      "cves": []
+    },
+    {
+      "title": "Rackspace Spot Breach Exposes Customer Kubernetes Platform Access",
+      "description": "Attackers used leaked credentials to access Rackspace's Spot Kubernetes platform on Nov 17, creating pods and gaining the ability to read customer Secrets and API tokens — actual data theft is unconfirmed. Full service was restored Nov 21 after token/key rotation.",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/rackspace-spot-breach-let-hackers-access-customer-kubernetes-secrets/",
+      "published": "2026-11-21",
+      "cves": []
+    },
+    {
+      "title": "OpenRouter Drops Three AI Inference Providers After Months of Prompt Theft",
+      "description": "Dragos seeded 2 million canary prompts and caught attackers reading customer prompts — including \"Zero Data Retention\" sessions — inside unnamed inference providers for months. OpenRouter removed 3 providers and 125 endpoints from ZDR eligibility; Phala and Together AI confirmed separate incidents.",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/openrouter-drops-3-providers-after.html",
+      "published": "2026-11-22",
+      "cves": []
+    },
+    {
+      "title": "GL.iNet GoodCloud Flaw Exploited to Backdoor Routers and KVM Devices",
+      "description": "Attackers exploited an undisclosed flaw in GL.iNet's GoodCloud remote-management service to plant malware on GL-RM1 KVM units and GL-MT2500 routers. The malicious script contains Chinese-language comments (attribution unconfirmed). Fixed firmware began rolling out Nov 22; no CVE assigned.",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-glinet-cloud-flaw-to-infect-routers-kvm-devices/",
+      "published": "2026-11-22",
+      "cves": []
+    },
+    {
+      "title": "Ghostscript Sandbox-Escape RCE Disclosed, Patched in 10.08.0",
+      "description": "Researchers demonstrated CVE-2026-125396 (CVSS 8.5), a use-after-free in Ghostscript's font loader that disables the -dSAFER sandbox via a crafted document, reachable through print jobs, email, or web uploads via libraries like ImageMagick. No in-the-wild exploitation reported; fixed in 10.08.0.",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/researchers-demonstrate-ghostscript.html",
+      "published": "2026-11-22",
+      "cves": [
+        "CVE-2026-125396"
+      ]
+    },
+    {
+      "title": "Critical GPGME Double-Free Flaw Could Expose App Data via Malicious Keys",
+      "description": "CVE-2026-129975 is a double-free in GPGME triggered by a malicious OpenPGP key with an abnormally long user ID, affecting all software using GPGME before 2.3.0. Fixed in 2.3.1 (legacy 1.24.4). No in-the-wild exploitation reported; RCE \"cannot be ruled out.\"",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/gnupg-warns-critical-gpgme-flaw-could.html",
+      "published": "2026-11-21",
+      "cves": [
+        "CVE-2026-129975"
+      ]
+    },
+    {
+      "title": "FBI Investigating Apparent Hack of National Crime Information Center",
+      "description": "The FBI is probing a suspected breach of the NCIC, the criminal-justice database used by federal, state, and local law enforcement. CNN first reported it; an AP source confirmed. Scope is unclear and the FBI has not commented publicly.",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/fbi-investigating-apparent-hack-of-its-key-national-criminal-justice-database-ap-source-says/",
+      "published": "2026-11-21",
+      "cves": []
+    },
+    {
+      "title": "Signal Adds Default Screenshot-Blocking to Stop OS AI Agents Reading Chats",
+      "description": "Signal now restricts screenshots by default on iOS and Android to keep on-device AI assistants from capturing chat content, extending a similar Windows 11 protection added after Microsoft Recall. Signal calls the protection \"incomplete\" — it doesn't block file-system-level access.",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/signal-blocks-ai-agents-from-reading.html",
+      "published": "2026-11-21",
+      "cves": []
+    }
+  ],
+  "action": "Patch VMware vCenter (CVE-2026-123890), Cisco Expressway (CVE-2026-76466), and Apache Roller (CVE-2026-129448) today — CISA's federal remediation deadline is Nov 23 and all three are under confirmed active exploitation. Apply Ghostscript 10.08.0 and GPGME 2.3.1 where those libraries run, and review any Entra Connect Health or Rackspace Spot customer notifications."
+}
