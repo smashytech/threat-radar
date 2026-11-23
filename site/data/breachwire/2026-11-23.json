@@ -1,0 +1,253 @@
+{
+  "date": "2026-11-23",
+  "issue": 92,
+  "window": "2026-11-22",
+  "stats": {
+    "victims": 20,
+    "groups": 12,
+    "countries": 10,
+    "regions": 5
+  },
+  "sweden": 0,
+  "regions": [
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "region": "Europe",
+      "countries": [
+        {
+          "country": "France",
+          "flag": "🇫🇷",
+          "count": 1
+        },
+        {
+          "country": "Germany",
+          "flag": "🇩🇪",
+          "count": 1
+        },
+        {
+          "country": "Hungary",
+          "flag": "🇭🇺",
+          "count": 1
+        },
+        {
+          "country": "Italy",
+          "flag": "🇮🇹",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Middle East",
+      "countries": [
+        {
+          "country": "Palestine",
+          "flag": "🇵🇸",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Latin America & Caribbean",
+      "countries": [
+        {
+          "country": "Dominican Republic",
+          "flag": "🇩🇴",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Asia",
+      "countries": [
+        {
+          "country": "South Korea",
+          "flag": "🇰🇷",
+          "count": 1
+        },
+        {
+          "country": "India",
+          "flag": "🇮🇳",
+          "count": 1
+        },
+        {
+          "country": "Philippines",
+          "flag": "🇵🇭",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Unattributed",
+      "countries": [
+        {
+          "country": "Country not disclosed",
+          "flag": "🏳️",
+          "count": 7
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Sector not disclosed",
+      "count": 8
+    },
+    {
+      "sector": "Healthcare",
+      "count": 2
+    },
+    {
+      "sector": "Other",
+      "count": 2
+    },
+    {
+      "sector": "Technology",
+      "count": 2
+    },
+    {
+      "sector": "Agriculture and Food Production",
+      "count": 1
+    },
+    {
+      "sector": "Education",
+      "count": 1
+    },
+    {
+      "sector": "Financial Services",
+      "count": 1
+    },
+    {
+      "sector": "Professional Services",
+      "count": 1
+    },
+    {
+      "sector": "Retail & E-Commerce",
+      "count": 1
+    },
+    {
+      "sector": "Transportation",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "HYFLOCK",
+      "hits": 3,
+      "profile": "RaaS brand that has appeared in Breach Wire since mid-October 2026 (№51). None came with file proof in the feeds.",
+      "countries": "South Korea, United States, Dominican Republic",
+      "sectors": "Technology, Education, not disclosed"
+    },
+    {
+      "name": "Inc Ransom",
+      "hits": 3,
+      "profile": "INC Ransom, active since mid-2023; spear-phishing and exploitation of Citrix/FortiGate edge devices. All three are RansomLook-only and have no country tag.",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "MedusaLocker",
+      "hits": 3,
+      "profile": "Long-running RaaS (since 2019) relying on exposed RDP and phishing.",
+      "countries": "United States, Germany, not disclosed",
+      "sectors": "Healthcare, not disclosed"
+    },
+    {
+      "name": "PixelLeaks",
+      "hits": 2,
+      "profile": "Posts descriptive, unnamed targets with publication deadlines and itemised record lists, rather than naming companies.",
+      "countries": "Palestine, India",
+      "sectors": "Agriculture and Food Production, Transportation"
+    },
+    {
+      "name": "Qilin",
+      "hits": 2,
+      "profile": "Prolific RaaS (aka Agenda) since 2022; Rust/Go lockers, VMware ESXi targeting, double extortion; among 2025–26's most active groups.",
+      "countries": "United States, Hungary",
+      "sectors": "Retail & E-Commerce, Other"
+    },
+    {
+      "name": "Dire Wolf",
+      "hits": 1,
+      "profile": "Double-extortion group that surfaced in 2025, leaning on manufacturing and technology firms; Ransomware.live tags it “direwolf”.",
+      "countries": "not disclosed",
+      "sectors": "Technology"
+    },
+    {
+      "name": "EndZone",
+      "hits": 1,
+      "profile": "Little-documented leak site. Today's listing claims both encryption and 250 GB+ of exfiltration, and quotes revenue metadata.",
+      "countries": "Philippines",
+      "sectors": "Financial Services"
+    },
+    {
+      "name": "N0n",
+      "hits": 1,
+      "profile": "Two of those today (Company #242, #243, tagged “healthcare · United States, pending exposure”) were excluded as masked.",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "Panzer",
+      "hits": 1,
+      "profile": "Small leak site with sparse history and no published TTP profile.",
+      "countries": "Italy",
+      "sectors": "Other"
+    },
+    {
+      "name": "Rhysida",
+      "hits": 1,
+      "profile": "RaaS since May 2023 (subject of a 2023 CISA advisory); hits healthcare, education, government and legal; publishes large file inventories.",
+      "countries": "United States",
+      "sectors": "Professional Services"
+    },
+    {
+      "name": "Scarlettgroup",
+      "hits": 1,
+      "profile": "Small, newer leak site focused on hospitals.",
+      "countries": "France",
+      "sectors": "Healthcare"
+    },
+    {
+      "name": "The Gentlemen",
+      "hits": 1,
+      "profile": "Group that emerged in 2025, known for deploying its locker across domains via Group Policy; mid-size, multi-sector targeting.",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    }
+  ],
+  "quality": {
+    "singleSourced": 10,
+    "claimOnly": 5,
+    "sourcesDisagree": 0,
+    "newGroups": 0
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 17
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 17
+      }
+    ],
+    "merged": 22,
+    "masked": 2,
+    "reposts": 0,
+    "nonVictims": 0,
+    "lowCoverage": false
+  },
+  "lateToPress": 0
+}
