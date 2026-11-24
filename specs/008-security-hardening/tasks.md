@@ -12,4 +12,4 @@
 - [ ] **T05** `main` rule (or owner steps), remove the `fonts` branch and the wiki. **→ AC-7, AC-10**
 - [x] **T06** Publisher instructions: "stop and report". **→ AC-10**
 - [x] **T07** README: security section and the owner's click-by-click steps.
-- [ ] **T08** Deploy; first run sets `deployed`; `security.txt` live; `verification.md`.
+- [x] **T08** Deploy; first run sets `deployed`; `security.txt` live; `verification.md`.
