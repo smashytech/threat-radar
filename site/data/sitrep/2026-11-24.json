@@ -1,0 +1,94 @@
+{
+  "date": "2026-11-24",
+  "tldr": "Lighter news cycle today — only 8 items survived the 48-hour relevance filter, headlined by two fresh CISA KEV additions and an actively-exploited ASP.NET RCE with no vendor patch available at all. Also notable: an unconfirmed FBI probe into a hack of the national crime database, and the $43.9B CrowdStrike–Zscaler merger. Two emerging-threat items highlight AI's growing role on both sides of the fence — autonomous exploit agents, and attacks aimed at AI inference infrastructure itself.",
+  "emerging": [
+    {
+      "title": "Autonomous AI agent exploited a medical-imaging zero-day in ~11 minutes",
+      "description": "Amazon found an attacker running an exposed, unauthenticated instance of the open-source \"Cairn\" AI pentesting framework to autonomously map and exploit a MONAI Label flaw (the same bug CISA just added to its KEV catalog) — recon to arbitrary file writes in about 11 minutes, inside a ~48-hour campaign.",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/amazon-china-linked-hackers-ai-agents-exploited-medical-software-zero-day/",
+      "published": "2026-11-21",
+      "cves": []
+    },
+    {
+      "title": "AI inference providers breached, customer prompts stolen undetected",
+      "description": "Dragos (led by HD Moore) seeded ~2 million trackable \"bait\" prompts across AI services and found at least three inference providers compromised — including roughly 200 AWS test keys stolen from one — with none detecting the intrusions until notified. Named: Phala, Together AI, Novita, Atlas Cloud.",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/ai-inference-providers-failed-to-detect-hacking-and-prompt-theft-says-dragos/",
+      "published": "2026-11-23",
+      "cves": []
+    }
+  ],
+  "items": [
+    {
+      "title": "CISA adds N-able MailAssure and MONAI Label flaws to KEV catalog",
+      "description": "CISA added two actively exploited flaws Nov 23: N-able MailAssure SSRF (CVE-2026-134624, CVSS 9.3) and Project MONAI Label path traversal enabling RCE (CVE-2026-133968, CVSS 9.8). Federal agencies must patch by Nov 26.",
+      "source": "CISA KEV Catalog",
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "published": "2026-11-23",
+      "cves": [
+        "CVE-2026-134624",
+        "CVE-2026-133968"
+      ]
+    },
+    {
+      "title": "Unpatched ASP.NET anti-CSRF library under active RCE exploitation",
+      "description": "Mandiant confirmed active exploitation of CVE-2026-131914 (CVSS 9.3), a deserialization flaw in the long-abandoned Idunno.AntiCsrf ASP.NET WebForms module. A single crafted POST yields full RCE in IIS — no official patch exists; migrate off the library.",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-aspnet-anti.html",
+      "published": "2026-11-23",
+      "cves": [
+        "CVE-2026-131914"
+      ]
+    },
+    {
+      "title": "GL.iNet routers and KVMs compromised via GoodCloud flaw",
+      "description": "Attackers exploited a flaw in GL.iNet's GoodCloud remote-management service to plant persistent root reverse shells on GL-AXT1800 routers and GL-RM1 KVM devices. No CVE assigned; vendor patched the cloud-side issue Nov 21, but existing infections need manual reflashing.",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/hackers-exploited-glinet-cloud-flaw-to.html",
+      "published": "2026-11-23",
+      "cves": []
+    },
+    {
+      "title": "Azure API Management flaw exploited against Norwegian energy firms",
+      "description": "An unknown actor abused an Azure APIM \"Classic\" tier misconfiguration to target secrets at Equinor, Skagerak Energi and others. Norway's NSM urges treating all exposed subscription keys, client secrets and tokens as compromised; no confirmed data theft so far.",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/azure-flaw-exploited-to-target-secrets-at-norwegian-energy-firms/",
+      "published": "2026-11-23",
+      "cves": []
+    },
+    {
+      "title": "FBI investigating apparent hack of NCIC crime database",
+      "description": "CNN first reported, and AP confirmed via an anonymous source, that the FBI is probing an apparent breach of the National Crime Information Center, used nationwide for fugitive, missing-person and criminal-history lookups. The FBI has not officially confirmed the hack or its scope.",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/fbi-investigating-apparent-hack-of-its-key-national-criminal-justice-database-ap-source-says/",
+      "published": "2026-11-21",
+      "cves": []
+    },
+    {
+      "title": "HUMAN Security disrupts BadBox 3.0 ad-fraud botnet",
+      "description": "HUMAN's Satori team disrupted BadBox 3.0, which generated roughly 40 billion fraudulent bid requests/day at peak — about 3x the prior record — from backdoored, uncertified Android TV boxes also rented out as a residential proxy network tied to manufacturer TXCZ.",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/badbox-3-0-ad-fraud-operation-generating-40-billion-daily-bid-requests-disrupted/",
+      "published": "2026-11-23",
+      "cves": []
+    },
+    {
+      "title": "China-aligned Webworm APT evades detection via modified SoftEther VPN",
+      "description": "Rapid7 (moderate confidence) linked Webworm to a modified SoftEther VPN Bridge build (v4.44/9807) rebranded as \"NtMonitor VPN,\" used against government networks. The group tuned the legitimate tool to dodge SoftEther's own detection signatures — no custom malware needed.",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/webworm-suspected-of-modifying.html",
+      "published": "2026-11-23",
+      "cves": []
+    },
+    {
+      "title": "CrowdStrike to acquire Zscaler in $43.9B all-stock deal",
+      "description": "CrowdStrike will buy Zscaler at a 1.135 share exchange ratio (~34% premium), combining to over $10B in ARR. The deal, announced alongside CrowdStrike's Q3 results, is expected to close in H2 of CrowdStrike's fiscal 2028.",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/crowdstrike-to-acquire-zscaler-in-43-9-billion-deal/",
+      "published": "2026-11-23",
+      "cves": []
+    }
+  ],
+  "action": "Patch N-able MailAssure and MONAI Label per CISA's Nov 26 KEV deadline. If running Idunno.AntiCsrf on ASP.NET WebForms, migrate off it immediately — no patch exists. Azure APIM \"Classic\" tier users should rotate secrets/tokens per NSM guidance. GL.iNet GoodCloud device owners should update firmware and reflash any suspected-compromised units."
+}
