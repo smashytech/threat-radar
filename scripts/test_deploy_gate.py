@@ -124,6 +124,18 @@ class EndToEndTest(unittest.TestCase):
         self.assertFalse(report["ok"])
         self.assertEqual(report["lane_violations"][0]["files"], ["scripts/add_breachwire.py"])
 
+    def test_a_reverted_bad_commit_needs_a_manual_approval_to_move_on(self):
+        """The bad commit stays between 'deployed' and HEAD after a revert, so only a manual run clears it."""
+        self.mark_deployed()
+        self.write("site/today.js", "// evil\n")
+        self.commit("breachwire: 2026-11-02")
+        git(self.repo, "revert", "--no-edit", "HEAD")
+        self.assertFalse(self.run_gate()["ok"], "still stopped after the revert")
+        approved = gate.run(self.repo, approve_publisher_commits=True)
+        self.assertTrue(approved["ok"], approved)
+        self.assertTrue(approved["approved_publisher_commits"])
+        self.assertEqual(len(approved["lane_violations"]), 1, "still listed, for the Slack heads-up")
+
     def test_rules_loosened_in_the_same_push_are_stopped_unless_accepted(self):
         self.mark_deployed()
         self.write("scripts/add_sitrep.py", "MAX = 10\n" + FAKE_GATEKEEPER)   # looser rules...

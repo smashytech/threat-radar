@@ -49,3 +49,4 @@
 | The old-rules check copies **both** gatekeeper files and runs them with `-E -s` from a fresh folder (not `-I`) | `add_breachwire.py` imports `add_sitrep.py`; `-I` would hide that import. A fresh folder holding only those two files keeps planted modules out (tested) |
 | `safeWebUrl` also refuses links with a user name or password | `https://user:pass@evil.example/` is a classic way to disguise a link's real destination |
 | Gate tried against real history: from before 18 Nov it stops both Breach Wire commits that edited `add_breachwire.py`; today's range passes with a code note | Evidence that the lanes catch the incident that started this spec |
+| **Approve publisher commits** (manual-run input) added | Found while planning the live test: a stopped commit stays between `deployed` and the newest commit even after it's reverted, so without a deliberate way out every later deploy would stop too |

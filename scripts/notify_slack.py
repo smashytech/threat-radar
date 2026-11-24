@@ -189,20 +189,27 @@ def gate_message(report: dict, kind: str, base: str, run_url: str | None = None)
         for f in report.get("rule_failures", []):
             lines.append(f"• The {slack_escape(f.get('gatekeeper'))} rules were changed, and the data no longer passes the "
                          "previous rules. If that change is intended, run the workflow by hand with *accept rule change*.")
+        if report.get("lane_violations"):
+            lines.append("If you've checked (or reverted) these commits, run the workflow by hand with *approve publisher commits*.")
         blocks = [section("\n".join(lines))]
         if run:
             blocks.append(context(run))
         return message("Threat Radar: deploy stopped by the security gate", blocks)
     code = report.get("code_changes", {})
-    if report.get("first_run") or not code.get("files"):
+    approved = report.get("accepted_rule_change") or report.get("approved_publisher_commits")
+    if report.get("first_run") or (not code.get("files") and not approved):
         return None
     more = code.get("more_files", 0)
-    lines = [":mag: *Code changed in this deploy* (not just data). Worth a glance:",
-             files(code["files"]) + (f" and {more} more" if more else "")]
+    lines = [":mag: *Code changed in this deploy* (not just data). Worth a glance:" if code.get("files")
+             else ":mag: *This deploy went through with a manual approval.*"]
+    if code.get("files"):
+        lines.append(files(code["files"]) + (f" and {more} more" if more else ""))
     if code.get("commits"):
         lines.append("Commits: " + "; ".join(f"_{slack_escape(c, 120)}_" for c in code["commits"]))
     if report.get("accepted_rule_change"):
         lines.append(":warning: A loosened gatekeeper rule was accepted by a manual run.")
+    if report.get("approved_publisher_commits"):
+        lines.append(":warning: Publisher commits that changed files outside their data were approved by a manual run.")
     blocks = [section("\n".join(lines))]
     blocks.append(context((run + " · " if run else "") + link(base, "Open Threat Radar")))
     return message("Threat Radar: code changed in this deploy", blocks)

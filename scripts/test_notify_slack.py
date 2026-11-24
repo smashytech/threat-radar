@@ -181,6 +181,13 @@ class GateMessages(unittest.TestCase):
         self.assertIsNone(notify_slack.gate_message(quiet, "heads-up", BASE, self.RUN))
         self.assertIsNone(notify_slack.gate_message(dict(quiet, first_run=True), "heads-up", BASE, self.RUN))
 
+    def test_heads_up_after_a_manual_approval_even_without_code(self):
+        report = dict(self.BLOCKED, ok=True, rule_failures=[], approved_publisher_commits=True,
+                      code_changes={"files": [], "commits": []})
+        shown = self.text(notify_slack.gate_message(report, "heads-up", BASE, self.RUN))
+        self.assertIn("manual approval", shown)
+        self.assertIn("approved by a manual run", shown)
+
     def test_only_github_run_links(self):
         shown = self.text(notify_slack.gate_message(self.BLOCKED, "blocked", BASE, "https://evil.example/run"))
         self.assertNotIn("evil.example", shown)

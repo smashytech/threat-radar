@@ -47,6 +47,7 @@ This spec adds a **deploy gate** (option A, chosen by the owner) and a set of sm
 - **FR-5** Code changes are never blocked by the gate (that's option B), but any change outside `site/data/` sends a **Slack heads-up** listing the changed files and commit titles.
 - **FR-6** A stopped deploy leaves the live site as it was, marks the run failed (GitHub also emails the owner) and sends a Slack message with the reason. **Never victim names or secrets** in any message.
 - **FR-7** The first run after this ships sets `deployed` without comparing (nothing to compare with).
+- **FR-7b** *(Added during build.)* A stopped publisher commit stays in the compared range even after a revert, so a **manual run with "approve publisher commits"** lets the deploy through once the owner has checked it; Slack notes the approval.
 - **FR-8** The publishers' instructions say: change only your data folder; if the gatekeeper refuses an issue, **stop and report**, never edit scripts, tests or specs.
 
 ## 4. Smaller fixes

@@ -15,8 +15,12 @@ commit being deployed with the last deployed one (git tag "deployed"):
      step, as before.)
   3. Code: anything changed outside site/data/ is listed, so Slack can say so.
 
+A stopped commit stays between "deployed" and the newest commit even after it
+is reverted, so the way out is deliberate: a manual run with "approve
+publisher commits", after the owner has looked at what happened.
+
 Usage (from the repo root, in the workflow):
-    python3 scripts/deploy_gate.py [--accept-rule-change]
+    python3 scripts/deploy_gate.py [--accept-rule-change] [--approve-publisher-commits]
 Writes the report as `gate_report=<json>` to $GITHUB_OUTPUT and exits 1 if the
 deploy must stop. The report holds commit titles and file names only.
 """
@@ -120,11 +124,11 @@ def _old_rules_pass(repo: Path, base: str, keeper: dict) -> tuple[bool, str]:
         return done.returncode == 0, (done.stdout + done.stderr)[-2000:]
 
 
-def run(repo: Path, accept_rule_change: bool = False) -> dict:
+def run(repo: Path, accept_rule_change: bool = False, approve_publisher_commits: bool = False) -> dict:
     repo = Path(repo)
     head = _git(repo, "rev-parse", "HEAD").strip()
     report = {"ok": True, "first_run": False, "base": None, "head": head[:7], "lane_violations": [],
-              "rules_changed": [], "rule_failures": [], "accepted_rule_change": False,
+              "rules_changed": [], "rule_failures": [], "accepted_rule_change": False, "approved_publisher_commits": False,
               "code_changes": {"files": [], "commits": []}}
     if not _has_tag(repo, DEPLOYED_TAG):
         report["first_run"] = True
@@ -155,7 +159,9 @@ def run(repo: Path, accept_rule_change: bool = False) -> dict:
     if code:
         report["code_changes"]["commits"] = [c["subject"][:120] for c in commits if outside_data(c["files"])][:MAX_LISTED]
 
-    report["ok"] = not report["lane_violations"] and not report["rule_failures"]
+    if report["lane_violations"] and approve_publisher_commits:
+        report["approved_publisher_commits"] = True
+    report["ok"] = (not report["lane_violations"] or approve_publisher_commits) and not report["rule_failures"]
     return report
 
 
@@ -164,10 +170,13 @@ def explain(report: dict) -> str:
         return "First run: no earlier deploy to compare with. The 'deployed' tag will be set after this deploy."
     lines = [f"Comparing {report['base']} (last deploy) with {report['head']}."]
     for v in report["lane_violations"]:
-        lines.append(f"STOP: {v['sha']} '{v['subject']}' is a {v['lane']} publisher commit but changes: {', '.join(v['files'])}")
+        verdict = "APPROVED" if report["approved_publisher_commits"] else "STOP"
+        lines.append(f"{verdict}: {v['sha']} '{v['subject']}' is a {v['lane']} publisher commit but changes: {', '.join(v['files'])}")
     for f in report["rule_failures"]:
         lines.append(f"STOP: the {f['gatekeeper']} rules changed and the data no longer passes the previous rules. "
                      "If the change is intended, run the workflow by hand with 'accept rule change'.")
+    if report["approved_publisher_commits"]:
+        lines.append("Publisher commits outside their lane were approved by a manual run.")
     if report["accepted_rule_change"]:
         lines.append("Rule change accepted by a manual run.")
     if report["code_changes"]["files"]:
@@ -181,8 +190,11 @@ def main(argv: list[str] | None = None, env: dict | None = None) -> int:
     parser = argparse.ArgumentParser(description="Check what is about to be deployed (spec 008).")
     parser.add_argument("--repo", default=".", help="repository folder (default: current folder)")
     parser.add_argument("--accept-rule-change", action="store_true", help="allow data that only passes loosened rules")
+    parser.add_argument("--approve-publisher-commits", action="store_true",
+                        help="let publisher commits that left their lane through (after reviewing or reverting them)")
     args = parser.parse_args(argv)
-    report = run(Path(args.repo), accept_rule_change=args.accept_rule_change)
+    report = run(Path(args.repo), accept_rule_change=args.accept_rule_change,
+                 approve_publisher_commits=args.approve_publisher_commits)
     print(explain(report))
     if env.get("GITHUB_OUTPUT"):
         with open(env["GITHUB_OUTPUT"], "a", encoding="utf-8") as out:

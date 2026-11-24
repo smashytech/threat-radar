@@ -9,7 +9,8 @@
 #
 # You can also run it by hand: Actions tab -> "Refresh data & deploy" -> "Run workflow".
 # Tick "Send a test message to Slack" there to check the Slack setup, or
-# "Accept rule change" to approve data that only passes loosened gatekeeper rules.
+# "Accept rule change" to approve data that only passes loosened gatekeeper rules,
+# or "Approve publisher commits" to let through publisher commits the gate stopped.
 
 name: Refresh data & deploy
 
@@ -24,6 +25,10 @@ on:
         default: false
       accept_rule_change:
         description: "Accept rule change: publish data that only passes loosened gatekeeper rules (spec 008)"
+        type: boolean
+        default: false
+      approve_publisher_commits:
+        description: "Approve publisher commits: let through publisher commits the gate stopped, after you've checked or reverted them (spec 008)"
         type: boolean
         default: false
   push:
@@ -69,12 +74,12 @@ jobs:
         id: gate
         env:
           ACCEPT: ${{ github.event_name == 'workflow_dispatch' && inputs.accept_rule_change }}
+          APPROVE: ${{ github.event_name == 'workflow_dispatch' && inputs.approve_publisher_commits }}
         run: |
-          if [ "$ACCEPT" = "true" ]; then
-            python3 scripts/deploy_gate.py --accept-rule-change
-          else
-            python3 scripts/deploy_gate.py
-          fi
+          flags=()
+          [ "$ACCEPT" = "true" ] && flags+=(--accept-rule-change)
+          [ "$APPROVE" = "true" ] && flags+=(--approve-publisher-commits)
+          python3 scripts/deploy_gate.py "${flags[@]}"
 
       - name: Run tests
         run: |
