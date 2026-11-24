@@ -28,35 +28,41 @@ if (OLD_RADAR_HASH.test(window.location.hash)) {
 async function init() {
   const today = localToday();
   $("today-date").textContent = `${formatLongDate(today)} · Briefing`;
-  try {
-    const [kev, meta, sitrepIndex, bwIndex] = await Promise.all([
-      loadJSON("data/kev.json"),
-      loadJSON("data/meta.json", { optional: true }),
-      loadJSON("data/sitrep/index.json", { optional: true }),
-      loadJSON("data/breachwire/index.json", { optional: true }),
-    ]);
-    const sitrep = sitrepIndex?.issues?.[0] || null;
+  // Spec 009: each part is drawn as soon as its own file arrives, so the headline
+  // (from the Sitrep) never waits for the catalog, and one slow or missing file
+  // doesn't hold up the rest. The catalog is the small slice built at deploy.
+  const parts = [
+    loadJSON("data/sitrep/index.json", { optional: true }).then(async (index) => {
+      const sitrep = index?.issues?.[0] || null;
+      renderHeadline(sitrep, today);
+      await renderSitrep(sitrep, today);
+    }),
     // Breach Wire: only the allow-listed index fields are ever read (spec 003 rule: no victim names).
-    const bw = bwIndex?.issues?.[0] || null;
-
-    renderHero(kev, sitrep, meta, today);
-    renderGlance(kev, bw, today);
-    renderKev(kev, today);
-    renderWire(bw);
-    renderTrend(kev, today);
-    await renderSitrep(sitrep, today);
-  } catch (err) {
-    $("today-headline").textContent = "The briefing couldn't load. Please try again in a moment.";
-    console.error(err);
+    loadJSON("data/breachwire/index.json", { optional: true }).then((index) => {
+      const bw = index?.issues?.[0] || null;
+      renderWireNumbers(bw);
+      renderWire(bw);
+    }),
+    loadJSON("data/kev-recent.json").then((kev) => {
+      renderWeek(kev, today);
+      renderKevNumbers(kev, today);
+      renderKev(kev, today);
+      renderTrend(kev, today);
+    }),
+    loadJSON("data/meta.json", { optional: true }).then(renderFreshness),
+  ];
+  const results = await Promise.allSettled(parts);
+  const failed = results.filter((r) => r.status === "rejected");
+  if (failed.length) {
+    failed.forEach((r) => console.error(r.reason));
+    $("today-week").textContent = "Part of the briefing couldn't load. Please try again in a moment.";
   }
 }
 
-function renderHero(kev, sitrep, meta, today) {
+function renderHeadline(sitrep, today) {
   const headline = firstSentence(sitrep?.tldr);
   $("today-headline").textContent = headline || "This week in exploited vulnerabilities";
   $("today-headline").classList.toggle("today-hero__headline--long", (headline || "").length > 100);
-  $("today-week").textContent = weekLine(kev, today);
-
   const link = $("today-sitrep-link");
   if (sitrep) {
     link.href = `sitrep/?d=${encodeURIComponent(sitrep.date)}`;
@@ -64,7 +70,10 @@ function renderHero(kev, sitrep, meta, today) {
   } else {
     link.hidden = true;
   }
+}
 
+function renderWeek(kev, today) {
+  $("today-week").textContent = weekLine(kev, today);
   const stack = readStack();
   if (stack.has) {
     const mine = stackWeekCount(kev, stack.vendors, today);
@@ -74,17 +83,23 @@ function renderHero(kev, sitrep, meta, today) {
       el("a", { text: "See them", attrs: { href: "exploited/" } }));
     $("today-stack").hidden = false;
   }
+}
 
+function renderFreshness(meta) {
   if (meta?.catalogVersion) {
     $("today-fresh").replaceChildren("CISA catalog ", el("strong", { text: meta.catalogVersion }),
       meta.dateReleased ? `, released ${timeAgo(meta.dateReleased)}` : "");
   }
 }
 
-function renderGlance(kev, bw, today) {
-  const n = todayNumbers(kev, bw, today);
+function renderKevNumbers(kev, today) {
+  const n = todayNumbers(kev, null, today);
   $("glance-week").textContent = numberFmt.format(n.week);
   $("glance-month").textContent = numberFmt.format(n.month);
+}
+
+function renderWireNumbers(bw) {
+  const n = todayNumbers([], bw, localToday());
   $("glance-claims").textContent = n.claims === null ? "–" : numberFmt.format(n.claims);
   if (bw?.window) $("glance-claims-label").textContent = `ransomware claims on ${formatShortDay(bw.window)}`;
   const sweden = $("glance-sweden");

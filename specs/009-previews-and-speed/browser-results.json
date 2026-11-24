@@ -1,0 +1,20 @@
+[
+  {
+    "id": "AC-2",
+    "name": "Today on a throttled phone: largest content under 2.5 s, under 400 KB (before: 9.9 s, 1,659 KB)",
+    "ok": true,
+    "detail": "LCP 2204 / 2236 / 2264 ms (worst 2264), 192 KB"
+  },
+  {
+    "id": "AC-4",
+    "name": "With the catalog missing, the headline, Sitrep and Breach Wire columns still render",
+    "ok": true,
+    "detail": "{\"headline\":\"Lighter news cycle today — only 8 items survived the 48-hour relevance filter, headlined by two fresh CISA KEV additions and an actively-exploited ASP.NET RCE…\",\"sitrep\":3,\"bars\":3,\"week\":\"Part of the briefing couldn't load. Please try again in a moment.\"}"
+  },
+  {
+    "id": "AC-5",
+    "name": "Every page has the 10 preview tags; the image is served as PNG",
+    "ok": true,
+    "detail": "{\"/\":10,\"exploited/\":10,\"sitrep/\":10,\"ransomware/\":10,\"feeds/\":10}; image 200"
+  }
+]

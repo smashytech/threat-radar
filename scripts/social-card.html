@@ -1,0 +1,53 @@
+<!doctype html>
+<!-- Source of site/social-card.png, the 1200×630 link-preview image (spec 009).
+     Re-render after editing:  node scripts/render-social-card.cjs
+     Uses the site's own fonts and light-theme colours. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+@font-face { font-family: "Inter"; src: url("../site/fonts/inter.woff2") format("woff2"); font-weight: 100 900; }
+@font-face { font-family: "Space Grotesk"; src: url("../site/fonts/space-grotesk.woff2") format("woff2"); font-weight: 300 700; }
+@font-face { font-family: "JetBrains Mono"; src: url("../site/fonts/jetbrains-mono.woff2") format("woff2"); font-weight: 100 800; }
+html, body { margin: 0; }
+.card { width: 1200px; height: 630px; box-sizing: border-box; padding: 72px 80px; background: #f6f7f9; color: #111827;
+  font-family: "Inter", sans-serif; display: grid; grid-template-columns: 1fr 360px; gap: 40px; position: relative; overflow: hidden; }
+.brand { display: flex; align-items: center; gap: 14px; font: 700 34px "Space Grotesk", sans-serif; letter-spacing: -0.01em; }
+.eyebrow { margin: 64px 0 14px; font: 500 20px "JetBrains Mono", monospace; letter-spacing: 0.08em; text-transform: uppercase; color: #0f6e5c; }
+h1 { margin: 0; font: 600 64px/1.05 "Space Grotesk", sans-serif; letter-spacing: -0.03em; }
+h1 em { font-style: normal; color: #b7410e; }
+.sub { margin: 26px 0 0; font-size: 26px; color: #374151; }
+.url { position: absolute; left: 80px; bottom: 56px; font: 500 24px "JetBrains Mono", monospace; color: #4b5563; }
+.bar { position: absolute; left: 0; right: 0; bottom: 0; height: 10px; background: #0f6e5c; }
+.radar { align-self: center; }
+.ring { fill: none; stroke: #0f6e5c; stroke-width: 2; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div>
+    <div class="brand">
+      <svg width="48" height="48" viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="12.5" fill="none" stroke="#0f6e5c" stroke-width="1.5"/><circle cx="14" cy="14" r="7" fill="none" stroke="#0f6e5c" stroke-opacity=".45" stroke-width="1.5"/><path d="M14 14 L24 7" stroke="#0f6e5c" stroke-width="2" stroke-linecap="round"/><circle cx="19" cy="18" r="2.2" fill="#b7410e"/></svg>
+      Threat Radar
+    </div>
+    <p class="eyebrow">Daily cyber threat briefing</p>
+    <h1>What attackers are exploiting <em>right now</em></h1>
+    <p class="sub">CISA's exploited vulnerabilities, the Cyber Sitrep and ransomware leak-site trends. Free, no ads.</p>
+  </div>
+  <svg class="radar" width="360" height="360" viewBox="0 0 360 360" aria-hidden="true">
+    <circle class="ring" cx="180" cy="180" r="170" stroke-opacity=".25"/>
+    <circle class="ring" cx="180" cy="180" r="120" stroke-opacity=".35"/>
+    <circle class="ring" cx="180" cy="180" r="70" stroke-opacity=".5"/>
+    <path d="M180 180 L180 10 A170 170 0 0 1 327 95 Z" fill="#0f6e5c" fill-opacity=".08"/>
+    <path d="M180 180 L327 95" stroke="#0f6e5c" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="232" cy="128" r="9" fill="#b7410e"/>
+    <circle cx="118" cy="232" r="7" fill="#0f6e5c"/>
+    <circle cx="262" cy="242" r="6" fill="#0f6e5c" fill-opacity=".6"/>
+    <circle cx="96" cy="112" r="5" fill="#0f6e5c" fill-opacity=".45"/>
+    <circle cx="180" cy="180" r="5" fill="#0f6e5c"/>
+  </svg>
+  <div class="url">zelin.se</div>
+  <div class="bar"></div>
+</div>
+</body>
+</html>

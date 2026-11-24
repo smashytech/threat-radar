@@ -876,3 +876,12 @@ input[type="search"]::placeholder { color: var(--muted); opacity: 0.8; }
   .today-chart__label { font-size: 10px; }
   .today-trend { padding: 20px 16px; }
 }
+
+/* "Buy me a coffee": a small cup in the warm accent so the line stands out a little. */
+.coffee-link { white-space: nowrap; font-style: normal; font-weight: 600; }
+.coffee-icon {
+  width: 1.3em; height: 1.3em; margin-right: 0.25em; vertical-align: -0.28em;
+  fill: none; stroke: var(--hot); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+.coffee-link:hover .coffee-icon { transform: rotate(-8deg); }
+@media (prefers-reduced-motion: no-preference) { .coffee-icon { transition: transform 0.15s; } }

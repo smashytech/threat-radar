@@ -8,6 +8,7 @@ between the marker comments
 
     <!-- site-header --> ... <!-- /site-header -->
     <!-- site-footer --> ... <!-- /site-footer -->
+    <!-- social --> ... <!-- /social -->        (link previews, spec 009)
 
 Usage (from the repo root):
     python3 scripts/site_chrome.py           rewrite the pages
@@ -69,9 +70,32 @@ def footer(root: str, note: str | None) -> str:
     <div class="site-footer__inner">{note_html}
       <p>Data: <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" rel="noopener noreferrer">CISA Known Exploited Vulnerabilities catalog</a> (US government, public domain; not affiliated with CISA). Leak-site claims via <a href="https://www.ransomware.live/" rel="noopener noreferrer">Ransomware.live</a> and <a href="https://www.ransomlook.io/" rel="noopener noreferrer">RansomLook</a>.</p>
       <p>Your stack is kept only in this browser, and only if you tick Remember. Follow along in a feed reader, Slack or an automation tool: <a href="{root}feeds/">Feeds</a>.</p>
-      <p>No ads, no trackers, no cookies, no third-party code. If Threat Radar helps you, you can <a href="https://buymeacoffee.com/devzelin" target="_blank" rel="noopener noreferrer">buy me a coffee</a>. <a href="https://github.com/smashytech/threat-radar" rel="noopener noreferrer">How this site works ↗</a></p>
+      <p>No ads, no trackers, no cookies, no third-party code. If Threat Radar helps you, you can <a class="coffee-link" href="https://buymeacoffee.com/devzelin" target="_blank" rel="noopener noreferrer">{COFFEE}buy me a coffee</a>. <a href="https://github.com/smashytech/threat-radar" rel="noopener noreferrer">How this site works ↗</a></p>
     </div>
   </footer>"""
+
+
+COFFEE = ('<svg class="coffee-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M4 9h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9z"/><path d="M16 11h1.5a2.5 2.5 0 0 1 0 5H16"/><path d="M8 3c-.6.8-.6 1.7 0 2.5M12 3c-.6.8-.6 1.7 0 2.5"/></svg>')
+
+SITE = "https://zelin.se/"
+CARD = SITE + "social-card.png"
+CARD_ALT = "Threat Radar: what attackers are exploiting right now, a daily briefing at zelin.se"
+
+
+def social(path: str, html: str) -> str:
+    """Link-preview tags (Open Graph and Twitter Card), taken from the page's own
+    <title> and description so they can't drift apart. Addresses must be absolute."""
+    title = re.search(r"<title>([^<]*)</title>", html)
+    description = re.search(r'<meta name="description" content="([^"]*)">', html)
+    if not title or not description:
+        raise SystemExit(f"site/{path}: needs a <title> and a meta description for link previews")
+    url = SITE + path.removesuffix("index.html")
+    tags = [("property", "og:type", "website"), ("property", "og:site_name", "Threat Radar"),
+            ("property", "og:title", title.group(1)), ("property", "og:description", description.group(1)),
+            ("property", "og:url", url), ("property", "og:image", CARD),
+            ("property", "og:image:width", "1200"), ("property", "og:image:height", "630"),
+            ("property", "og:image:alt", CARD_ALT), ("name", "twitter:card", "summary_large_image")]
+    return "\n  ".join(f'<meta {kind}="{name}" content="{value}">' for kind, name, value in tags)
 
 
 def nav_href(root: str, href: str) -> str:
@@ -82,7 +106,7 @@ def nav_href(root: str, href: str) -> str:
 
 def render(path: str, html: str) -> str:
     root, current, note = PAGES[path]
-    for name, block in (("site-header", header(root, current)), ("site-footer", footer(root, note))):
+    for name, block in (("social", social(path, html)), ("site-header", header(root, current)), ("site-footer", footer(root, note))):
         pattern = re.compile(rf"<!-- {name} -->.*?<!-- /{name} -->", re.S)
         if not pattern.search(html):
             raise SystemExit(f"site/{path}: markers <!-- {name} --> … <!-- /{name} --> missing")

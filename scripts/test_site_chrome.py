@@ -35,5 +35,28 @@ class SiteChromeTest(unittest.TestCase):
             self.assertLess(html.index('theme.js"></script>'), html.index("</head>"), path)
 
 
+    def test_social_preview_tags_on_every_page(self):
+        """Spec 009 AC-5: link previews in Slack, LinkedIn, Teams."""
+        for path in site_chrome.PAGES:
+            html = (site_chrome.ROOT / path).read_text(encoding="utf-8")
+            tags = dict(re.findall(r'<meta (?:property|name)="((?:og|twitter):[a-z:_]+)" content="([^"]*)">', html))
+            for name in ("og:title", "og:description", "og:url", "og:site_name", "og:type", "og:image", "og:image:alt", "twitter:card"):
+                self.assertTrue(tags.get(name), f"{path}: {name}")
+            title = re.search(r"<title>([^<]*)</title>", html).group(1)
+            self.assertEqual(tags["og:title"], title, f"{path}: preview title follows the page title")
+            for name in ("og:url", "og:image"):
+                self.assertTrue(tags[name].startswith("https://zelin.se/"), f"{path}: {name} must be absolute")
+            expected_url = "https://zelin.se/" + path.removesuffix("index.html")
+            self.assertEqual(tags["og:url"], expected_url, path)
+            self.assertEqual(tags["twitter:card"], "summary_large_image")
+
+    def test_preview_image_is_a_1200x630_png_under_300_kb(self):
+        image = site_chrome.ROOT / "social-card.png"
+        data = image.read_bytes()
+        self.assertEqual(data[:8], b"\x89PNG\r\n\x1a\n")
+        width, height = int.from_bytes(data[16:20], "big"), int.from_bytes(data[20:24], "big")
+        self.assertEqual((width, height), (1200, 630))
+        self.assertLess(len(data), 300 * 1024)
+
 if __name__ == "__main__":
     unittest.main()

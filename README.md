@@ -54,6 +54,8 @@ searchable list moved to `/exploited/`; old links like `zelin.se/#CVE-…` forwa
 
 Spec: [`specs/007-briefing-redesign`](specs/007-briefing-redesign).
 
+The Today page reads `data/kev-recent.json`, a 400-day slice of the catalog built at deploy by [`scripts/build_recent.py`](scripts/build_recent.py), so its headline shows in about 2 seconds on a slow phone instead of 10. Link previews (Open Graph and Twitter Card tags) come from each page's own title and description, and [`site/social-card.png`](site/social-card.png) is rendered from [`scripts/social-card.html`](scripts/social-card.html). Spec: [`specs/009-previews-and-speed`](specs/009-previews-and-speed).
+
 ## The Cyber Sitrep section
 
 Every weekday a scheduled task emails the **📰 Cyber Sitrep**. A second scheduled

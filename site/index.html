@@ -9,6 +9,19 @@
   <meta name="referrer" content="no-referrer">
   <title>Threat Radar: today's cyber threat briefing</title>
   <meta name="description" content="A daily briefing on what attackers are exploiting right now: CISA's Known Exploited Vulnerabilities, the Cyber Sitrep and ransomware leak-site activity.">
+  <!-- Link previews in Slack, LinkedIn, Teams (spec 009; written by scripts/site_chrome.py) -->
+  <!-- social -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Threat Radar">
+  <meta property="og:title" content="Threat Radar: today's cyber threat briefing">
+  <meta property="og:description" content="A daily briefing on what attackers are exploiting right now: CISA's Known Exploited Vulnerabilities, the Cyber Sitrep and ransomware leak-site activity.">
+  <meta property="og:url" content="https://zelin.se/">
+  <meta property="og:image" content="https://zelin.se/social-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Threat Radar: what attackers are exploiting right now, a daily briefing at zelin.se">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- /social -->
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
   <!-- Feed autodiscovery: feed readers find these from the page address alone (spec 005 FR-7). -->
@@ -18,6 +31,17 @@
   <!-- Not a module and not deferred: picks light or dark before anything is drawn (spec 007). -->
   <script src="theme.js"></script>
   <script type="module" src="today.js"></script>
+  <!-- Spec 009: fetch everything the briefing needs at once instead of one import at a time,
+       and the headline font early, so the headline appears sooner on slow connections. -->
+  <link rel="modulepreload" href="ui.js">
+  <link rel="modulepreload" href="stats.js">
+  <link rel="modulepreload" href="today-logic.js">
+  <link rel="modulepreload" href="sitrep-logic.js">
+  <link rel="modulepreload" href="stack-page.js">
+  <link rel="modulepreload" href="stack-logic.js">
+  <link rel="modulepreload" href="stack-store.js">
+  <link rel="modulepreload" href="presets.js">
+  <link rel="preload" href="fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to the briefing</a>
@@ -50,7 +74,7 @@
       </div>
       <p class="freshness" id="today-fresh" aria-live="polite"></p>
       <!-- A plain link, not Buy Me a Coffee's widget: no third-party scripts, no tracking, no referrer. -->
-      <p class="support-note">No ads, ever. If Threat Radar helps you, you can <a href="https://buymeacoffee.com/devzelin" target="_blank" rel="noopener noreferrer">buy me a coffee</a>.</p>
+      <p class="support-note">No ads, ever. If Threat Radar helps you, you can <a class="coffee-link" href="https://buymeacoffee.com/devzelin" target="_blank" rel="noopener noreferrer"><svg class="coffee-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M4 9h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9z"/><path d="M16 11h1.5a2.5 2.5 0 0 1 0 5H16"/><path d="M8 3c-.6.8-.6 1.7 0 2.5M12 3c-.6.8-.6 1.7 0 2.5"/></svg>buy me a coffee</a>.</p>
     </section>
 
     <section aria-labelledby="glance-heading">
@@ -102,7 +126,7 @@
     <div class="site-footer__inner">
       <p>Data: <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" rel="noopener noreferrer">CISA Known Exploited Vulnerabilities catalog</a> (US government, public domain; not affiliated with CISA). Leak-site claims via <a href="https://www.ransomware.live/" rel="noopener noreferrer">Ransomware.live</a> and <a href="https://www.ransomlook.io/" rel="noopener noreferrer">RansomLook</a>.</p>
       <p>Your stack is kept only in this browser, and only if you tick Remember. Follow along in a feed reader, Slack or an automation tool: <a href="feeds/">Feeds</a>.</p>
-      <p>No ads, no trackers, no cookies, no third-party code. If Threat Radar helps you, you can <a href="https://buymeacoffee.com/devzelin" target="_blank" rel="noopener noreferrer">buy me a coffee</a>. <a href="https://github.com/smashytech/threat-radar" rel="noopener noreferrer">How this site works ↗</a></p>
+      <p>No ads, no trackers, no cookies, no third-party code. If Threat Radar helps you, you can <a class="coffee-link" href="https://buymeacoffee.com/devzelin" target="_blank" rel="noopener noreferrer"><svg class="coffee-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M4 9h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9z"/><path d="M16 11h1.5a2.5 2.5 0 0 1 0 5H16"/><path d="M8 3c-.6.8-.6 1.7 0 2.5M12 3c-.6.8-.6 1.7 0 2.5"/></svg>buy me a coffee</a>. <a href="https://github.com/smashytech/threat-radar" rel="noopener noreferrer">How this site works ↗</a></p>
     </div>
   </footer>
   <!-- /site-footer -->

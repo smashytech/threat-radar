@@ -121,6 +121,11 @@ jobs:
           BASE_URL: ${{ steps.pages.outputs.base_url }}   # passed as data, never pasted into the script
         run: python3 scripts/build_feeds.py --base-url "$BASE_URL"
 
+      # Spec 009: the Today page reads a small slice of the catalog (last 400 days,
+      # six fields) instead of the full 1.4 MB file. Derived, never committed.
+      - name: Build the Today page's catalog slice
+        run: python3 scripts/build_recent.py
+
       - name: Package the site for GitHub Pages
         uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         with:
