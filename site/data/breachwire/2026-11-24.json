@@ -1,0 +1,352 @@
+{
+  "date": "2026-11-24",
+  "issue": 93,
+  "window": "2026-11-23",
+  "stats": {
+    "victims": 49,
+    "groups": 19,
+    "countries": 19,
+    "regions": 6
+  },
+  "sweden": 0,
+  "regions": [
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 7
+        },
+        {
+          "country": "Canada",
+          "flag": "🇨🇦",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Europe",
+      "countries": [
+        {
+          "country": "Germany",
+          "flag": "🇩🇪",
+          "count": 4
+        },
+        {
+          "country": "Spain",
+          "flag": "🇪🇸",
+          "count": 1
+        },
+        {
+          "country": "France",
+          "flag": "🇫🇷",
+          "count": 1
+        },
+        {
+          "country": "United Kingdom",
+          "flag": "🇬🇧",
+          "count": 1
+        },
+        {
+          "country": "Italy",
+          "flag": "🇮🇹",
+          "count": 1
+        },
+        {
+          "country": "Romania",
+          "flag": "🇷🇴",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Middle East",
+      "countries": [
+        {
+          "country": "Iran",
+          "flag": "🇮🇷",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Latin America & Caribbean",
+      "countries": [
+        {
+          "country": "Brazil",
+          "flag": "🇧🇷",
+          "count": 2
+        },
+        {
+          "country": "Colombia",
+          "flag": "🇨🇴",
+          "count": 1
+        },
+        {
+          "country": "Mexico",
+          "flag": "🇲🇽",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Asia",
+      "countries": [
+        {
+          "country": "China",
+          "flag": "🇨🇳",
+          "count": 1
+        },
+        {
+          "country": "India",
+          "flag": "🇮🇳",
+          "count": 1
+        },
+        {
+          "country": "Japan",
+          "flag": "🇯🇵",
+          "count": 1
+        },
+        {
+          "country": "Philippines",
+          "flag": "🇵🇭",
+          "count": 1
+        },
+        {
+          "country": "Thailand",
+          "flag": "🇹🇭",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Oceania",
+      "countries": [
+        {
+          "country": "Australia",
+          "flag": "🇦🇺",
+          "count": 1
+        },
+        {
+          "country": "New Zealand",
+          "flag": "🇳🇿",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Unattributed",
+      "countries": [
+        {
+          "country": "Country not disclosed",
+          "flag": "🏳️",
+          "count": 20
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Sector not disclosed",
+      "count": 18
+    },
+    {
+      "sector": "Manufacturing",
+      "count": 13
+    },
+    {
+      "sector": "Professional Services",
+      "count": 7
+    },
+    {
+      "sector": "Healthcare",
+      "count": 3
+    },
+    {
+      "sector": "Agriculture and Food Production",
+      "count": 2
+    },
+    {
+      "sector": "Retail & E-Commerce",
+      "count": 2
+    },
+    {
+      "sector": "Education",
+      "count": 1
+    },
+    {
+      "sector": "Energy & Utilities",
+      "count": 1
+    },
+    {
+      "sector": "Technology",
+      "count": 1
+    },
+    {
+      "sector": "Transportation",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "The Gentlemen",
+      "hits": 12,
+      "profile": "Emerged mid-2025; reported to deploy its locker domain-wide via Group Policy and to target mid-size firms across many sectors. Today: a batch of 12 names posted 20:12–21:36 UTC, all RansomLook-only with no country tags.",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "SafePay",
+      "hits": 9,
+      "profile": "Active since late 2024, no affiliate program; known for fast VPN/RDP intrusions with stolen credentials. Today: a batch of 9 domain-named victims posted around 10:16–11:23 UTC.",
+      "countries": "Germany, Philippines, Romania, Spain, Thailand, United Kingdom, United States",
+      "sectors": "Agriculture and Food Production, Manufacturing, Professional Services, Retail & E-Commerce, not disclosed"
+    },
+    {
+      "name": "Qilin",
+      "hits": 4,
+      "profile": "Prolific RaaS (aka Agenda) since 2022; Rust/Go lockers, VMware ESXi targeting, double extortion; among the most active groups of 2025–26.",
+      "countries": "Mexico, not disclosed",
+      "sectors": "Manufacturing, not disclosed"
+    },
+    {
+      "name": "Space Bears",
+      "hits": 4,
+      "profile": "Data-extortion brand seen since 2024, with corporate-style leak pages; reported links to the Phobos ecosystem. Four names were posted together around 03:16–04:44 UTC.",
+      "countries": "Brazil, France, Germany, not disclosed",
+      "sectors": "Manufacturing, Professional Services"
+    },
+    {
+      "name": "Aurora",
+      "hits": 3,
+      "profile": "Newer leak site posting long, sector-tagged write-ups with redacted item lists (“The exposed material includes…”).",
+      "countries": "China, Italy, not disclosed",
+      "sectors": "Manufacturing, not disclosed"
+    },
+    {
+      "name": "Aoqin Leaks",
+      "hits": 2,
+      "profile": "Aoqin / Aoqin Leaks: little-documented leak site; today it posted a US moving company and a US imaging practice. The two feeds use different names for it, merged here.",
+      "countries": "United States",
+      "sectors": "Healthcare, Transportation"
+    },
+    {
+      "name": "Insomnia",
+      "hits": 2,
+      "profile": "Little-documented leak site. Both of today’s names are linked Connecticut municipal bodies, posted at 14:16 UTC, RansomLook-only.",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "Rhysida",
+      "hits": 2,
+      "profile": "RaaS since May 2023 (subject of CISA advisory AA23-319A); hits healthcare, education, government and legal; publishes large file inventories, as with both of today’s listings.",
+      "countries": "United States, not disclosed",
+      "sectors": "Professional Services"
+    },
+    {
+      "name": "Blackout",
+      "hits": 1,
+      "profile": "",
+      "countries": "India",
+      "sectors": "Energy & Utilities"
+    },
+    {
+      "name": "Dark Project",
+      "hits": 1,
+      "profile": "Leak site posting boilerplate “fell victim to a cyberattack” notices with volume claims.",
+      "countries": "United States",
+      "sectors": "Education"
+    },
+    {
+      "name": "Eclipse",
+      "hits": 1,
+      "profile": "Small leak site seen in recent issues, posting US mid-market firms with long company profiles.",
+      "countries": "United States",
+      "sectors": "Manufacturing"
+    },
+    {
+      "name": "Everstake",
+      "hits": 1,
+      "profile": "Little-documented leak site; its listings carry only a sector line.",
+      "countries": "Japan",
+      "sectors": "Manufacturing"
+    },
+    {
+      "name": "Falcon",
+      "hits": 1,
+      "profile": "It posts large exfiltration claims without encryption; RedPacket Security notes its claims are unverified.",
+      "countries": "New Zealand",
+      "sectors": "Healthcare"
+    },
+    {
+      "name": "Inc Ransom",
+      "hits": 1,
+      "profile": "INC Ransom, active since mid-2023; spear-phishing and exploitation of Citrix/FortiGate edge devices; heavy US healthcare and manufacturing focus.",
+      "countries": "United States",
+      "sectors": "Agriculture and Food Production"
+    },
+    {
+      "name": "LockBit 5.0",
+      "hits": 1,
+      "profile": "LockBit 5.0 is the relaunched LockBit brand after the 2024 Operation Cronos disruption; affiliate model, broad targeting.",
+      "countries": "Australia",
+      "sectors": "Professional Services"
+    },
+    {
+      "name": "MedusaLocker",
+      "hits": 1,
+      "profile": "Long-running RaaS (since 2019) relying on exposed RDP and phishing.",
+      "countries": "Brazil",
+      "sectors": "Technology"
+    },
+    {
+      "name": "Osiris",
+      "hits": 1,
+      "profile": "Leak site using countdown timers with revenue and headcount metadata; today’s listing publishes on 30 Nov.",
+      "countries": "Canada",
+      "sectors": "Retail & E-Commerce"
+    },
+    {
+      "name": "PixelLeaks",
+      "hits": 1,
+      "profile": "Posts descriptive, often unnamed targets with publication deadlines and itemised record lists. Today it named an Iranian compressor maker.",
+      "countries": "Iran",
+      "sectors": "Manufacturing"
+    },
+    {
+      "name": "Whitearmor",
+      "hits": 1,
+      "profile": "Small leak site focused on Latin American healthcare; today a “full release” of five Colombian clinic databases.",
+      "countries": "Colombia",
+      "sectors": "Healthcare"
+    }
+  ],
+  "quality": {
+    "singleSourced": 18,
+    "claimOnly": 2,
+    "sourcesDisagree": 1,
+    "newGroups": 0
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 58
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 71
+      }
+    ],
+    "merged": 74,
+    "masked": 25,
+    "reposts": 0,
+    "nonVictims": 0,
+    "lowCoverage": false
+  },
+  "lateToPress": 0
+}
