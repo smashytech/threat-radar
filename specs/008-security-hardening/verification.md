@@ -22,5 +22,5 @@ Date: 2026-11-24
 | **FR-7b** | ✅ | Live: a manual run with *approve publisher commits* printed `APPROVED: ab3bde6 …`, deployed, and moved `deployed` to ab3bde6 |
 | **AC-7** | ⏳ Owner | GitHub refuses ruleset creation from the builder's connection (403). Click-by-click steps: README → Security → Owner's checklist, step 1 |
 | **AC-8** | ✅ | `tests/ui.test.mjs`: https → link; http, `javascript:`, `data:`, `user:pass@` → plain text |
-| **AC-9** | ✅ / ⏳ | `site/.well-known/security.txt` (Contact, Expires 2027-11-24, Canonical, Policy) and `SECURITY.md` exist; the deploy log lists `./.well-known/security.txt` in the Pages package. The builder can't fetch zelin.se: owner to open https://zelin.se/.well-known/security.txt once |
+| **AC-9** | ✅ | `site/.well-known/security.txt` (Contact, Expires 2027-11-24, Canonical, Policy) and `SECURITY.md` exist; the deploy log lists `./.well-known/security.txt` in the Pages package. **Owner confirmed 2026-11-24 12:16:** https://zelin.se/.well-known/security.txt serves the full file (all four fields) |
 | **AC-10** | ⏳ Owner / ✅ | Wiki and `fonts` branch: refused from the builder's connection (owner checklist step 6). Publisher instructions already contain the rule (see plan §4) |
