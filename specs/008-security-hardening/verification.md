@@ -20,7 +20,18 @@ Date: 2026-11-24
 | **AC-5** | ✅ | Live: the stopped run left the site on the previous deploy (`deployed` tag stayed at 1b5e594) and the "Tell Slack the deploy was stopped" job ran. Messages are built from commit titles and file names only; escaping tested with `<!channel>` |
 | **AC-6** | ✅ | Live first run (3152f57): "First run: no earlier deploy to compare with", tag `deployed` set after the deploy |
 | **FR-7b** | ✅ | Live: a manual run with *approve publisher commits* printed `APPROVED: ab3bde6 …`, deployed, and moved `deployed` to ab3bde6 |
-| **AC-7** | ⏳ Owner | GitHub refuses ruleset creation from the builder's connection (403). Click-by-click steps: README → Security → Owner's checklist, step 1 |
+| **AC-7** | ✅ | Owner created ruleset "protect main" (2026-11-24 21:28): active on the default branch, rules `deletion` + `non_fast_forward`, no bypass. Normal pushes and the deploy's `deployed` tag still work (verified by the push recording this) |
 | **AC-8** | ✅ | `tests/ui.test.mjs`: https → link; http, `javascript:`, `data:`, `user:pass@` → plain text |
 | **AC-9** | ✅ | `site/.well-known/security.txt` (Contact, Expires 2027-11-24, Canonical, Policy) and `SECURITY.md` exist; the deploy log lists `./.well-known/security.txt` in the Pages package. **Owner confirmed 2026-11-24 12:16:** https://zelin.se/.well-known/security.txt serves the full file (all four fields) |
-| **AC-10** | ⏳ Owner / ✅ | Wiki and `fonts` branch: refused from the builder's connection (owner checklist step 6). Publisher instructions already contain the rule (see plan §4) |
+| **AC-10** | ✅ | Wiki off and `fonts` branch deleted by the owner (checked via the API). Publisher instructions already contain the rule (plan §4) |
+
+## Owner's checklist (2026-11-24)
+
+| Step | Status | How checked |
+|---|---|---|
+| Protect `main` | ✅ | API: ruleset active, deletion + force-push blocked |
+| Private vulnerability reporting | ✅ | API: `enabled: true` |
+| Dependabot alerts | ✅ owner | Not visible through the builder's connection |
+| Two-step login | ✅ owner | Account setting, not visible to the builder |
+| Verify zelin.se | ✅ owner | Not visible through the builder's connection |
+| Wiki off, `fonts` branch deleted | ✅ | API and `git ls-remote` |

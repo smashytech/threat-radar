@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | **Spec** | [spec.md](./spec.md) |
-| **Status** | Approved v1 (owner: "go", 2026-11-24). Built; owner checklist pending |
+| **Status** | Approved v1 (owner: "go", 2026-11-24). Built, verified, owner checklist done |
 
 ## 1. Where the gate sits
 
