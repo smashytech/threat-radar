@@ -1,0 +1,28 @@
+# Housekeeping amendments
+
+Repo-wide small changes that don't belong to one feature spec. Same format as a
+spec's `amendments.md`: request, decision, acceptance check, verification.
+
+## H1 · Commits in the owner's name (2026-11-24)
+
+*Recorded after the fact.*
+
+- **Request:** "for future commits … can we change so it looks like I've committed, not Claude".
+- **Decision:** all Claude sessions commit as `smashytech <207307169+smashytech@users.noreply.github.com>` (GitHub's private no-reply address) without `Co-Authored-By:` / `Claude-Session:` lines, via a rule in `CLAUDE.md` that every session reads. The KEV workflow keeps `github-actions[bot]` (honest about automation; the deploy gate uses titles, not names). Old commits unchanged.
+- **Check:** new commits show the owner's name and avatar; the publisher bots' next commits follow the rule.
+- **Verified:** commit 6c4206d and later. Publisher bots: to be confirmed on their next run (2026-11-25, about 08:45).
+
+## H2 · Shorter README and a specs index (2026-11-24)
+
+*Recorded after the fact.*
+
+- **Request:** "can we clean up readme? feels like we put too much information there".
+- **Decision:** the README keeps what a visitor needs (what it is, pages, how it works, security in brief, how to run it); per-feature detail and the threats table move to `specs/README.md`, which also notes which later spec changed what.
+- **Check:** no broken links to removed README sections.
+- **Verified:** 188 → 79 lines; `SECURITY.md` and spec 008 links updated.
+
+## H3 · The change-size rule (2026-11-24)
+
+- **Request:** "have we drifted from spec driven development?" Owner approved the three classes: feature, small change, trivial.
+- **Decision:** the rule is in `CLAUDE.md`; this file and the spec 007 amendments record the changes made without a spec before the rule existed.
+- **Check:** future changes name their class before code is written.

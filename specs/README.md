@@ -14,9 +14,15 @@ the table says so.
 | [004 My stack](004-my-stack) | Tick the software you run; named presets; stays in the browser | 007 (picker lives on `/exploited/`) |
 | [005 Feeds and Slack alerts](005-feeds-and-alerts) | Atom feeds (KEV, Sitrep, Breach Wire, one per vendor), the Feeds page, OPML export, Slack alerts | 007 (feed links point to `/exploited/`) |
 | [006 Vendor chart period](006-vendor-period) | 7d / 30d / 90d / 1y / All switch on the most-exploited-vendors chart | |
-| [007 Briefing redesign](007-briefing-redesign) | The Today front page, light and dark mode, self-hosted fonts, shared header and footer | 009 (faster Today page) |
+| [007 Briefing redesign](007-briefing-redesign) | The Today front page, light and dark mode, self-hosted fonts, shared header and footer | 009 (faster Today page); amendments A1–A5 |
 | [008 Security hardening](008-security-hardening) | The deploy gate, https-only links, `security.txt`, `SECURITY.md`, protected `main` | |
 | [009 Previews and speed](009-previews-and-speed) | Link previews for Slack, LinkedIn and Teams; Today page 9.9 s → 2.2 s on a slow phone | |
+
+**Small changes** are recorded as amendments in the spec that owns the area:
+[007 amendments](007-briefing-redesign/amendments.md) (tooltip, coffee cup, LinkedIn link,
+page headings, phone menu) and [housekeeping](housekeeping.md) for repo-wide changes
+(commit identity, README). How a change is sized (feature, small change, trivial) is
+set out in [`CLAUDE.md`](../CLAUDE.md).
 
 ## Where things live
 
