@@ -866,7 +866,7 @@ input[type="search"]::placeholder { color: var(--muted); opacity: 0.8; }
 
 @media (max-width: 560px) {
   .site-header__inner { gap: 0 16px; }
-  .site-nav { order: 3; width: 100%; gap: 0 16px; overflow-x: auto; flex-wrap: nowrap; }
+  .site-nav { order: 3; width: 100%; gap: 0 11px; overflow-x: auto; flex-wrap: nowrap; } /* all five fit at 360 px */
   .site-nav__link { white-space: nowrap; }
   .today { gap: 32px; padding-top: 28px; }
   .glance { grid-template-columns: repeat(2, minmax(0, 1fr)); }

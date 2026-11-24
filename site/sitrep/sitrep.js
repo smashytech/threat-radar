@@ -58,7 +58,7 @@ function showNotice(text) {
 function renderIssue(issue) {
   const items = issue.items || [];
   const emerging = issue.emerging || [];
-  document.title = `Sitrep ${formatShortDay(issue.date)}: Threat Radar`;
+  document.title = `Cyber Sitrep ${formatShortDay(issue.date)}: Threat Radar`;
   $("issue-line").textContent =
     `${formatLongDate(issue.date)} · ${items.length} incidents · ${emerging.length} emerging threats`;
 
