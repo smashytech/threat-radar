@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | **Spec ID** | 008-security-hardening |
-| **Status** | Draft v1, waiting for the owner's "go" |
+| **Status** | Approved v1 (owner: "go", 2026-11-24). Built; owner checklist pending |
 | **Owner** | smashytech |
 | **Builds on** | [001](../001-threat-radar/spec.md) – [007](../007-briefing-redesign/spec.md) |
 | **Created** | 2026-11-24 |

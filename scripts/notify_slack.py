@@ -171,6 +171,43 @@ def test_message(base: str) -> dict:
                                   + link(base, "Open Threat Radar"))])
 
 
+# ---------- Deploy gate (spec 008) ----------
+
+RUN_URL_PREFIX = "https://github.com/"
+
+
+def gate_message(report: dict, kind: str, base: str, run_url: str | None = None) -> dict | None:
+    """kind "blocked": the deploy was stopped and why. kind "heads-up": code changed (None if nothing to say).
+    Built from the gate report only: commit titles and file names, never data or secrets."""
+    run = link(run_url, "See the run") if run_url and run_url.startswith(RUN_URL_PREFIX) else ""
+    files = lambda names: ", ".join(f"`{slack_escape(n, 200)}`" for n in names)
+    if kind == "blocked":
+        lines = [":no_entry: *Deploy stopped by the security gate.* The live site is unchanged."]
+        for v in report.get("lane_violations", []):
+            lines.append(f"• A {slack_escape(v.get('lane'))} publisher commit (_{slack_escape(v.get('subject'), 120)}_) "
+                         f"changed files outside its data: {files(v.get('files', []))}")
+        for f in report.get("rule_failures", []):
+            lines.append(f"• The {slack_escape(f.get('gatekeeper'))} rules were changed, and the data no longer passes the "
+                         "previous rules. If that change is intended, run the workflow by hand with *accept rule change*.")
+        blocks = [section("\n".join(lines))]
+        if run:
+            blocks.append(context(run))
+        return message("Threat Radar: deploy stopped by the security gate", blocks)
+    code = report.get("code_changes", {})
+    if report.get("first_run") or not code.get("files"):
+        return None
+    more = code.get("more_files", 0)
+    lines = [":mag: *Code changed in this deploy* (not just data). Worth a glance:",
+             files(code["files"]) + (f" and {more} more" if more else "")]
+    if code.get("commits"):
+        lines.append("Commits: " + "; ".join(f"_{slack_escape(c, 120)}_" for c in code["commits"]))
+    if report.get("accepted_rule_change"):
+        lines.append(":warning: A loosened gatekeeper rule was accepted by a manual run.")
+    blocks = [section("\n".join(lines))]
+    blocks.append(context((run + " · " if run else "") + link(base, "Open Threat Radar")))
+    return message("Threat Radar: code changed in this deploy", blocks)
+
+
 # ---------- From data folders to alerts ----------
 
 class Unreadable(Exception):
@@ -242,6 +279,9 @@ def main(argv: list[str] | None = None, env: dict | None = None, sleep=time.slee
     parser.add_argument("--site-url", required=True, help="the live site address, for links")
     parser.add_argument("--test-message", action="store_true", help="send only a 'set up' test message")
     parser.add_argument("--dry-run", action="store_true", help="print the messages instead of sending them")
+    parser.add_argument("--gate-report", help="a deploy gate report (JSON text) to post instead of news (spec 008)")
+    parser.add_argument("--gate-kind", choices=["blocked", "heads-up"], help="which gate message to post")
+    parser.add_argument("--run-url", help="link to the workflow run (github.com only)")
     args = parser.parse_args(argv)
     try:
         base = site_address(args.site_url)
@@ -249,7 +289,19 @@ def main(argv: list[str] | None = None, env: dict | None = None, sleep=time.slee
         print(f"Error: {err}", file=sys.stderr)
         return 2
 
-    if args.test_message:
+    if args.gate_report is not None:
+        try:
+            report = json.loads(args.gate_report)
+            if not isinstance(report, dict) or not args.gate_kind:
+                raise ValueError("needs a JSON object and --gate-kind")
+        except ValueError as err:
+            print(f"Error: unreadable gate report ({err})", file=sys.stderr)
+            return 2
+        payload = gate_message(report, args.gate_kind, base, args.run_url)
+        alerts, notes = ([Alert("Gate", 1, payload)] if payload else []), []
+        if not payload:
+            print("Gate: nothing to report")
+    elif args.test_message:
         alerts, notes = [Alert("Test", 1, test_message(base))], []
     elif args.old is None:
         print("Error: --old is required (or use --test-message)", file=sys.stderr)
@@ -258,7 +310,7 @@ def main(argv: list[str] | None = None, env: dict | None = None, sleep=time.slee
         alerts, notes = messages_for(args.old, args.new, base)
     for note in notes:
         print(note)
-    if not args.test_message:
+    if not args.test_message and args.gate_report is None:
         for kind in KINDS:
             if kind not in {a.kind for a in alerts} and not any(n.startswith(kind + ":") for n in notes):
                 print(f"{kind}: nothing new")
@@ -285,7 +337,7 @@ def main(argv: list[str] | None = None, env: dict | None = None, sleep=time.slee
         if n:
             sleep(PAUSE)
         ok, detail = send(url, alert.payload)
-        label = "test message" if alert.kind == "Test" else f"{alert.count} new"
+        label = {"Test": "test message", "Gate": "gate message"}.get(alert.kind, f"{alert.count} new")
         if ok:
             print(f"{alert.kind}: {label} → sent")
         else:

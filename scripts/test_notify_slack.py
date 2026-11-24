@@ -9,6 +9,7 @@ The victim names used here are INVENTED (spec 003 FR-2).
 
 import io
 import json
+import contextlib
 import re
 import sys
 import tempfile
@@ -143,6 +144,58 @@ class IssueMessages(unittest.TestCase):
                      f"<{BASE}ransomware/?d=2026-11-04|"):
             self.assertIn(part, shown)
         self.assertNotIn("Sweden hit", texts(notify_slack.breachwire_message([breachwire(76, "2026-11-07")], BASE)))
+
+
+class GateMessages(unittest.TestCase):
+    """Spec 008: deploy gate messages (blocked deploy, code heads-up)."""
+    BLOCKED = {"ok": False, "first_run": False, "base": "aaaaaaa", "head": "bbbbbbb", "accepted_rule_change": False,
+               "lane_violations": [{"sha": "ccccccc", "subject": "breachwire: <!channel> fold & go", "lane": "breachwire",
+                                    "files": ["scripts/add_breachwire.py"]}],
+               "rules_changed": ["breachwire"], "rule_failures": [{"gatekeeper": "breachwire"}],
+               "code_changes": {"files": ["scripts/add_breachwire.py"], "commits": ["breachwire: <!channel> fold & go"]}}
+    RUN = "https://github.com/smashytech/threat-radar/actions/runs/123"
+
+    def text(self, payload):
+        return json.dumps(payload, ensure_ascii=False)
+
+    def test_blocked_message_names_the_reason_and_links_the_run(self):
+        shown = self.text(notify_slack.gate_message(self.BLOCKED, "blocked", BASE, self.RUN))
+        self.assertIn("Deploy stopped", shown)
+        self.assertIn("scripts/add_breachwire.py", shown)
+        self.assertIn("accept rule change", shown)
+        self.assertIn(f"<{self.RUN}|", shown)
+        self.assertNotIn("<!channel>", shown, "commit titles are escaped")
+        self.assertIn("&lt;!channel&gt; fold &amp; go", shown)
+
+    def test_heads_up_lists_code_changes(self):
+        report = dict(self.BLOCKED, ok=True, lane_violations=[], rule_failures=[],
+                      code_changes={"files": ["site/today.js"], "commits": ["Today: tooltip"], "more_files": 3})
+        shown = self.text(notify_slack.gate_message(report, "heads-up", BASE, self.RUN))
+        self.assertIn("Code changed", shown)
+        self.assertIn("site/today.js", shown)
+        self.assertIn("Today: tooltip", shown)
+        self.assertIn("3 more", shown)
+
+    def test_no_heads_up_for_data_only_or_first_run(self):
+        quiet = dict(self.BLOCKED, ok=True, lane_violations=[], rule_failures=[], code_changes={"files": [], "commits": []})
+        self.assertIsNone(notify_slack.gate_message(quiet, "heads-up", BASE, self.RUN))
+        self.assertIsNone(notify_slack.gate_message(dict(quiet, first_run=True), "heads-up", BASE, self.RUN))
+
+    def test_only_github_run_links(self):
+        shown = self.text(notify_slack.gate_message(self.BLOCKED, "blocked", BASE, "https://evil.example/run"))
+        self.assertNotIn("evil.example", shown)
+
+    def test_cli_dry_run_with_a_gate_report(self):
+        out = io.StringIO()
+        with contextlib.redirect_stdout(out):
+            code = notify_slack.main(["--site-url", BASE, "--gate-report", json.dumps(self.BLOCKED), "--gate-kind", "blocked",
+                                "--run-url", self.RUN, "--dry-run"], env={})
+        self.assertEqual(code, 0)
+        self.assertIn("Deploy stopped", out.getvalue())
+
+    def test_cli_rejects_a_broken_report(self):
+        with contextlib.redirect_stderr(io.StringIO()):
+            self.assertEqual(notify_slack.main(["--site-url", BASE, "--gate-report", "{not json", "--gate-kind", "blocked"], env={}), 2)
 
 
 class FromData(unittest.TestCase):

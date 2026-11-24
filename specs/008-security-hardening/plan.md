@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | **Spec** | [spec.md](./spec.md) |
-| **Status** | Draft v1, waiting for "go" |
+| **Status** | Approved v1 (owner: "go", 2026-11-24). Built; owner checklist pending |
 
 ## 1. Where the gate sits
 
@@ -38,3 +38,14 @@
 | `tests/ui.test.mjs` (extended) | `http://` → plain text, `https://` → link, `javascript:` still blocked → AC-8 |
 | `scripts/test_security_txt.py` | required fields, `Expires` in the future and more than 30 days away, no email address → AC-9 |
 | Live | a deliberately bad test push on a throwaway branch is **not** used (it would deploy); instead the gate is run in CI against a temporary repo; then the real first run sets the tag → AC-6 |
+
+## 4. Changes during build
+
+| Change | Why |
+|---|---|
+| The **`main` rule, wiki and `fonts` branch** are on the owner's checklist (README → Security) instead of done by the builder | GitHub refuses settings changes, rulesets and branch deletion through the builder's connection (HTTP 403) |
+| The publishers' instructions were **not rewritten** | Both already say "never edit scripts, tests or workflows; only commit your data folder; otherwise skip and notify" (the Breach Wire one since 20 Nov, two days after its gatekeeper edit). The gate enforces it regardless of what the instructions say |
+| `upload-pages-artifact` gets `include-hidden-files: true`, and a test checks `.well-known` is the only hidden path in `site/` | The pinned version skips dot-folders by default, so `security.txt` would never have been published |
+| The old-rules check copies **both** gatekeeper files and runs them with `-E -s` from a fresh folder (not `-I`) | `add_breachwire.py` imports `add_sitrep.py`; `-I` would hide that import. A fresh folder holding only those two files keeps planted modules out (tested) |
+| `safeWebUrl` also refuses links with a user name or password | `https://user:pass@evil.example/` is a classic way to disguise a link's real destination |
+| Gate tried against real history: from before 18 Nov it stops both Breach Wire commits that edited `add_breachwire.py`; today's range passes with a code note | Evidence that the lanes catch the incident that started this spec |

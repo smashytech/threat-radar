@@ -25,11 +25,12 @@ export function svgEl(tag, attrs = {}, text) {
   return node;
 }
 
-/** Only real web links become clickable. Blocks tricks like "javascript:" URLs. */
+/** Only real, encrypted web links become clickable (spec 008: https only).
+ *  Blocks tricks like "javascript:" URLs and links with a user name or password in them. */
 export function safeWebUrl(text) {
   try {
     const url = new URL(String(text).trim());
-    return url.protocol === "https:" || url.protocol === "http:" ? url.href : null;
+    return url.protocol === "https:" && !url.username && !url.password ? url.href : null;
   } catch {
     return null;
   }

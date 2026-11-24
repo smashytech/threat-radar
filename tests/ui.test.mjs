@@ -34,3 +34,18 @@ test("'time ago' is English", () => {
   assert.equal(timeAgo(ago(60)), "1 minute ago");
   assert.equal(timeAgo(ago(5)), "just now");
 });
+
+// Spec 008 AC-8: only https:// links from data become clickable.
+import { safeWebUrl } from "../site/ui.js";
+
+test("safeWebUrl: https links pass, everything else is refused", () => {
+  assert.equal(safeWebUrl("https://www.cisa.gov/news"), "https://www.cisa.gov/news");
+  assert.equal(safeWebUrl("  https://nvd.nist.gov/vuln/detail/CVE-2026-1  "), "https://nvd.nist.gov/vuln/detail/CVE-2026-1");
+  assert.equal(safeWebUrl("http://example.com/advisory"), null, "plain http is no longer a link");
+  assert.equal(safeWebUrl("javascript:alert(1)"), null);
+  assert.equal(safeWebUrl("JaVaScRiPt:alert(1)"), null);
+  assert.equal(safeWebUrl("data:text/html,<script>alert(1)</script>"), null);
+  assert.equal(safeWebUrl("https://user:pass@evil.example/"), null, "no credentials in links");
+  assert.equal(safeWebUrl("not a url"), null);
+  assert.equal(safeWebUrl(undefined), null);
+});

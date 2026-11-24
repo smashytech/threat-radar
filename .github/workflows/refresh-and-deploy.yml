@@ -1,4 +1,5 @@
 # The robot. Twice a day (and whenever something is pushed) it:
+#   0. runs the security gate: checks what's about to go live (spec 008)
 #   1. runs every test (stops here if anything fails)
 #   2. downloads + validates the CISA KEV catalog
 #   3. commits the data, but only if it changed
@@ -7,7 +8,8 @@
 #   6. tells Slack what's new since the last alert (spec 005; only if the secret is set)
 #
 # You can also run it by hand: Actions tab -> "Refresh data & deploy" -> "Run workflow".
-# Tick "Send a test message to Slack" there to check the Slack setup.
+# Tick "Send a test message to Slack" there to check the Slack setup, or
+# "Accept rule change" to approve data that only passes loosened gatekeeper rules.
 
 name: Refresh data & deploy
 
@@ -18,6 +20,10 @@ on:
     inputs:
       test_alert:
         description: "Send a test message to Slack (checks the alert setup)"
+        type: boolean
+        default: false
+      accept_rule_change:
+        description: "Accept rule change: publish data that only passes loosened gatekeeper rules (spec 008)"
         type: boolean
         default: false
   push:
@@ -41,7 +47,8 @@ jobs:
       pages: read       # allowed to look up the site's address (for full links in the feeds)
     outputs:
       data_sha: ${{ steps.published.outputs.sha }}     # the commit whose data is being published
-      base_url: ${{ steps.pages.outputs.base_url }}    # e.g. http://zelin.se (https once enforced)
+      base_url: ${{ steps.pages.outputs.base_url }}    # e.g. https://zelin.se
+      gate_report: ${{ steps.gate.outputs.gate_report }}   # what the security gate found (spec 008)
     steps:
       # Actions are pinned to an exact commit (the long hash) so nobody can swap
       # the code behind a version tag. Dependabot updates these hashes weekly.
@@ -51,6 +58,23 @@ jobs:
           # Keeps the push credential in .git/ for the commit step below.
           # Safe here: only the site/ folder is ever published, never .git/.
           persist-credentials: true
+          fetch-depth: 0     # the whole history, so the gate can compare with the last deploy
+          fetch-tags: true
+
+      # Spec 008: every push arrives as the same GitHub account, so this gate
+      # tells the publishers apart by their commit titles and checks that they
+      # only changed their own data, and that loosened rules don't slip through.
+      # It runs first, so a stopped deploy always has a report for Slack.
+      - name: Security gate
+        id: gate
+        env:
+          ACCEPT: ${{ github.event_name == 'workflow_dispatch' && inputs.accept_rule_change }}
+        run: |
+          if [ "$ACCEPT" = "true" ]; then
+            python3 scripts/deploy_gate.py --accept-rule-change
+          else
+            python3 scripts/deploy_gate.py
+          fi
 
       - name: Run tests
         run: |
@@ -96,6 +120,9 @@ jobs:
         uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         with:
           path: site
+          # Needed for site/.well-known/security.txt (spec 008). The site test
+          # checks that .well-known is the only hidden folder in site/.
+          include-hidden-files: true
 
   deploy:
     name: Publish to GitHub Pages
@@ -131,6 +158,18 @@ jobs:
           fetch-depth: 0         # the whole history, so the old data can be read back
           fetch-tags: true
           persist-credentials: true   # to push the tag; only site/ is ever published
+
+      # Spec 008: the deploy succeeded, so this commit is now "the last deployed one"
+      # the security gate compares the next run with. First thing in this job, so
+      # a Slack hiccup below can't stop it.
+      - name: Mark this commit as deployed
+        env:
+          DATA_SHA: ${{ needs.refresh.outputs.data_sha }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git tag -f deployed "$DATA_SHA"
+          git push -f origin refs/tags/deployed
 
       - name: Send a test message
         if: github.event_name == 'workflow_dispatch' && inputs.test_alert
@@ -169,3 +208,44 @@ jobs:
           # Only reached if every message went through; otherwise the news is retried next run.
           git tag -f alerts-sent "$DATA_SHA"
           git push -f origin refs/tags/alerts-sent
+
+      - name: Heads-up if code changed (spec 008)
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SITE_URL: ${{ needs.refresh.outputs.base_url }}
+          GATE_REPORT: ${{ needs.refresh.outputs.gate_report }}   # passed as data, never pasted into the script
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          if [ -z "$SLACK_WEBHOOK_URL" ] || [ -z "$GATE_REPORT" ]; then
+            echo "Nothing to send (no Slack secret or no gate report)."
+            exit 0
+          fi
+          python3 scripts/notify_slack.py --gate-report "$GATE_REPORT" --gate-kind heads-up --run-url "$RUN_URL" --site-url "$SITE_URL"
+
+  # Spec 008: the security gate stopped the deploy. The live site is unchanged;
+  # this tells Slack why (GitHub also emails the owner that the run failed).
+  blocked:
+    name: Tell Slack the deploy was stopped
+    needs: refresh
+    if: failure() && needs.refresh.outputs.gate_report != '' && !fromJSON(needs.refresh.outputs.gate_report).ok
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - name: Check out the scripts
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Post the reason
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          GATE_REPORT: ${{ needs.refresh.outputs.gate_report }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          if [ -z "$SLACK_WEBHOOK_URL" ]; then
+            echo "::warning::Deploy stopped by the security gate; Slack isn't set up, so only GitHub's failure email goes out."
+            exit 0
+          fi
+          python3 scripts/notify_slack.py --gate-report "$GATE_REPORT" --gate-kind blocked --run-url "$RUN_URL" --site-url "https://zelin.se/"

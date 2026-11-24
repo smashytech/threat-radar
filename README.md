@@ -115,7 +115,11 @@ Slack"** ticked. Without the secret, alerts are simply skipped.
 
 Spec: [`specs/005-feeds-and-alerts`](specs/005-feeds-and-alerts).
 
-## Security choices
+## Security
+
+Found a problem? Please report it privately: see [SECURITY.md](SECURITY.md)
+(also linked from [`/.well-known/security.txt`](site/.well-known/security.txt)).
+
 
 | Threat | Defence |
 |---|---|
@@ -127,6 +131,19 @@ Spec: [`specs/005-feeds-and-alerts`](specs/005-feeds-and-alerts).
 | Data text sneaking markup into a feed, or `@channel` / fake links into Slack | Feeds are written by an XML library after removing forbidden characters; Slack text is escaped so `<!channel>` shows as plain text, and link previews are off |
 | The Slack webhook address leaking | Only in a GitHub secret, visible to two steps of one job, never printed; the script only accepts `https://hooks.slack.com/` addresses |
 | A visitor's software list (handy reconnaissance) | Kept only in their own browser, never in a cookie, request or the repo; stored or shared stacks are strictly validated and shown as text |
+| A publisher bot (reading outside text) changing code or loosening its own rules | The **deploy gate** ([`scripts/deploy_gate.py`](scripts/deploy_gate.py), spec 008) runs before every deploy: a `sitrep:` / `breachwire:` / `data:` commit may only change its own data folder; if a gatekeeper's rules changed, the data must also pass the previous rules unless the run is started by hand with *accept rule change*; any code change gets a Slack heads-up |
+| Links from data pointing somewhere unexpected | Only `https://` links without a user name or password become clickable; everything else shows as text |
+
+### Owner's checklist (GitHub settings the builder can't change)
+
+Each takes a minute or two. Settings live under **github.com/smashytech/threat-radar → Settings**.
+
+1. **Protect `main`**: *Settings → Rules → Rulesets → New ruleset → New branch ruleset*. Name `Protect main`, Enforcement **Active**, *Target branches → Add target → Include default branch*. Under *Rules*, keep only **Restrict deletions** and **Block force pushes** ticked (untick everything else). **Create**. Normal pushes keep working.
+2. **Private vulnerability reporting**: *Settings → Security (Advanced Security) → Private vulnerability reporting → Enable*. This is where `SECURITY.md` and `security.txt` point.
+3. **Dependabot alerts**: same page → *Dependabot alerts → Enable*.
+4. **Verify the domain**: your profile picture → *Settings → Pages → Add a domain* → `zelin.se`. GitHub shows a TXT record (`_github-pages-challenge-smashytech.zelin.se`); add it at your DNS provider, wait a few minutes, click **Verify**, and keep the record. This stops anyone else claiming zelin.se on GitHub.
+5. **Two-step login**: your profile picture → *Settings → Password and authentication* → check that **Two-factor authentication** is on.
+6. **Tidy up**: *Settings → General → Features* → untick **Wikis**. Then *Code → Branches* → delete the old **fonts** branch.
 
 ## Run it yourself
 

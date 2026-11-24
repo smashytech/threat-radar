@@ -1,0 +1,8 @@
+# Threat Radar security contact (RFC 9116, https://www.rfc-editor.org/rfc/rfc9116).
+# Found a security problem with zelin.se or its code? Please report it privately
+# through GitHub, not in a public issue.
+Contact: https://github.com/smashytech/threat-radar/security/advisories/new
+Expires: 2027-11-24T00:00:00.000Z
+Preferred-Languages: en, sv
+Canonical: https://zelin.se/.well-known/security.txt
+Policy: https://github.com/smashytech/threat-radar/blob/main/SECURITY.md
