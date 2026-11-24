@@ -1,6 +1,6 @@
 // Browser verification for spec 007 (Today page, /exploited/ move, light/dark, new look).
 // Needs Playwright (not a project dependency). From the repo root:
-//   python3 scripts/build_feeds.py --base-url http://localhost:8765/
+//   python3 scripts/build_feeds.py --base-url http://localhost:8765/ && python3 scripts/build_recent.py
 //   python3 -m http.server 8765 --directory site &
 //   node specs/007-briefing-redesign/browser-check.cjs specs/007-briefing-redesign/evidence
 const { chromium } = require('playwright');
@@ -208,7 +208,14 @@ const DARK_BG = 'rgb(14, 17, 22)';
   await ctxPhone.close();
 
   // ---------- AC-11: the (i) next to "Overdue" (added after release, owner's request) ----------
+  // The check brings its own overdue entries: on many days none of the newest four
+  // is past its deadline, and the check must not depend on that.
+  const overdueData = async (ctxX) => ctxX.route(/data\/kev-recent\.json$/, async (route) => {
+    const entries = JSON.parse(fs.readFileSync(path.join(DATA, 'kev-recent.json'), 'utf8'));
+    await route.fulfill({ contentType: 'application/json', body: JSON.stringify(entries.map((e) => ({ ...e, dueDate: '2020-01-01' }))) });
+  });
   const ctxTip = await newContext(browser, { viewport: { width: 1280, height: 1400 } });
+  await overdueData(ctxTip);
   page = await open(ctxTip, SITE);
   const overdueRows = await page.$$eval('.today-item__due--overdue', (els) => els.length);
   const tipCount = await page.$$eval('.info-tip', (els) => els.length);
@@ -220,6 +227,7 @@ const DARK_BG = 'rgb(14, 17, 22)';
   const described = await page.$eval('.info-tip', (b) => document.getElementById(b.getAttribute('aria-describedby'))?.textContent.length > 0);
   await ctxTip.close();
   const ctxTap = await newContext(browser, { viewport: { width: 360, height: 780 }, hasTouch: true, isMobile: true, colorScheme: 'dark' });
+  await overdueData(ctxTap);
   page = await open(ctxTap, SITE);
   await page.locator('.info-tip').first().scrollIntoViewIfNeeded();
   await page.tap('.info-tip');

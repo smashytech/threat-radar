@@ -51,9 +51,9 @@ function showNotice(text) {
 // ---------- Issue ----------
 
 function renderIssue(issue) {
-  document.title = `Breach Wire №${issue.issue}: Threat Radar`;
+  document.title = `Breaches, Breach Wire №${issue.issue}: Threat Radar`;
   $("issue-line").textContent =
-    `Issue №${issue.issue} · ${formatLongDate(issue.date)} · covering ${formatShortDay(issue.window)} (UTC)`;
+    `Breach Wire №${issue.issue} · ${formatLongDate(issue.date)} · covering ${formatShortDay(issue.window)} (UTC)`;
 
   $("bw-victims").textContent = numberFmt.format(issue.stats.victims);
   $("bw-groups").textContent = numberFmt.format(issue.stats.groups);

@@ -70,12 +70,15 @@ def footer(root: str, note: str | None) -> str:
     <div class="site-footer__inner">{note_html}
       <p>Data: <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" rel="noopener noreferrer">CISA Known Exploited Vulnerabilities catalog</a> (US government, public domain; not affiliated with CISA). Leak-site claims via <a href="https://www.ransomware.live/" rel="noopener noreferrer">Ransomware.live</a> and <a href="https://www.ransomlook.io/" rel="noopener noreferrer">RansomLook</a>.</p>
       <p>Your stack is kept only in this browser, and only if you tick Remember. Follow along in a feed reader, Slack or an automation tool: <a href="{root}feeds/">Feeds</a>.</p>
-      <p>No ads, no trackers, no cookies, no third-party code. If Threat Radar helps you, you can <a class="coffee-link" href="https://buymeacoffee.com/devzelin" target="_blank" rel="noopener noreferrer">{COFFEE}buy me a coffee</a>. <a href="https://github.com/smashytech/threat-radar" rel="noopener noreferrer">How this site works ↗</a></p>
+      <p>No ads, no trackers, no cookies, no third-party code. If Threat Radar helps you, you can <a class="coffee-link" href="https://buymeacoffee.com/devzelin" target="_blank" rel="noopener noreferrer">{COFFEE}buy me a coffee</a>.</p>
+      <p><a class="linkedin-link" href="https://www.linkedin.com/in/rikardzelin/" target="_blank" rel="noopener noreferrer">{LINKEDIN}Connect with me on LinkedIn</a> · <a href="https://github.com/smashytech/threat-radar" rel="noopener noreferrer">How this site works ↗</a></p>
     </div>
   </footer>"""
 
 
 COFFEE = ('<svg class="coffee-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M4 9h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9z"/><path d="M16 11h1.5a2.5 2.5 0 0 1 0 5H16"/><path d="M8 3c-.6.8-.6 1.7 0 2.5M12 3c-.6.8-.6 1.7 0 2.5"/></svg>')
+
+LINKEDIN = ('<svg class="link-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10.5v6M8 7.5v.01M12 16.5v-6M12 13.5a2.5 2.5 0 0 1 5 0v3"/></svg>')
 
 SITE = "https://zelin.se/"
 CARD = SITE + "social-card.png"
