@@ -25,7 +25,7 @@ without a concrete impact.
 
 ## How the site protects itself
 
-A short overview; the details are in the [README](README.md#security) and the
+A short overview; the details are in the [specs index](specs/README.md#threats-and-defences) and the
 specs under [`specs/`](specs).
 
 - A strict Content Security Policy on every page: only this site's own files can

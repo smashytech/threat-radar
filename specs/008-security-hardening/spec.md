@@ -57,7 +57,7 @@ This spec adds a **deploy gate** (option A, chosen by the owner) and a set of sm
 - **FR-11** A way to report security problems privately: `SECURITY.md` in the repo and `/.well-known/security.txt` on the site (RFC 9116), both pointing to GitHub's private vulnerability reporting. No personal email address anywhere.
 - **FR-12** Remove what isn't used: the leftover `fonts` branch, and the wiki.
 
-## 5. The owner's part (click-by-click steps in the README)
+## 5. The owner's part (done 2026-11-24, see [verification.md](verification.md#owners-checklist-2026-11-24))
 
 | Step | Why |
 |---|---|

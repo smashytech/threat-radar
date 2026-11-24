@@ -1,188 +1,79 @@
 # Threat Radar
 
-**Which software flaws are attackers exploiting right now?** This site answers
-that question using CISA's
-[Known Exploited Vulnerabilities (KEV) catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog),
-and it **updates itself twice a day** with no human involved.
-
-- **Today**: the front page is a morning briefing: the day's headline from the Cyber Sitrep, four key numbers, the newest exploited flaws, Sitrep highlights, the latest Breach Wire and the monthly trend
-- **Light and dark mode**: follows your device, or tap the moon/sun in the header (remembered in your browser)
-- **Exploited** (`/exploited/`): summary of what's new this week and month, plus ransomware-linked entries
-- A live radar of the last 30 days (newer = closer to the centre)
-- Monthly trend and most-exploited vendors
-- Search by CVE, vendor, product or keyword, with filters
-- **Cyber Sitrep** section: the daily threat-intel bulletin with an archive, its CVEs cross-checked against KEV
-- **Breaches** section (`/ransomware/`): the daily Breach Wire digest as statistics and threat-group intelligence (never victim names), plus KEV entries known to be used by ransomware
-- **Feeds and Slack alerts**: Atom feeds for new KEV entries, the Sitrep, the Breach Wire and every vendor; a Feeds page; Slack messages to the owner's channel when something new is published
-- **My stack**: tick the vendors and products you run, keep named presets, and every page highlights what affects you. It stays in your browser
-- No trackers, no cookies, no third-party code
+**Which software flaws are attackers exploiting right now?** A daily cyber threat
+briefing at **[zelin.se](https://zelin.se)**, built on CISA's
+[Known Exploited Vulnerabilities catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog)
+and updated automatically, with no human in the loop.
 
 ![Threat Radar: the Today page](specs/007-briefing-redesign/evidence/today-light.png)
+
+| Page | What it shows |
+|---|---|
+| **Today** | A morning briefing: the day's headline, key numbers, newest exploited flaws, Sitrep highlights, ransomware activity |
+| **Exploited** | The full catalog with a live radar, trends, search and filters |
+| **Sitrep** | The daily Cyber Sitrep, with its CVEs checked against the catalog |
+| **Breaches** | Ransomware leak-site activity as statistics and group profiles, never victim names |
+| **Feeds** | Atom feeds for readers, Slack and automation tools, including one per vendor |
+
+Also: **My stack** (tick the software you run and every page highlights what affects
+you; it never leaves your browser), light and dark mode, and no ads, trackers,
+cookies or third-party code.
 
 ## How it works
 
 ```mermaid
 flowchart LR
-    CISA[(CISA KEV feed)] -->|06:17 & 18:17 UTC| A
+    CISA[(CISA catalog)] --> A
+    E[(Daily email digests)] --> B[Publisher bots]
+    B -->|data only, checked by gatekeepers| R
     subgraph GitHub
-        A[GitHub Actions<br/>test → fetch → validate] -->|only if data changed| R[(This repo<br/>data history)]
-        A --> P[GitHub Pages]
-        D[Dependabot] -.weekly update PRs.-> R
+        A[Actions: fetch twice a day] --> R[(This repo)]
+        R --> G[Deploy gate + tests] --> P[GitHub Pages]
     end
     P --> V([Your browser])
 ```
 
-1. **GitHub Actions** ([`refresh-and-deploy.yml`](.github/workflows/refresh-and-deploy.yml)) wakes up on a schedule.
-2. It runs all tests. If any fail, it stops and nothing is published.
-3. [`scripts/fetch_kev.py`](scripts/fetch_kev.py) downloads the catalog and **validates** it. If the feed is broken, the old data stays live and the run turns red.
-4. If the catalog changed, the new data is **committed**. Scroll the commit history to travel back in time.
-5. The [`site/`](site) folder is published to **GitHub Pages**.
-6. **Dependabot** checks weekly for updates to the Actions used here. The [Tests](.github/workflows/tests.yml) workflow checks each update before you merge.
-
-## The look: Today page, themes and fonts
-
-The site's front page, [`site/index.html`](site/index.html), is a **morning briefing**
-built by [`site/today.js`](site/today.js) from the same published data as every other
-page; the deciding (headline, "this week" line, overdue dates) lives in
-[`site/today-logic.js`](site/today-logic.js) and is tested. The headline is the
-first sentence of the latest Sitrep's summary, without asides in brackets. The full
-searchable list moved to `/exploited/`; old links like `zelin.se/#CVE-…` forward there.
-
-- **Themes**: all colours are variables at the top of [`site/styles.css`](site/styles.css), once for light and once for dark. [`site/theme.js`](site/theme.js) runs before the page is drawn, so there's no white flash, and [`tests/contrast.test.mjs`](tests/contrast.test.mjs) checks every colour pair meets WCAG AA in both themes.
-- **Header and footer** are identical on every page. Edit them in [`scripts/site_chrome.py`](scripts/site_chrome.py) and run it; a test fails if a page falls out of sync.
-- **Fonts** (Inter, Space Grotesk, JetBrains Mono) are stored in [`site/fonts/`](site/fonts) with their licences and checksums, fetched once by the [Fetch fonts](.github/workflows/fetch-fonts.yml) workflow, so visitors' browsers never contact another server.
-
-Spec: [`specs/007-briefing-redesign`](specs/007-briefing-redesign).
-
-The Today page reads `data/kev-recent.json`, a 400-day slice of the catalog built at deploy by [`scripts/build_recent.py`](scripts/build_recent.py), so its headline shows in about 2 seconds on a slow phone instead of 10. Link previews (Open Graph and Twitter Card tags) come from each page's own title and description, and [`site/social-card.png`](site/social-card.png) is rendered from [`scripts/social-card.html`](scripts/social-card.html). Spec: [`specs/009-previews-and-speed`](specs/009-previews-and-speed).
-
-## The Cyber Sitrep section
-
-Every weekday a scheduled task emails the **📰 Cyber Sitrep**. A second scheduled
-task (the *publisher*) reads that sent email, copies it into a small JSON file and
-hands it to [`scripts/add_sitrep.py`](scripts/add_sitrep.py), the gatekeeper. The
-gatekeeper validates it (https links only, length limits, no unknown fields),
-detects CVE IDs itself and writes `site/data/sitrep/`. Pushing that triggers the
-normal deploy. On the page, any CVE that is also in KEV gets an **In KEV** badge
-that opens it on the Exploited page. Spec: [`specs/002-sitrep-section`](specs/002-sitrep-section).
-
-## The Breaches (Breach Wire) section
-
-The daily **💥 Breach Wire** email lists ransomware leak-site claims. A third
-scheduled task mirrors it as **numbers and group profiles only**. Before anything
-is written, [`scripts/add_breachwire.py`](scripts/add_breachwire.py) checks that
-the totals add up (by country, sector and group, plus the reconciliation) and runs
-a **name guard**: the publisher hands it that day's victim names in a throwaway
-file that is never committed, and any match refuses the whole issue. Spec:
-[`specs/003-breach-wire-section`](specs/003-breach-wire-section).
-
-## My stack
-
-Visitors tick the vendors (or just some products) they run in the **My stack**
-picker on the Exploited page. It then rings matching blips, badges matching
-entries, offers a "My stack only" filter and shows a summary, including **what's
-new since your last visit**. The Sitrep tags matching CVEs and stories that
-mention a ticked vendor, and the Breaches page lists the stack's
-ransomware-linked vulnerabilities first.
-
-- **Named presets** ("Work", "Home lab", "Customer A"); each keeps its own stack and "My stack only" setting.
-- **Remember on this device** is off by default. Off, everything lives in `sessionStorage` and is gone when the tab closes. On, it moves to `localStorage`. Unticking deletes the stored copy at once, and "Forget everything" wipes both.
-- **Nothing leaves the browser.** No cookies, no requests. A share link puts the stack after `#`, which browsers never send to a server, and opening one only *offers* to add it as a new preset.
-- Logic is in pure, tested functions (`stack-logic.js`, `presets.js`); `stack-store.js` is the only file that touches storage.
-
-Spec: [`specs/004-my-stack`](specs/004-my-stack).
-
-## Feeds and Slack alerts
-
-Every deploy builds **Atom feeds** from the published data (`scripts/build_feeds.py`;
-they're never committed):
-
-| Feed | What's in it |
-|---|---|
-| `feeds/kev.xml` | The 50 newest exploited vulnerabilities |
-| `feeds/sitrep.xml` | The 30 latest Cyber Sitrep issues |
-| `feeds/breachwire.xml` | The 30 latest Breach Wire issues, statistics only |
-| `feeds/vendors/<vendor>.xml` | Each vendor's 20 newest entries (`feeds/vendors.json` lists them all) |
-
-The **Feeds page** (`/feeds/`) explains how to use them in feed readers, Slack's RSS
-app, Zapier, n8n and Power Automate. In the My stack picker, **"Subscribe in a feed
-reader"** builds an OPML file in the browser with one feed per ticked vendor.
-
-After each successful deploy, `scripts/notify_slack.py` posts what's new to the
-owner's Slack channel: new KEV entries (up to 10 listed), a new Sitrep, a new Breach
-Wire. A git tag, `alerts-sent`, marks how far the alerts have got. To set it up,
-create a Slack incoming webhook and save it as the repository secret
-`SLACK_WEBHOOK_URL`. Then run the workflow by hand with **"Send a test message to
-Slack"** ticked. Without the secret, alerts are simply skipped.
-
-Spec: [`specs/005-feeds-and-alerts`](specs/005-feeds-and-alerts).
+- **CISA data** is fetched and validated twice a day by [GitHub Actions](.github/workflows/refresh-and-deploy.yml).
+- **The Sitrep and Breach Wire** are mirrored from daily emails by scheduled publisher bots. Gatekeeper scripts ([`add_sitrep.py`](scripts/add_sitrep.py), [`add_breachwire.py`](scripts/add_breachwire.py)) refuse anything malformed, and any victim name.
+- **Before every deploy**, a [deploy gate](scripts/deploy_gate.py) checks that the bots only changed their own data, and all tests run. If anything fails, nothing is published.
+- **The site** is plain HTML, CSS and JavaScript in [`site/`](site): no framework, no build step.
 
 ## Security
 
-Found a problem? Please report it privately: see [SECURITY.md](SECURITY.md)
-(also linked from [`/.well-known/security.txt`](site/.well-known/security.txt)).
+The page code runs under a strict Content Security Policy, shows all data as plain
+text, and loads nothing from other servers. The automation uses pinned actions with
+minimal permissions, and the deploy gate keeps the bots in their lane.
 
-
-| Threat | Defence |
-|---|---|
-| Malicious text in the feed | Feed text is only ever inserted as plain text (`textContent`), and a test fails if HTML-injection methods appear in the code |
-| Injected scripts anyway | A strict Content-Security-Policy makes the browser refuse any code not from this site |
-| Broken or truncated feed | Strict validation and a "shrink guard" (refuses a catalog that suddenly loses >10% of entries) |
-| Hijacked GitHub Action | Every action is pinned to an exact commit hash, and Dependabot proposes updates only after a 7-day cooldown |
-| Over-powered automation | Workflows start with zero permissions; each job gets only what it needs |
-| Data text sneaking markup into a feed, or `@channel` / fake links into Slack | Feeds are written by an XML library after removing forbidden characters; Slack text is escaped so `<!channel>` shows as plain text, and link previews are off |
-| The Slack webhook address leaking | Only in a GitHub secret, visible to two steps of one job, never printed; the script only accepts `https://hooks.slack.com/` addresses |
-| A visitor's software list (handy reconnaissance) | Kept only in their own browser, never in a cookie, request or the repo; stored or shared stacks are strictly validated and shown as text |
-| A publisher bot (reading outside text) changing code or loosening its own rules | The **deploy gate** ([`scripts/deploy_gate.py`](scripts/deploy_gate.py), spec 008) runs before every deploy: a `sitrep:` / `breachwire:` / `data:` commit may only change its own data folder; if a gatekeeper's rules changed, the data must also pass the previous rules unless the run is started by hand with *accept rule change*; any code change gets a Slack heads-up. After a stop, review (or revert) the commit and run the workflow by hand with *approve publisher commits* |
-| Links from data pointing somewhere unexpected | Only `https://` links without a user name or password become clickable; everything else shows as text |
-
-### Owner's checklist (GitHub settings the builder can't change)
-
-Each takes a minute or two. Settings live under **github.com/smashytech/threat-radar → Settings**.
-
-1. **Protect `main`**: *Settings → Rules → Rulesets → New ruleset → New branch ruleset*. Name `Protect main`, Enforcement **Active**, *Target branches → Add target → Include default branch*. Under *Rules*, keep only **Restrict deletions** and **Block force pushes** ticked (untick everything else). **Create**. Normal pushes keep working.
-2. **Private vulnerability reporting**: *Settings → Security (Advanced Security) → Private vulnerability reporting → Enable*. This is where `SECURITY.md` and `security.txt` point.
-3. **Dependabot alerts**: same page → *Dependabot alerts → Enable*.
-4. **Verify the domain**: your profile picture → *Settings → Pages → Add a domain* → `zelin.se`. GitHub shows a TXT record (`_github-pages-challenge-smashytech.zelin.se`); add it at your DNS provider, wait a few minutes, click **Verify**, and keep the record. This stops anyone else claiming zelin.se on GitHub.
-5. **Two-step login**: your profile picture → *Settings → Password and authentication* → check that **Two-factor authentication** is on.
-6. **Tidy up**: *Settings → General → Features* → untick **Wikis**. Then *Code → Branches* → delete the old **fonts** branch.
+Found a problem? Please report it privately: see [SECURITY.md](SECURITY.md).
 
 ## Run it yourself
 
-No installs needed: Python 3 and Node.js (any recent version) are enough.
+Python 3 and Node.js are enough; nothing to install.
 
 ```bash
-# run every test
-python3 -m unittest discover -s scripts -p "test_*.py" -v
-python3 scripts/add_sitrep.py --check
-python3 scripts/add_breachwire.py --check
-node --test tests/stats.test.mjs tests/site.test.mjs tests/sitrep.test.mjs tests/breachwire.test.mjs tests/stack.test.mjs tests/presets.test.mjs tests/stack-store.test.mjs tests/opml.test.mjs tests/ui.test.mjs
-
-# refresh the data from CISA
-python3 scripts/fetch_kev.py
-
-# preview the site at http://localhost:8000
-python3 -m http.server 8000 --directory site
+npm test                                              # page tests
+python3 -m unittest discover -s scripts -p "test_*.py"   # script tests
+python3 scripts/fetch_kev.py                           # refresh the data from CISA
+python3 -m http.server 8000 --directory site           # preview at http://localhost:8000
 ```
 
 ## Project layout
 
 ```
-.github/workflows/   the automation (refresh + deploy, tests on PRs)
-.github/dependabot.yml
-scripts/             fetch_kev.py + its tests
-site/                the website (HTML, CSS, JS) and data/
-tests/               JavaScript tests + fixtures (small sample feeds)
-specs/               the spec, plan and task list this was built from
+site/        the website and its data
+scripts/     fetching, gatekeepers, feeds, deploy gate, Slack alerts (with tests)
+tests/       page tests
+specs/       how each feature was specified, planned and verified
+.github/     the automation
 ```
 
-## Built with spec-driven development
+## How it was built
 
-This project was built from a written spec before any code existed. See
-[`specs/001-threat-radar/`](specs/001-threat-radar): `spec.md` (what & why),
-`plan.md` (how), `tasks.md` (the checklist) and `verification.md` (proof that
-every acceptance criterion is met).
+Every feature started as a written spec, then a plan, tests, the code, and a
+verification report. [`specs/`](specs) lists them all, with what each one changed.
 
 ---
 
-Data: CISA KEV catalog (US government work, public domain). Not affiliated with CISA.
+Data: CISA KEV catalog (US government work, public domain); leak-site statistics via
+[Ransomware.live](https://www.ransomware.live/) and [RansomLook](https://www.ransomlook.io/).
+Not affiliated with CISA.
