@@ -943,3 +943,7 @@ input[type="search"]::placeholder { color: var(--muted); opacity: 0.8; }
 .group-tip__name { margin-bottom: 4px; }
 .group-tip__source { margin-top: 8px; font-size: 12px; opacity: 0.85; }
 .group-tip__source a { color: inherit; text-decoration: underline; }
+@media (max-width: 600px) {
+  /* Phones: the profile bubble spans the list with equal margins, centred under the name row. */
+  .info-tip--group + .info-tip__bubble { left: 12px; right: 12px; width: auto; max-width: none; }
+}
