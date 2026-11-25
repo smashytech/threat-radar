@@ -215,6 +215,33 @@ def gate_message(report: dict, kind: str, base: str, run_url: str | None = None)
     return message("Threat Radar: code changed in this deploy", blocks)
 
 
+def name_check_message(report: dict, base: str, run_url: str | None = None) -> dict | None:
+    """Spec 011: Breach Wire was held back by the independent victim-name check.
+    Built from the check's report only: dates, counts, line numbers, never names."""
+    outcome = report.get("outcome")
+    if outcome not in ("held", "found"):
+        return None
+    run = link(run_url, "See the run") if run_url and run_url.startswith(RUN_URL_PREFIX) else ""
+    issues = [i for i in report.get("issues", []) if isinstance(i, dict)]
+    if outcome == "found":
+        lines = [":rotating_light: *A victim name was found in Breach Wire.* The rest of the site was published; "
+                 "Breach Wire stays as it was last checked, and the run is marked failed."]
+        for i in issues:
+            if i.get("outcome") == "found":
+                lines.append(f"• Issue of {slack_escape(i.get('date'), 20)}: line {slack_escape(i.get('line'), 10)} "
+                             f"of the {slack_escape(report.get('source'), 40)} list for its days.")
+        lines.append("The name is in the public repository: follow *SECURITY.md → A victim name reached the repository*.")
+        fallback = "Threat Radar: a victim name was found in Breach Wire"
+    else:
+        dates = ", ".join(slack_escape(i.get("date"), 20) for i in issues if i.get("outcome") == "held")
+        lines = [f":hourglass: *Breach Wire held back:* {slack_escape(report.get('reason'), 120)}. "
+                 f"Not yet published: {dates or 'none'}. The rest of the site is up to date; the next run tries again."]
+        fallback = "Threat Radar: Breach Wire held back"
+    blocks = [section("\n".join(lines))]
+    blocks.append(context((run + " · " if run else "") + link(base, "Open Threat Radar")))
+    return message(fallback, blocks)
+
+
 # ---------- From data folders to alerts ----------
 
 class Unreadable(Exception):
@@ -287,7 +314,7 @@ def main(argv: list[str] | None = None, env: dict | None = None, sleep=time.slee
     parser.add_argument("--test-message", action="store_true", help="send only a 'set up' test message")
     parser.add_argument("--dry-run", action="store_true", help="print the messages instead of sending them")
     parser.add_argument("--gate-report", help="a deploy gate report (JSON text) to post instead of news (spec 008)")
-    parser.add_argument("--gate-kind", choices=["blocked", "heads-up"], help="which gate message to post")
+    parser.add_argument("--gate-kind", choices=["blocked", "heads-up", "name-check"], help="which gate message to post")
     parser.add_argument("--run-url", help="link to the workflow run (github.com only)")
     args = parser.parse_args(argv)
     try:
@@ -304,7 +331,8 @@ def main(argv: list[str] | None = None, env: dict | None = None, sleep=time.slee
         except ValueError as err:
             print(f"Error: unreadable gate report ({err})", file=sys.stderr)
             return 2
-        payload = gate_message(report, args.gate_kind, base, args.run_url)
+        payload = (name_check_message(report, base, args.run_url) if args.gate_kind == "name-check"
+                   else gate_message(report, args.gate_kind, base, args.run_url))
         alerts, notes = ([Alert("Gate", 1, payload)] if payload else []), []
         if not payload:
             print("Gate: nothing to report")

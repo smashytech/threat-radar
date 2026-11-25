@@ -205,6 +205,30 @@ class GateMessages(unittest.TestCase):
             self.assertEqual(notify_slack.main(["--site-url", BASE, "--gate-report", "{not json", "--gate-kind", "blocked"], env={}), 2)
 
 
+class NameCheckMessages(unittest.TestCase):
+    """Spec 011: the independent victim-name check held Breach Wire back."""
+    RUN = "https://github.com/smashytech/threat-radar/actions/runs/123"
+
+    def test_found_gives_issue_and_line_and_the_removal_steps(self):
+        report = {"source": "Ransomware.live", "outcome": "found", "reason": None,
+                  "issues": [{"date": "2026-11-26", "outcome": "found", "checked": 120, "skipped": 1, "line": 42}]}
+        shown = json.dumps(notify_slack.name_check_message(report, BASE, self.RUN))
+        self.assertIn("2026-11-26", shown)
+        self.assertIn("line 42", shown)
+        self.assertIn("SECURITY.md", shown)
+
+    def test_held_says_why_and_which_issues_wait(self):
+        report = {"source": "Ransomware.live", "outcome": "held", "reason": "the source answered HTTP 429",
+                  "issues": [{"date": "2026-11-26", "outcome": "held"}]}
+        shown = json.dumps(notify_slack.name_check_message(report, BASE, self.RUN))
+        self.assertIn("held back", shown)
+        self.assertIn("HTTP 429", shown)
+        self.assertIn("2026-11-26", shown)
+
+    def test_pass_sends_nothing(self):
+        self.assertIsNone(notify_slack.name_check_message({"outcome": "pass", "issues": []}, BASE))
+
+
 class FromData(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()

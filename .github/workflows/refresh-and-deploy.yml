@@ -31,6 +31,10 @@ on:
         description: "Approve publisher commits: let through publisher commits the gate stopped, after you've checked or reverted them (spec 008)"
         type: boolean
         default: false
+      recheck_all_breachwire:
+        description: "Re-check every Breach Wire issue against the public victim list, not only new ones (spec 011)"
+        type: boolean
+        default: false
   push:
     branches: [main]           # redeploy when the site code changes
 
@@ -54,6 +58,9 @@ jobs:
       data_sha: ${{ steps.published.outputs.sha }}     # the commit whose data is being published
       base_url: ${{ steps.pages.outputs.base_url }}    # e.g. https://zelin.se
       gate_report: ${{ steps.gate.outputs.gate_report }}   # what the security gate found (spec 008)
+      name_check: ${{ steps.namecheck.outputs.name_check }}                 # none / pass / held / found (spec 011)
+      name_check_restore: ${{ steps.namecheck.outputs.name_check_restore }} # tag to restore Breach Wire from when held
+      name_check_report: ${{ steps.namecheck.outputs.name_check_report }}   # dates, counts, line numbers; never names
     steps:
       # Actions are pinned to an exact commit (the long hash) so nobody can swap
       # the code behind a version tag. Dependabot updates these hashes weekly.
@@ -109,6 +116,32 @@ jobs:
       - name: Remember which commit is being published
         id: published
         run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      # Spec 011: check new Breach Wire issues against the public victim list from
+      # Ransomware.live, a list the publisher bot can't touch. Runs on exactly the
+      # commit being published. It never prints a name.
+      - name: Independent victim-name check
+        id: namecheck
+        env:
+          ALL: ${{ github.event_name == 'workflow_dispatch' && inputs.recheck_all_breachwire }}
+        run: |
+          flags=()
+          [ "$ALL" = "true" ] && flags+=(--all)
+          python3 scripts/check_victim_names.py "${flags[@]}"
+
+      # Held or found: publish everything else, but with the Breach Wire data that was
+      # last checked. Only this run's copy changes; nothing is committed, so the next
+      # run checks the held issues again.
+      - name: Hold Breach Wire back
+        if: steps.namecheck.outputs.name_check == 'held' || steps.namecheck.outputs.name_check == 'found'
+        env:
+          RESTORE: ${{ steps.namecheck.outputs.name_check_restore }}
+        run: |
+          rm -rf site/data/breachwire
+          if [ -n "$RESTORE" ] && git cat-file -e "$RESTORE:site/data/breachwire" 2>/dev/null; then
+            git archive "$RESTORE" site/data/breachwire | tar -x
+          fi
+          echo "Breach Wire restored from ${RESTORE:-nothing (no checked data yet)}."
 
       # Asks GitHub for the site's current address. It follows the custom domain,
       # and switches to https by itself once "Enforce HTTPS" is on.
@@ -186,6 +219,27 @@ jobs:
           git tag -f deployed "$DATA_SHA"
           git push -f origin refs/tags/deployed
 
+      # Spec 011: move "breachwire-checked" only when every Breach Wire issue in this
+      # commit passed the independent check (or nothing changed since it last did).
+      - name: Mark Breach Wire as checked
+        if: needs.refresh.outputs.name_check == 'pass' || needs.refresh.outputs.name_check == 'none'
+        env:
+          DATA_SHA: ${{ needs.refresh.outputs.data_sha }}
+        run: |
+          git tag -f breachwire-checked "$DATA_SHA"
+          git push -f origin refs/tags/breachwire-checked
+
+      # The same hold as in the refresh job, so Slack never announces an issue the site didn't publish.
+      - name: Hold Breach Wire back
+        if: needs.refresh.outputs.name_check == 'held' || needs.refresh.outputs.name_check == 'found'
+        env:
+          RESTORE: ${{ needs.refresh.outputs.name_check_restore }}
+        run: |
+          rm -rf site/data/breachwire
+          if [ -n "$RESTORE" ] && git cat-file -e "$RESTORE:site/data/breachwire" 2>/dev/null; then
+            git archive "$RESTORE" site/data/breachwire | tar -x
+          fi
+
       - name: Send a test message
         if: github.event_name == 'workflow_dispatch' && inputs.test_alert
         env:
@@ -236,6 +290,27 @@ jobs:
             exit 0
           fi
           python3 scripts/notify_slack.py --gate-report "$GATE_REPORT" --gate-kind heads-up --run-url "$RUN_URL" --site-url "$SITE_URL"
+
+      - name: Tell Slack Breach Wire was held back (spec 011)
+        if: needs.refresh.outputs.name_check == 'held' || needs.refresh.outputs.name_check == 'found'
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SITE_URL: ${{ needs.refresh.outputs.base_url }}
+          REPORT: ${{ needs.refresh.outputs.name_check_report }}   # passed as data, never pasted into the script
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          if [ -z "$SLACK_WEBHOOK_URL" ]; then
+            echo "::warning::Breach Wire was held back; Slack isn't set up, so only this run's log says so."
+            exit 0
+          fi
+          python3 scripts/notify_slack.py --gate-report "$REPORT" --gate-kind name-check --run-url "$RUN_URL" --site-url "$SITE_URL"
+
+      # Last on purpose: the rest of the site is already live. Failing makes GitHub email the owner.
+      - name: Fail the run if a victim name was found
+        if: needs.refresh.outputs.name_check == 'found'
+        run: |
+          echo "::error::A victim name from the public list was found in a Breach Wire issue. It was not published, but it is in the repository. See SECURITY.md."
+          exit 1
 
   # Spec 008: the security gate stopped the deploy. The live site is unchanged;
   # this tells Slack why (GitHub also emails the owner that the run failed).
