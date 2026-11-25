@@ -246,7 +246,7 @@ def breachwire_feed(index: dict, base: str) -> bytes:
                        f"Leak-site claims from {long_day(i['window'])} (UTC). Statistics only, never victim names.",
         })
     return atom_feed("feeds/breachwire", "Threat Radar: Breach Wire",
-                     "Daily ransomware leak-site statistics and threat groups. Never victim names.",
+                     "Daily ransomware and extortion leak-site statistics and threat groups. Never victim names.",
                      f"{base}feeds/breachwire.xml", f"{base}breaches/", items)
 
 
