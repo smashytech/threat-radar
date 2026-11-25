@@ -50,4 +50,4 @@ spec's `amendments.md`: request, decision, acceptance check, verification.
 - **Request:** readiness check before sharing: "no licence". Owner: "What license do you recommend?", then chose MIT with the data excluded, copyright holder "smashytech".
 - **Decision:** `LICENSE` holds the standard MIT text (so GitHub recognises it). The README's new "Licence" section says the data in `site/data/` is not covered: it stays under its sources' terms (CISA KEV, Ransomware.live, RansomLook).
 - **Check:** GitHub's community profile shows the MIT licence; the README states the data exclusion.
-- **Verified:** *(after push)*
+- **Verified:** 2026-11-25. GitHub detects the licence as MIT; community health 42 % → 57 %; README states the data exclusion.

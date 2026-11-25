@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | **Spec** | [spec.md](./spec.md) |
-| **Status** | Draft v1, waiting for "go" |
+| **Status** | Approved 2026-11-25 ("go" 20:57). Done, see [verification.md](./verification.md) |
 
 | Choice | Why |
 |---|---|

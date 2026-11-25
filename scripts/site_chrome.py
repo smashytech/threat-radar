@@ -34,6 +34,9 @@ PAGES = {
                               "Breach Wire is compiled daily from public leak-site aggregators and mirrored here automatically as "
                               "statistics only. Victim names are never published on this site."),
     "feeds/index.html": ("../", "Feeds", None),
+    # Spec 014: GitHub Pages serves this for any missing address, at any depth, so its
+    # addresses start at the site root and no nav item is "this page".
+    "404.html": ("/", None, None),
 }
 
 # Old addresses that forward to a page's new address (spec 003 amendment A1). Kept

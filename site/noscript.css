@@ -1,0 +1,3 @@
+/* Loaded only when JavaScript is off (spec 014): hide the parts that JavaScript would fill,
+   so the page shows its heading and the "needs JavaScript" note instead of "Loading…". */
+.needs-js { display: none !important; }

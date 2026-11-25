@@ -21,6 +21,7 @@ the table says so.
 | [011 Victim-name check](011-victim-name-check) | An independent check of each new Breach Wire issue against the public victim list; Breach Wire waits if the list is unreachable | |
 | [012 October import](012-october-import) | 26 Breach Wire issues from 1 October – 1 November imported from the email archive; "new groups" can be "not recorded" | |
 | [013 Group info](013-group-info) | An (i) on each gang in Trends with its latest published profile and the issue it came from | |
+| [014 First impressions](014-first-impressions) | A note for visitors with JavaScript off; a "Page not found" page in the site's own look | |
 
 **Small changes** are recorded as amendments in the spec that owns the area:
 [007 amendments](007-briefing-redesign/amendments.md) (tooltip, coffee cup, LinkedIn link,

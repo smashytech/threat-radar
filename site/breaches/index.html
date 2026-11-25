@@ -24,6 +24,7 @@
   <!-- /social -->
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../styles.css">
+  <noscript><link rel="stylesheet" href="../noscript.css"></noscript>
   <!-- Feed autodiscovery: feed readers find these from the page address alone (spec 005 FR-7). -->
   <link rel="alternate" type="application/atom+xml" title="Threat Radar: newly exploited vulnerabilities" href="../feeds/kev.xml">
   <link rel="alternate" type="application/atom+xml" title="Threat Radar: Cyber Sitrep" href="../feeds/sitrep.xml">
@@ -57,13 +58,14 @@
         <p class="eyebrow eyebrow--alert">Daily breach and extortion digest · claims, not confirmations</p>
         <h1>Breaches</h1>
         <p class="lede">What ransomware and extortion gangs claimed on their leak sites, shown as <em>patterns</em>: where, which sectors, which groups. Victim names are deliberately left out, because they are unverified criminal claims.</p>
-        <p class="freshness" id="issue-line" aria-live="polite">Loading…</p>
+        <p class="freshness needs-js" id="issue-line" aria-live="polite">Loading…</p>
+        <noscript><p class="notice noscript-note">Threat Radar builds this page with JavaScript, from this site only (no trackers). Turn it on to see it, or follow the same data in a feed reader: <a href="../feeds/">Feeds</a>.</p></noscript>
         <p class="stack-line" id="stack-line" hidden></p>
       </div>
     </div>
   </div>
 
-  <main class="breaches">
+  <main class="breaches needs-js">
     <!-- Amendment A1 (spec 010): two tabs. #trends in the address opens Trends. -->
     <div class="tabs" role="tablist" aria-label="Breaches views">
       <button type="button" class="tabs__tab" role="tab" id="tab-issue" aria-controls="panel-issue" aria-selected="true">Today's issue</button>

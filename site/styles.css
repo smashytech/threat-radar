@@ -948,3 +948,12 @@ input[type="search"]::placeholder { color: var(--muted); opacity: 0.8; }
   /* Phones: the profile bubble spans the list with equal margins, centred under the name row. */
   .info-tip--group + .info-tip__bubble { left: 12px; right: 12px; width: auto; max-width: none; }
 }
+
+/* ---------- No-JavaScript note (spec 014) ---------- */
+.noscript-note { margin: 14px 0 0; max-width: 60ch; }
+
+/* ---------- Page not found (spec 014) ---------- */
+.not-found { padding-top: 28px; padding-bottom: 48px; }
+.not-found__title { font-size: 18px; margin: 0 0 12px; }
+.not-found__links { margin: 0; padding-left: 20px; line-height: 1.9; }
+.not-found__links a { font-weight: 600; }

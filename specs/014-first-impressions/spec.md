@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | **Spec ID** | 014-first-impressions |
-| **Status** | Draft v1, waiting for "go" |
+| **Status** | Approved 2026-11-25 ("go" 20:57). Done, see [verification.md](./verification.md) |
 | **Owner** | smashytech |
 | **Builds on** | [007](../007-briefing-redesign/spec.md) (site look and shared header/footer) |
 | **Created** | 2026-11-25 |

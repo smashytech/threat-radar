@@ -1,0 +1,80 @@
+[
+ {
+  "id": "AC-1",
+  "name": "JavaScript off, /: the note, one heading, no \"Loading…\"",
+  "ok": true,
+  "detail": "{\"note\":true,\"loading\":false,\"h1\":[\"Today's cyber threat briefing\"],\"feedsLink\":[\"feeds/\"]}"
+ },
+ {
+  "id": "AC-1",
+  "name": "JavaScript off, /exploited/: the note, one heading, no \"Loading…\"",
+  "ok": true,
+  "detail": "{\"note\":true,\"loading\":false,\"h1\":[\"Exploited right now\"],\"feedsLink\":[\"../feeds/\"]}"
+ },
+ {
+  "id": "AC-1",
+  "name": "JavaScript off, /sitrep/: the note, one heading, no \"Loading…\"",
+  "ok": true,
+  "detail": "{\"note\":true,\"loading\":false,\"h1\":[\"Cyber Sitrep\"],\"feedsLink\":[\"../feeds/\"]}"
+ },
+ {
+  "id": "AC-1",
+  "name": "JavaScript off, /breaches/: the note, one heading, no \"Loading…\"",
+  "ok": true,
+  "detail": "{\"note\":true,\"loading\":false,\"h1\":[\"Breaches\"],\"feedsLink\":[\"../feeds/\"]}"
+ },
+ {
+  "id": "AC-1",
+  "name": "JavaScript off, Feeds: unchanged, no note (its list of feeds is plain HTML)",
+  "ok": true,
+  "detail": "{\"note\":false,\"loading\":false,\"h1\":[\"Feeds\"],\"feedsLink\":[]}"
+ },
+ {
+  "id": "AC-1",
+  "name": "JavaScript off: the note's Feeds link works",
+  "ok": true,
+  "detail": "http://127.0.0.1:8766/feeds/"
+ },
+ {
+  "id": "AC-2",
+  "name": "JavaScript on, /: no note, content loads",
+  "ok": true,
+  "detail": "{\"note\":false,\"loading\":false}"
+ },
+ {
+  "id": "AC-2",
+  "name": "JavaScript on, /exploited/: no note, content loads",
+  "ok": true,
+  "detail": "{\"note\":false,\"loading\":false}"
+ },
+ {
+  "id": "AC-2",
+  "name": "JavaScript on, /sitrep/: no note, content loads",
+  "ok": true,
+  "detail": "{\"note\":false,\"loading\":false}"
+ },
+ {
+  "id": "AC-2",
+  "name": "JavaScript on, /breaches/: no note, content loads",
+  "ok": true,
+  "detail": "{\"note\":false,\"loading\":false}"
+ },
+ {
+  "id": "AC-3",
+  "name": "404 at /a/b/c, 1280 px light: status 404, styled page, no failed files, no sideways scroll",
+  "ok": true,
+  "detail": "{\"status\":404,\"bg\":\"rgb(246, 247, 249)\",\"failed\":[],\"errors\":[]}"
+ },
+ {
+  "id": "AC-3",
+  "name": "Every link on the 404 page works",
+  "ok": true,
+  "detail": "5 links; none broken"
+ },
+ {
+  "id": "AC-3",
+  "name": "404 at /a/b/c, 360 px dark: status 404, styled page, no failed files, no sideways scroll",
+  "ok": true,
+  "detail": "{\"status\":404,\"bg\":\"rgb(14, 17, 22)\",\"failed\":[],\"errors\":[]}"
+ }
+]

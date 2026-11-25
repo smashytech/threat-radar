@@ -15,7 +15,7 @@ class SiteChromeTest(unittest.TestCase):
             self.assertEqual(site_chrome.render(path, html), html, f"site/{path} is out of date: run python3 scripts/site_chrome.py")
 
     def test_every_page_in_the_site_is_listed(self):
-        pages = {str(p.relative_to(site_chrome.ROOT)) for p in site_chrome.ROOT.rglob("index.html")}
+        pages = {str(p.relative_to(site_chrome.ROOT)) for p in site_chrome.ROOT.rglob("*.html")}
         self.assertEqual(pages, set(site_chrome.PAGES) | set(site_chrome.FORWARDS))
 
     def test_old_addresses_forward_and_keep_the_details(self):
@@ -36,10 +36,26 @@ class SiteChromeTest(unittest.TestCase):
     def test_navigation_marks_exactly_one_current_page_and_links_resolve(self):
         for path, (root, current, _note) in site_chrome.PAGES.items():
             block = site_chrome.header(root, current)
-            self.assertEqual(block.count('aria-current="page"'), 1, path)
+            self.assertEqual(block.count('aria-current="page"'), 0 if current is None else 1, path)
             for href in re.findall(r'href="([^"]+)"', block):
-                target = (site_chrome.ROOT / path).parent / href
+                target = site_chrome.ROOT / href.lstrip("/") if href.startswith("/") else (site_chrome.ROOT / path).parent / href
                 self.assertTrue((target / "index.html").exists() if href.endswith("/") or href == "./" else target.exists(), f"{path}: {href}")
+
+    def test_page_not_found(self):
+        """Spec 014: GitHub Pages serves site/404.html for any missing address, at any depth,
+        so every address in it starts at the site root."""
+        self.assertEqual(site_chrome.PAGES["404.html"][:2], ("/", None))
+        html = (site_chrome.ROOT / "404.html").read_text(encoding="utf-8")
+        self.assertIn("<h1>Page not found</h1>", html)
+        self.assertIn('<meta name="robots" content="noindex">', html)
+        self.assertIn("Content-Security-Policy", html)
+        body = re.sub(r"<!--.*?-->", "", html, flags=re.S)
+        for ref in re.findall(r'(?:href|src)="([^"]+)"', body):
+            self.assertTrue(ref.startswith(("/", "https://", "#")), f"404.html: {ref} must start at the site root")
+        main = body[body.index("<main"):body.index("</main>")]
+        for _name, href in site_chrome.NAV:
+            self.assertIn(f'href="/{href}"', main, f"404.html links to /{href}")
+        self.assertNotIn('type="module"', body, "no page scripts: works without JavaScript")
 
     def test_one_toggle_and_one_banner(self):
         for path in site_chrome.PAGES:

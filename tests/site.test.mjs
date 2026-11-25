@@ -94,3 +94,18 @@ test("dates and numbers always use the site's language, never the browser's", ()
     assert.doesNotMatch(code, /\.toLocale(Date|Time)?String\(/, `${label(file)}: toLocale…String() follows the browser's language`);
   }
 });
+
+// Spec 014: pages built with JavaScript say so when it is off, and hide their empty parts.
+const JS_PAGES = ["index.html", "exploited/index.html", "sitrep/index.html", "breaches/index.html"];
+test("spec 014: the four JavaScript pages carry the no-JavaScript note; Feeds doesn't need it", () => {
+  for (const page of JS_PAGES) {
+    const html = withoutHtmlComments(readFileSync(join(SITE, page), "utf8"));
+    const prefix = page === "index.html" ? "" : "../";
+    assert.match(html, new RegExp(`<noscript><link rel="stylesheet" href="${prefix}noscript\\.css"></noscript>`), `${page}: stylesheet`);
+    assert.match(html, /<noscript>\s*(<h1[^>]*>[^<]+<\/h1>\s*)?<p class="notice noscript-note">Threat Radar builds this page with JavaScript, from this site only \(no trackers\)\. Turn it on to see it, or follow the same data in a feed reader: <a href="[./]*feeds\/">Feeds<\/a>\.<\/p>\s*<\/noscript>/, `${page}: note`);
+    assert.match(html, /class="[^"]*\bneeds-js\b/, `${page}: marks its JavaScript-only parts`);
+  }
+  const feeds = withoutHtmlComments(readFileSync(join(SITE, "feeds/index.html"), "utf8"));
+  assert.doesNotMatch(feeds, /noscript-note/);
+  assert.match(readFileSync(join(SITE, "noscript.css"), "utf8"), /\.needs-js\s*\{\s*display:\s*none\s*!important;?\s*\}/);
+});
