@@ -1,0 +1,258 @@
+{
+  "date": "2026-10-07",
+  "issue": 45,
+  "window": "2026-10-06",
+  "stats": {
+    "victims": 50,
+    "groups": 14,
+    "countries": 9,
+    "regions": 5
+  },
+  "sweden": 0,
+  "regions": [
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 6
+        }
+      ]
+    },
+    {
+      "region": "Europe",
+      "countries": [
+        {
+          "country": "Italy",
+          "flag": "🇮🇹",
+          "count": 1
+        },
+        {
+          "country": "Ireland",
+          "flag": "🇮🇪",
+          "count": 1
+        },
+        {
+          "country": "Finland",
+          "flag": "🇫🇮",
+          "count": 1
+        },
+        {
+          "country": "Netherlands",
+          "flag": "🇳🇱",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Middle East",
+      "countries": [
+        {
+          "country": "Turkey",
+          "flag": "🇹🇷",
+          "count": 1
+        },
+        {
+          "country": "United Arab Emirates",
+          "flag": "🇦🇪",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Africa",
+      "countries": [
+        {
+          "country": "Egypt",
+          "flag": "🇪🇬",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Oceania",
+      "countries": [
+        {
+          "country": "Australia",
+          "flag": "🇦🇺",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Unattributed",
+      "countries": [
+        {
+          "country": "Country not disclosed",
+          "flag": "🏳️",
+          "count": 36
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Not disclosed",
+      "count": 29
+    },
+    {
+      "sector": "Manufacturing & industrial",
+      "count": 4
+    },
+    {
+      "sector": "Professional services",
+      "count": 4
+    },
+    {
+      "sector": "Food & agriculture",
+      "count": 3
+    },
+    {
+      "sector": "Other",
+      "count": 3
+    },
+    {
+      "sector": "Education",
+      "count": 2
+    },
+    {
+      "sector": "Financial services & insurance",
+      "count": 2
+    },
+    {
+      "sector": "Transportation & logistics",
+      "count": 2
+    },
+    {
+      "sector": "Retail & e-commerce",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "THE GENTLEMEN",
+      "hits": 26,
+      "profile": "RaaS that emerged Jul–Aug 2025 (aka Storm-2697); Go-based locker hitting Windows/Linux/NAS/BSD; 90% affiliate revenue share; claims 320+ victims across 17+ countries.",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "EVEREST",
+      "hits": 5,
+      "profile": "",
+      "countries": "Netherlands, United Arab Emirates, United States, not disclosed",
+      "sectors": "Agriculture and Food Production, Manufacturing, Other, Professional Services, Transportation"
+    },
+    {
+      "name": "QILIN",
+      "hits": 5,
+      "profile": "",
+      "countries": "Finland, Ireland, Turkey, not disclosed",
+      "sectors": "Financial Services, Manufacturing, Transportation"
+    },
+    {
+      "name": "AKIRA",
+      "hits": 2,
+      "profile": "RaaS active since March 2023; known for exploiting Cisco ASA/FTD and other VPN vulnerabilities and compromised credentials for initial access; double extortion; one of the most prolific RaaS operations by victim count in 2024–2025.",
+      "countries": "United States, not disclosed",
+      "sectors": "Agriculture and Food Production, Professional Services"
+    },
+    {
+      "name": "PANZER",
+      "hits": 2,
+      "profile": "Smaller/newer leak-site brand; limited independent public profile.",
+      "countries": "United States, not disclosed",
+      "sectors": "Manufacturing, Professional Services"
+    },
+    {
+      "name": "UMBRA",
+      "hits": 2,
+      "profile": "Smaller/newer leak-site brand; limited independent public profile.",
+      "countries": "Egypt, United States",
+      "sectors": "Education, Other"
+    },
+    {
+      "name": "3AM",
+      "hits": 1,
+      "profile": "Ransomware brand first observed Sept 2023, linked to former Conti/Royal-affiliated operators; often deployed after failed LockBit/Clop intrusion attempts; email-bombing/vishing precursor tactics reported.",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "DEADLOCK",
+      "hits": 1,
+      "profile": "Smaller/newer leak-site brand; limited independent public profile.",
+      "countries": "Italy",
+      "sectors": "Agriculture and Food Production"
+    },
+    {
+      "name": "ENDZONE",
+      "hits": 1,
+      "profile": "Smaller/newer leak-site brand; limited independent public profile.",
+      "countries": "United States",
+      "sectors": "Education"
+    },
+    {
+      "name": "INC Ransom",
+      "hits": 1,
+      "profile": "",
+      "countries": "United States",
+      "sectors": "Other"
+    },
+    {
+      "name": "PAYOUTSKING",
+      "hits": 1,
+      "profile": "",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "SILENT RANSOM GROUP",
+      "hits": 1,
+      "profile": "Also tracked as Luna Moth; callback-phishing / IT-helpdesk social-engineering group — data-theft-only extortion, no encryption deployed; has concentrated on U.S. law firms through 2025–2026.",
+      "countries": "not disclosed",
+      "sectors": "Professional Services"
+    },
+    {
+      "name": "STORM",
+      "hits": 1,
+      "profile": "Generic leak-site brand first seen on Ransomware.live 2026-08-07; no independent public profile yet; not linked here to any established cartel.",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "VEXY RANSOMWARE",
+      "hits": 1,
+      "profile": "Smaller/newer leak-site brand; limited independent public profile.",
+      "countries": "Australia",
+      "sectors": "Retail & E-Commerce"
+    }
+  ],
+  "quality": {
+    "singleSourced": 35,
+    "claimOnly": 0,
+    "sourcesDisagree": 3,
+    "newGroups": null
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 21
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 45
+      }
+    ],
+    "merged": 51,
+    "masked": 1,
+    "reposts": 0,
+    "nonVictims": 0,
+    "lowCoverage": false
+  },
+  "lateToPress": 0
+}

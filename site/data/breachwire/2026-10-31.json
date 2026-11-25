@@ -1,0 +1,305 @@
+{
+  "date": "2026-10-31",
+  "issue": 69,
+  "window": "2026-10-30",
+  "stats": {
+    "victims": 39,
+    "groups": 14,
+    "countries": 15,
+    "regions": 6
+  },
+  "sweden": 0,
+  "regions": [
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 18
+        },
+        {
+          "country": "Canada",
+          "flag": "🇨🇦",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Europe",
+      "countries": [
+        {
+          "country": "Italy",
+          "flag": "🇮🇹",
+          "count": 1
+        },
+        {
+          "country": "Germany",
+          "flag": "🇩🇪",
+          "count": 1
+        },
+        {
+          "country": "United Kingdom",
+          "flag": "🇬🇧",
+          "count": 1
+        },
+        {
+          "country": "Romania",
+          "flag": "🇷🇴",
+          "count": 1
+        },
+        {
+          "country": "France",
+          "flag": "🇫🇷",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Middle East",
+      "countries": [
+        {
+          "country": "United Arab Emirates",
+          "flag": "🇦🇪",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Africa",
+      "countries": [
+        {
+          "country": "Côte d'Ivoire",
+          "flag": "🇨🇮",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Latin America & Caribbean",
+      "countries": [
+        {
+          "country": "Mexico",
+          "flag": "🇲🇽",
+          "count": 5
+        },
+        {
+          "country": "Argentina",
+          "flag": "🇦🇷",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Asia",
+      "countries": [
+        {
+          "country": "Indonesia",
+          "flag": "🇮🇩",
+          "count": 1
+        },
+        {
+          "country": "Malaysia",
+          "flag": "🇲🇾",
+          "count": 1
+        },
+        {
+          "country": "Taiwan",
+          "flag": "🇹🇼",
+          "count": 1
+        },
+        {
+          "country": "Philippines",
+          "flag": "🇵🇭",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Unattributed",
+      "countries": [
+        {
+          "country": "Country not disclosed",
+          "flag": "🏳️",
+          "count": 3
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Professional services",
+      "count": 11
+    },
+    {
+      "sector": "Manufacturing & industrial",
+      "count": 7
+    },
+    {
+      "sector": "Technology & telecom",
+      "count": 5
+    },
+    {
+      "sector": "Transportation & logistics",
+      "count": 4
+    },
+    {
+      "sector": "Construction & real estate",
+      "count": 3
+    },
+    {
+      "sector": "Healthcare & life sciences",
+      "count": 3
+    },
+    {
+      "sector": "Education",
+      "count": 1
+    },
+    {
+      "sector": "Energy, utilities & resources",
+      "count": 1
+    },
+    {
+      "sector": "Financial services & insurance",
+      "count": 1
+    },
+    {
+      "sector": "Government & public sector",
+      "count": 1
+    },
+    {
+      "sector": "Other",
+      "count": 1
+    },
+    {
+      "sector": "Retail & e-commerce",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "Qilin",
+      "hits": 11,
+      "profile": "Also known as Agenda. Golang/Rust RaaS active since July 2022 and one of the most prolific leak sites of 2025–26; double extortion, with the operator controlling encryption modes. Today's 11 postings came in afternoon batches spanning five regions, with none carrying a description (\"N/A\" on Ransomware.live).",
+      "countries": "Mexico (4), Côte d'Ivoire, Germany, Philippines, Romania, Taiwan, United Kingdom, United States",
+      "sectors": "Energy & Utilities, Healthcare, Manufacturing, Other, Professional Services, Technology, Transportation"
+    },
+    {
+      "name": "Genesis",
+      "hits": 9,
+      "profile": "Tracked by Ransomware.live since 2025-10-21; emerging double-extortion group focused on small and mid-sized US organisations in healthcare, retail, financial services, legal and manufacturing. Posted nine victims within six minutes (21:56–22:02 UTC), each with a one-line company blurb.",
+      "countries": "United States (8), Canada",
+      "sectors": "Construction, Financial Services, Healthcare, Professional Services, Real Estate"
+    },
+    {
+      "name": "Akira",
+      "hits": 3,
+      "profile": "Emerged March 2023 with suspected ties to ex-Conti members; double extortion, Windows and ESXi lockers, frequent abuse of VPN appliances without MFA. Postings follow its usual \"We will upload N GB of corporate data soon\" template.",
+      "countries": "United States (2), not disclosed",
+      "sectors": "Manufacturing, Transportation"
+    },
+    {
+      "name": "The Gentlemen",
+      "hits": 3,
+      "profile": "Also known as Storm-2697. RaaS that emerged mid-2025 offering affiliates a 90% share; Go-based locker for Windows, Linux, NAS and BSD; a compromised C2 server in 2026 reportedly exposed 1,570+ linked victims. Today's three postings appear only on RansomLook so far.",
+      "countries": "Argentina, France, United States",
+      "sectors": "Construction, Government / Research, Technology"
+    },
+    {
+      "name": "Aurora",
+      "hits": 2,
+      "profile": "Tracked by Ransomware.live since 2026-04-29; associated with a Go-based multi-purpose malware also sold as an infostealer/botnet. Postings are long-form and stress sensitive customer relationships (here, ITAR aerospace/defence claims).",
+      "countries": "United States, not disclosed",
+      "sectors": "Manufacturing"
+    },
+    {
+      "name": "Rhysida",
+      "hits": 2,
+      "profile": "RaaS since May 2023; phishing and Cobalt Strike for access; sells stolen data in auction-style \"lots\".",
+      "countries": "Malaysia, Mexico",
+      "sectors": "Education, Manufacturing"
+    },
+    {
+      "name": "SilentRansomGroup",
+      "hits": 2,
+      "profile": "Also known as Luna Moth / Chatty Spider / UNC3753; a former Conti team running callback-phishing data-extortion (no encryption) against US law firms in particular. RansomLook tracks the same postings as \"Leakeddata\". Three further redacted \"FULL DATA TIMER\" entries posted today are excluded as masked.",
+      "countries": "United States (2)",
+      "sectors": "Professional Services"
+    },
+    {
+      "name": "DragonForce",
+      "hits": 1,
+      "profile": "",
+      "countries": "not disclosed",
+      "sectors": "Technology"
+    },
+    {
+      "name": "Emperador",
+      "hits": 1,
+      "profile": "Leak site tracked since 2026-08-12. Postings include scheduled publication dates, sample-file links and short negotiation deadlines; a repeat poster against Italian firms (see №68).",
+      "countries": "Italy",
+      "sectors": "Professional Services"
+    },
+    {
+      "name": "N0n",
+      "hits": 1,
+      "profile": "Leak site tracked since 2026-09-18 with no published tactics profile. Postings itemise datasets in detail and mark unpaid victims \"NOT PAID — EXPOSED\".",
+      "countries": "United Arab Emirates",
+      "sectors": "Professional Services"
+    },
+    {
+      "name": "Pear",
+      "hits": 1,
+      "profile": "\"Pure Extraction And Ransom\" — data-theft-only extortion team tracked since 2025-08-05 that brands itself a private, disciplined crew.",
+      "countries": "United States",
+      "sectors": "Retail"
+    },
+    {
+      "name": "RansomHouse",
+      "hits": 1,
+      "profile": "Double-extortion operation active since late 2021, attributed to \"Jolly Scorpius\"; 120+ organisations across healthcare, finance, transportation and government; recently moved to a dual-key encryption design.",
+      "countries": "United States",
+      "sectors": "Professional Services"
+    },
+    {
+      "name": "Wallstreet",
+      "hits": 1,
+      "profile": "Leak site tracked since 2026-06-26 with no published tactics profile.",
+      "countries": "United States",
+      "sectors": "Healthcare"
+    },
+    {
+      "name": "Whitearmor",
+      "hits": 1,
+      "profile": "New DLS tracked since 2026-10-20. Posts large datasets with structured company dossiers; in №68 it said it was not asking for a ransom.",
+      "countries": "Indonesia",
+      "sectors": "Transportation"
+    }
+  ],
+  "quality": {
+    "singleSourced": 4,
+    "claimOnly": 1,
+    "sourcesDisagree": 1,
+    "newGroups": null
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 42
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 43
+      }
+    ],
+    "merged": 46,
+    "masked": 5,
+    "reposts": 2,
+    "nonVictims": 0,
+    "lowCoverage": false
+  },
+  "lateToPress": 0
+}

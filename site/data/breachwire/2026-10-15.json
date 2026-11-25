@@ -1,0 +1,280 @@
+{
+  "date": "2026-10-15",
+  "issue": 52,
+  "window": "2026-10-14",
+  "stats": {
+    "victims": 23,
+    "groups": 14,
+    "countries": 11,
+    "regions": 5
+  },
+  "sweden": 0,
+  "regions": [
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "Canada",
+          "flag": "🇨🇦",
+          "count": 1
+        },
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "region": "Europe",
+      "countries": [
+        {
+          "country": "Greece",
+          "flag": "🇬🇷",
+          "count": 1
+        },
+        {
+          "country": "Spain",
+          "flag": "🇪🇸",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Latin America & Caribbean",
+      "countries": [
+        {
+          "country": "Brazil",
+          "flag": "🇧🇷",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "region": "Asia",
+      "countries": [
+        {
+          "country": "Japan",
+          "flag": "🇯🇵",
+          "count": 1
+        },
+        {
+          "country": "Singapore",
+          "flag": "🇸🇬",
+          "count": 1
+        },
+        {
+          "country": "Taiwan",
+          "flag": "🇹🇼",
+          "count": 1
+        },
+        {
+          "country": "Thailand",
+          "flag": "🇹🇭",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Oceania",
+      "countries": [
+        {
+          "country": "Australia",
+          "flag": "🇦🇺",
+          "count": 1
+        },
+        {
+          "country": "Vanuatu",
+          "flag": "🇻🇺",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Unattributed",
+      "countries": [
+        {
+          "country": "Country not disclosed",
+          "flag": "🏳️",
+          "count": 8
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Not disclosed",
+      "count": 5
+    },
+    {
+      "sector": "Healthcare & life sciences",
+      "count": 3
+    },
+    {
+      "sector": "Professional services",
+      "count": 3
+    },
+    {
+      "sector": "Other",
+      "count": 2
+    },
+    {
+      "sector": "Retail & e-commerce",
+      "count": 2
+    },
+    {
+      "sector": "Technology & telecom",
+      "count": 2
+    },
+    {
+      "sector": "Education",
+      "count": 1
+    },
+    {
+      "sector": "Financial services & insurance",
+      "count": 1
+    },
+    {
+      "sector": "Food & agriculture",
+      "count": 1
+    },
+    {
+      "sector": "Hospitality & leisure",
+      "count": 1
+    },
+    {
+      "sector": "Manufacturing & industrial",
+      "count": 1
+    },
+    {
+      "sector": "Transportation & logistics",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "Akira",
+      "hits": 3,
+      "profile": "First seen March 2023. One of the most prolific RaaS operations by victim count in 2024–2025; speculated ties to the former Conti group; known for exploiting Cisco ASA/FTD and other VPN vulnerabilities plus compromised credentials; double extortion.",
+      "countries": "Canada",
+      "sectors": "Agriculture and Food Production, Retail & E-Commerce"
+    },
+    {
+      "name": "LockBit5",
+      "hits": 3,
+      "profile": "Current branding generation of the long-running LockBit RaaS (active since 2019); LockBit 5.0 (“ChuongDong”) emerged Sept. 2025 following the Feb. 2024 takedown, introducing cross-platform payloads targeting Windows, Linux and VMware ESXi.",
+      "countries": "Australia, Greece, Thailand",
+      "sectors": "Hospitality, Other, Professional Services"
+    },
+    {
+      "name": "Eclipse",
+      "hits": 2,
+      "profile": "First seen 2026-08-11. No established public profile yet (recently listed, smaller leak-site brand).",
+      "countries": "Japan, Taiwan",
+      "sectors": "Healthcare, Other"
+    },
+    {
+      "name": "N0n",
+      "hits": 2,
+      "profile": "First seen 2026-09-18. Posts a high volume of anonymized “Company #N” placeholder listings citing pending-exposure deadlines; one such masked posting excluded this run.",
+      "countries": "not disclosed",
+      "sectors": "Professional Services, Technology"
+    },
+    {
+      "name": "Orova",
+      "hits": 2,
+      "profile": "First seen 2026-07-07. No established public profile yet (recently listed, smaller leak-site brand).",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "Qilin",
+      "hits": 2,
+      "profile": "First seen 2022-10-08. Large, prolific RaaS (Agenda lineage) active since July 2022; Golang/Rust-based locker; double/triple extortion; broad international targeting.",
+      "countries": "Singapore, United States",
+      "sectors": "Education, Professional Services"
+    },
+    {
+      "name": "Wallstreet",
+      "hits": 2,
+      "profile": "No established public profile yet (recently listed, smaller leak-site brand).",
+      "countries": "United States",
+      "sectors": "Healthcare, Transportation"
+    },
+    {
+      "name": "Aurora",
+      "hits": 1,
+      "profile": "First seen 2026-04-29. Leak-site brand associated with a multi-purpose Go-based malware distributed by multiple criminal teams since mid-2022, also sold as an infostealer/botnet under the same name; not confirmed as the same operator throughout.",
+      "countries": "Spain",
+      "sectors": "Retail & E-Commerce"
+    },
+    {
+      "name": "Deadlock",
+      "hits": 1,
+      "profile": "First seen 2026-06-15. No established public profile yet (recently listed, smaller leak-site brand).",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "DragonForce",
+      "hits": 1,
+      "profile": "First seen 2023-12-13.",
+      "countries": "United States",
+      "sectors": "Manufacturing"
+    },
+    {
+      "name": "Emperador",
+      "hits": 1,
+      "profile": "First seen 2026-08-12. Mid-size newer group with diversified international targeting.",
+      "countries": "Brazil",
+      "sectors": "Healthcare"
+    },
+    {
+      "name": "INC Ransom",
+      "hits": 1,
+      "profile": "First seen 2023-08-09. Prolific RaaS active since mid-2023, systematically targeting healthcare, government, education and manufacturing across North America and Europe.",
+      "countries": "Brazil",
+      "sectors": "Financial Services"
+    },
+    {
+      "name": "Kairos",
+      "hits": 1,
+      "profile": "First seen late 2024. Data-theft-only extortion group (no encryption), primarily targeting small-to-mid-sized organizations in healthcare, manufacturing and business services.",
+      "countries": "Vanuatu",
+      "sectors": "Technology"
+    },
+    {
+      "name": "Nightspire",
+      "hits": 1,
+      "profile": "First seen 2025-03-12. Rapidly claimed 250+ victims across retail, manufacturing, healthcare, finance and education; aggressive double extortion with ransom deadlines as short as two days. One masked posting excluded this run.",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    }
+  ],
+  "quality": {
+    "singleSourced": 8,
+    "claimOnly": 0,
+    "sourcesDisagree": 0,
+    "newGroups": null
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 20
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 22
+      }
+    ],
+    "merged": 26,
+    "masked": 3,
+    "reposts": 0,
+    "nonVictims": 0,
+    "lowCoverage": false
+  },
+  "lateToPress": 0
+}

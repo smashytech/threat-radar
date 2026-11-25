@@ -1,0 +1,153 @@
+{
+  "date": "2026-10-04",
+  "issue": 42,
+  "window": "2026-10-03",
+  "stats": {
+    "victims": 8,
+    "groups": 7,
+    "countries": 4,
+    "regions": 2
+  },
+  "sweden": 0,
+  "regions": [
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "region": "Middle East",
+      "countries": [
+        {
+          "country": "Lebanon",
+          "flag": "🇱🇧",
+          "count": 1
+        },
+        {
+          "country": "Saudi Arabia",
+          "flag": "🇸🇦",
+          "count": 1
+        },
+        {
+          "country": "United Arab Emirates",
+          "flag": "🇦🇪",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Unattributed",
+      "countries": [
+        {
+          "country": "Country not disclosed",
+          "flag": "🏳️",
+          "count": 3
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Not disclosed",
+      "count": 2
+    },
+    {
+      "sector": "Other",
+      "count": 2
+    },
+    {
+      "sector": "Transportation & logistics",
+      "count": 2
+    },
+    {
+      "sector": "Financial services & insurance",
+      "count": 1
+    },
+    {
+      "sector": "Healthcare & life sciences",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "Wallstreet",
+      "hits": 2,
+      "profile": "Smaller/newer leak-site brand (added to Ransomware.live tracking 2026-06-26); no independent public profile yet.",
+      "countries": "Saudi Arabia, United States",
+      "sectors": "Construction/Other, Healthcare"
+    },
+    {
+      "name": "NetRunner",
+      "hits": 1,
+      "profile": "",
+      "countries": "not disclosed (today)",
+      "sectors": "Transportation"
+    },
+    {
+      "name": "NightSpire",
+      "hits": 1,
+      "profile": "Emerged March 2025; claimed 250+ victims across retail, manufacturing, healthcare, finance and education in the US, France, India, Taiwan and Japan; aggressive double extortion with ransom deadlines as short as two days.",
+      "countries": "not disclosed (today)",
+      "sectors": "not disclosed (today)"
+    },
+    {
+      "name": "Qilin",
+      "hits": 1,
+      "profile": "Active since July 2022 (Agenda lineage); Golang-based locker with multiple operator-controlled encryption modes; double extortion.",
+      "countries": "United States",
+      "sectors": "Financial Services"
+    },
+    {
+      "name": "Rhysida",
+      "hits": 1,
+      "profile": "RaaS that emerged May 2023; phishing + Cobalt Strike intrusion, appends '.ryshida' extension, threatens public release of exfiltrated data.",
+      "countries": "Lebanon",
+      "sectors": "Other (textiles)"
+    },
+    {
+      "name": "Spirals",
+      "hits": 1,
+      "profile": "Very new leak-site brand (added to Ransomware.live tracking 2026-09-18); no independent public profile yet.",
+      "countries": "United Arab Emirates",
+      "sectors": "Transportation"
+    },
+    {
+      "name": "The Gentlemen",
+      "hits": 1,
+      "profile": "RaaS that emerged Jul–Aug 2025 (aka Storm-2697); Go-based locker hitting Windows/Linux/NAS/BSD; 90% affiliate revenue share; claims 320+ victims across 17+ countries, with a leaked 2026 C2 server showing 1,570+ linked victims. 8 further claims against this group surfaced on Ransomware.live this window but were already published in Issues №39–41 (see Reposts below) — only 1 new hit counted here.",
+      "countries": "not disclosed (today)",
+      "sectors": "not disclosed (today)"
+    }
+  ],
+  "quality": {
+    "singleSourced": 3,
+    "claimOnly": 0,
+    "sourcesDisagree": 5,
+    "newGroups": null
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 18
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 9
+      }
+    ],
+    "merged": 22,
+    "masked": 1,
+    "reposts": 13,
+    "nonVictims": 0,
+    "lowCoverage": true
+  },
+  "lateToPress": 0
+}

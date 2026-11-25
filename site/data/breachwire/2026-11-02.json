@@ -1,0 +1,218 @@
+{
+  "date": "2026-11-02",
+  "issue": 71,
+  "window": "2026-11-01",
+  "stats": {
+    "victims": 19,
+    "groups": 9,
+    "countries": 9,
+    "regions": 4
+  },
+  "sweden": 0,
+  "regions": [
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "region": "Europe",
+      "countries": [
+        {
+          "country": "Germany",
+          "flag": "🇩🇪",
+          "count": 4
+        },
+        {
+          "country": "Austria",
+          "flag": "🇦🇹",
+          "count": 1
+        },
+        {
+          "country": "Hungary",
+          "flag": "🇭🇺",
+          "count": 1
+        },
+        {
+          "country": "United Kingdom",
+          "flag": "🇬🇧",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Middle East",
+      "countries": [
+        {
+          "country": "Türkiye",
+          "flag": "🇹🇷",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Asia",
+      "countries": [
+        {
+          "country": "Japan",
+          "flag": "🇯🇵",
+          "count": 1
+        },
+        {
+          "country": "Indonesia",
+          "flag": "🇮🇩",
+          "count": 1
+        },
+        {
+          "country": "India",
+          "flag": "🇮🇳",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Unattributed",
+      "countries": [
+        {
+          "country": "Country not disclosed",
+          "flag": "🏳️",
+          "count": 3
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Professional services",
+      "count": 4
+    },
+    {
+      "sector": "Healthcare & life sciences",
+      "count": 3
+    },
+    {
+      "sector": "Manufacturing & industrial",
+      "count": 2
+    },
+    {
+      "sector": "Not disclosed",
+      "count": 2
+    },
+    {
+      "sector": "Other",
+      "count": 2
+    },
+    {
+      "sector": "Retail & e-commerce",
+      "count": 2
+    },
+    {
+      "sector": "Technology & telecom",
+      "count": 2
+    },
+    {
+      "sector": "Hospitality & leisure",
+      "count": 1
+    },
+    {
+      "sector": "Transportation & logistics",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "Qilin",
+      "hits": 10,
+      "profile": "Also known as Agenda. Golang/Rust RaaS first observed July 2022 and the most prolific leak site on Ransomware.live (2,559 claimed victims); double extortion, with the operator controlling encryption modes. Back to volume after a single posting in №70: ten postings, seven of them inside one hour (11:24–12:25 UTC on Ransomware.live), most with screenshots but no descriptions.",
+      "countries": "United States (3), Germany (3), Austria, Hungary, Japan, not disclosed (1)",
+      "sectors": "Professional Services, Healthcare, Retail & E-Commerce, Transportation, Manufacturing, Other"
+    },
+    {
+      "name": "Interlock",
+      "hits": 2,
+      "profile": "First observed September 2024; double extortion against healthcare, government, education and technology in North America and Europe (CISA joint advisory, July 2025). Known for fake browser-update / ClickFix lures.",
+      "countries": "United States, not disclosed (1)",
+      "sectors": "Hospitality, Healthcare"
+    },
+    {
+      "name": "Barracuda",
+      "hits": 1,
+      "profile": "Leak site tracked by Ransomware.live since 2026-08-06 (16 victims, 9 countries, 5.9 TB claimed across 12 victims). Today's posting releases \"unsold\" data free for a month, which suggests it also tries to sell stolen data.",
+      "countries": "Türkiye",
+      "sectors": "Manufacturing"
+    },
+    {
+      "name": "Direwolf",
+      "hits": 1,
+      "profile": "Dire Wolf: human-operated group first documented May 2025; Golang locker with Curve25519/ChaCha20, run by a small core team rather than affiliates; 139 claimed victims in 37 countries, ransoms up to $500,000.",
+      "countries": "United Kingdom",
+      "sectors": "Retail & E-Commerce"
+    },
+    {
+      "name": "Hyflock",
+      "hits": 1,
+      "profile": "New group tracked since 2026-10-13 (12 victims, 10 countries); Ransomware.live advises treating its claims with caution until independently verified. Its posts carry long company profiles.",
+      "countries": "India",
+      "sectors": "Technology"
+    },
+    {
+      "name": "LeakNet",
+      "hits": 1,
+      "profile": "Not tracked by Ransomware.live (its group page returns 404). Today's post names no organisation, only a hashtag.",
+      "countries": "not disclosed",
+      "sectors": "Healthcare"
+    },
+    {
+      "name": "LockBit 5.0",
+      "hits": 1,
+      "profile": "LockBit 5.0 (\"ChuongDong\") came back in September 2025 after the February 2024 law-enforcement takedown; cross-platform payloads for Windows, Linux and ESXi, affiliate model; 393 victims on Ransomware.live since December 2025, with an average 75-day lag from attack to claim.",
+      "countries": "Indonesia",
+      "sectors": "Not disclosed"
+    },
+    {
+      "name": "Shiba",
+      "hits": 1,
+      "profile": "Brand-new leak site: first victim discovered 2026-10-29, five so far (Germany, UK; healthcare, food, professional services). No published tactics profile.",
+      "countries": "Germany",
+      "sectors": "Not disclosed"
+    },
+    {
+      "name": "Whitearmor",
+      "hits": 1,
+      "profile": "New leak site tracked since 2026-10-23 (18 victims, mostly US technology and transport); Ransomware.live flags it as emerging and unverified.",
+      "countries": "United States",
+      "sectors": "Technology"
+    }
+  ],
+  "quality": {
+    "singleSourced": 5,
+    "claimOnly": 4,
+    "sourcesDisagree": 1,
+    "newGroups": null
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 16
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 17
+      }
+    ],
+    "merged": 19,
+    "masked": 0,
+    "reposts": 0,
+    "nonVictims": 0,
+    "lowCoverage": false
+  },
+  "lateToPress": 0
+}

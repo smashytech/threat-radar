@@ -1,0 +1,211 @@
+{
+  "date": "2026-10-11",
+  "issue": 49,
+  "window": "2026-10-10",
+  "stats": {
+    "victims": 17,
+    "groups": 10,
+    "countries": 7,
+    "regions": 4
+  },
+  "sweden": 0,
+  "regions": [
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "region": "Africa",
+      "countries": [
+        {
+          "country": "Egypt",
+          "flag": "🇪🇬",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Latin America & Caribbean",
+      "countries": [
+        {
+          "country": "Chile",
+          "flag": "🇨🇱",
+          "count": 1
+        },
+        {
+          "country": "Colombia",
+          "flag": "🇨🇴",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Asia",
+      "countries": [
+        {
+          "country": "Japan",
+          "flag": "🇯🇵",
+          "count": 1
+        },
+        {
+          "country": "Taiwan",
+          "flag": "🇹🇼",
+          "count": 1
+        },
+        {
+          "country": "Thailand",
+          "flag": "🇹🇭",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Unattributed",
+      "countries": [
+        {
+          "country": "Country not disclosed",
+          "flag": "🏳",
+          "count": 8
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Not disclosed",
+      "count": 8
+    },
+    {
+      "sector": "Manufacturing & industrial",
+      "count": 3
+    },
+    {
+      "sector": "Education",
+      "count": 1
+    },
+    {
+      "sector": "Government & public sector",
+      "count": 1
+    },
+    {
+      "sector": "Healthcare & life sciences",
+      "count": 1
+    },
+    {
+      "sector": "Hospitality & leisure",
+      "count": 1
+    },
+    {
+      "sector": "Other",
+      "count": 1
+    },
+    {
+      "sector": "Professional services",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "Qilin",
+      "hits": 4,
+      "profile": "Prolific double-extortion RaaS active since 2022; one of the most active leak-site operators in 2025–26.",
+      "countries": "Chile, Colombia, United States",
+      "sectors": "Hospitality, Manufacturing, Other"
+    },
+    {
+      "name": "The Gentlemen",
+      "hits": 3,
+      "profile": "Newer brand first tracked on leak sites within the past year; high posting volume, mostly opportunistic SME targets.",
+      "countries": "Thailand",
+      "sectors": "Government & Defense"
+    },
+    {
+      "name": "LockBit 5.0",
+      "hits": 2,
+      "profile": "Encryptor lineage from the LockBit RaaS family, continuing to post after the 2024 law-enforcement takedown of LockBit 3.0 infrastructure.",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "SafePay",
+      "hits": 2,
+      "profile": "Opportunistic RaaS first publicly observed in 2024; moderate output across varied sectors.",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "Chaos",
+      "hits": 1,
+      "profile": "Ransomware strain derived from the leaked/commodity \"Chaos\" builder; associated with lower-sophistication, opportunistic actors.",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "DragonForce",
+      "hits": 1,
+      "profile": "RaaS first surfaced in 2023, has distributed builders derived from other leaked ransomware code; global targeting.",
+      "countries": "Taiwan",
+      "sectors": "Manufacturing"
+    },
+    {
+      "name": "Exitium",
+      "hits": 1,
+      "profile": "Emerging name with limited public reporting to date.",
+      "countries": "Japan",
+      "sectors": "Manufacturing"
+    },
+    {
+      "name": "Redact",
+      "hits": 1,
+      "profile": "Emerging name with limited public reporting to date.",
+      "countries": "United States",
+      "sectors": "Healthcare"
+    },
+    {
+      "name": "Rhysida",
+      "hits": 1,
+      "profile": "",
+      "countries": "United States",
+      "sectors": "Professional Services"
+    },
+    {
+      "name": "UmBra",
+      "hits": 1,
+      "profile": "Emerging name with limited public reporting to date.",
+      "countries": "Egypt",
+      "sectors": "Education"
+    }
+  ],
+  "quality": {
+    "singleSourced": 9,
+    "claimOnly": 0,
+    "sourcesDisagree": 0,
+    "newGroups": null
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 9
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 18
+      }
+    ],
+    "merged": 19,
+    "masked": 0,
+    "reposts": 2,
+    "nonVictims": 0,
+    "lowCoverage": false
+  },
+  "lateToPress": 0
+}

@@ -206,6 +206,240 @@
       "groups": 11,
       "countries": 19,
       "sweden": 0
+    },
+    {
+      "date": "2026-11-02",
+      "issue": 71,
+      "window": "2026-11-01",
+      "victims": 19,
+      "groups": 9,
+      "countries": 9,
+      "sweden": 0
+    },
+    {
+      "date": "2026-11-01",
+      "issue": 70,
+      "window": "2026-10-31",
+      "victims": 16,
+      "groups": 11,
+      "countries": 7,
+      "sweden": 0
+    },
+    {
+      "date": "2026-10-31",
+      "issue": 69,
+      "window": "2026-10-30",
+      "victims": 39,
+      "groups": 14,
+      "countries": 15,
+      "sweden": 0
+    },
+    {
+      "date": "2026-10-30",
+      "issue": 68,
+      "window": "2026-10-29",
+      "victims": 28,
+      "groups": 13,
+      "countries": 8,
+      "sweden": 0
+    },
+    {
+      "date": "2026-10-29",
+      "issue": 67,
+      "window": "2026-10-28",
+      "victims": 29,
+      "groups": 15,
+      "countries": 7,
+      "sweden": 1
+    },
+    {
+      "date": "2026-10-28",
+      "issue": 65,
+      "window": "2026-10-27",
+      "victims": 44,
+      "groups": 16,
+      "countries": 11,
+      "sweden": 0
+    },
+    {
+      "date": "2026-10-27",
+      "issue": 64,
+      "window": "2026-10-26",
+      "victims": 82,
+      "groups": 17,
+      "countries": 10,
+      "sweden": 0
+    },
+    {
+      "date": "2026-10-26",
+      "issue": 63,
+      "window": "2026-10-25",
+      "victims": 23,
+      "groups": 10,
+      "countries": 9,
+      "sweden": 0
+    },
+    {
+      "date": "2026-10-25",
+      "issue": 62,
+      "window": "2026-10-24",
+      "victims": 25,
+      "groups": 10,
+      "countries": 13,
+      "sweden": 0
+    },
+    {
+      "date": "2026-10-20",
+      "issue": 57,
+      "window": "2026-10-19",
+      "victims": 27,
+      "groups": 12,
+      "countries": 11,
+      "sweden": 0
+    },
+    {
+      "date": "2026-10-19",
+      "issue": 56,
+      "window": "2026-10-18",
+      "victims": 18,
+      "groups": 6,
+      "countries": 7,
+      "sweden": 0
+    },
+    {
+      "date": "2026-10-18",
+      "issue": 55,
+      "window": "2026-10-17",
+      "victims": 24,
+      "groups": 12,
+      "countries": 10,
+      "sweden": 0
+    },
+    {
+      "date": "2026-10-17",
+      "issue": 54,
+      "window": "2026-10-16",
+      "victims": 70,
+      "groups": 15,
+      "countries": 16,
+      "sweden": 0
+    },
+    {
+      "date": "2026-10-16",
+      "issue": 53,
+      "window": "2026-10-15",
+      "victims": 49,
+      "groups": 14,
+      "countries": 13,
+      "sweden": 0
+    },
+    {
+      "date": "2026-10-15",
+      "issue": 52,
+      "window": "2026-10-14",
+      "victims": 23,
+      "groups": 14,
+      "countries": 11,
+      "sweden": 0
+    },
+    {
+      "date": "2026-10-14",
+      "issue": 51,
+      "window": "2026-10-13",
+      "victims": 55,
+      "groups": 18,
+      "countries": 16,
+      "sweden": 10
+    },
+    {
+      "date": "2026-10-12",
+      "issue": 50,
+      "window": "2026-10-11",
+      "victims": 16,
+      "groups": 10,
+      "countries": 8,
+      "sweden": 0
+    },
+    {
+      "date": "2026-10-11",
+      "issue": 49,
+      "window": "2026-10-10",
+      "victims": 17,
+      "groups": 10,
+      "countries": 7,
+      "sweden": 0
+    },
+    {
+      "date": "2026-10-10",
+      "issue": 48,
+      "window": "2026-10-09",
+      "victims": 70,
+      "groups": 20,
+      "countries": 22,
+      "sweden": 1
+    },
+    {
+      "date": "2026-10-09",
+      "issue": 47,
+      "window": "2026-10-08",
+      "victims": 27,
+      "groups": 11,
+      "countries": 8,
+      "sweden": 0
+    },
+    {
+      "date": "2026-10-08",
+      "issue": 46,
+      "window": "2026-10-07",
+      "victims": 45,
+      "groups": 18,
+      "countries": 8,
+      "sweden": 0
+    },
+    {
+      "date": "2026-10-07",
+      "issue": 45,
+      "window": "2026-10-06",
+      "victims": 50,
+      "groups": 14,
+      "countries": 9,
+      "sweden": 0
+    },
+    {
+      "date": "2026-10-05",
+      "issue": 43,
+      "window": "2026-10-04",
+      "victims": 14,
+      "groups": 7,
+      "countries": 11,
+      "sweden": 0
+    },
+    {
+      "date": "2026-10-04",
+      "issue": 42,
+      "window": "2026-10-03",
+      "victims": 8,
+      "groups": 7,
+      "countries": 4,
+      "sweden": 0
+    },
+    {
+      "date": "2026-10-03",
+      "issue": 41,
+      "window": "2026-10-02",
+      "victims": 35,
+      "groups": 15,
+      "countries": 16,
+      "sweden": 1
+    },
+    {
+      "date": "2026-10-02",
+      "issue": 40,
+      "window": "2026-10-01",
+      "victims": 31,
+      "groups": 19,
+      "countries": 5,
+      "sweden": 0
     }
   ]
 }

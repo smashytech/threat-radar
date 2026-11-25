@@ -1,0 +1,307 @@
+{
+  "date": "2026-10-03",
+  "issue": 41,
+  "window": "2026-10-02",
+  "stats": {
+    "victims": 35,
+    "groups": 15,
+    "countries": 16,
+    "regions": 4
+  },
+  "sweden": 1,
+  "regions": [
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 6
+        },
+        {
+          "country": "Canada",
+          "flag": "🇨🇦",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Europe",
+      "countries": [
+        {
+          "country": "Sweden",
+          "flag": "🇸🇪",
+          "count": 1
+        },
+        {
+          "country": "Germany",
+          "flag": "🇩🇪",
+          "count": 1
+        },
+        {
+          "country": "Denmark",
+          "flag": "🇩🇰",
+          "count": 1
+        },
+        {
+          "country": "Czech Republic",
+          "flag": "🇨🇿",
+          "count": 1
+        },
+        {
+          "country": "France",
+          "flag": "🇫🇷",
+          "count": 1
+        },
+        {
+          "country": "Greece",
+          "flag": "🇬🇷",
+          "count": 1
+        },
+        {
+          "country": "United Kingdom",
+          "flag": "🇬🇧",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Latin America & Caribbean",
+      "countries": [
+        {
+          "country": "Brazil",
+          "flag": "🇧🇷",
+          "count": 2
+        },
+        {
+          "country": "Ecuador",
+          "flag": "🇪🇨",
+          "count": 1
+        },
+        {
+          "country": "Mexico",
+          "flag": "🇲🇽",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Asia",
+      "countries": [
+        {
+          "country": "India",
+          "flag": "🇮🇳",
+          "count": 2
+        },
+        {
+          "country": "Thailand",
+          "flag": "🇹🇭",
+          "count": 1
+        },
+        {
+          "country": "Vietnam",
+          "flag": "🇻🇳",
+          "count": 1
+        },
+        {
+          "country": "Malaysia",
+          "flag": "🇲🇾",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Unattributed",
+      "countries": [
+        {
+          "country": "Country not disclosed",
+          "flag": "🏳️",
+          "count": 12
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Not disclosed",
+      "count": 13
+    },
+    {
+      "sector": "Healthcare & life sciences",
+      "count": 3
+    },
+    {
+      "sector": "Manufacturing & industrial",
+      "count": 3
+    },
+    {
+      "sector": "Other",
+      "count": 3
+    },
+    {
+      "sector": "Transportation & logistics",
+      "count": 3
+    },
+    {
+      "sector": "Education",
+      "count": 2
+    },
+    {
+      "sector": "Energy, utilities & resources",
+      "count": 2
+    },
+    {
+      "sector": "Retail & e-commerce",
+      "count": 2
+    },
+    {
+      "sector": "Food & agriculture",
+      "count": 1
+    },
+    {
+      "sector": "Hospitality & leisure",
+      "count": 1
+    },
+    {
+      "sector": "Professional services",
+      "count": 1
+    },
+    {
+      "sector": "Technology & telecom",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "The Gentlemen",
+      "hits": 5,
+      "profile": "Newer leak-site brand; limited independent public profile; broad opportunistic targeting observed this window.",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "Booba Project",
+      "hits": 4,
+      "profile": "Smaller/newer operation posting under both \"Booba Project\" and \"Booba Team\" branding (reconciled as one actor here); limited independent public profile.",
+      "countries": "Canada, United States",
+      "sectors": "Education, Healthcare"
+    },
+    {
+      "name": "Krybit",
+      "hits": 4,
+      "profile": "Smaller/newer leak-site operation; limited independent public profile.",
+      "countries": "Czech Republic, France, India",
+      "sectors": "Education, Other, Retail & E-Commerce"
+    },
+    {
+      "name": "Akira",
+      "hits": 3,
+      "profile": "Active since early 2023; double-extortion group with a distinctive retro-styled leak site; broad targeting across sectors, often SMBs.",
+      "countries": "Brazil, Mexico, United States",
+      "sectors": "Agriculture and Food Production, Professional Services, Transportation"
+    },
+    {
+      "name": "Qilin",
+      "hits": 3,
+      "profile": "RaaS group active since 2022 (successor branding to \"Agenda\"); double/triple-extortion model; high posting volume and broad international targeting.",
+      "countries": "Germany, Thailand, United Kingdom",
+      "sectors": "Hospitality, Manufacturing, Transportation"
+    },
+    {
+      "name": "Storm",
+      "hits": 3,
+      "profile": "Generic group naming; not linked here to any established cartel; limited independent public profile.",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "Deadlock",
+      "hits": 2,
+      "profile": "Smaller/newer operation; limited independent public profile.",
+      "countries": "Greece, United States",
+      "sectors": "Manufacturing, Other"
+    },
+    {
+      "name": "RansomHouse",
+      "hits": 2,
+      "profile": "Active since 2021; positions itself as a data-extortion \"intermediary\" rather than an encryptor; broad international targeting.",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "Rhysida",
+      "hits": 2,
+      "profile": "Active since mid-2023; ransomware-as-a-service; notable past hits on libraries and healthcare, auctions stolen data.",
+      "countries": "Sweden, Vietnam",
+      "sectors": "Energy & Utilities, Technology"
+    },
+    {
+      "name": "ShinyHunters",
+      "hits": 2,
+      "profile": "Long-running data-breach/extortion collective (active since ~2020); known for large-scale database theft and resale rather than classic encryption ransomware.",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "Barracuda",
+      "hits": 1,
+      "profile": "Smaller/newer operation; limited independent public profile; not to be confused with the Barracuda Networks security vendor.",
+      "countries": "Ecuador",
+      "sectors": "Transportation"
+    },
+    {
+      "name": "INC Ransom",
+      "hits": 1,
+      "profile": "Active since 2023; double-extortion RaaS; has previously hit healthcare and public-sector targets.",
+      "countries": "United States",
+      "sectors": "Energy & Utilities"
+    },
+    {
+      "name": "Netrunner",
+      "hits": 1,
+      "profile": "Smaller/newer operation; limited independent public profile.",
+      "countries": "Malaysia",
+      "sectors": "Retail & E-Commerce"
+    },
+    {
+      "name": "Panzer",
+      "hits": 1,
+      "profile": "Smaller/newer operation; limited independent public profile.",
+      "countries": "Brazil",
+      "sectors": "Other"
+    },
+    {
+      "name": "Wallstreet",
+      "hits": 1,
+      "profile": "Smaller/newer operation; limited independent public profile.",
+      "countries": "Denmark",
+      "sectors": "Manufacturing"
+    }
+  ],
+  "quality": {
+    "singleSourced": 17,
+    "claimOnly": 0,
+    "sourcesDisagree": 0,
+    "newGroups": null
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 24
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 32
+      }
+    ],
+    "merged": 38,
+    "masked": 3,
+    "reposts": 0,
+    "nonVictims": 0,
+    "lowCoverage": false
+  },
+  "lateToPress": 0
+}

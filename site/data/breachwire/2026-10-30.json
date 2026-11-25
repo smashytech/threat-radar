@@ -1,0 +1,240 @@
+{
+  "date": "2026-10-30",
+  "issue": 68,
+  "window": "2026-10-29",
+  "stats": {
+    "victims": 28,
+    "groups": 13,
+    "countries": 8,
+    "regions": 3
+  },
+  "sweden": 0,
+  "regions": [
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 9
+        },
+        {
+          "country": "Canada",
+          "flag": "🇨🇦",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Europe",
+      "countries": [
+        {
+          "country": "United Kingdom",
+          "flag": "🇬🇧",
+          "count": 2
+        },
+        {
+          "country": "Austria",
+          "flag": "🇦🇹",
+          "count": 1
+        },
+        {
+          "country": "Italy",
+          "flag": "🇮🇹",
+          "count": 1
+        },
+        {
+          "country": "Spain",
+          "flag": "🇪🇸",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Asia",
+      "countries": [
+        {
+          "country": "India",
+          "flag": "🇮🇳",
+          "count": 1
+        },
+        {
+          "country": "Japan",
+          "flag": "🇯🇵",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Unattributed",
+      "countries": [
+        {
+          "country": "Country not disclosed",
+          "flag": "🏳️",
+          "count": 11
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Healthcare & life sciences",
+      "count": 5
+    },
+    {
+      "sector": "Financial services & insurance",
+      "count": 4
+    },
+    {
+      "sector": "Government & public sector",
+      "count": 4
+    },
+    {
+      "sector": "Professional services",
+      "count": 4
+    },
+    {
+      "sector": "Technology & telecom",
+      "count": 4
+    },
+    {
+      "sector": "Education",
+      "count": 3
+    },
+    {
+      "sector": "Food & agriculture",
+      "count": 1
+    },
+    {
+      "sector": "Manufacturing & industrial",
+      "count": 1
+    },
+    {
+      "sector": "Retail & e-commerce",
+      "count": 1
+    },
+    {
+      "sector": "Transportation & logistics",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "Booba Team",
+      "hits": 7,
+      "profile": "Ransomware.live lists it as \"Booba Project\" with the alias \"Booba Team\" (tracked since 2026-07-06). Today it posted a batch of US public-sector and non-profit victims, each with a stated stolen-data volume (under 1 GB to 295 GB).",
+      "countries": "United States (6), not disclosed (1)",
+      "sectors": "Education, Financial Services, Government, Healthcare"
+    },
+    {
+      "name": "Qilin",
+      "hits": 4,
+      "profile": "Also known as Agenda. Golang/Rust RaaS active since July 2022 and one of the most prolific leak sites of 2025–26; double extortion, with the operator controlling encryption modes. Posted four victims on three continents in one batch, including a South Carolina city.",
+      "countries": "Japan, Spain, United Kingdom, not disclosed (1)",
+      "sectors": "Education, Government, Manufacturing, Technology"
+    },
+    {
+      "name": "Shiba",
+      "hits": 4,
+      "profile": "Leak site tracked since 2026-07-27, with no published tactics profile. Three of today's four postings appear only on Ransomware.live and carry no country.",
+      "countries": "United Kingdom, not disclosed (3)",
+      "sectors": "Agriculture & Food Production, Healthcare, Professional Services"
+    },
+    {
+      "name": "Emperador",
+      "hits": 2,
+      "profile": "Leak site tracked since 2026-08-12. Postings include scheduled publication dates, sample-file links and short negotiation deadlines, and say data was also encrypted.",
+      "countries": "Italy, not disclosed (1)",
+      "sectors": "Professional Services (engineering), Retail"
+    },
+    {
+      "name": "Rhysida",
+      "hits": 2,
+      "profile": "RaaS since May 2023; phishing and Cobalt Strike for access; sells stolen data in auction-style \"lots\".",
+      "countries": "United States, not disclosed (1)",
+      "sectors": "Financial Services, Technology"
+    },
+    {
+      "name": "Scarlettgroup",
+      "hits": 2,
+      "profile": "Tracked only since 2026-10-08; uploads leaks to the QU.AX file host. Both of today's postings are bare domains with no data description.",
+      "countries": "Canada, India",
+      "sectors": "Financial Services (banking), Healthcare (hospital)"
+    },
+    {
+      "name": "Dire Wolf",
+      "hits": 1,
+      "profile": "Human-operated Golang ransomware (Curve25519/ChaCha20) first documented in May 2025; tight core team rather than a broad affiliate programme; manufacturing and technology focus across 13+ countries, ransoms reported up to $500,000.",
+      "countries": "not disclosed",
+      "sectors": "Financial Services"
+    },
+    {
+      "name": "Everstake",
+      "hits": 1,
+      "profile": "New on Ransomware.live today (added 2026-10-29). Posts carry category, size and a scheduled release date. Three of its four postings are masked domains (see Exclusions).",
+      "countries": "not disclosed",
+      "sectors": "Professional Services (corporate compliance)"
+    },
+    {
+      "name": "Global Secret Group",
+      "hits": 1,
+      "profile": "Also known as GSG; tracked since 2026-07-26 with little public profile. Postings carry a templated country/revenue/size header.",
+      "countries": "United States",
+      "sectors": "Telecommunications"
+    },
+    {
+      "name": "Interlock",
+      "hits": 1,
+      "profile": "Double-extortion group first seen September 2024; uses fake browser-update and ClickFix lures; heavy focus on healthcare, government and education across North America and Europe.",
+      "countries": "not disclosed",
+      "sectors": "Healthcare"
+    },
+    {
+      "name": "Krybit",
+      "hits": 1,
+      "profile": "RaaS launched late March 2026 with an 80/20 affiliate split and Windows/Linux/ESXi/NAS lockers; known for a public feud with rival 0APT in which each leaked the other's operator data.",
+      "countries": "Austria",
+      "sectors": "Transportation (automotive)"
+    },
+    {
+      "name": "Leakeddata",
+      "hits": 1,
+      "profile": "RansomLook's label for a leak site that mirrors SilentRansomGroup's postings on Ransomware.live (see №67).",
+      "countries": "United States",
+      "sectors": "Professional Services (law)"
+    },
+    {
+      "name": "Whitearmor",
+      "hits": 1,
+      "profile": "New DLS tracked since 2026-10-20. Posts large consumer and corporate datasets in a mocking tone. This time it explicitly says it is not asking for a ransom.",
+      "countries": "not disclosed",
+      "sectors": "Technology (crypto gambling)"
+    }
+  ],
+  "quality": {
+    "singleSourced": 10,
+    "claimOnly": 2,
+    "sourcesDisagree": 1,
+    "newGroups": null
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 28
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 29
+      }
+    ],
+    "merged": 36,
+    "masked": 4,
+    "reposts": 4,
+    "nonVictims": 0,
+    "lowCoverage": false
+  },
+  "lateToPress": 0
+}

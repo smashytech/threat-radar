@@ -1,0 +1,325 @@
+{
+  "date": "2026-10-14",
+  "issue": 51,
+  "window": "2026-10-13",
+  "stats": {
+    "victims": 55,
+    "groups": 18,
+    "countries": 16,
+    "regions": 5
+  },
+  "sweden": 10,
+  "regions": [
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 7
+        }
+      ]
+    },
+    {
+      "region": "Europe",
+      "countries": [
+        {
+          "country": "Sweden",
+          "flag": "🇸🇪",
+          "count": 10
+        },
+        {
+          "country": "Germany",
+          "flag": "🇩🇪",
+          "count": 2
+        },
+        {
+          "country": "Norway",
+          "flag": "🇳🇴",
+          "count": 1
+        },
+        {
+          "country": "France",
+          "flag": "🇫🇷",
+          "count": 1
+        },
+        {
+          "country": "United Kingdom",
+          "flag": "🇬🇧",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Middle East",
+      "countries": [
+        {
+          "country": "Turkey",
+          "flag": "🇹🇷",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Latin America & Caribbean",
+      "countries": [
+        {
+          "country": "Peru",
+          "flag": "🇵🇪",
+          "count": 1
+        },
+        {
+          "country": "Brazil",
+          "flag": "🇧🇷",
+          "count": 1
+        },
+        {
+          "country": "Argentina",
+          "flag": "🇦🇷",
+          "count": 1
+        },
+        {
+          "country": "Mexico",
+          "flag": "🇲🇽",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Asia",
+      "countries": [
+        {
+          "country": "India",
+          "flag": "🇮🇳",
+          "count": 2
+        },
+        {
+          "country": "Japan",
+          "flag": "🇯🇵",
+          "count": 1
+        },
+        {
+          "country": "Mongolia",
+          "flag": "🇲🇳",
+          "count": 1
+        },
+        {
+          "country": "Singapore",
+          "flag": "🇸🇬",
+          "count": 1
+        },
+        {
+          "country": "Malaysia",
+          "flag": "🇲🇾",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Unattributed",
+      "countries": [
+        {
+          "country": "Country not disclosed",
+          "flag": "🏳️",
+          "count": 22
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Not disclosed",
+      "count": 19
+    },
+    {
+      "sector": "Professional services",
+      "count": 11
+    },
+    {
+      "sector": "Other",
+      "count": 7
+    },
+    {
+      "sector": "Healthcare & life sciences",
+      "count": 5
+    },
+    {
+      "sector": "Financial services & insurance",
+      "count": 3
+    },
+    {
+      "sector": "Manufacturing & industrial",
+      "count": 3
+    },
+    {
+      "sector": "Technology & telecom",
+      "count": 3
+    },
+    {
+      "sector": "Retail & e-commerce",
+      "count": 2
+    },
+    {
+      "sector": "Energy, utilities & resources",
+      "count": 1
+    },
+    {
+      "sector": "Food & agriculture",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "Wallstreet",
+      "hits": 11,
+      "profile": "No established public profile yet (recently listed, smaller leak-site brand); this window's hits concentrated on Swedish and German architecture/engineering firms.",
+      "countries": "Germany, Sweden",
+      "sectors": "Healthcare, Manufacturing, Other, Professional Services"
+    },
+    {
+      "name": "Hyflock",
+      "hits": 9,
+      "profile": "No established public profile yet (recently listed, smaller leak-site brand); this window's hits were a single-day burst of claims naming a cluster of related audit/consulting entities.",
+      "countries": "Turkey",
+      "sectors": "Other"
+    },
+    {
+      "name": "Orova",
+      "hits": 5,
+      "profile": "No established public profile yet (recently listed, smaller leak-site brand).",
+      "countries": "India, Malaysia, Singapore",
+      "sectors": "Manufacturing, Other, Technology"
+    },
+    {
+      "name": "Play",
+      "hits": 5,
+      "profile": "First seen June 2021.",
+      "countries": "Germany, Mongolia, United Kingdom, United States",
+      "sectors": "Agriculture and Food Production, Manufacturing, Other, Professional Services, Technology"
+    },
+    {
+      "name": "Qilin",
+      "hits": 4,
+      "profile": "First seen 2022-10-08.",
+      "countries": "Mexico, United States",
+      "sectors": "Energy & Utilities, Financial Services, Professional Services"
+    },
+    {
+      "name": "Everest",
+      "hits": 3,
+      "profile": "First seen circa late 2020.",
+      "countries": "Japan, Norway, United States",
+      "sectors": "Healthcare, Technology"
+    },
+    {
+      "name": "N0n",
+      "hits": 3,
+      "profile": "First seen 2026-09-18. Posts a high volume of anonymized \"Company #N\"/\"AUDIT ENTITY\" placeholder listings citing pending-exposure deadlines; this window's hits were dominated by a single-day burst of 38 named postings against port, terminal and maritime-shipping operators worldwide.",
+      "countries": "United States",
+      "sectors": "Financial Services, Healthcare, Retail & E-Commerce"
+    },
+    {
+      "name": "Ransomhouse",
+      "hits": 3,
+      "profile": "First seen circa December 2021. Data-theft-focused extortion group (does not always deploy an encryptor); has promoted an automated exfiltration tool (\"MrAgent\") to affiliates.",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "INC Ransom",
+      "hits": 2,
+      "profile": "First seen 2023-08-09. Prolific RaaS active since mid-2023, systematically targeting healthcare, government, education and manufacturing across North America and Europe.",
+      "countries": "India",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "Panzer",
+      "hits": 2,
+      "profile": "First seen 2026-08-05. Smaller, newer operation with diversified targeting across Europe, Asia and the Americas.",
+      "countries": "France",
+      "sectors": "Professional Services"
+    },
+    {
+      "name": "Akira",
+      "hits": 1,
+      "profile": "First seen March 2023. One of the most prolific RaaS operations by victim count in 2024-2025; known for exploiting Cisco ASA/FTD and other VPN vulnerabilities plus compromised credentials; double extortion.",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "Aurora",
+      "hits": 1,
+      "profile": "Leak-site brand with a limited independent public profile; not confirmed as linked to the 2023 \"Aurora\" stealer/ransomware reports.",
+      "countries": "United States",
+      "sectors": "Other"
+    },
+    {
+      "name": "BYOD",
+      "hits": 1,
+      "profile": "First seen 2026-10-05. No established public profile yet (recently listed, smaller leak-site brand).",
+      "countries": "not disclosed",
+      "sectors": "Retail & E-Commerce"
+    },
+    {
+      "name": "Direwolf",
+      "hits": 1,
+      "profile": "No established public profile yet (recently listed, smaller leak-site brand).",
+      "countries": "Peru",
+      "sectors": "Financial Services"
+    },
+    {
+      "name": "Emperador",
+      "hits": 1,
+      "profile": "First seen 2026-08-12. Mid-size newer group with diversified international targeting.",
+      "countries": "Argentina",
+      "sectors": "Professional Services"
+    },
+    {
+      "name": "LockBit5",
+      "hits": 1,
+      "profile": "Current branding generation of the long-running LockBit RaaS (active since 2019); introduces cross-platform payloads targeting Windows, Linux and VMware ESXi.",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "Payoutsking",
+      "hits": 1,
+      "profile": "",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "Vexy Ransomware",
+      "hits": 1,
+      "profile": "First seen 2026-09-03. Branded \"Vexy\" by RansomLook and \"Vexy Ransomware\" by Ransomware.live (treated as one brand); limited independent public profile.",
+      "countries": "Brazil",
+      "sectors": "Other"
+    }
+  ],
+  "quality": {
+    "singleSourced": 21,
+    "claimOnly": 0,
+    "sourcesDisagree": 0,
+    "newGroups": null
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 45
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 58
+      }
+    ],
+    "merged": 64,
+    "masked": 8,
+    "reposts": 0,
+    "nonVictims": 1,
+    "lowCoverage": false
+  },
+  "lateToPress": 81
+}

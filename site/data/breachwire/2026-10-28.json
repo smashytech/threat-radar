@@ -1,0 +1,284 @@
+{
+  "date": "2026-10-28",
+  "issue": 65,
+  "window": "2026-10-27",
+  "stats": {
+    "victims": 44,
+    "groups": 16,
+    "countries": 11,
+    "regions": 3
+  },
+  "sweden": 0,
+  "regions": [
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "Canada",
+          "flag": "🇨🇦",
+          "count": 1
+        },
+        {
+          "country": "Mexico",
+          "flag": "🇲🇽",
+          "count": 1
+        },
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 13
+        }
+      ]
+    },
+    {
+      "region": "Europe",
+      "countries": [
+        {
+          "country": "Belgium",
+          "flag": "🇧🇪",
+          "count": 2
+        },
+        {
+          "country": "Denmark",
+          "flag": "🇩🇰",
+          "count": 1
+        },
+        {
+          "country": "Italy",
+          "flag": "🇮🇹",
+          "count": 2
+        },
+        {
+          "country": "United Kingdom",
+          "flag": "🇬🇧",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Asia",
+      "countries": [
+        {
+          "country": "Malaysia",
+          "flag": "🇲🇾",
+          "count": 1
+        },
+        {
+          "country": "Pakistan",
+          "flag": "🇵🇰",
+          "count": 1
+        },
+        {
+          "country": "Philippines",
+          "flag": "🇵🇭",
+          "count": 1
+        },
+        {
+          "country": "Singapore",
+          "flag": "🇸🇬",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Unattributed",
+      "countries": [
+        {
+          "country": "Country not disclosed",
+          "flag": "🏳️",
+          "count": 19
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Not disclosed",
+      "count": 9
+    },
+    {
+      "sector": "Healthcare & life sciences",
+      "count": 8
+    },
+    {
+      "sector": "Technology & telecom",
+      "count": 6
+    },
+    {
+      "sector": "Financial services & insurance",
+      "count": 4
+    },
+    {
+      "sector": "Education",
+      "count": 3
+    },
+    {
+      "sector": "Government & public sector",
+      "count": 3
+    },
+    {
+      "sector": "Professional services",
+      "count": 3
+    },
+    {
+      "sector": "Energy, utilities & resources",
+      "count": 2
+    },
+    {
+      "sector": "Manufacturing & industrial",
+      "count": 2
+    },
+    {
+      "sector": "Retail & e-commerce",
+      "count": 2
+    },
+    {
+      "sector": "Other",
+      "count": 1
+    },
+    {
+      "sector": "Transportation & logistics",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "Booba Project",
+      "hits": 9,
+      "profile": "Tracked since 2026-07-06; RansomLook lists it under the alt-name \"Booba Team\" — Ransomware.live's own altname field confirms this is the same actor, not a separate group.",
+      "countries": "Belgium, Canada, Pakistan, United States",
+      "sectors": "Education, Government & Defense, Healthcare, Other"
+    },
+    {
+      "name": "Everest",
+      "hits": 8,
+      "profile": "Long-running data-leak specialist, tracked since 2021-09-09; double extortion, focuses on customer/financial data.",
+      "countries": "Italy, Singapore",
+      "sectors": "Energy & Utilities, Healthcare, Manufacturing, Professional Services, Technology"
+    },
+    {
+      "name": "Play",
+      "hits": 7,
+      "profile": "Established double-extortion RaaS, tracked since 2022-11-26; Latin America-origin, now global.",
+      "countries": "Denmark, United States",
+      "sectors": "Financial Services, Healthcare, Professional Services, Retail & E-Commerce, Technology, Transportation"
+    },
+    {
+      "name": "The Gentlemen",
+      "hits": 4,
+      "profile": "RaaS since mid-2025 (tracked since 2025-09-09); 320+ claimed victims across 17+ countries, 90% affiliate split, Go-based locker hitting Windows/Linux/NAS/BSD.",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "Whitearmor",
+      "hits": 3,
+      "profile": "Brand-new DLS, tracked only since 2026-10-20 (about a week old); no public profile yet. Also posted a self-promotional Telegram link today (excluded as non-victim, see Non-victim postings).",
+      "countries": "not disclosed",
+      "sectors": "Retail & E-Commerce, Technology"
+    },
+    {
+      "name": "Crypto24",
+      "hits": 2,
+      "profile": "RaaS surfaced on the RAMP forum mid-2024 (tracked since 2025-04-08); targets financial services, healthcare, manufacturing and tech across Asia, Europe and North America.",
+      "countries": "Malaysia, Philippines",
+      "sectors": "Healthcare, Technology"
+    },
+    {
+      "name": "Qilin",
+      "hits": 2,
+      "profile": "Golang-based RaaS, tracked since 2022-10-08; multiple encryption modes, double extortion.",
+      "countries": "United States",
+      "sectors": "Financial Services"
+    },
+    {
+      "name": "Aurora",
+      "hits": 1,
+      "profile": "Associated with a multi-purpose Go-based malware/infostealer-botnet sold under the same name since 2022; tracked as a ransomware brand since 2026-04-29.",
+      "countries": "not disclosed",
+      "sectors": "Professional Services"
+    },
+    {
+      "name": "Byod",
+      "hits": 1,
+      "profile": "Very new, tracked since 2026-10-05 (about three weeks old); today's posting was an \"update\" offering free decryption for hospital-sector devices only.",
+      "countries": "not disclosed",
+      "sectors": "Education"
+    },
+    {
+      "name": "Direwolf",
+      "hits": 1,
+      "profile": "Human-operated locker (Golang, Curve25519/ChaCha20), tracked since 2025-05-22; manufacturing/tech focus, ransoms reported up to $500K.",
+      "countries": "Mexico",
+      "sectors": "Energy & Utilities"
+    },
+    {
+      "name": "Dragonforce",
+      "hits": 1,
+      "profile": "Major RaaS since August 2023; formal 80% affiliate program, rebranded as a \"ransomware cartel\" in 2025.",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "Emperador",
+      "hits": 1,
+      "profile": "Tracked since 2026-08-12; no public profile yet.",
+      "countries": "not disclosed",
+      "sectors": "Manufacturing, Finance"
+    },
+    {
+      "name": "Leaknet",
+      "hits": 1,
+      "profile": "Not in Ransomware.live's tracker; RansomLook shows posting activity back to 2025-08-18 (70+ posts).",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "Rhysida",
+      "hits": 1,
+      "profile": "RaaS since May 2023; uses phishing and Cobalt Strike for initial access.",
+      "countries": "Belgium",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "Shiba",
+      "hits": 1,
+      "profile": "Tracked since 2026-07-27; no public profile yet.",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "Wallstreet",
+      "hits": 1,
+      "profile": "No tracker profile or first-seen date on file; limited public information.",
+      "countries": "United Kingdom",
+      "sectors": "Government & Defense"
+    }
+  ],
+  "quality": {
+    "singleSourced": 8,
+    "claimOnly": 1,
+    "sourcesDisagree": 0,
+    "newGroups": null
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 42
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 48
+      }
+    ],
+    "merged": 48,
+    "masked": 1,
+    "reposts": 0,
+    "nonVictims": 3,
+    "lowCoverage": false
+  },
+  "lateToPress": 0
+}

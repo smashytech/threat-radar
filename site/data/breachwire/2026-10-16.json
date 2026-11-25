@@ -1,0 +1,298 @@
+{
+  "date": "2026-10-16",
+  "issue": 53,
+  "window": "2026-10-15",
+  "stats": {
+    "victims": 49,
+    "groups": 14,
+    "countries": 13,
+    "regions": 5
+  },
+  "sweden": 0,
+  "regions": [
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 14
+        }
+      ]
+    },
+    {
+      "region": "Europe",
+      "countries": [
+        {
+          "country": "United Kingdom",
+          "flag": "🇬🇧",
+          "count": 3
+        },
+        {
+          "country": "Italy",
+          "flag": "🇮🇹",
+          "count": 2
+        },
+        {
+          "country": "Poland",
+          "flag": "🇵🇱",
+          "count": 1
+        },
+        {
+          "country": "Spain",
+          "flag": "🇪🇸",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Africa",
+      "countries": [
+        {
+          "country": "Egypt",
+          "flag": "🇪🇬",
+          "count": 1
+        },
+        {
+          "country": "Nigeria",
+          "flag": "🇳🇬",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Latin America & Caribbean",
+      "countries": [
+        {
+          "country": "Mexico",
+          "flag": "🇲🇽",
+          "count": 2
+        },
+        {
+          "country": "Brazil",
+          "flag": "🇧🇷",
+          "count": 2
+        },
+        {
+          "country": "Costa Rica",
+          "flag": "🇨🇷",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Asia",
+      "countries": [
+        {
+          "country": "Japan",
+          "flag": "🇯🇵",
+          "count": 1
+        },
+        {
+          "country": "South Korea",
+          "flag": "🇰🇷",
+          "count": 1
+        },
+        {
+          "country": "India",
+          "flag": "🇮🇳",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Unattributed",
+      "countries": [
+        {
+          "country": "Country not disclosed",
+          "flag": "🏳️",
+          "count": 18
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Not disclosed",
+      "count": 15
+    },
+    {
+      "sector": "Manufacturing & industrial",
+      "count": 5
+    },
+    {
+      "sector": "Professional services",
+      "count": 5
+    },
+    {
+      "sector": "Technology & telecom",
+      "count": 5
+    },
+    {
+      "sector": "Food & agriculture",
+      "count": 3
+    },
+    {
+      "sector": "Healthcare & life sciences",
+      "count": 3
+    },
+    {
+      "sector": "Other",
+      "count": 3
+    },
+    {
+      "sector": "Retail & e-commerce",
+      "count": 3
+    },
+    {
+      "sector": "Financial services & insurance",
+      "count": 2
+    },
+    {
+      "sector": "Education",
+      "count": 1
+    },
+    {
+      "sector": "Energy, utilities & resources",
+      "count": 1
+    },
+    {
+      "sector": "Government & public sector",
+      "count": 1
+    },
+    {
+      "sector": "Hospitality & leisure",
+      "count": 1
+    },
+    {
+      "sector": "Transportation & logistics",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "Qilin",
+      "hits": 12,
+      "profile": "First seen 2022-10-08.",
+      "countries": "Brazil, Japan, Nigeria, South Korea, Spain, United Kingdom, United States",
+      "sectors": "Energy & Utilities, Financial Services, Government & Defense, Manufacturing, Other, Retail & E-Commerce, Technology, Transportation"
+    },
+    {
+      "name": "iah6477",
+      "hits": 7,
+      "profile": "First seen 2026-08-20 (also branded \"Cinder\"). No established public profile yet (recently listed, smaller leak-site brand).",
+      "countries": "United Kingdom, United States",
+      "sectors": "Agriculture and Food Production, Hospitality, Manufacturing, Other, Professional Services, Retail & E-Commerce"
+    },
+    {
+      "name": "The Seven Deadly Sins",
+      "hits": 7,
+      "profile": "No established public profile; RansomLook records only 7 posts all-time and all 7 fell inside this single window — treated as a newly emerged, unverified-track-record brand (see caution tags).",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "LockBit5",
+      "hits": 6,
+      "profile": "Current branding generation of the long-running LockBit RaaS (active since 2019); introduces cross-platform payloads targeting Windows, Linux and VMware ESXi.",
+      "countries": "Egypt, Italy, Mexico, United States",
+      "sectors": "Healthcare, Manufacturing, Professional Services"
+    },
+    {
+      "name": "INC Ransom",
+      "hits": 4,
+      "profile": "First seen 2023-08-09. Prolific RaaS active since mid-2023, systematically targeting healthcare, government, education and manufacturing across North America and Europe.",
+      "countries": "Costa Rica, Poland, United States",
+      "sectors": "Education, Financial Services, Professional Services, Technology"
+    },
+    {
+      "name": "Akira",
+      "hits": 3,
+      "profile": "First seen March 2023. One of the most prolific RaaS operations by victim count in 2024-2025; known for exploiting Cisco ASA/FTD and other VPN vulnerabilities plus compromised credentials; double extortion.",
+      "countries": "United Kingdom, United States",
+      "sectors": "Agriculture and Food Production, Professional Services, Technology"
+    },
+    {
+      "name": "Scarlettgroup",
+      "hits": 2,
+      "profile": "First seen 2026-10-08. No established public profile yet (recently listed, smaller leak-site brand).",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "Space Bears",
+      "hits": 2,
+      "profile": "First seen 2024-04-29. Double-extortion group with a \"corporate\" leak-site aesthetic, leveraging Phobos RaaS infrastructure; typically targets SMBs in manufacturing, technology and healthcare across the US and Europe.",
+      "countries": "Italy, United States",
+      "sectors": "Healthcare"
+    },
+    {
+      "name": "0x00",
+      "hits": 1,
+      "profile": "First seen 2026-10-15 (brand new group; this window is its first recorded activity).",
+      "countries": "Mexico",
+      "sectors": "Professional Services"
+    },
+    {
+      "name": "Black Nevas",
+      "hits": 1,
+      "profile": "First seen 2025-08-06 (per Ransomware.live; also branded \"Trial Recovery\"). Believed derived from the Trigona ransomware family; targets telecommunications, manufacturing, medical and legal sectors primarily in Asia-Pacific, the UK, Italy and Lithuania; double extortion with dual AES/RSA encryption.",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "Emperador",
+      "hits": 1,
+      "profile": "First seen 2026-08-12. Mid-size newer group with diversified international targeting.",
+      "countries": "Brazil",
+      "sectors": "Other"
+    },
+    {
+      "name": "N0n",
+      "hits": 1,
+      "profile": "First seen 2026-09-18. Posts a high volume of anonymized \"Company #N\" placeholder listings citing pending-exposure deadlines; this window also named one real victim outright (6 further placeholder postings excluded as masked, see footer).",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "Vexy Ransomware",
+      "hits": 1,
+      "profile": "First seen 2026-09-03. Branded \"Vexy\" by RansomLook and \"Vexy Ransomware\" by Ransomware.live (treated as one brand); limited independent public profile.",
+      "countries": "India",
+      "sectors": "Retail & E-Commerce"
+    },
+    {
+      "name": "Wallstreet",
+      "hits": 1,
+      "profile": "No established public profile yet (recently listed, smaller leak-site brand).",
+      "countries": "United States",
+      "sectors": "Manufacturing"
+    }
+  ],
+  "quality": {
+    "singleSourced": 17,
+    "claimOnly": 0,
+    "sourcesDisagree": 0,
+    "newGroups": null
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 42
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 52
+      }
+    ],
+    "merged": 56,
+    "masked": 7,
+    "reposts": 0,
+    "nonVictims": 0,
+    "lowCoverage": false
+  },
+  "lateToPress": 0
+}

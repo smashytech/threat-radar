@@ -1,0 +1,267 @@
+{
+  "date": "2026-10-02",
+  "issue": 40,
+  "window": "2026-10-01",
+  "stats": {
+    "victims": 31,
+    "groups": 19,
+    "countries": 5,
+    "regions": 3
+  },
+  "sweden": 0,
+  "regions": [
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 13
+        }
+      ]
+    },
+    {
+      "region": "Europe",
+      "countries": [
+        {
+          "country": "United Kingdom",
+          "flag": "🇬🇧",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Latin America & Caribbean",
+      "countries": [
+        {
+          "country": "Argentina",
+          "flag": "🇦🇷",
+          "count": 1
+        },
+        {
+          "country": "Brazil",
+          "flag": "🇧🇷",
+          "count": 1
+        },
+        {
+          "country": "Mexico",
+          "flag": "🇲🇽",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Unattributed",
+      "countries": [
+        {
+          "country": "Country not disclosed",
+          "flag": "🏳️",
+          "count": 14
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Not disclosed",
+      "count": 10
+    },
+    {
+      "sector": "Healthcare & life sciences",
+      "count": 6
+    },
+    {
+      "sector": "Manufacturing & industrial",
+      "count": 6
+    },
+    {
+      "sector": "Other",
+      "count": 2
+    },
+    {
+      "sector": "Professional services",
+      "count": 2
+    },
+    {
+      "sector": "Education",
+      "count": 1
+    },
+    {
+      "sector": "Food & agriculture",
+      "count": 1
+    },
+    {
+      "sector": "Government & public sector",
+      "count": 1
+    },
+    {
+      "sector": "Retail & e-commerce",
+      "count": 1
+    },
+    {
+      "sector": "Technology & telecom",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "INC Ransom",
+      "hits": 5,
+      "profile": "RaaS double-extortion operator active since 2023; frequently targets US healthcare, manufacturing and public-sector victims.",
+      "countries": "United States",
+      "sectors": "Healthcare, Manufacturing, Other"
+    },
+    {
+      "name": "genesis",
+      "hits": 4,
+      "profile": "Leak-site operator seen across US healthcare and retail SMB targets; limited independent reporting beyond leak-site activity.",
+      "countries": "United States",
+      "sectors": "Healthcare, Retail & E-Commerce"
+    },
+    {
+      "name": "akira",
+      "hits": 3,
+      "profile": "RaaS active since 2023; double extortion with Windows and Linux/ESXi encryptors; broad sector targeting.",
+      "countries": "United States",
+      "sectors": "Manufacturing, Other, Professional Services"
+    },
+    {
+      "name": "audit team",
+      "hits": 2,
+      "profile": "Leak-site operator posting under an \"Audit Entity:\" naming convention; limited independent reporting.",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "Booba Project",
+      "hits": 2,
+      "profile": "Leak-site operator tracked under two aliases across sources (\"Booba Project\" / \"Booba Team\"); limited independent reporting.",
+      "countries": "Brazil, United States",
+      "sectors": "Government & Defense, Healthcare"
+    },
+    {
+      "name": "krybit",
+      "hits": 2,
+      "profile": "Smaller leak-site operator; limited independent reporting.",
+      "countries": "United States",
+      "sectors": "Manufacturing, Technology"
+    },
+    {
+      "name": "aurora",
+      "hits": 1,
+      "profile": "Leak-site operator; limited independent reporting.",
+      "countries": "Argentina",
+      "sectors": "Healthcare"
+    },
+    {
+      "name": "black x",
+      "hits": 1,
+      "profile": "Leak-site operator; limited independent reporting.",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "chaos",
+      "hits": 1,
+      "profile": "Ransomware family/builder with multiple affiliate incarnations since 2021; variable sophistication across users.",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "emperador",
+      "hits": 1,
+      "profile": "Leak-site operator; limited independent reporting.",
+      "countries": "Mexico",
+      "sectors": "Agriculture and Food Production"
+    },
+    {
+      "name": "kairos",
+      "hits": 1,
+      "profile": "Leak-site operator; limited independent reporting.",
+      "countries": "United States",
+      "sectors": "Education"
+    },
+    {
+      "name": "lockbit5",
+      "hits": 1,
+      "profile": "Leak-site branding following the LockBit lineage; successor activity after repeated law-enforcement disruption of earlier LockBit infrastructure.",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "morpheus",
+      "hits": 1,
+      "profile": "Leak-site operator; limited independent reporting.",
+      "countries": "not disclosed",
+      "sectors": "Manufacturing"
+    },
+    {
+      "name": "n0n",
+      "hits": 1,
+      "profile": "Leak-site operator; limited independent reporting.",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "pear",
+      "hits": 1,
+      "profile": "Leak-site operator; limited independent reporting.",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "qilin",
+      "hits": 1,
+      "profile": "RaaS (aka Agenda) active since 2022; double extortion with frequent healthcare targeting.",
+      "countries": "United Kingdom",
+      "sectors": "Professional Services"
+    },
+    {
+      "name": "ransomhouse",
+      "hits": 1,
+      "profile": "Data-extortion group active since 2021; typically skips encryption in favor of data theft and leak-site pressure.",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "Redact",
+      "hits": 1,
+      "profile": "Leak-site operator; limited independent reporting.",
+      "countries": "United States",
+      "sectors": "Manufacturing"
+    },
+    {
+      "name": "the gentlemen",
+      "hits": 1,
+      "profile": "Leak-site operator; limited independent reporting.",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    }
+  ],
+  "quality": {
+    "singleSourced": 11,
+    "claimOnly": 0,
+    "sourcesDisagree": 0,
+    "newGroups": null
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 22
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 31
+      }
+    ],
+    "merged": 32,
+    "masked": 1,
+    "reposts": 0,
+    "nonVictims": 0,
+    "lowCoverage": false
+  },
+  "lateToPress": 0
+}

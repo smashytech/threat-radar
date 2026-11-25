@@ -1,0 +1,233 @@
+{
+  "date": "2026-10-12",
+  "issue": 50,
+  "window": "2026-10-11",
+  "stats": {
+    "victims": 16,
+    "groups": 10,
+    "countries": 8,
+    "regions": 5
+  },
+  "sweden": 0,
+  "regions": [
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "region": "Latin America & Caribbean",
+      "countries": [
+        {
+          "country": "Peru",
+          "flag": "🇵🇪",
+          "count": 1
+        },
+        {
+          "country": "Colombia",
+          "flag": "🇨🇴",
+          "count": 1
+        },
+        {
+          "country": "Bolivia",
+          "flag": "🇧🇴",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Europe",
+      "countries": [
+        {
+          "country": "France",
+          "flag": "🇫🇷",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Africa",
+      "countries": [
+        {
+          "country": "Morocco",
+          "flag": "🇲🇦",
+          "count": 1
+        },
+        {
+          "country": "Algeria",
+          "flag": "🇩🇿",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Asia",
+      "countries": [
+        {
+          "country": "Indonesia",
+          "flag": "🇮🇩",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Unattributed",
+      "countries": [
+        {
+          "country": "Country not disclosed",
+          "flag": "🏳️",
+          "count": 5
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Technology & telecom",
+      "count": 3
+    },
+    {
+      "sector": "Energy, utilities & resources",
+      "count": 2
+    },
+    {
+      "sector": "Not disclosed",
+      "count": 2
+    },
+    {
+      "sector": "Professional services",
+      "count": 2
+    },
+    {
+      "sector": "Construction & real estate",
+      "count": 1
+    },
+    {
+      "sector": "Education",
+      "count": 1
+    },
+    {
+      "sector": "Financial services & insurance",
+      "count": 1
+    },
+    {
+      "sector": "Food & agriculture",
+      "count": 1
+    },
+    {
+      "sector": "Government & public sector",
+      "count": 1
+    },
+    {
+      "sector": "Manufacturing & industrial",
+      "count": 1
+    },
+    {
+      "sector": "Transportation & logistics",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "qilin",
+      "hits": 3,
+      "profile": "First seen 2022-10-08. Large, prolific RaaS operation (2,356 claimed victims to date).",
+      "countries": "US, UK, Canada, France, Germany",
+      "sectors": "Manufacturing, Professional Services, Technology, Healthcare"
+    },
+    {
+      "name": "The Gentlemen",
+      "hits": 3,
+      "profile": "First seen 2025-09-09. Newer high-volume brand (960 claimed victims); listings emphasize target revenue figures.",
+      "countries": "US, UK, Thailand, France, Germany",
+      "sectors": "Manufacturing, Technology, Professional Services"
+    },
+    {
+      "name": "panzer",
+      "hits": 2,
+      "profile": "First seen 2026-08-05. Smaller, newer operation (41 claimed victims), diversified targeting.",
+      "countries": "Germany, France, Indonesia, Brazil, Spain",
+      "sectors": "Technology, Manufacturing, Government & Defense"
+    },
+    {
+      "name": "rhysida",
+      "hits": 2,
+      "profile": "First seen 2023-06-05. Long-running RaaS (300 claimed victims), US-heavy targeting.",
+      "countries": "US, Canada, Germany, UK, Australia",
+      "sectors": "Education, Healthcare, Professional Services, Government & Defense"
+    },
+    {
+      "name": "BrainCipher",
+      "hits": 1,
+      "profile": "First seen 2024-07-01. Established group (90 claimed victims).",
+      "countries": "US, UK, Canada, Spain, France, Mexico",
+      "sectors": "Professional Services, Technology, Manufacturing, Healthcare"
+    },
+    {
+      "name": "dragonforce",
+      "hits": 1,
+      "profile": "First seen 2023-12-13. High-volume RaaS (661 claimed victims).",
+      "countries": "US, UK, Germany, Canada, Italy, Australia",
+      "sectors": "Professional Services, Manufacturing, Technology, Retail & E-Commerce"
+    },
+    {
+      "name": "emperador",
+      "hits": 1,
+      "profile": "First seen 2026-08-12. Mid-size newer group (39 claimed victims).",
+      "countries": "Brazil, US, Turkey, Sweden, Italy, India",
+      "sectors": "Manufacturing, Transportation, Government & Defense"
+    },
+    {
+      "name": "INC Ransom",
+      "hits": 1,
+      "profile": "First seen 2023-08-09. High-volume RaaS (969 claimed victims).",
+      "countries": "US, Canada, Germany, UK, Australia, Brazil",
+      "sectors": "Professional Services, Healthcare, Manufacturing, Technology, Education"
+    },
+    {
+      "name": "shiba",
+      "hits": 1,
+      "profile": "First seen 2026-09-28 (RansomLook-tracked only). Only 4 claimed postings to date; this window's posting contained malformed/placeholder text, consistent with low data quality from this group.",
+      "countries": "Not disclosed by either feed",
+      "sectors": "Construction (this posting only)"
+    },
+    {
+      "name": "vexy",
+      "hits": 1,
+      "profile": "First seen 2026-09-03 (RansomLook-tracked only; not listed on Ransomware.live). 21 claimed postings to date.",
+      "countries": "Not disclosed by either feed",
+      "sectors": "Food & Beverage, Retail, Technology (mixed, per postings)"
+    }
+  ],
+  "quality": {
+    "singleSourced": 9,
+    "claimOnly": 3,
+    "sourcesDisagree": 0,
+    "newGroups": null
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 20
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 28
+      }
+    ],
+    "merged": 30,
+    "masked": 14,
+    "reposts": 0,
+    "nonVictims": 0,
+    "lowCoverage": false
+  },
+  "lateToPress": 0
+}

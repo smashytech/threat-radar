@@ -1,0 +1,232 @@
+{
+  "date": "2026-10-09",
+  "issue": 47,
+  "window": "2026-10-08",
+  "stats": {
+    "victims": 27,
+    "groups": 11,
+    "countries": 8,
+    "regions": 5
+  },
+  "sweden": 0,
+  "regions": [
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 6
+        }
+      ]
+    },
+    {
+      "region": "Europe",
+      "countries": [
+        {
+          "country": "France",
+          "flag": "🇫🇷",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "region": "Africa",
+      "countries": [
+        {
+          "country": "Egypt",
+          "flag": "🇪🇬",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Latin America & Caribbean",
+      "countries": [
+        {
+          "country": "Brazil",
+          "flag": "🇧🇷",
+          "count": 1
+        },
+        {
+          "country": "Mexico",
+          "flag": "🇲🇽",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Asia",
+      "countries": [
+        {
+          "country": "India",
+          "flag": "🇮🇳",
+          "count": 3
+        },
+        {
+          "country": "Singapore",
+          "flag": "🇸🇬",
+          "count": 1
+        },
+        {
+          "country": "Taiwan",
+          "flag": "🇹🇼",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Unattributed",
+      "countries": [
+        {
+          "country": "Country not disclosed",
+          "flag": "🏳️",
+          "count": 11
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Not disclosed",
+      "count": 9
+    },
+    {
+      "sector": "Education",
+      "count": 5
+    },
+    {
+      "sector": "Professional services",
+      "count": 4
+    },
+    {
+      "sector": "Healthcare & life sciences",
+      "count": 3
+    },
+    {
+      "sector": "Technology & telecom",
+      "count": 2
+    },
+    {
+      "sector": "Manufacturing & industrial",
+      "count": 1
+    },
+    {
+      "sector": "Other",
+      "count": 1
+    },
+    {
+      "sector": "Retail & e-commerce",
+      "count": 1
+    },
+    {
+      "sector": "Transportation & logistics",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "Nightspire",
+      "hits": 9,
+      "profile": "first seen 2025-03-12 — NightSpire first emerged in March 2025 and has rapidly claimed over 250 victims across retail, manufacturing, healthcare, finance, and education sectors (US, France, India, Taiwan, Japan), using aggressive double extortion with ransom deadlines as short as two days.",
+      "countries": "Taiwan (remainder not disclosed)",
+      "sectors": "Education (remainder not disclosed)"
+    },
+    {
+      "name": "Eclipse",
+      "hits": 4,
+      "profile": "first seen 2026-08-11 — no public profile yet (recently listed group).",
+      "countries": "Brazil, India, Singapore, United States",
+      "sectors": "Manufacturing, Other, Professional Services, Transportation"
+    },
+    {
+      "name": "Umbra",
+      "hits": 4,
+      "profile": "first seen 2026-10-06 — no public profile yet (recently listed group).",
+      "countries": "Egypt, France, India (remainder not disclosed)",
+      "sectors": "Education, Technology (remainder not disclosed)"
+    },
+    {
+      "name": "SilentRansomGroup",
+      "hits": 3,
+      "profile": "first seen 2025-05-06 — aka Luna Moth (also tracked as Chatty Spider / UNC3753); a former Conti team. Callback-phishing / IT-helpdesk social-engineering group — data-theft-only extortion, no encryption deployed; has concentrated on U.S. law firms through 2025–2026.",
+      "countries": "United States (remainder not disclosed)",
+      "sectors": "Professional Services (remainder not disclosed)"
+    },
+    {
+      "name": "Leakeddata",
+      "hits": 1,
+      "profile": "newly tracked group, no established first-seen date on record — appears to operate as a generic leak-republishing/clearinghouse listing rather than a distinct intrusion actor; limited independent public profile.",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "Netrunner",
+      "hits": 1,
+      "profile": "",
+      "countries": "United States",
+      "sectors": "Healthcare"
+    },
+    {
+      "name": "Payload",
+      "hits": 1,
+      "profile": "first seen 2026-02-17 — emerged in early 2026 using Babuk-derived source code targeting Windows and ESXi with cross-platform double-extortion attacks against healthcare, energy, real estate and agriculture sectors; claimed 12 victims across seven countries within hours of launching its leak site.",
+      "countries": "France",
+      "sectors": "Retail & E-Commerce"
+    },
+    {
+      "name": "Qilin",
+      "hits": 1,
+      "profile": "first seen 2022-10-08 — RaaS first observed July 2022; Golang-based locker supporting multiple encryption modes; practices double extortion (decryptor + non-release of stolen data).",
+      "countries": "Mexico",
+      "sectors": "Technology"
+    },
+    {
+      "name": "RunSomeWares",
+      "hits": 1,
+      "profile": "first seen 2025-02-27 — emerging group that surfaced February 2025 with initial victims across supply-chain services, financial services, accounting and manufacturing; unclear whether it deploys an encryptor or runs pure data-theft extortion.",
+      "countries": "United States",
+      "sectors": "Healthcare"
+    },
+    {
+      "name": "Scarlettgroup",
+      "hits": 1,
+      "profile": "first seen 2026-10-08 (today) — no public profile yet (recently listed group).",
+      "countries": "United States",
+      "sectors": "Education"
+    },
+    {
+      "name": "Storm",
+      "hits": 1,
+      "profile": "first seen 2026-08-07 — no public profile yet (recently listed group).",
+      "countries": "United States",
+      "sectors": "Healthcare"
+    }
+  ],
+  "quality": {
+    "singleSourced": 17,
+    "claimOnly": 0,
+    "sourcesDisagree": 0,
+    "newGroups": null
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 23
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 26
+      }
+    ],
+    "merged": 38,
+    "masked": 0,
+    "reposts": 9,
+    "nonVictims": 2,
+    "lowCoverage": false
+  },
+  "lateToPress": 0
+}

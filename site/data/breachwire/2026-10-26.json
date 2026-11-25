@@ -1,0 +1,230 @@
+{
+  "date": "2026-10-26",
+  "issue": 63,
+  "window": "2026-10-25",
+  "stats": {
+    "victims": 23,
+    "groups": 10,
+    "countries": 9,
+    "regions": 5
+  },
+  "sweden": 0,
+  "regions": [
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 8
+        }
+      ]
+    },
+    {
+      "region": "Europe",
+      "countries": [
+        {
+          "country": "Germany",
+          "flag": "🇩🇪",
+          "count": 2
+        },
+        {
+          "country": "Belgium",
+          "flag": "🇧🇪",
+          "count": 1
+        },
+        {
+          "country": "Bulgaria",
+          "flag": "🇧🇬",
+          "count": 1
+        },
+        {
+          "country": "Switzerland",
+          "flag": "🇨🇭",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Africa",
+      "countries": [
+        {
+          "country": "Benin",
+          "flag": "🇧🇯",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Latin America & Caribbean",
+      "countries": [
+        {
+          "country": "Argentina",
+          "flag": "🇦🇷",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Asia",
+      "countries": [
+        {
+          "country": "China",
+          "flag": "🇨🇳",
+          "count": 1
+        },
+        {
+          "country": "Myanmar",
+          "flag": "🇲🇲",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Unattributed",
+      "countries": [
+        {
+          "country": "Country not disclosed",
+          "flag": "🏳️",
+          "count": 6
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Professional services",
+      "count": 5
+    },
+    {
+      "sector": "Technology & telecom",
+      "count": 4
+    },
+    {
+      "sector": "Healthcare & life sciences",
+      "count": 3
+    },
+    {
+      "sector": "Manufacturing & industrial",
+      "count": 3
+    },
+    {
+      "sector": "Not disclosed",
+      "count": 3
+    },
+    {
+      "sector": "Government & public sector",
+      "count": 2
+    },
+    {
+      "sector": "Energy, utilities & resources",
+      "count": 1
+    },
+    {
+      "sector": "Food & agriculture",
+      "count": 1
+    },
+    {
+      "sector": "Retail & e-commerce",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "N0n",
+      "hits": 6,
+      "profile": "First seen by researchers mid-September 2026; debuted threatening to destroy backups/shadow copies alongside the usual double extortion; initial access reportedly via infostealer credentials. Widely reported as US/financial-services-heavy, though today's claims skew manufacturing & professional services.",
+      "countries": "🇧🇬 Bulgaria, 🇺🇸 United States",
+      "sectors": "Energy & Utilities, Manufacturing, Professional Services, Technology"
+    },
+    {
+      "name": "qilin",
+      "hits": 5,
+      "profile": "One of 2026's most active RaaS brands (aka Agenda), active since 2022; affiliate payouts reportedly 70–85%; added DDoS pressure tactics in 2025; broad global footprint across manufacturing, construction, professional services, tech and retail.",
+      "countries": "🇨🇭 Switzerland, 🇩🇪 Germany, 🇲🇲 Myanmar, 🇺🇸 United States",
+      "sectors": "Manufacturing, Professional Services, Retail & E-Commerce, Technology"
+    },
+    {
+      "name": "emperador",
+      "hits": 3,
+      "profile": "New RaaS first observed August 2026, initially focused on APAC municipal/government targets; claims ChaCha20 double extortion negotiated over Tox/Session with up to 90% affiliate split. Today's claims widen into tech and food & beverage.",
+      "countries": "🇧🇪 Belgium",
+      "sectors": "Agriculture and Food Production, Government & Defense, Technology"
+    },
+    {
+      "name": "Falcon",
+      "hits": 2,
+      "profile": "Young RaaS; Tor leak site first posted early August 2026, with claims of hundreds of GB to multi-TB stolen per victim. First appearance of this group in Breach Wire.",
+      "countries": "🇺🇸 United States",
+      "sectors": "Healthcare, Professional Services"
+    },
+    {
+      "name": "Whitearmor",
+      "hits": 2,
+      "profile": "Leak-site handle with limited independent public profiling available. Also posted a non-victim social-media callout this issue (see footer) rather than a named-victim claim.",
+      "countries": "🇦🇷 Argentina, 🇨🇳 China",
+      "sectors": "Government & Defense, Technology"
+    },
+    {
+      "name": "anubis",
+      "hits": 1,
+      "profile": "RaaS notable for an integrated wiper mode (/WIPEMODE) layered on top of double extortion; first seen late 2024 as a rebrand of Sphinx; prior reported targets include healthcare, construction and engineering in the US, Canada, Australia and Peru.",
+      "countries": "🇺🇸 United States",
+      "sectors": "Healthcare"
+    },
+    {
+      "name": "HYFLOCK",
+      "hits": 1,
+      "profile": "RaaS launched May 2026; operators claim LockBit/Qilin lineage; vendors disagree on cipher (HC-128 vs AES-128-CTR+RSA-4096); double extortion with a free-leak option, negotiated over qTox/Tor.",
+      "countries": "🇺🇸 United States",
+      "sectors": "Healthcare"
+    },
+    {
+      "name": "majinahanashi",
+      "hits": 1,
+      "profile": "Surfaced June 2026; claims AES-256 per-file encryption with a .majin extension and a README.txt note; prior reported targets span retail, food service and healthcare across multiple countries.",
+      "countries": "—",
+      "sectors": "Not disclosed"
+    },
+    {
+      "name": "Panzer",
+      "hits": 1,
+      "profile": "Mid-tier RaaS active since mid-2026 with a reported ~20 victims per 60 days; third-party trackers describe Europe/Middle East/Africa-leaning targeting and limited public profiling.",
+      "countries": "🇧🇯 Benin",
+      "sectors": "Professional Services"
+    },
+    {
+      "name": "securotrop",
+      "hits": 1,
+      "profile": "Trackers describe it as having evolved from, or operated within, the Qilin affiliate network before going independent. Sources disagree on current activity — one tracker lists it inactive since February 2026 — but it posted a fresh claim in this window.",
+      "countries": "—",
+      "sectors": "Not disclosed"
+    }
+  ],
+  "quality": {
+    "singleSourced": 2,
+    "claimOnly": 0,
+    "sourcesDisagree": 0,
+    "newGroups": null
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 21
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 26
+      }
+    ],
+    "merged": 26,
+    "masked": 2,
+    "reposts": 0,
+    "nonVictims": 1,
+    "lowCoverage": false
+  },
+  "lateToPress": 0
+}

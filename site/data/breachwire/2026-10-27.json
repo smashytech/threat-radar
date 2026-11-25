@@ -1,0 +1,296 @@
+{
+  "date": "2026-10-27",
+  "issue": 64,
+  "window": "2026-10-26",
+  "stats": {
+    "victims": 82,
+    "groups": 17,
+    "countries": 10,
+    "regions": 5
+  },
+  "sweden": 0,
+  "regions": [
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 16
+        }
+      ]
+    },
+    {
+      "region": "Europe",
+      "countries": [
+        {
+          "country": "Germany",
+          "flag": "🇩🇪",
+          "count": 5
+        },
+        {
+          "country": "Spain",
+          "flag": "🇪🇸",
+          "count": 2
+        },
+        {
+          "country": "United Kingdom",
+          "flag": "🇬🇧",
+          "count": 2
+        },
+        {
+          "country": "France",
+          "flag": "🇫🇷",
+          "count": 1
+        },
+        {
+          "country": "Italy",
+          "flag": "🇮🇹",
+          "count": 1
+        },
+        {
+          "country": "Turkey",
+          "flag": "🇹🇷",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Latin America & Caribbean",
+      "countries": [
+        {
+          "country": "Mexico",
+          "flag": "🇲🇽",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Asia",
+      "countries": [
+        {
+          "country": "Malaysia",
+          "flag": "🇲🇾",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "region": "Oceania",
+      "countries": [
+        {
+          "country": "Australia",
+          "flag": "🇦🇺",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Unattributed",
+      "countries": [
+        {
+          "country": "Country not disclosed",
+          "flag": "🏳️",
+          "count": 50
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Not disclosed",
+      "count": 51
+    },
+    {
+      "sector": "Energy, utilities & resources",
+      "count": 5
+    },
+    {
+      "sector": "Manufacturing & industrial",
+      "count": 5
+    },
+    {
+      "sector": "Professional services",
+      "count": 5
+    },
+    {
+      "sector": "Retail & e-commerce",
+      "count": 5
+    },
+    {
+      "sector": "Healthcare & life sciences",
+      "count": 2
+    },
+    {
+      "sector": "Other",
+      "count": 2
+    },
+    {
+      "sector": "Technology & telecom",
+      "count": 2
+    },
+    {
+      "sector": "Transportation & logistics",
+      "count": 2
+    },
+    {
+      "sector": "Education",
+      "count": 1
+    },
+    {
+      "sector": "Financial services & insurance",
+      "count": 1
+    },
+    {
+      "sector": "Hospitality & leisure",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "The Gentlemen",
+      "hits": 38,
+      "profile": "First seen: 2025-09-09. RansomLook-only listing (no Ransomware.live entry); first posting observed 2025-09-09; ~1,100 victims posted to date, among the most prolific active leak sites. Today's 38 postings are single-sourced (RansomLook) and not yet corroborated by Ransomware.live.",
+      "countries": "Not disclosed (source gives no country data)",
+      "sectors": "Not disclosed (source gives no sector data)"
+    },
+    {
+      "name": "qilin",
+      "hits": 16,
+      "profile": "First seen: 2022-10-08. Long-running RaaS operation, active since Oct 2022; one of the highest-volume leak sites tracked. General pattern: phishing and compromised VPN/RDP credentials for initial access (group-level, not victim-specific).",
+      "countries": "Australia, Germany, Spain, United Kingdom, United States",
+      "sectors": "Energy & Utilities, Financial Services, Healthcare, Manufacturing, Other, Professional Services, Retail & E-Commerce, Technology"
+    },
+    {
+      "name": "Safepay",
+      "hits": 9,
+      "profile": "First seen: 2024-11-19. Active since Nov 2024. General pattern: compromised VPN credentials and exposed RDP (group-level, not victim-specific). Today's postings are single-sourced (RansomLook).",
+      "countries": "Not disclosed (source gives no country data)",
+      "sectors": "Not disclosed (source gives no sector data)"
+    },
+    {
+      "name": "payload",
+      "hits": 3,
+      "profile": "First seen: 2026-02-17. Active since Feb 2026; today's claims concentrated on German manufacturing/services targets.",
+      "countries": "Germany",
+      "sectors": "Manufacturing, Professional Services"
+    },
+    {
+      "name": "Whitearmor",
+      "hits": 3,
+      "profile": "First seen: 2026-10-20. Newly tracked group, first seen one week ago.",
+      "countries": "United States",
+      "sectors": "Other, Retail & E-Commerce, Transportation"
+    },
+    {
+      "name": "emperador",
+      "hits": 2,
+      "profile": "First seen: 2026-08-12. Newer group, first seen Aug 2026.",
+      "countries": "France, Mexico",
+      "sectors": "Retail & E-Commerce, Transportation"
+    },
+    {
+      "name": "aurora",
+      "hits": 1,
+      "profile": "First seen: 2026-04-29. Active since spring 2026.",
+      "countries": "Italy",
+      "sectors": "Manufacturing"
+    },
+    {
+      "name": "BYOD",
+      "hits": 1,
+      "profile": "First seen: 2026-10-05. Brand-new group, first seen this month.",
+      "countries": "United States",
+      "sectors": "Education"
+    },
+    {
+      "name": "Doommageddon",
+      "hits": 1,
+      "profile": "First seen: 2026-07-06. Smaller/newer group, first seen mid-2026.",
+      "countries": "Turkey",
+      "sectors": "Technology"
+    },
+    {
+      "name": "dragonforce",
+      "hits": 1,
+      "profile": "First seen: 2023-12-13. Active RaaS brand since late 2023. General pattern: VPN/firewall exploitation and phishing for initial access (group-level, not victim-specific).",
+      "countries": "United States",
+      "sectors": "Energy & Utilities"
+    },
+    {
+      "name": "Falcon",
+      "hits": 1,
+      "profile": "First seen: 2026-08-28. Newer group, first seen Aug 2026.",
+      "countries": "United States",
+      "sectors": "Professional Services"
+    },
+    {
+      "name": "Leakeddata",
+      "hits": 1,
+      "profile": "First seen: 2024-12-13. RansomLook-only label (no Ransomware.live entry); 235 historical postings. May function as a generic tag for unattributed leak claims rather than a single coherent actor — treat group attribution with caution.",
+      "countries": "Not disclosed (source gives no country data)",
+      "sectors": "Not disclosed (source gives no sector data)"
+    },
+    {
+      "name": "Metaencryptor",
+      "hits": 1,
+      "profile": "First seen: 2023-08-16. Active since mid-2023. Today's posting is single-sourced (RansomLook).",
+      "countries": "Not disclosed (source gives no country data)",
+      "sectors": "Not disclosed (source gives no sector data)"
+    },
+    {
+      "name": "N0n",
+      "hits": 1,
+      "profile": "First seen: 2026-09-18. Newly tracked group, first seen last month.",
+      "countries": "Spain",
+      "sectors": "Energy & Utilities"
+    },
+    {
+      "name": "rhysida",
+      "hits": 1,
+      "profile": "First seen: 2023-06-05. Active since mid-2023; opportunistic double-extortion operation. General pattern: external remote-access abuse and phishing for initial access (group-level, not victim-specific).",
+      "countries": "Malaysia",
+      "sectors": "Energy & Utilities"
+    },
+    {
+      "name": "Scarlettgroup",
+      "hits": 1,
+      "profile": "First seen: 2026-10-08. Newly tracked group, first seen this month.",
+      "countries": "Malaysia",
+      "sectors": "Hospitality"
+    },
+    {
+      "name": "SilentRansomGroup",
+      "hits": 1,
+      "profile": "First seen: 2025-05-06. Known for callback-phishing / IT-helpdesk impersonation rather than malware-based intrusion (group-level pattern, not victim-specific).",
+      "countries": "United States",
+      "sectors": "Professional Services"
+    }
+  ],
+  "quality": {
+    "singleSourced": 64,
+    "claimOnly": 0,
+    "sourcesDisagree": 2,
+    "newGroups": null
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 33
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 70
+      }
+    ],
+    "merged": 85,
+    "masked": 1,
+    "reposts": 0,
+    "nonVictims": 2,
+    "lowCoverage": false
+  },
+  "lateToPress": 0
+}

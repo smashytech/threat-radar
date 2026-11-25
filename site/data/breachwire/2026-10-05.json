@@ -1,0 +1,202 @@
+{
+  "date": "2026-10-05",
+  "issue": 43,
+  "window": "2026-10-04",
+  "stats": {
+    "victims": 14,
+    "groups": 7,
+    "countries": 11,
+    "regions": 6
+  },
+  "sweden": 0,
+  "regions": [
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 4
+        },
+        {
+          "country": "Canada",
+          "flag": "🇨🇦",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Europe",
+      "countries": [
+        {
+          "country": "France",
+          "flag": "🇫🇷",
+          "count": 1
+        },
+        {
+          "country": "Spain",
+          "flag": "🇪🇸",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Middle East",
+      "countries": [
+        {
+          "country": "Iran",
+          "flag": "🇮🇷",
+          "count": 1
+        },
+        {
+          "country": "Turkey",
+          "flag": "🇹🇷",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Latin America & Caribbean",
+      "countries": [
+        {
+          "country": "Brazil",
+          "flag": "🇧🇷",
+          "count": 1
+        },
+        {
+          "country": "Chile",
+          "flag": "🇨🇱",
+          "count": 1
+        },
+        {
+          "country": "Colombia",
+          "flag": "🇨🇴",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Asia",
+      "countries": [
+        {
+          "country": "Japan",
+          "flag": "🇯🇵",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Oceania",
+      "countries": [
+        {
+          "country": "Australia",
+          "flag": "🇦🇺",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Manufacturing & industrial",
+      "count": 6
+    },
+    {
+      "sector": "Healthcare & life sciences",
+      "count": 3
+    },
+    {
+      "sector": "Technology & telecom",
+      "count": 2
+    },
+    {
+      "sector": "Food & agriculture",
+      "count": 1
+    },
+    {
+      "sector": "Other",
+      "count": 1
+    },
+    {
+      "sector": "Retail & e-commerce",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "Qilin",
+      "hits": 5,
+      "profile": "",
+      "countries": "Australia, Chile, Japan, Spain, United States",
+      "sectors": "Manufacturing, Other"
+    },
+    {
+      "name": "Krybit",
+      "hits": 3,
+      "profile": "Smaller/newer leak-site operation; limited independent public profile; sustained high posting volume against small/medium businesses internationally over the past two weeks.",
+      "countries": "Colombia, France, Iran",
+      "sectors": "Healthcare, Retail & E-Commerce, Technology"
+    },
+    {
+      "name": "Play",
+      "hits": 2,
+      "profile": "RaaS (aka Playcrypt) active since June 2022; double extortion with intermittent/partial encryption; broad opportunistic targeting; prior notable hits include municipal governments and cloud/hosting providers.",
+      "countries": "United States",
+      "sectors": "Agriculture and Food Production, Manufacturing"
+    },
+    {
+      "name": "Booba Project",
+      "hits": 1,
+      "profile": "Smaller/newer operation posting under both \"Booba Project\" and \"Booba Team\" branding (reconciled as one actor here); limited independent public profile; prior hits concentrated in US/Canada healthcare and education.",
+      "countries": "United States",
+      "sectors": "Healthcare"
+    },
+    {
+      "name": "Direwolf",
+      "hits": 1,
+      "profile": "Smaller/newer ransomware brand; limited independent public profile.",
+      "countries": "Brazil",
+      "sectors": "Technology"
+    },
+    {
+      "name": "Emperador",
+      "hits": 1,
+      "profile": "Smaller/newer leak-site brand first seen on Ransomware.live 2026-08-12; no independent public profile yet.",
+      "countries": "Turkey",
+      "sectors": "Manufacturing"
+    },
+    {
+      "name": "Storm",
+      "hits": 1,
+      "profile": "Generic leak-site brand first seen on Ransomware.live 2026-08-07; no independent public profile yet; not linked here to any established cartel.",
+      "countries": "Canada",
+      "sectors": "Healthcare"
+    }
+  ],
+  "quality": {
+    "singleSourced": 0,
+    "claimOnly": 0,
+    "sourcesDisagree": 0,
+    "newGroups": null
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 16
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 14
+      }
+    ],
+    "merged": 16,
+    "masked": 1,
+    "reposts": 1,
+    "nonVictims": 0,
+    "lowCoverage": false
+  },
+  "lateToPress": 0
+}

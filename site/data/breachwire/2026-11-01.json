@@ -1,0 +1,218 @@
+{
+  "date": "2026-11-01",
+  "issue": 70,
+  "window": "2026-10-31",
+  "stats": {
+    "victims": 16,
+    "groups": 11,
+    "countries": 7,
+    "regions": 4
+  },
+  "sweden": 0,
+  "regions": [
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "region": "Europe",
+      "countries": [
+        {
+          "country": "Germany",
+          "flag": "🇩🇪",
+          "count": 3
+        },
+        {
+          "country": "Switzerland",
+          "flag": "🇨🇭",
+          "count": 1
+        },
+        {
+          "country": "Bulgaria",
+          "flag": "🇧🇬",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Latin America & Caribbean",
+      "countries": [
+        {
+          "country": "Uruguay",
+          "flag": "🇺🇾",
+          "count": 1
+        },
+        {
+          "country": "Colombia",
+          "flag": "🇨🇴",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Asia",
+      "countries": [
+        {
+          "country": "Malaysia",
+          "flag": "🇲🇾",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Unattributed",
+      "countries": [
+        {
+          "country": "Country not disclosed",
+          "flag": "🏳️",
+          "count": 4
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Education",
+      "count": 4
+    },
+    {
+      "sector": "Retail & e-commerce",
+      "count": 4
+    },
+    {
+      "sector": "Technology & telecom",
+      "count": 3
+    },
+    {
+      "sector": "Government & public sector",
+      "count": 1
+    },
+    {
+      "sector": "Healthcare & life sciences",
+      "count": 1
+    },
+    {
+      "sector": "Manufacturing & industrial",
+      "count": 1
+    },
+    {
+      "sector": "Not disclosed",
+      "count": 1
+    },
+    {
+      "sector": "Professional services",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "Payload",
+      "hits": 3,
+      "profile": "Emerged early 2026 (tracked since 2026-02-17); Babuk-derived locker for Windows and ESXi, double extortion; claimed 12 victims in seven countries within hours of launching its leak site. Today it posted three German victims within four minutes.",
+      "countries": "Germany (3)",
+      "sectors": "Education, Government & Defense, Retail & E-Commerce"
+    },
+    {
+      "name": "Emperador",
+      "hits": 2,
+      "profile": "Leak site tracked since 2026-08-12 with no published tactics profile. Postings include scheduled publication dates and short deadlines.",
+      "countries": "Switzerland, Uruguay",
+      "sectors": "Manufacturing, Retail & E-Commerce"
+    },
+    {
+      "name": "Interlock",
+      "hits": 2,
+      "profile": "First seen September 2024; double extortion against healthcare, government, education and technology in North America and Europe (57+ claimed victims, including a major US dialysis provider). Known for fake browser-update / ClickFix lures. Today: two school postings at the same minute.",
+      "countries": "not disclosed (2)",
+      "sectors": "Education"
+    },
+    {
+      "name": "Vexy",
+      "hits": 2,
+      "profile": "Tracked by Ransomware.live since 2026-09-03 as \"Vexy Ransomware\" (RansomLook: \"vexy\"); no published tactics profile.",
+      "countries": "Bulgaria, Colombia",
+      "sectors": "Technology"
+    },
+    {
+      "name": "AuditTeam",
+      "hits": 1,
+      "profile": "Small group tracked since 2026-04-08 (~5 known victims), mainly technology and manufacturing in East and Southeast Asia; runs a double-extortion leak site. Posted five \"AUDIT ENTITY\" entries today; four are masked and excluded.",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "INC Ransom",
+      "hits": 1,
+      "profile": "RaaS active since July 2023; one of the most prolific leak sites (200+ victims in 2025), hitting healthcare, government, education and manufacturing in North America and Europe. Affiliates have exploited edge devices and used spear-phishing.",
+      "countries": "United States",
+      "sectors": "Professional Services"
+    },
+    {
+      "name": "N0n",
+      "hits": 1,
+      "profile": "Leak site tracked since 2026-09-18.",
+      "countries": "Malaysia",
+      "sectors": "Technology"
+    },
+    {
+      "name": "Qilin",
+      "hits": 1,
+      "profile": "Also known as Agenda. Golang/Rust RaaS active since July 2022 and one of the most prolific leak sites of 2025–26; double extortion, with the operator controlling encryption modes. A quiet day after 11 postings in №69.",
+      "countries": "not disclosed",
+      "sectors": "Healthcare"
+    },
+    {
+      "name": "Rhysida",
+      "hits": 1,
+      "profile": "RaaS since May 2023; phishing and Cobalt Strike for access; sells stolen data in auction-style lots. Today's posting has a detailed inventory, including special-education records of minors.",
+      "countries": "United States",
+      "sectors": "Education"
+    },
+    {
+      "name": "Sarcoma",
+      "hits": 1,
+      "profile": "Debuted October 2024 and quickly ranked among the most active groups (116+ victims by mid-2025); targets mid-market manufacturing, retail, healthcare, legal and business services, with about half of its victims in the US.",
+      "countries": "United States",
+      "sectors": "Retail & E-Commerce"
+    },
+    {
+      "name": "Scarlettgroup",
+      "hits": 1,
+      "profile": "Little public profile.",
+      "countries": "United States",
+      "sectors": "Retail & E-Commerce"
+    }
+  ],
+  "quality": {
+    "singleSourced": 7,
+    "claimOnly": 4,
+    "sourcesDisagree": 3,
+    "newGroups": null
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 31
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 20
+      }
+    ],
+    "merged": 36,
+    "masked": 6,
+    "reposts": 14,
+    "nonVictims": 0,
+    "lowCoverage": false
+  },
+  "lateToPress": 0
+}

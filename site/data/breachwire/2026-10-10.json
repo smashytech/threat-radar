@@ -1,0 +1,390 @@
+{
+  "date": "2026-10-10",
+  "issue": 48,
+  "window": "2026-10-09",
+  "stats": {
+    "victims": 70,
+    "groups": 20,
+    "countries": 22,
+    "regions": 6
+  },
+  "sweden": 1,
+  "regions": [
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 20
+        },
+        {
+          "country": "Canada",
+          "flag": "🇨🇦",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "region": "Europe",
+      "countries": [
+        {
+          "country": "Germany",
+          "flag": "🇩🇪",
+          "count": 2
+        },
+        {
+          "country": "France",
+          "flag": "🇫🇷",
+          "count": 2
+        },
+        {
+          "country": "Spain",
+          "flag": "🇪🇸",
+          "count": 1
+        },
+        {
+          "country": "Switzerland",
+          "flag": "🇨🇭",
+          "count": 1
+        },
+        {
+          "country": "Sweden",
+          "flag": "🇸🇪",
+          "count": 1
+        },
+        {
+          "country": "Finland",
+          "flag": "🇫🇮",
+          "count": 1
+        },
+        {
+          "country": "United Kingdom",
+          "flag": "🇬🇧",
+          "count": 1
+        },
+        {
+          "country": "Italy",
+          "flag": "🇮🇹",
+          "count": 1
+        },
+        {
+          "country": "Croatia",
+          "flag": "🇭🇷",
+          "count": 1
+        },
+        {
+          "country": "Czech Republic",
+          "flag": "🇨🇿",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Middle East",
+      "countries": [
+        {
+          "country": "Israel",
+          "flag": "🇮🇱",
+          "count": 1
+        },
+        {
+          "country": "United Arab Emirates",
+          "flag": "🇦🇪",
+          "count": 1
+        },
+        {
+          "country": "Oman",
+          "flag": "🇴🇲",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Latin America & Caribbean",
+      "countries": [
+        {
+          "country": "Brazil",
+          "flag": "🇧🇷",
+          "count": 2
+        },
+        {
+          "country": "Mexico",
+          "flag": "🇲🇽",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Asia",
+      "countries": [
+        {
+          "country": "Singapore",
+          "flag": "🇸🇬",
+          "count": 2
+        },
+        {
+          "country": "Taiwan",
+          "flag": "🇹🇼",
+          "count": 2
+        },
+        {
+          "country": "Japan",
+          "flag": "🇯🇵",
+          "count": 1
+        },
+        {
+          "country": "India",
+          "flag": "🇮🇳",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Oceania",
+      "countries": [
+        {
+          "country": "Australia",
+          "flag": "🇦🇺",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Unattributed",
+      "countries": [
+        {
+          "country": "Country not disclosed",
+          "flag": "🏳️",
+          "count": 21
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Not disclosed",
+      "count": 23
+    },
+    {
+      "sector": "Other",
+      "count": 10
+    },
+    {
+      "sector": "Healthcare & life sciences",
+      "count": 9
+    },
+    {
+      "sector": "Education",
+      "count": 6
+    },
+    {
+      "sector": "Manufacturing & industrial",
+      "count": 5
+    },
+    {
+      "sector": "Professional services",
+      "count": 4
+    },
+    {
+      "sector": "Hospitality & leisure",
+      "count": 3
+    },
+    {
+      "sector": "Technology & telecom",
+      "count": 3
+    },
+    {
+      "sector": "Energy, utilities & resources",
+      "count": 2
+    },
+    {
+      "sector": "Financial services & insurance",
+      "count": 1
+    },
+    {
+      "sector": "Food & agriculture",
+      "count": 1
+    },
+    {
+      "sector": "Government & public sector",
+      "count": 1
+    },
+    {
+      "sector": "Retail & e-commerce",
+      "count": 1
+    },
+    {
+      "sector": "Transportation & logistics",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "thegentlemen",
+      "hits": 26,
+      "profile": "extortion brand active since 2025, known for high-volume, broad-sector victim postings across many countries in short bursts.",
+      "countries": "Australia, Canada, Czech Republic, France, India, Oman, Singapore, Taiwan, US",
+      "sectors": "Education, Energy & Utilities, Healthcare, Hospitality, Manufacturing, Other, Professional Services"
+    },
+    {
+      "name": "nightspire",
+      "hits": 12,
+      "profile": "newer extortion brand with a limited public track record.",
+      "countries": "UAE",
+      "sectors": "Professional Services"
+    },
+    {
+      "name": "qilin",
+      "hits": 4,
+      "profile": "established RaaS operation active since 2022, frequently hits manufacturing and professional-services targets, double-extortion model.",
+      "countries": "Finland, Israel, Italy, Sweden",
+      "sectors": "Manufacturing, Technology"
+    },
+    {
+      "name": "akira",
+      "hits": 3,
+      "profile": "well-known RaaS group active since 2023, broad international targeting (often SMBs), classic double-extortion.",
+      "countries": "not disclosed",
+      "sectors": "Manufacturing, Other"
+    },
+    {
+      "name": "arcusmedia",
+      "hits": 3,
+      "profile": "mid-tier extortion group active since 2024, hits manufacturing and varied SMB targets across the Americas.",
+      "countries": "Brazil, Canada, Mexico",
+      "sectors": "Manufacturing"
+    },
+    {
+      "name": "black x",
+      "hits": 3,
+      "profile": "newer/smaller brand with limited independent reporting.",
+      "countries": "Germany, Japan, UK",
+      "sectors": "Financial Services, Healthcare, Technology"
+    },
+    {
+      "name": "deadlock",
+      "hits": 3,
+      "profile": "newer leak-site brand with limited public profiling available.",
+      "countries": "Spain, US",
+      "sectors": "Healthcare"
+    },
+    {
+      "name": "Panzer",
+      "hits": 2,
+      "profile": "limited public profiling available; newer brand.",
+      "countries": "Singapore",
+      "sectors": "Energy & Utilities, Technology"
+    },
+    {
+      "name": "rhysida",
+      "hits": 2,
+      "profile": "RaaS group active since 2023, notable for high-profile breaches incl. public-sector/healthcare, opportunistic targeting.",
+      "countries": "US",
+      "sectors": "Government & Defense, Professional Services"
+    },
+    {
+      "name": "safepay",
+      "hits": 2,
+      "profile": "newer ransomware brand (2024), mostly SMB/mid-market targets in Europe.",
+      "countries": "Germany, Switzerland",
+      "sectors": "Hospitality, Other"
+    },
+    {
+      "name": "anubis",
+      "hits": 1,
+      "profile": "newer brand with limited independent track record.",
+      "countries": "not disclosed",
+      "sectors": "Healthcare"
+    },
+    {
+      "name": "Barracuda",
+      "hits": 1,
+      "profile": "self-styled leak-site brand name, unrelated to the Barracuda Networks security vendor; limited public profiling available.",
+      "countries": "Croatia",
+      "sectors": "Agriculture and Food Production"
+    },
+    {
+      "name": "brain cipher",
+      "hits": 1,
+      "profile": "",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "bravox",
+      "hits": 1,
+      "profile": "limited public profiling available; newer/smaller brand.",
+      "countries": "US",
+      "sectors": "Other"
+    },
+    {
+      "name": "cry0",
+      "hits": 1,
+      "profile": "newer/smaller brand with limited independent track record.",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "emperador",
+      "hits": 1,
+      "profile": "limited public profiling available; newer/smaller brand.",
+      "countries": "not disclosed",
+      "sectors": "Retail & E-Commerce"
+    },
+    {
+      "name": "interlock",
+      "hits": 1,
+      "profile": "ransomware group active since 2024, known for drive-by/ClickFix-style initial access.",
+      "countries": "US",
+      "sectors": "Education"
+    },
+    {
+      "name": "leakeddata",
+      "hits": 1,
+      "profile": "group identity unclear; may be a data-listing/aggregator site rather than a confirmed ransomware operator.",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "termite",
+      "hits": 1,
+      "profile": "",
+      "countries": "Brazil",
+      "sectors": "Healthcare"
+    },
+    {
+      "name": "threeam",
+      "hits": 1,
+      "profile": "ransomware strain with ties to Royal/BlackSuit-adjacent tooling, emerged 2023.",
+      "countries": "US",
+      "sectors": "Transportation"
+    }
+  ],
+  "quality": {
+    "singleSourced": 48,
+    "claimOnly": 0,
+    "sourcesDisagree": 0,
+    "newGroups": null
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 55
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 38
+      }
+    ],
+    "merged": 71,
+    "masked": 1,
+    "reposts": 0,
+    "nonVictims": 0,
+    "lowCoverage": false
+  },
+  "lateToPress": 0
+}

@@ -1,0 +1,192 @@
+{
+  "date": "2026-10-19",
+  "issue": 56,
+  "window": "2026-10-18",
+  "stats": {
+    "victims": 18,
+    "groups": 6,
+    "countries": 7,
+    "regions": 5
+  },
+  "sweden": 0,
+  "regions": [
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 7
+        }
+      ]
+    },
+    {
+      "region": "Europe",
+      "countries": [
+        {
+          "country": "Germany",
+          "flag": "🇩🇪",
+          "count": 1
+        },
+        {
+          "country": "Italy",
+          "flag": "🇮🇹",
+          "count": 1
+        },
+        {
+          "country": "Netherlands",
+          "flag": "🇳🇱",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "region": "Africa",
+      "countries": [
+        {
+          "country": "Egypt",
+          "flag": "🇪🇬",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Latin America & Caribbean",
+      "countries": [
+        {
+          "country": "Peru",
+          "flag": "🇵🇪",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Asia",
+      "countries": [
+        {
+          "country": "Malaysia",
+          "flag": "🇲🇾",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Unattributed",
+      "countries": [
+        {
+          "country": "Country not disclosed",
+          "flag": "🏳️",
+          "count": 4
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Manufacturing & industrial",
+      "count": 4
+    },
+    {
+      "sector": "Energy, utilities & resources",
+      "count": 3
+    },
+    {
+      "sector": "Professional services",
+      "count": 3
+    },
+    {
+      "sector": "Not disclosed",
+      "count": 2
+    },
+    {
+      "sector": "Technology & telecom",
+      "count": 2
+    },
+    {
+      "sector": "Education",
+      "count": 1
+    },
+    {
+      "sector": "Other",
+      "count": 1
+    },
+    {
+      "sector": "Retail & e-commerce",
+      "count": 1
+    },
+    {
+      "sector": "Transportation & logistics",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "N0n",
+      "hits": 7,
+      "profile": "Prolific, high-volume actor that posts a mix of named victims and anonymized \"Company #\" placeholders, consistently tagging named postings \"[NOT PAID — EXPOSED]\". 5 additional masked postings this window (Company #88, #89, #90, #91, #92) excluded per policy — see footer.",
+      "countries": "United States, Egypt, unattributed",
+      "sectors": "Technology, Professional Services, Manufacturing, Other, Energy & Utilities"
+    },
+    {
+      "name": "qilin",
+      "hits": 6,
+      "profile": "Established, high-volume RaaS group active since 2022. All 6 of today's claims carried no description or supporting detail of any kind — treat with elevated skepticism.",
+      "countries": "Peru, United States, Malaysia, Netherlands, Germany, Italy",
+      "sectors": "Retail & E-Commerce, Education, Energy & Utilities, Transportation, Not disclosed, Manufacturing"
+    },
+    {
+      "name": "Helix",
+      "hits": 2,
+      "profile": "Posts GoFile-hosted data links with a short (6h) unlock window and cites company revenue figures. Both claims today were single-sourced (Ransomware.live only).",
+      "countries": "United States",
+      "sectors": "Manufacturing"
+    },
+    {
+      "name": "Dragonforce",
+      "hits": 1,
+      "profile": "Established multi-affiliate RaaS brand. Today's single claim came via RansomLook only, with no victim detail beyond name and group.",
+      "countries": "unattributed",
+      "sectors": "Not disclosed"
+    },
+    {
+      "name": "emperador",
+      "hits": 1,
+      "profile": "Low-volume actor with limited track record. One claim today against a Spanish lighting company, corroborated by both feeds.",
+      "countries": "unattributed (RansomLook/Ransomware.live structured country field not populated for this entry)",
+      "sectors": "Energy & Utilities"
+    },
+    {
+      "name": "iah6477",
+      "hits": 1,
+      "profile": "Unfamiliar name with no established track record in this digest; RansomLook renders the same group as \"iah647\". One claim today, corroborated by both discovery feeds.",
+      "countries": "United States",
+      "sectors": "Professional Services"
+    }
+  ],
+  "quality": {
+    "singleSourced": 5,
+    "claimOnly": 6,
+    "sourcesDisagree": 0,
+    "newGroups": null
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 24
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 23
+      }
+    ],
+    "merged": 28,
+    "masked": 8,
+    "reposts": 2,
+    "nonVictims": 0,
+    "lowCoverage": false
+  },
+  "lateToPress": 0
+}

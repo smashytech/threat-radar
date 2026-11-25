@@ -1,0 +1,321 @@
+{
+  "date": "2026-10-17",
+  "issue": 54,
+  "window": "2026-10-16",
+  "stats": {
+    "victims": 70,
+    "groups": 15,
+    "countries": 16,
+    "regions": 6
+  },
+  "sweden": 0,
+  "regions": [
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 23
+        },
+        {
+          "country": "Canada",
+          "flag": "🇨🇦",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "region": "Europe",
+      "countries": [
+        {
+          "country": "Belgium",
+          "flag": "🇧🇪",
+          "count": 1
+        },
+        {
+          "country": "Czech Republic",
+          "flag": "🇨🇿",
+          "count": 1
+        },
+        {
+          "country": "Germany",
+          "flag": "🇩🇪",
+          "count": 1
+        },
+        {
+          "country": "Ireland",
+          "flag": "🇮🇪",
+          "count": 1
+        },
+        {
+          "country": "United Kingdom",
+          "flag": "🇬🇧",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Africa",
+      "countries": [
+        {
+          "country": "South Africa",
+          "flag": "🇿🇦",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Latin America & Caribbean",
+      "countries": [
+        {
+          "country": "Brazil",
+          "flag": "🇧🇷",
+          "count": 5
+        },
+        {
+          "country": "Ecuador",
+          "flag": "🇪🇨",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Asia",
+      "countries": [
+        {
+          "country": "Hong Kong",
+          "flag": "🇭🇰",
+          "count": 1
+        },
+        {
+          "country": "Kazakhstan",
+          "flag": "🇰🇿",
+          "count": 1
+        },
+        {
+          "country": "Pakistan",
+          "flag": "🇵🇰",
+          "count": 1
+        },
+        {
+          "country": "South Korea",
+          "flag": "🇰🇷",
+          "count": 1
+        },
+        {
+          "country": "Taiwan",
+          "flag": "🇹🇼",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Oceania",
+      "countries": [
+        {
+          "country": "Australia",
+          "flag": "🇦🇺",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "region": "Unattributed",
+      "countries": [
+        {
+          "country": "Country not disclosed",
+          "flag": "🏳️",
+          "count": 26
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Not disclosed",
+      "count": 29
+    },
+    {
+      "sector": "Healthcare & life sciences",
+      "count": 9
+    },
+    {
+      "sector": "Manufacturing & industrial",
+      "count": 6
+    },
+    {
+      "sector": "Technology & telecom",
+      "count": 6
+    },
+    {
+      "sector": "Financial services & insurance",
+      "count": 5
+    },
+    {
+      "sector": "Education",
+      "count": 3
+    },
+    {
+      "sector": "Professional services",
+      "count": 3
+    },
+    {
+      "sector": "Energy, utilities & resources",
+      "count": 2
+    },
+    {
+      "sector": "Government & public sector",
+      "count": 2
+    },
+    {
+      "sector": "Transportation & logistics",
+      "count": 2
+    },
+    {
+      "sector": "Food & agriculture",
+      "count": 1
+    },
+    {
+      "sector": "Other",
+      "count": 1
+    },
+    {
+      "sector": "Retail & e-commerce",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "The Gentlemen",
+      "hits": 37,
+      "profile": "First seen: reporting is inconsistent (MITRE/Blackpoint: mid-to-late 2025; SOCRadar: 2023). RaaS double-extortion operation; initial access via exposed VPN/firewall appliances (incl. CVE-2024-55591 in FortiOS/FortiProxy) and stolen credentials, then extended recon, BYOVD evasion and fast ransomware deployment.",
+      "countries": "Australia, Brazil, Canada, Czech Republic, Ecuador, Ireland, Kazakhstan, Pakistan, South Africa, South Korea, Taiwan, United Kingdom, United States",
+      "sectors": "Agriculture and Food Production, Education, Energy & Utilities, Financial Services, Government & Defense, Healthcare, Manufacturing, Other, Professional Services, Technology, Transportation"
+    },
+    {
+      "name": "7 Deadly Sins",
+      "hits": 7,
+      "profile": "Emerging data-broker/extortion operation per WatchGuard; mixes direct extortion, double extortion and free data leaks; prior victims concentrated in healthcare, IT, electronics and professional services (mostly US, with Canada/Australia/Brazil cases) — consistent with today's spread.",
+      "countries": "Australia, Brazil, United States",
+      "sectors": "Healthcare, Retail & E-Commerce, Technology"
+    },
+    {
+      "name": "N0n",
+      "hits": 5,
+      "profile": "Active since at least September 2026 per our tracking. Posts a mix of named victims and a high volume of anonymized \"Company #NN\" placeholder listings (12 more excluded from this issue as masked). Independent researchers (Fortra) note some of its marquee claims remain unconfirmed.",
+      "countries": "Brazil, United States",
+      "sectors": "Healthcare, Manufacturing"
+    },
+    {
+      "name": "INC Ransom",
+      "hits": 4,
+      "profile": "Established double-extortion operation active since mid-2023; has repeatedly hit healthcare and public-sector targets; initial access generally via phishing or exploitation of internet-facing applications. RansomLook-only in today's feeds.",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "Play",
+      "hits": 4,
+      "profile": "Established double-extortion RaaS active since 2022, publicly documented by CISA (AA23-352A); exploits FortiOS/Fortinet and Microsoft Exchange (ProxyNotShell) vulnerabilities plus compromised RDP for initial access.",
+      "countries": "Belgium, Hong Kong, United States",
+      "sectors": "Financial Services, Manufacturing, Technology"
+    },
+    {
+      "name": "Pear",
+      "hits": 3,
+      "profile": "Newer/low-volume leak-site operation; limited independent public profiling available. RansomLook-only in today's feeds.",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "Redact",
+      "hits": 2,
+      "profile": "Newer entrant; limited independent public profiling available. No TTP attribution asserted.",
+      "countries": "United States",
+      "sectors": "Energy & Utilities, Manufacturing"
+    },
+    {
+      "name": "Aurora",
+      "hits": 1,
+      "profile": "Newer/low-volume leak-site operation; limited independent public profiling available.",
+      "countries": "United States",
+      "sectors": "Transportation"
+    },
+    {
+      "name": "Bravox",
+      "hits": 1,
+      "profile": "Newer/low-volume leak-site operation; limited independent public profiling available.",
+      "countries": "Germany",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "Deadlock",
+      "hits": 1,
+      "profile": "Newer/low-volume leak-site operation; limited independent public profiling available. RansomLook-only in today's feeds.",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "Everest",
+      "hits": 1,
+      "profile": "Data-extortion operation active since ~2020–2021 with alleged Russian-speaking ties; mixes ransomware deployment with pure data-extortion listings; has previously targeted healthcare and government victims. RansomLook-only in today's feeds.",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "LockBit5",
+      "hits": 1,
+      "profile": "Latest branded iteration of the long-running LockBit RaaS lineage (active since 2019) following 2024 law-enforcement disruption of LockBit 3.0 infrastructure; affiliates typically use phishing or exploitation of internet-facing applications. RansomLook-only in today's feeds.",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "Qilin",
+      "hits": 1,
+      "profile": "Established double-extortion RaaS active since 2022; initial access typically via compromised VPN/RDP credentials or exploitation of internet-facing VPN appliances.",
+      "countries": "United States",
+      "sectors": "Financial Services"
+    },
+    {
+      "name": "Vexy",
+      "hits": 1,
+      "profile": "Newer/low-volume leak-site operation (branded \"Vexy Ransomware\"); limited independent public profiling available.",
+      "countries": "not disclosed",
+      "sectors": "Technology"
+    },
+    {
+      "name": "Wallstreet",
+      "hits": 1,
+      "profile": "Newer/low-volume leak-site operation; limited independent public profiling available.",
+      "countries": "United States",
+      "sectors": "Education"
+    }
+  ],
+  "quality": {
+    "singleSourced": 38,
+    "claimOnly": 0,
+    "sourcesDisagree": 0,
+    "newGroups": null
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 57
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 67
+      }
+    ],
+    "merged": 82,
+    "masked": 12,
+    "reposts": 0,
+    "nonVictims": 0,
+    "lowCoverage": false
+  },
+  "lateToPress": 0
+}

@@ -1,0 +1,252 @@
+{
+  "date": "2026-10-20",
+  "issue": 57,
+  "window": "2026-10-19",
+  "stats": {
+    "victims": 27,
+    "groups": 12,
+    "countries": 11,
+    "regions": 5
+  },
+  "sweden": 0,
+  "regions": [
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 17
+        }
+      ]
+    },
+    {
+      "region": "Europe",
+      "countries": [
+        {
+          "country": "Germany",
+          "flag": "🇩🇪",
+          "count": 1
+        },
+        {
+          "country": "Portugal",
+          "flag": "🇵🇹",
+          "count": 1
+        },
+        {
+          "country": "Spain",
+          "flag": "🇪🇸",
+          "count": 1
+        },
+        {
+          "country": "United Kingdom",
+          "flag": "🇬🇧",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Middle East",
+      "countries": [
+        {
+          "country": "United Arab Emirates",
+          "flag": "🇦🇪",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Latin America & Caribbean",
+      "countries": [
+        {
+          "country": "Argentina",
+          "flag": "🇦🇷",
+          "count": 1
+        },
+        {
+          "country": "Brazil",
+          "flag": "🇧🇷",
+          "count": 1
+        },
+        {
+          "country": "Mexico",
+          "flag": "🇲🇽",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Asia",
+      "countries": [
+        {
+          "country": "China",
+          "flag": "🇨🇳",
+          "count": 1
+        },
+        {
+          "country": "India",
+          "flag": "🇮🇳",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Transportation & logistics",
+      "count": 4
+    },
+    {
+      "sector": "Financial services & insurance",
+      "count": 3
+    },
+    {
+      "sector": "Not disclosed",
+      "count": 3
+    },
+    {
+      "sector": "Professional services",
+      "count": 3
+    },
+    {
+      "sector": "Education",
+      "count": 2
+    },
+    {
+      "sector": "Healthcare & life sciences",
+      "count": 2
+    },
+    {
+      "sector": "Hospitality & leisure",
+      "count": 2
+    },
+    {
+      "sector": "Manufacturing & industrial",
+      "count": 2
+    },
+    {
+      "sector": "Other",
+      "count": 2
+    },
+    {
+      "sector": "Retail & e-commerce",
+      "count": 2
+    },
+    {
+      "sector": "Technology & telecom",
+      "count": 2
+    }
+  ],
+  "groups": [
+    {
+      "name": "qilin",
+      "hits": 8,
+      "profile": "Established, high-volume RaaS group active since 2022; a recurring actor in this digest. All 8 of today’s claims carried no description or supporting detail of any kind — treat with elevated skepticism.",
+      "countries": "Spain, India, United Arab Emirates, United Kingdom, United States, Argentina, Mexico, Portugal",
+      "sectors": "Transportation, Technology, Not disclosed, Healthcare, Other, Financial Services"
+    },
+    {
+      "name": "N0n",
+      "hits": 6,
+      "profile": "Prolific, high-volume actor that posts a mix of named victims and anonymized \"Company #\" placeholders, consistently tagging named postings \"[NOT PAID — EXPOSED]\"; a recurring actor in this digest. 2 additional masked postings this window (Company #93, #94) excluded per policy — see footer.",
+      "countries": "United States",
+      "sectors": "Retail & E-Commerce, Hospitality, Healthcare, Other, Financial Services, Not disclosed"
+    },
+    {
+      "name": "Storm",
+      "hits": 3,
+      "profile": "Posts victim claims as plain company-profile boilerplate with no indication of what data was actually taken; no established track record in this digest.",
+      "countries": "United States",
+      "sectors": "Transportation, Financial Services"
+    },
+    {
+      "name": "Global Secret Group",
+      "hits": 2,
+      "profile": "Posts structured victim-profile dossiers (revenue, employee count, claimed data volume in GB/files/folders) rather than narrative descriptions; no established track record in this digest.",
+      "countries": "United States",
+      "sectors": "Professional Services, Education"
+    },
+    {
+      "name": "aurora",
+      "hits": 1,
+      "profile": "No established track record in this digest; today’s single claim was detailed and specific (named customer data, financial figures, employee PII categories).",
+      "countries": "United States",
+      "sectors": "Manufacturing"
+    },
+    {
+      "name": "emperador",
+      "hits": 1,
+      "profile": "Low-volume actor with limited track record.",
+      "countries": "Brazil",
+      "sectors": "Manufacturing"
+    },
+    {
+      "name": "fulcrumsec",
+      "hits": 1,
+      "profile": "No established track record in this digest; today’s single claim shipped only an AI-generated company description with no breach specifics.",
+      "countries": "China",
+      "sectors": "Technology"
+    },
+    {
+      "name": "Helix",
+      "hits": 1,
+      "profile": "Posts GoFile-hosted data links with a short (6h) unlock window and cites company revenue figures.",
+      "countries": "United States",
+      "sectors": "Education"
+    },
+    {
+      "name": "INC Ransom",
+      "hits": 1,
+      "profile": "Low-volume actor in this digest; today’s posting named specific exposed data categories (guest ID/passport numbers, payment cards, health/dietary notes, financial records) rather than generic boilerplate.",
+      "countries": "Germany",
+      "sectors": "Hospitality"
+    },
+    {
+      "name": "lockbit5",
+      "hits": 1,
+      "profile": "LockBit-branded leak site; today’s single claim carried no data specifics and identified the victim only via a truncated company-profile blurb.",
+      "countries": "United States",
+      "sectors": "Retail & E-Commerce"
+    },
+    {
+      "name": "Redact",
+      "hits": 1,
+      "profile": "No established track record in this digest; today’s single claim carried no data specifics beyond sector.",
+      "countries": "United States",
+      "sectors": "Professional Services"
+    },
+    {
+      "name": "SilentRansomGroup / Leakeddata",
+      "hits": 1,
+      "profile": "Posting itself carried only generic firm-profile text, no data specifics.",
+      "countries": "United States",
+      "sectors": "Professional Services"
+    }
+  ],
+  "quality": {
+    "singleSourced": 8,
+    "claimOnly": 15,
+    "sourcesDisagree": 1,
+    "newGroups": null
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 29
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 24
+      }
+    ],
+    "merged": 32,
+    "masked": 3,
+    "reposts": 2,
+    "nonVictims": 0,
+    "lowCoverage": false
+  },
+  "lateToPress": 0
+}

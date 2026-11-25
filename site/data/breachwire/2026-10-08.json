@@ -1,0 +1,290 @@
+{
+  "date": "2026-10-08",
+  "issue": 46,
+  "window": "2026-10-07",
+  "stats": {
+    "victims": 45,
+    "groups": 18,
+    "countries": 8,
+    "regions": 6
+  },
+  "sweden": 0,
+  "regions": [
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 7
+        }
+      ]
+    },
+    {
+      "region": "Europe",
+      "countries": [
+        {
+          "country": "Germany",
+          "flag": "🇩🇪",
+          "count": 3
+        },
+        {
+          "country": "Spain",
+          "flag": "🇪🇸",
+          "count": 2
+        },
+        {
+          "country": "France",
+          "flag": "🇫🇷",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Middle East",
+      "countries": [
+        {
+          "country": "Qatar",
+          "flag": "🇶🇦",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Africa",
+      "countries": [
+        {
+          "country": "South Africa",
+          "flag": "🇿🇦",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Latin America & Caribbean",
+      "countries": [
+        {
+          "country": "Brazil",
+          "flag": "🇧🇷",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Asia",
+      "countries": [
+        {
+          "country": "Singapore",
+          "flag": "🇸🇬",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Unattributed",
+      "countries": [
+        {
+          "country": "Country not disclosed",
+          "flag": "🏳️",
+          "count": 28
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Not disclosed",
+      "count": 27
+    },
+    {
+      "sector": "Technology & telecom",
+      "count": 5
+    },
+    {
+      "sector": "Manufacturing & industrial",
+      "count": 3
+    },
+    {
+      "sector": "Professional services",
+      "count": 3
+    },
+    {
+      "sector": "Education",
+      "count": 2
+    },
+    {
+      "sector": "Energy, utilities & resources",
+      "count": 1
+    },
+    {
+      "sector": "Financial services & insurance",
+      "count": 1
+    },
+    {
+      "sector": "Food & agriculture",
+      "count": 1
+    },
+    {
+      "sector": "Healthcare & life sciences",
+      "count": 1
+    },
+    {
+      "sector": "Transportation & logistics",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "The Gentlemen",
+      "hits": 9,
+      "profile": "first seen 2025-09-09 — The Gentlemen is a RaaS group that emerged in July–August 2025, rapidly claiming over 320 victims across 17+ countries by offering affiliates a 90% revenue share, deploying a Go-based locker against Windows, Linux, NAS, and BSD systems; a compromised C2 server in 2026 revealed more than 1,570 linked victims.",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "INC Ransom",
+      "hits": 8,
+      "profile": "first seen 2023-08-09 — INC Ransom is a prolific ransomware-as-a-service operation active since July 2023 that systematically targets healthcare, government, education, and manufacturing sectors in North America and Europe, having posted over 200 victims in 2025 alone with no sector off-limits.",
+      "countries": "Germany, United States",
+      "sectors": "Education, Manufacturing, Professional Services, Transportation"
+    },
+    {
+      "name": "Umbra",
+      "hits": 4,
+      "profile": "first seen 2026-10-06 — no public profile yet (recently listed group).",
+      "countries": "South Africa",
+      "sectors": "Manufacturing, Technology"
+    },
+    {
+      "name": "Panzer",
+      "hits": 3,
+      "profile": "first seen 2026-08-05 — no public profile yet (recently listed group).",
+      "countries": "Germany",
+      "sectors": "Education"
+    },
+    {
+      "name": "Qilin",
+      "hits": 3,
+      "profile": "first seen 2022-10-08 — Qilin ransomware was first observed in July of 2022.",
+      "countries": "Qatar, Spain",
+      "sectors": "Agriculture and Food Production, Professional Services"
+    },
+    {
+      "name": "Vypr",
+      "hits": 3,
+      "profile": "first seen 2026-10-05 — no public profile yet (recently listed group).",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "BYOD",
+      "hits": 2,
+      "profile": "first seen 2026-10-05 — no public profile yet (recently listed group).",
+      "countries": "Singapore, United States",
+      "sectors": "Financial Services, Technology"
+    },
+    {
+      "name": "DragonForce",
+      "hits": 2,
+      "profile": "",
+      "countries": "Brazil, France",
+      "sectors": "Energy & Utilities, Technology"
+    },
+    {
+      "name": "LockBit5",
+      "hits": 2,
+      "profile": "first seen 2025-12-04 — LockBit 5.0 (\"ChuongDong\") emerged in September 2025 as the group's resurgence following the February 2024 law enforcement takedown, introducing cross-platform payloads targeting Windows, Linux, and VMware ESXi with enhanced evasion capabilities and continuing the RaaS affiliate model of its predecessors.",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "Anubis",
+      "hits": 1,
+      "profile": "first seen 2025-02-25 — Anubis is a ransomware-as-a-service group active since December 2024 that targets healthcare, engineering, construction, and professional services sectors, offering affiliates a flexible revenue split model and an optional destructive \"wipe mode\" alongside standard encryption.",
+      "countries": "Germany",
+      "sectors": "Manufacturing"
+    },
+    {
+      "name": "Interlock",
+      "hits": 1,
+      "profile": "first seen 2024-10-13 — Interlock is a ransomware group first observed in September 2024 that targets critical infrastructure sectors including healthcare, government, education, and technology across North America and Europe using double-extortion, with 57+ claimed victims including a major US dialysis provider exposing over two million patient records.",
+      "countries": "United States",
+      "sectors": "Healthcare"
+    },
+    {
+      "name": "Leakeddata",
+      "hits": 1,
+      "profile": "newly tracked group, no established first-seen date on record — no public profile yet (recently listed group).",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "N0n",
+      "hits": 1,
+      "profile": "first seen 2026-09-18 — no public profile yet (recently listed group).",
+      "countries": "United States",
+      "sectors": "Technology"
+    },
+    {
+      "name": "Payoutsking",
+      "hits": 1,
+      "profile": "",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "Shiba",
+      "hits": 1,
+      "profile": "first seen 2026-07-27 — no public profile yet (recently listed group).",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "Storm",
+      "hits": 1,
+      "profile": "first seen 2026-08-07 — no public profile yet (recently listed group).",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "Termite",
+      "hits": 1,
+      "profile": "",
+      "countries": "United States",
+      "sectors": "Professional Services"
+    },
+    {
+      "name": "Vexy",
+      "hits": 1,
+      "profile": "newly tracked group, no established first-seen date on record — no public profile yet (recently listed group).",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    }
+  ],
+  "quality": {
+    "singleSourced": 31,
+    "claimOnly": 2,
+    "sourcesDisagree": 0,
+    "newGroups": null
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 20
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 40
+      }
+    ],
+    "merged": 46,
+    "masked": 1,
+    "reposts": 0,
+    "nonVictims": 0,
+    "lowCoverage": false
+  },
+  "lateToPress": 0
+}

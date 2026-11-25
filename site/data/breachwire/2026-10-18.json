@@ -1,0 +1,239 @@
+{
+  "date": "2026-10-18",
+  "issue": 55,
+  "window": "2026-10-17",
+  "stats": {
+    "victims": 24,
+    "groups": 12,
+    "countries": 10,
+    "regions": 3
+  },
+  "sweden": 0,
+  "regions": [
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 6
+        }
+      ]
+    },
+    {
+      "region": "Europe",
+      "countries": [
+        {
+          "country": "Andorra",
+          "flag": "🇦🇩",
+          "count": 1
+        },
+        {
+          "country": "Austria",
+          "flag": "🇦🇹",
+          "count": 1
+        },
+        {
+          "country": "Germany",
+          "flag": "🇩🇪",
+          "count": 1
+        },
+        {
+          "country": "Italy",
+          "flag": "🇮🇹",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Asia",
+      "countries": [
+        {
+          "country": "Japan",
+          "flag": "🇯🇵",
+          "count": 1
+        },
+        {
+          "country": "Malaysia",
+          "flag": "🇲🇾",
+          "count": 1
+        },
+        {
+          "country": "Singapore",
+          "flag": "🇸🇬",
+          "count": 1
+        },
+        {
+          "country": "South Korea",
+          "flag": "🇰🇷",
+          "count": 1
+        },
+        {
+          "country": "Thailand",
+          "flag": "🇹🇭",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "region": "Unattributed",
+      "countries": [
+        {
+          "country": "Country not disclosed",
+          "flag": "🏳️",
+          "count": 8
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Not disclosed",
+      "count": 8
+    },
+    {
+      "sector": "Manufacturing & industrial",
+      "count": 4
+    },
+    {
+      "sector": "Healthcare & life sciences",
+      "count": 3
+    },
+    {
+      "sector": "Technology & telecom",
+      "count": 3
+    },
+    {
+      "sector": "Transportation & logistics",
+      "count": 2
+    },
+    {
+      "sector": "Education",
+      "count": 1
+    },
+    {
+      "sector": "Other",
+      "count": 1
+    },
+    {
+      "sector": "Professional services",
+      "count": 1
+    },
+    {
+      "sector": "Retail & e-commerce",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "Everest",
+      "hits": 4,
+      "profile": "Established extortion group tracked since 2021.",
+      "countries": "Austria, South Korea, Japan, unattributed",
+      "sectors": "Transportation, Technology, Manufacturing"
+    },
+    {
+      "name": "Helix",
+      "hits": 4,
+      "profile": "Posts GoFile-hosted data links with a short (12h) unlock window and cites company revenue figures. All 4 claims today were single-sourced (Ransomware.live only).",
+      "countries": "United States",
+      "sectors": "Manufacturing, Professional Services, Healthcare"
+    },
+    {
+      "name": "Play",
+      "hits": 4,
+      "profile": "Established, prolific RaaS group active since 2022. All 4 postings today came via RansomLook only, with no victim detail beyond name and group.",
+      "countries": "unattributed",
+      "sectors": "Not disclosed"
+    },
+    {
+      "name": "The Gentlemen",
+      "hits": 4,
+      "profile": "Newer leak-site brand. Today's 4 postings included specific named executives, addresses and founding dates, suggesting more research effort than the typical bare claim.",
+      "countries": "Andorra, United States, Italy, Thailand",
+      "sectors": "Technology, Healthcare, Education"
+    },
+    {
+      "name": "Bravox",
+      "hits": 1,
+      "profile": "New or low-volume actor with limited track record. One single-sourced claim today.",
+      "countries": "Germany",
+      "sectors": "Not disclosed"
+    },
+    {
+      "name": "BYOD",
+      "hits": 1,
+      "profile": "Posts small teaser \"samples\" of larger claimed datasets. Today's listing specified a detailed schema for a ~60,544-record set.",
+      "countries": "unattributed",
+      "sectors": "Retail & E-Commerce"
+    },
+    {
+      "name": "Eclipse",
+      "hits": 1,
+      "profile": "Low-volume actor with limited track record. One single-sourced claim today against a logistics provider.",
+      "countries": "Singapore",
+      "sectors": "Transportation"
+    },
+    {
+      "name": "LockBit5",
+      "hits": 1,
+      "profile": "Possible LockBit-branded successor/affiliate; independent confirmation of lineage not available. One single-sourced claim today naming a Malaysian telecom-infrastructure firm.",
+      "countries": "Malaysia",
+      "sectors": "Not disclosed"
+    },
+    {
+      "name": "Majinahanashi",
+      "hits": 1,
+      "profile": "Unfamiliar name with no established track record. One single-sourced claim today, no further detail available.",
+      "countries": "unattributed",
+      "sectors": "Not disclosed"
+    },
+    {
+      "name": "N0n",
+      "hits": 1,
+      "profile": "Posts a high volume of anonymized \"Company #\" victims alongside occasional named ones. 6 additional masked postings this window (Company #82, #83, #84, #85, #86, #88) excluded per policy — see footer.",
+      "countries": "unattributed",
+      "sectors": "Not disclosed"
+    },
+    {
+      "name": "Qilin",
+      "hits": 1,
+      "profile": "Established, high-volume RaaS group. Today's single claim carried no description or supporting detail of any kind.",
+      "countries": "Thailand",
+      "sectors": "Other"
+    },
+    {
+      "name": "Vexy",
+      "hits": 1,
+      "profile": "Limited track record. One claim today, corroborated by both discovery feeds.",
+      "countries": "United States",
+      "sectors": "Technology"
+    }
+  ],
+  "quality": {
+    "singleSourced": 19,
+    "claimOnly": 5,
+    "sourcesDisagree": 0,
+    "newGroups": null
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 21
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 17
+      }
+    ],
+    "merged": 30,
+    "masked": 6,
+    "reposts": 0,
+    "nonVictims": 0,
+    "lowCoverage": false
+  },
+  "lateToPress": 0
+}

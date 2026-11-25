@@ -1,0 +1,250 @@
+{
+  "date": "2026-10-25",
+  "issue": 62,
+  "window": "2026-10-24",
+  "stats": {
+    "victims": 25,
+    "groups": 10,
+    "countries": 13,
+    "regions": 5
+  },
+  "sweden": 0,
+  "regions": [
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "Canada",
+          "flag": "🇨🇦",
+          "count": 1
+        },
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 7
+        }
+      ]
+    },
+    {
+      "region": "Europe",
+      "countries": [
+        {
+          "country": "France",
+          "flag": "🇫🇷",
+          "count": 1
+        },
+        {
+          "country": "Germany",
+          "flag": "🇩🇪",
+          "count": 2
+        },
+        {
+          "country": "Netherlands",
+          "flag": "🇳🇱",
+          "count": 1
+        },
+        {
+          "country": "Norway",
+          "flag": "🇳🇴",
+          "count": 1
+        },
+        {
+          "country": "Portugal",
+          "flag": "🇵🇹",
+          "count": 1
+        },
+        {
+          "country": "United Kingdom",
+          "flag": "🇬🇧",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Africa",
+      "countries": [
+        {
+          "country": "Egypt",
+          "flag": "🇪🇬",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Latin America & Caribbean",
+      "countries": [
+        {
+          "country": "Argentina",
+          "flag": "🇦🇷",
+          "count": 1
+        },
+        {
+          "country": "Mexico",
+          "flag": "🇲🇽",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Asia",
+      "countries": [
+        {
+          "country": "Malaysia",
+          "flag": "🇲🇾",
+          "count": 1
+        },
+        {
+          "country": "Pakistan",
+          "flag": "🇵🇰",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Unattributed",
+      "countries": [
+        {
+          "country": "Country not disclosed",
+          "flag": "🏳️",
+          "count": 5
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Manufacturing & industrial",
+      "count": 7
+    },
+    {
+      "sector": "Not disclosed",
+      "count": 4
+    },
+    {
+      "sector": "Technology & telecom",
+      "count": 4
+    },
+    {
+      "sector": "Healthcare & life sciences",
+      "count": 3
+    },
+    {
+      "sector": "Retail & e-commerce",
+      "count": 3
+    },
+    {
+      "sector": "Energy, utilities & resources",
+      "count": 1
+    },
+    {
+      "sector": "Financial services & insurance",
+      "count": 1
+    },
+    {
+      "sector": "Hospitality & leisure",
+      "count": 1
+    },
+    {
+      "sector": "Professional services",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "KRYBIT",
+      "hits": 6,
+      "profile": "Active since Apr 2026; fast-moving extortion group that frequently posts several victims within minutes of each other.",
+      "countries": "MX, IN, DE, FR",
+      "sectors": "Professional Services, Technology, Retail & E-Commerce, Healthcare"
+    },
+    {
+      "name": "N0N",
+      "hits": 5,
+      "profile": "Active since Sep 2026; new entrant with a rapid victim cadence; a large share of its postings carry no sector classification.",
+      "countries": "US, KR, BR, ID",
+      "sectors": "Transportation, Healthcare, Technology (plus many unclassified)"
+    },
+    {
+      "name": "QILIN",
+      "hits": 4,
+      "profile": "RaaS operation active since Oct 2022; one of the most prolific leak-site groups (2,400+ claimed victims to date); broad, opportunistic targeting across nearly every sector.",
+      "countries": "US, GB, CA, FR",
+      "sectors": "Manufacturing, Professional Services, Technology, Healthcare"
+    },
+    {
+      "name": "THE GENTLEMEN",
+      "hits": 3,
+      "profile": "Active since Sep 2025; high-volume group (1,000+ claimed victims); frequent repeat targeting of mid-market firms.",
+      "countries": "US, GB, TH, DE",
+      "sectors": "Manufacturing, Technology, Professional Services, Healthcare"
+    },
+    {
+      "name": "EMPERADOR",
+      "hits": 2,
+      "profile": "Active since Aug 2026; concentrated targeting of Brazilian and German manufacturing, transport and utilities.",
+      "countries": "BR, US, DE, AR",
+      "sectors": "Manufacturing, Transportation, Government & Defense, Energy & Utilities"
+    },
+    {
+      "name": "CLOAK",
+      "hits": 1,
+      "profile": "Established group active since Aug 2023; steady cadence; today's posting ends a 6-day quiet spell (last confirmed posting Oct 18).",
+      "countries": "US, DE, GB, CA",
+      "sectors": "Professional Services, Manufacturing, Technology (plus many unclassified)"
+    },
+    {
+      "name": "DEADLOCK",
+      "hits": 1,
+      "profile": "Active since Jun 2026; steady mid-volume group with a manufacturing/professional-services focus, mostly EU and US victims.",
+      "countries": "IT, ES, US, PL",
+      "sectors": "Manufacturing, Professional Services, Technology"
+    },
+    {
+      "name": "LAMASHTU",
+      "hits": 1,
+      "profile": "Active since Apr 2026; moderate volume with a manufacturing-heavy, Europe-leaning target list.",
+      "countries": "DE, FR, MY, MX",
+      "sectors": "Manufacturing, Retail & E-Commerce, Agriculture & Food Production"
+    },
+    {
+      "name": "PANZER",
+      "hits": 1,
+      "profile": "Active since Aug 2026; small, diversified group spanning technology, manufacturing and government targets.",
+      "countries": "DE, FR, ID, BR",
+      "sectors": "Technology, Manufacturing, Professional Services, Government & Defense"
+    },
+    {
+      "name": "SECUROTROP",
+      "hits": 1,
+      "profile": "Active since Jul 2025; smaller, US-manufacturing-heavy group; today's posting is its first since Sep 18 — a five-week quiet spell worth flagging as a resurgence.",
+      "countries": "US, CA, GB, CH",
+      "sectors": "Manufacturing, Professional Services, Technology"
+    }
+  ],
+  "quality": {
+    "singleSourced": 6,
+    "claimOnly": 0,
+    "sourcesDisagree": 0,
+    "newGroups": null
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 22
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 22
+      }
+    ],
+    "merged": 25,
+    "masked": 0,
+    "reposts": 0,
+    "nonVictims": 0,
+    "lowCoverage": false
+  },
+  "lateToPress": 0
+}

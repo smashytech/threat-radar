@@ -1,0 +1,258 @@
+{
+  "date": "2026-10-29",
+  "issue": 67,
+  "window": "2026-10-28",
+  "stats": {
+    "victims": 29,
+    "groups": 15,
+    "countries": 7,
+    "regions": 4
+  },
+  "sweden": 1,
+  "regions": [
+    {
+      "region": "Europe",
+      "countries": [
+        {
+          "country": "Sweden",
+          "flag": "🇸🇪",
+          "count": 1
+        },
+        {
+          "country": "Germany",
+          "flag": "🇩🇪",
+          "count": 3
+        },
+        {
+          "country": "United Kingdom",
+          "flag": "🇬🇧",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 10
+        },
+        {
+          "country": "Canada",
+          "flag": "🇨🇦",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Middle East",
+      "countries": [
+        {
+          "country": "Israel",
+          "flag": "🇮🇱",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Africa",
+      "countries": [
+        {
+          "country": "Sierra Leone",
+          "flag": "🇸🇱",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Unattributed",
+      "countries": [
+        {
+          "country": "Country not disclosed",
+          "flag": "🏳️",
+          "count": 11
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Professional services",
+      "count": 8
+    },
+    {
+      "sector": "Healthcare & life sciences",
+      "count": 6
+    },
+    {
+      "sector": "Manufacturing & industrial",
+      "count": 4
+    },
+    {
+      "sector": "Financial services & insurance",
+      "count": 3
+    },
+    {
+      "sector": "Technology & telecom",
+      "count": 2
+    },
+    {
+      "sector": "Construction & real estate",
+      "count": 1
+    },
+    {
+      "sector": "Education",
+      "count": 1
+    },
+    {
+      "sector": "Government & public sector",
+      "count": 1
+    },
+    {
+      "sector": "Not disclosed",
+      "count": 1
+    },
+    {
+      "sector": "Retail & e-commerce",
+      "count": 1
+    },
+    {
+      "sector": "Transportation & logistics",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "The Gentlemen",
+      "hits": 6,
+      "profile": "RaaS active since mid-2025 (Ransomware.live alias Storm-2697); 90% affiliate split, Go-based locker for Windows/Linux/NAS/BSD; reported to go after internet-exposed VPN/firewall appliances.",
+      "countries": "Sierra Leone, Sweden",
+      "sectors": "Construction, Financial Services (private equity), Government, Healthcare (dental), Not disclosed"
+    },
+    {
+      "name": "Akira",
+      "hits": 3,
+      "profile": "Major RaaS since March 2023 with suspected roots in ex-Conti affiliates; double extortion, frequent VPN-appliance abuse. Today's three postings each announce an upcoming data upload (28–112 GB).",
+      "countries": "not disclosed",
+      "sectors": "Financial Services, Healthcare, Professional Services"
+    },
+    {
+      "name": "Aurora",
+      "hits": 2,
+      "profile": "Ransomware brand tracked since 2026-04-29; name shared with a Go-based malware sold as an infostealer/botnet since 2022. Posts detailed inventories of what was taken.",
+      "countries": "Germany, United Kingdom",
+      "sectors": "Manufacturing, Retail (fashion)"
+    },
+    {
+      "name": "Leakeddata",
+      "hits": 2,
+      "profile": "RansomLook's label for a leak site whose postings today exactly mirror SilentRansomGroup's on Ransomware.live (same victims, same text, three identical redacted entries). Probably the same operation tracked under two names, but no tracker confirms the alias.",
+      "countries": "United States",
+      "sectors": "Professional Services (law)"
+    },
+    {
+      "name": "LockBit5",
+      "hits": 2,
+      "profile": "LockBit 5.0, the post-takedown resurgence that appeared in September 2025, with cross-platform Windows/Linux/ESXi payloads. Both of today's postings are RansomLook-only domain-name entries.",
+      "countries": "not disclosed",
+      "sectors": "Financial Services, Professional Services"
+    },
+    {
+      "name": "Payload",
+      "hits": 2,
+      "profile": "Emerged early 2026 using Babuk-derived code against Windows and ESXi; double extortion across healthcare, energy, real estate and agriculture. Both of today's victims are European manufacturers.",
+      "countries": "Germany",
+      "sectors": "Manufacturing"
+    },
+    {
+      "name": "Rhysida",
+      "hits": 2,
+      "profile": "RaaS since May 2023; phishing and Cobalt Strike for access; sells stolen data in auction-style \"lots\". Also posted an unnamed \"Coming Soon\" lot (a California city), counted as a non-victim posting.",
+      "countries": "Canada, United States",
+      "sectors": "Healthcare (research consultancy), Professional Services (architecture)"
+    },
+    {
+      "name": "SilentRansomGroup",
+      "hits": 2,
+      "profile": "Also known as Luna Moth / Chatty Spider / UNC3753; former Conti team specialising in callback phishing and data-theft extortion, heavily focused on US law firms. Also posted three redacted (masked) entries today.",
+      "countries": "United States",
+      "sectors": "Professional Services (law)"
+    },
+    {
+      "name": "Whitearmor",
+      "hits": 2,
+      "profile": "Brand-new DLS, tracked only since 2026-10-20; posts large consumer/corporate datasets in a mocking tone (\"$20M in BTC... i swear\").",
+      "countries": "Germany, United States",
+      "sectors": "Technology, Transportation"
+    },
+    {
+      "name": "Anubis",
+      "hits": 1,
+      "profile": "RaaS active since December 2024, targeting healthcare, engineering and professional services; offers an optional destructive \"wipe mode\".",
+      "countries": "United States",
+      "sectors": "Healthcare"
+    },
+    {
+      "name": "Genesis",
+      "hits": 1,
+      "profile": "Emerging group first seen late 2025; double extortion against small and mid-sized US organisations, with an emphasis on data exfiltration.",
+      "countries": "United States",
+      "sectors": "Healthcare (laboratory services)"
+    },
+    {
+      "name": "Global Secret Group",
+      "hits": 1,
+      "profile": "Also known as GSG; little public profile. Today's posting has contradictory country metadata.",
+      "countries": "Israel",
+      "sectors": "Education"
+    },
+    {
+      "name": "Panzer",
+      "hits": 1,
+      "profile": "Little public profile.",
+      "countries": "not disclosed",
+      "sectors": "Professional Services"
+    },
+    {
+      "name": "Pear",
+      "hits": 1,
+      "profile": "\"Pure Extraction And Ransom\" team; a data-theft-only extortion crew that calls itself a private team.",
+      "countries": "United States",
+      "sectors": "Technology"
+    },
+    {
+      "name": "Wallstreet",
+      "hits": 1,
+      "profile": "",
+      "countries": "United States",
+      "sectors": "Manufacturing (food-safety sanitation)"
+    }
+  ],
+  "quality": {
+    "singleSourced": 14,
+    "claimOnly": 2,
+    "sourcesDisagree": 7,
+    "newGroups": null
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 23
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 31
+      }
+    ],
+    "merged": 38,
+    "masked": 7,
+    "reposts": 1,
+    "nonVictims": 1,
+    "lowCoverage": false
+  },
+  "lateToPress": 0
+}
