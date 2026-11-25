@@ -919,3 +919,4 @@ input[type="search"]::placeholder { color: var(--muted); opacity: 0.8; }
 .top-groups__hits { color: var(--text-2); font-size: 14px; white-space: nowrap; }
 .move { font-size: 13px; text-align: right; }
 .move--new { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--accent); }
+.archive__note { font-size: 13px; margin: 10px 0 0; }

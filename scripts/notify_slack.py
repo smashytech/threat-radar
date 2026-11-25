@@ -38,6 +38,7 @@ import sys
 import time
 import urllib.error
 import urllib.request
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from typing import NamedTuple
 
@@ -50,6 +51,7 @@ TIMEOUT = 10        # seconds to wait for Slack
 PAUSE = 1.1         # seconds between messages: Slack accepts about one per second per webhook
 MAX_LISTED = 10     # KEV entries listed in one message
 MAX_ISSUES = 5      # Sitrep / Breach Wire issues listed in one message
+MAX_ALERT_AGE_DAYS = 3  # spec 012: older Breach Wire issues (imports, catch-ups) are published but not announced
 KINDS = ("KEV", "Sitrep", "Breach Wire")
 CVE_RE = re.compile(r"^CVE-\d{4}-\d{4,}$")
 
@@ -258,8 +260,9 @@ def load(path: Path):
         raise Unreadable(path.name) from err
 
 
-def messages_for(old_dir: Path, new_dir: Path, base: str) -> tuple[list[Alert], list[str]]:
-    """Alerts in the order KEV, Sitrep, Breach Wire, plus notes about kinds that were skipped."""
+def messages_for(old_dir: Path, new_dir: Path, base: str, today: date | None = None) -> tuple[list[Alert], list[str]]:
+    """Alerts in the order KEV, Sitrep, Breach Wire, plus notes about kinds that were skipped.
+    With `today`, Breach Wire issues older than MAX_ALERT_AGE_DAYS are left out (spec 012)."""
     alerts, notes = [], []
     sources = {
         "KEV": ("kev.json", lambda o, n: new_kev(o, n), kev_message),
@@ -279,6 +282,12 @@ def messages_for(old_dir: Path, new_dir: Path, base: str) -> tuple[list[Alert], 
             notes.append(f"{kind}: no earlier data to compare with; skipped this time")
             continue
         fresh = diff(old, new)
+        if kind == "Breach Wire" and today is not None:
+            cutoff = (today - timedelta(days=MAX_ALERT_AGE_DAYS)).isoformat()
+            older = [i for i in fresh if i["date"] < cutoff]
+            fresh = [i for i in fresh if i["date"] >= cutoff]
+            if older:
+                notes.append(f"Breach Wire: {len(older)} older issue(s) not announced")
         if fresh:
             alerts.append(Alert(kind, len(fresh), build(fresh, base)))
     return alerts, notes
@@ -342,7 +351,7 @@ def main(argv: list[str] | None = None, env: dict | None = None, sleep=time.slee
         print("Error: --old is required (or use --test-message)", file=sys.stderr)
         return 2
     else:
-        alerts, notes = messages_for(args.old, args.new, base)
+        alerts, notes = messages_for(args.old, args.new, base, today=datetime.now(timezone.utc).date())
     for note in notes:
         print(note)
     if not args.test_message and args.gate_report is None:

@@ -48,3 +48,11 @@ export function chartBars(indexIssues, max = 30) {
 export function teaserSummary({ victims, groups, countries }) {
   return `${plural(victims, "claimed victim", "claimed victims")} across ${plural(countries, "country", "countries")}, posted by ${plural(groups, "group", "groups")}.`;
 }
+
+/** Spec 012: the publisher started on 3 November; older issues were imported later. */
+export const LIVE_SINCE = "2026-11-03";
+export function archiveNote(indexIssues) {
+  return indexIssues.some((i) => i.date < LIVE_SINCE)
+    ? "Issues before 3 November 2026 were added on 25 November from the email archive."
+    : null;
+}

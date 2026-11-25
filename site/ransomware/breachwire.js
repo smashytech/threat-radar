@@ -11,7 +11,7 @@
 
 import { el, svgEl, numberFmt, formatDate, formatLongDate, formatShortDay, localToday, loadJSON } from "../ui.js";
 import { pickIssueDate } from "../sitrep-logic.js";
-import { swedenStatus, regionTotals, ransomwareKev, chartBars } from "../breachwire-logic.js";
+import { swedenStatus, regionTotals, ransomwareKev, chartBars, archiveNote } from "../breachwire-logic.js";
 import { monthRows, sectorGrid, shadeLevel, topGroups, sinceLine, monthName } from "../breach-stats-logic.js";
 import { inStack } from "../stack-logic.js";
 import { readStack, renderStackLine } from "../stack-page.js";
@@ -282,6 +282,9 @@ function renderArchive(issues, selected) {
   });
   $("archive").replaceChildren(...rows);
   if (!rows.length) $("archive").replaceChildren(el("li", { className: "muted", text: "No issues yet." }));
+  const note = archiveNote(issues);
+  $("archive-note").textContent = note ?? "";
+  $("archive-note").hidden = !note;
 }
 
 init();

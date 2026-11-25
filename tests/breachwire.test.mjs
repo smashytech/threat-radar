@@ -4,7 +4,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import { swedenStatus, regionTotals, ransomwareKev, chartBars, teaserSummary } from "../site/breachwire-logic.js";
+import { swedenStatus, regionTotals, ransomwareKev, chartBars, teaserSummary, archiveNote } from "../site/breachwire-logic.js";
 
 const issue = JSON.parse(readFileSync(new URL("./fixtures/breachwire_valid.json", import.meta.url), "utf8"));
 
@@ -66,4 +66,11 @@ test("homepage teaser summary", () => {
     "16 claimed victims across 5 countries, posted by 11 groups.");
   assert.equal(teaserSummary({ victims: 1, groups: 1, countries: 1 }),
     "1 claimed victim across 1 country, posted by 1 group.");
+});
+
+test("archive note: shown only when imported issues are listed (spec 012)", () => {
+  assert.equal(archiveNote([{ date: "2026-11-24" }, { date: "2026-11-03" }]), null);
+  assert.equal(archiveNote([]), null);
+  assert.equal(archiveNote([{ date: "2026-11-24" }, { date: "2026-10-02" }]),
+    "Issues before 3 November 2026 were added on 25 November from the email archive.");
 });

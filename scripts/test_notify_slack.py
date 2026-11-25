@@ -9,6 +9,7 @@ The victim names used here are INVENTED (spec 003 FR-2).
 
 import io
 import json
+from datetime import date
 import contextlib
 import re
 import sys
@@ -203,6 +204,24 @@ class GateMessages(unittest.TestCase):
     def test_cli_rejects_a_broken_report(self):
         with contextlib.redirect_stderr(io.StringIO()):
             self.assertEqual(notify_slack.main(["--site-url", BASE, "--gate-report", "{not json", "--gate-kind", "blocked"], env={}), 2)
+
+
+class OldIssues(unittest.TestCase):
+    """Spec 012 FR-5: issues imported from the archive (or any catch-up) older than 3 days aren't announced."""
+
+    def test_only_recent_breach_wire_issues_are_announced(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            old, new = Path(tmp) / "old", Path(tmp) / "new"
+            for root, issues in ((old, [breachwire(75, "2026-11-06")]),
+                                 (new, [breachwire(77, "2026-11-08"), breachwire(76, "2026-11-04"), breachwire(75, "2026-11-06"),
+                                        breachwire(40, "2026-10-02")])):
+                (root / "breachwire").mkdir(parents=True)
+                (root / "breachwire" / "index.json").write_text(json.dumps({"issues": issues}), "utf-8")
+            alerts, notes = notify_slack.messages_for(old, new, BASE, today=date(2026, 11, 8))
+            self.assertEqual([a.count for a in alerts], [1], "only №77; №76 (4 days old) and №40 are not announced")
+            self.assertIn("Breach Wire: 2 older issue(s) not announced", notes)
+            alerts, _ = notify_slack.messages_for(old, new, BASE, today=date(2026, 11, 7))
+            self.assertEqual([a.count for a in alerts], [2], "on 7 Nov, №76 from the 4th is still within 3 days")
 
 
 class NameCheckMessages(unittest.TestCase):
