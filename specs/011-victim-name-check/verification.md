@@ -20,7 +20,7 @@
 ## What the first real run found
 
 The first run (all 23 stored issues) flagged **6 issues**. Using the field and
-shape reported by the check, the owner's builder read the flagged fields: **all
+shape reported by the check, the flagged fields were read by hand: **all
 six were false alarms**, because Ransomware.live lists placeholders as victims.
 
 | Issues | Matched text (shape) | What it was |
