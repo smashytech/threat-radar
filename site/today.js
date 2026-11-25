@@ -192,7 +192,7 @@ function renderWire(bw) {
   }
   $("col-bw").textContent = `Breach Wire №${bw.issue}`;
   $("bw-meta").textContent = `Leak-site claims from ${formatLongDate(bw.window)} (UTC). Claims, not confirmed breaches.`;
-  $("bw-more").href = `ransomware/?d=${encodeURIComponent(bw.date)}`;
+  $("bw-more").href = `breaches/?d=${encodeURIComponent(bw.date)}`;
   $("bw-bars").replaceChildren(...wireBars(bw).map((bar) => {
     const fill = el("span", { className: "today-bar__fill" });
     fill.style.width = `${Math.round(bar.ratio * 100)}%`;

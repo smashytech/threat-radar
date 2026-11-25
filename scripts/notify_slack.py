@@ -158,9 +158,9 @@ def breachwire_message(issues: list[dict], base: str) -> dict | None:
             f":bar_chart: *Breach Wire №{int(i['issue'])}* · {long_day(i['date'])}\n"
             f"{plural(victims, 'claimed victim', 'claimed victims')} in {plural(countries, 'country', 'countries')}, "
             f"posted by {plural(groups, 'group', 'groups')}.\n{sweden_line} · "
-            + link(f"{base}ransomware/?d={i['date']}", "See the statistics")))
+            + link(f"{base}breaches/?d={i['date']}", "See the statistics")))
     if len(issues) > MAX_ISSUES:
-        blocks.append(context(f"…and {len(issues) - MAX_ISSUES} more. " + link(f"{base}ransomware/", "All issues")))
+        blocks.append(context(f"…and {len(issues) - MAX_ISSUES} more. " + link(f"{base}breaches/", "All issues")))
     first = issues[0]
     hit = " (Sweden hit)" if int(first["sweden"]) else ""
     return message(f"Breach Wire №{int(first['issue'])}: {plural(int(first['victims']), 'claimed victim', 'claimed victims')}{hit}", blocks)

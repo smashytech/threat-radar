@@ -10,7 +10,7 @@ const path = require('path');
 const SITE = process.env.SITE || 'http://localhost:8765/';
 const OUT = process.argv[2];
 const DATA = path.join(__dirname, '..', '..', 'site', 'data');
-const PAGES = ['', 'exploited/', 'sitrep/', 'ransomware/', 'feeds/'];
+const PAGES = ['', 'exploited/', 'sitrep/', 'breaches/', 'feeds/'];
 const THEME_KEY = 'threat-radar.theme.v1';
 const results = [];
 const check = (id, name, ok, detail = '') => results.push({ id, name, ok: Boolean(ok), detail: String(detail) });

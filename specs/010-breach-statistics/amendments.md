@@ -8,7 +8,7 @@ group rules. Format: request, decision, acceptance check, verification.
 - **Request:** "should this maybe be a separate tab under breaches instead? like you have the main breaches, and then a tab with stats?" Owner chose option A (tabs on the same page) over a separate page.
 - **Decision:**
   - Two tabs under the page heading: **"Today's issue"** (default) and **"Trends"**.
-  - `zelin.se/ransomware/#trends` opens straight to Trends; switching tabs updates the address, so the link can be shared and the back button works.
+  - `zelin.se/ransomware/#trends` (since 003 A1: `/breaches/#trends`) opens straight to Trends; switching tabs updates the address, so the link can be shared and the back button works.
   - The archive sidebar and "Known ransomware use" belong to "Today's issue"; Trends uses the full width.
   - The statistics are fetched the first time Trends is opened, so the issue is never delayed (replaces "loads after the issue", NFR-3).
   - Standard tabs for keyboard and screen readers: one tab stop, arrow keys / Home / End switch tabs.

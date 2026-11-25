@@ -239,7 +239,7 @@ def breachwire_feed(index: dict, base: str) -> bytes:
             "id": f"breachwire/{int(i['issue'])}",
             "title": f"Breach Wire №{int(i['issue'])}: {plural(victims, 'claimed victim', 'claimed victims')} "
                      f"in {plural(countries, 'country', 'countries')}{flag}",
-            "link": f"{base}ransomware/?d={i['date']}",
+            "link": f"{base}breaches/?d={i['date']}",
             "day": i["date"],
             "summary": f"{plural(victims, 'claimed victim', 'claimed victims')} across {plural(countries, 'country', 'countries')}, "
                        f"posted by {plural(groups, 'group', 'groups')}. {sweden_text} "
@@ -247,7 +247,7 @@ def breachwire_feed(index: dict, base: str) -> bytes:
         })
     return atom_feed("feeds/breachwire", "Threat Radar: Breach Wire",
                      "Daily ransomware leak-site statistics and threat groups. Never victim names.",
-                     f"{base}feeds/breachwire.xml", f"{base}ransomware/", items)
+                     f"{base}feeds/breachwire.xml", f"{base}breaches/", items)
 
 
 # ---------- Command line ----------

@@ -16,7 +16,22 @@ class SiteChromeTest(unittest.TestCase):
 
     def test_every_page_in_the_site_is_listed(self):
         pages = {str(p.relative_to(site_chrome.ROOT)) for p in site_chrome.ROOT.rglob("index.html")}
-        self.assertEqual(pages, set(site_chrome.PAGES))
+        self.assertEqual(pages, set(site_chrome.PAGES) | set(site_chrome.FORWARDS))
+
+    def test_old_addresses_forward_and_keep_the_details(self):
+        """Spec 003 amendment A1: /ransomware/ forwards to /breaches/, keeping ?d= and #trends."""
+        self.assertEqual(site_chrome.FORWARDS, {"ransomware/index.html": "breaches/"})
+        for path, target in site_chrome.FORWARDS.items():
+            html = (site_chrome.ROOT / path).read_text(encoding="utf-8")
+            self.assertTrue((site_chrome.ROOT / target / "index.html").exists())
+            self.assertIn(f'<meta http-equiv="refresh" content="0; url=../{target}">', html)
+            self.assertIn(f'<link rel="canonical" href="../{target}">', html)
+            self.assertIn('<meta name="robots" content="noindex">', html)
+            self.assertIn('<script src="forward.js"></script>', html)
+            script = (site_chrome.ROOT / path).with_name("forward.js").read_text(encoding="utf-8")
+            self.assertIn(f'"../{target}"', script)
+            self.assertIn("location.search", script)
+            self.assertIn("location.hash", script)
 
     def test_navigation_marks_exactly_one_current_page_and_links_resolve(self):
         for path, (root, current, _note) in site_chrome.PAGES.items():

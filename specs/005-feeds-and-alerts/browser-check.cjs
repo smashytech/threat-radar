@@ -60,7 +60,7 @@ async function grabOpml(page, selector) {
   // ---- AC-6: every page advertises the three main feeds, and they load as Atom ----
   const ctx = await newContext(browser);
   const disc = {};
-  for (const p of ['', 'exploited/', 'sitrep/', 'ransomware/', 'feeds/']) {
+  for (const p of ['', 'exploited/', 'sitrep/', 'breaches/', 'feeds/']) {
     const page = await open(ctx, BASE + p);
     const links = await page.$$eval('link[rel="alternate"][type="application/atom+xml"]', (ls) => ls.map((l) => l.href));
     const statuses = await page.evaluate(async (urls) => Promise.all(urls.map(async (u) => {
@@ -182,7 +182,7 @@ async function grabOpml(page, selector) {
   const radar = await open(ctxPhone, RADAR);
   const radarWidth = await radar.evaluate(() => document.documentElement.scrollWidth);
   check('AC-7d', '360 px without sideways scrolling; keyboard reaches and uses Copy; menu says "Breaches"',
-    width <= 360 && radarWidth <= 360 && onCopy === 'Copy address' && kbCopied === `${BASE}feeds/vendors/cisco.xml` && nav.includes('Breaches=../ransomware/'),
+    width <= 360 && radarWidth <= 360 && onCopy === 'Copy address' && kbCopied === `${BASE}feeds/vendors/cisco.xml` && nav.includes('Breaches=../breaches/'),
     `feeds ${width}px, radar ${radarWidth}px; Tab lands on "${onCopy}"; Enter copied "${kbCopied}"; menu ${nav.join(', ')}`);
   await ctxPhone.close();
 
@@ -190,13 +190,13 @@ async function grabOpml(page, selector) {
   const ctxSv = await newContext(browser, { locale: 'sv-SE', timezoneId: 'Europe/Stockholm' });
   const swedish = /\b(måndag|tisdag|onsdag|torsdag|fredag|lördag|söndag|mån|tis|ons|tors|fre|lör|sön|i går|i dag|sedan|okt\.|nov\.|november 2026 \d)\b|\d\u00a0\d{3}/i;
   const seen = {};
-  for (const p of ['', 'exploited/', 'sitrep/', 'ransomware/']) {
+  for (const p of ['', 'exploited/', 'sitrep/', 'breaches/']) {
     const pg = await open(ctxSv, BASE + p);
     await pg.waitForTimeout(500);
     const text = await pg.evaluate(() => document.body.innerText);
     const hit = text.match(swedish);
     seen[p || '/'] = { swedishFound: hit ? hit[0] : null, sample: (text.match(/(Mon|Tue|Wed|Thu|Fri|Sat|Sun)[a-z]*,? \d{1,2} [A-Z][a-z]+( \d{4})?/) || [''])[0] };
-    if (p === 'ransomware/') await pg.locator('.masthead').screenshot({ path: path.join(OUT, 'breaches-english-dates.png') });
+    if (p === 'breaches/') await pg.locator('.masthead').screenshot({ path: path.join(OUT, 'breaches-english-dates.png') });
     await pg.close();
   }
   const radarSv = await open(ctxSv, RADAR);

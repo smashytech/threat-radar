@@ -10,7 +10,7 @@ the table says so.
 |---|---|---|
 | [001 Threat Radar](001-threat-radar) | The KEV catalog page: live radar, trends, search and filters, twice-daily refresh | 006 (vendor chart period), 007 (moved to `/exploited/`, new look) |
 | [002 Cyber Sitrep](002-sitrep-section) | The daily Sitrep with an archive; CVEs checked against KEV; the `add_sitrep.py` gatekeeper | 007 (new look) |
-| [003 Breach Wire](003-breach-wire-section) | Ransomware leak-site statistics and group profiles; the `add_breachwire.py` gatekeeper with its victim-name guard | 007 (new look; page heading "Breaches"); 010 (fixed sector list, group names) |
+| [003 Breach Wire](003-breach-wire-section) | Ransomware leak-site statistics and group profiles; the `add_breachwire.py` gatekeeper with its victim-name guard | 007 (new look; page heading "Breaches"); 010 (fixed sector list, group names); amendment A1 (address `/breaches/`) |
 | [004 My stack](004-my-stack) | Tick the software you run; named presets; stays in the browser | 007 (picker lives on `/exploited/`) |
 | [005 Feeds and Slack alerts](005-feeds-and-alerts) | Atom feeds (KEV, Sitrep, Breach Wire, one per vendor), the Feeds page, OPML export, Slack alerts | 007 (feed links point to `/exploited/`) |
 | [006 Vendor chart period](006-vendor-period) | 7d / 30d / 90d / 1y / All switch on the most-exploited-vendors chart | |
@@ -23,7 +23,7 @@ the table says so.
 
 **Small changes** are recorded as amendments in the spec that owns the area:
 [007 amendments](007-briefing-redesign/amendments.md) (tooltip, coffee cup, LinkedIn link,
-page headings, phone menu), [010 amendments](010-breach-statistics/amendments.md) (Trends tab)
+page headings, phone menu), [003 amendments](003-breach-wire-section/amendments.md) (`/breaches/` address), [010 amendments](010-breach-statistics/amendments.md) (Trends tab)
 and [housekeeping](housekeeping.md) for repo-wide changes
 (commit identity, README). How a change is sized (feature, small change, trivial) is
 set out in [`CLAUDE.md`](../CLAUDE.md).

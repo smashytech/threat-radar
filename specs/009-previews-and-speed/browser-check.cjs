@@ -61,7 +61,7 @@ async function measure(browser, page = '', { block } = {}) {
 
   const ctx = await browser.newContext();
   const tags = {};
-  for (const p of ['', 'exploited/', 'sitrep/', 'ransomware/', 'feeds/']) {
+  for (const p of ['', 'exploited/', 'sitrep/', 'breaches/', 'feeds/']) {
     const page = await ctx.newPage();
     await page.goto(SITE + p);
     tags[p || '/'] = await page.$$eval('meta[property^="og:"], meta[name^="twitter:"]', (ms) => ms.length);

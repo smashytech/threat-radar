@@ -142,7 +142,7 @@ class IssueMessages(unittest.TestCase):
         self.assertNotIn("Contoso", raw)
         shown = texts(payload)
         for part in ("Breach Wire №73", "21 claimed victims in 9 countries, posted by 11 groups", "Sweden hit: 1 organisation claimed",
-                     f"<{BASE}ransomware/?d=2026-11-04|"):
+                     f"<{BASE}breaches/?d=2026-11-04|"):
             self.assertIn(part, shown)
         self.assertNotIn("Sweden hit", texts(notify_slack.breachwire_message([breachwire(76, "2026-11-07")], BASE)))
 

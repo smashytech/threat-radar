@@ -174,7 +174,7 @@ class IssueFeeds(unittest.TestCase):
         self.assertIn("posted by 11 groups", first.findtext(f"{ATOM}summary"))
         self.assertIn("Sweden: none", first.findtext(f"{ATOM}summary"))
         self.assertEqual(second.findtext(f"{ATOM}title"), "Breach Wire №73: 21 claimed victims in 9 countries (Sweden hit)")
-        self.assertEqual(first.find(f"{ATOM}link").get("href"), BASE + "ransomware/?d=2026-11-07")
+        self.assertEqual(first.find(f"{ATOM}link").get("href"), BASE + "breaches/?d=2026-11-07")
 
     def test_allowed_fields_are_explicit(self):
         self.assertEqual(set(build_feeds.BREACHWIRE_FIELDS), {"date", "issue", "window", "victims", "groups", "countries", "sweden"})

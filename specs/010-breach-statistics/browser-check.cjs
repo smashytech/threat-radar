@@ -6,7 +6,7 @@ const fs = require('fs');
 const path = require('path');
 
 const SITE = process.env.SITE || 'http://localhost:8765/';
-const PAGE = SITE + 'ransomware/';
+const PAGE = SITE + 'breaches/';
 const OUT = process.argv[2];
 const results = [];
 const check = (id, name, ok, detail = '') => results.push({ id, name, ok: Boolean(ok), detail: String(detail) });
@@ -172,7 +172,7 @@ async function open(browser, opts = {}, route, hash = '#trends') {
   // AC-7: CSP unchanged (same as the Today page's)
   {
     const csp = (html) => html.match(/Content-Security-Policy"\s+content="([^"]+)"/)[1];
-    const a = csp(fs.readFileSync('site/ransomware/index.html', 'utf-8'));
+    const a = csp(fs.readFileSync('site/breaches/index.html', 'utf-8'));
     const b = csp(fs.readFileSync('site/index.html', 'utf-8'));
     check('AC-7', 'CSP on the Breaches page is unchanged and the same as the other pages', a === b, a);
   }

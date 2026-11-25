@@ -273,7 +273,7 @@ const shot = (page, name, opts = {}) => page.screenshot({ path: path.join(OUT, n
   await page.waitForSelector('#picker[open]');
   const hashAfterEdit = await page.evaluate(() => window.location.hash);
   check('AC-10b', 'The Edit link opens the picker on the Radar (and tidies the address)', hashAfterEdit === '', `hash after open: "${hashAfterEdit}"`);
-  await page.goto(SITE + 'ransomware/', { waitUntil: 'networkidle' });
+  await page.goto(SITE + 'breaches/', { waitUntil: 'networkidle' });
   const mineItems = await page.locator('#kev-ransom-mine > li').count();
   const mineMarked = await page.locator('#kev-ransom-mine .kev-ransom__item--mine').count();
   const msRansom = kev.filter((e) => ['Zyxel', 'Cisco', 'Microsoft'].includes(e.vendorProject) && e.knownRansomwareCampaignUse === 'Known').length;
@@ -395,7 +395,7 @@ const shot = (page, name, opts = {}) => page.screenshot({ path: path.join(OUT, n
   await row(page, 'Microsoft').locator('.pick__expand').click();
   widths.picker = await page.evaluate(() => Math.max(document.documentElement.scrollWidth, document.getElementById('picker').scrollWidth));
   await shot(page, 'mobile-360-picker.png');
-  for (const url of ['sitrep/', 'ransomware/']) {
+  for (const url of ['sitrep/', 'breaches/']) {
     await page.goto(SITE + url, { waitUntil: 'networkidle' });
     widths[url] = await page.evaluate(() => document.documentElement.scrollWidth);
   }

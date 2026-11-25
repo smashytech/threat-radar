@@ -30,14 +30,18 @@ PAGES = {
     "sitrep/index.html": ("../", "Sitrep",
                           "The Cyber Sitrep is compiled every weekday morning from public sources and mirrored here automatically. "
                           "Always check the linked source before acting."),
-    "ransomware/index.html": ("../", "Breaches",
+    "breaches/index.html": ("../", "Breaches",
                               "Breach Wire is compiled daily from public leak-site aggregators and mirrored here automatically as "
                               "statistics only. Victim names are never published on this site."),
     "feeds/index.html": ("../", "Feeds", None),
 }
 
+# Old addresses that forward to a page's new address (spec 003 amendment A1). Kept
+# permanently: feed readers, Slack history and shared links still point there.
+FORWARDS = {"ransomware/index.html": "breaches/"}
+
 AT_PAGE = ' aria-current="page"'
-NAV = [("Today", ""), ("Exploited", "exploited/"), ("Sitrep", "sitrep/"), ("Breaches", "ransomware/"), ("Feeds", "feeds/")]
+NAV = [("Today", ""), ("Exploited", "exploited/"), ("Sitrep", "sitrep/"), ("Breaches", "breaches/"), ("Feeds", "feeds/")]
 
 LOGO = ('<svg class="brand__mark" viewBox="0 0 28 28" width="28" height="28" aria-hidden="true" focusable="false">'
         '<circle class="brand__ring" cx="14" cy="14" r="12.5"/><circle class="brand__ring brand__ring--inner" cx="14" cy="14" r="7"/>'
