@@ -1,0 +1,256 @@
+{
+  "date": "2026-11-25",
+  "issue": 94,
+  "window": "2026-11-24",
+  "stats": {
+    "victims": 32,
+    "groups": 16,
+    "countries": 7,
+    "regions": 3
+  },
+  "sweden": 0,
+  "regions": [
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 14
+        },
+        {
+          "country": "Canada",
+          "flag": "🇨🇦",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "region": "Europe",
+      "countries": [
+        {
+          "country": "Germany",
+          "flag": "🇩🇪",
+          "count": 3
+        },
+        {
+          "country": "Italy",
+          "flag": "🇮🇹",
+          "count": 2
+        },
+        {
+          "country": "Spain",
+          "flag": "🇪🇸",
+          "count": 2
+        },
+        {
+          "country": "Switzerland",
+          "flag": "🇨🇭",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "region": "Asia",
+      "countries": [
+        {
+          "country": "India",
+          "flag": "🇮🇳",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "region": "Unattributed",
+      "countries": [
+        {
+          "country": "Country not disclosed",
+          "flag": "🏳️",
+          "count": 4
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Manufacturing",
+      "count": 7
+    },
+    {
+      "sector": "Professional Services",
+      "count": 6
+    },
+    {
+      "sector": "Sector not disclosed",
+      "count": 4
+    },
+    {
+      "sector": "Education",
+      "count": 3
+    },
+    {
+      "sector": "Technology",
+      "count": 3
+    },
+    {
+      "sector": "Financial Services",
+      "count": 2
+    },
+    {
+      "sector": "Government & Defense",
+      "count": 2
+    },
+    {
+      "sector": "Hospitality",
+      "count": 2
+    },
+    {
+      "sector": "Retail & E-Commerce",
+      "count": 2
+    },
+    {
+      "sector": "Agriculture and Food Production",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "Play",
+      "hits": 5,
+      "profile": "Play (PlayCrypt), active since mid-2022; closed group with intermittent encryption, exploits of FortiOS and Exchange, and data posted after deadlines. Today a batch of five posted 19:18 UTC (RansomLook) / 19:45–19:48 UTC (Ransomware.live).",
+      "countries": "Canada, Switzerland, United States",
+      "sectors": "Manufacturing, Retail & E-Commerce, Sector not disclosed, Technology"
+    },
+    {
+      "name": "Inc Ransom",
+      "hits": 4,
+      "profile": "INC Ransom, active since mid-2023; spear-phishing and exploitation of Citrix/FortiGate edge devices; heavy US healthcare and professional-services focus. Two of today’s four are bare domain listings (“full data client/corp”).",
+      "countries": "United States",
+      "sectors": "Financial Services, Professional Services, Sector not disclosed"
+    },
+    {
+      "name": "SilentRansomGroup",
+      "hits": 4,
+      "profile": "SilentRansomGroup (aka Luna Moth / Chatty Spider): data-extortion crew without encryption, subject of a May 2025 FBI warning for callback-phishing and helpdesk vishing against US law firms. RansomLook tracks its site as “leakeddata”. Today: four named law-firm-style victims plus six masked “FULL DATA TIMER” teasers (excluded).",
+      "countries": "Germany, United States, not disclosed",
+      "sectors": "Professional Services, Sector not disclosed"
+    },
+    {
+      "name": "PixelLeaks",
+      "hits": 3,
+      "profile": "Posts descriptive, often unnamed targets with publication deadlines and itemised record lists.",
+      "countries": "India",
+      "sectors": "Education, Government & Defense, Manufacturing"
+    },
+    {
+      "name": "Qilin",
+      "hits": 3,
+      "profile": "Prolific RaaS (aka Agenda) since 2022; Rust/Go lockers, VMware ESXi targeting, double extortion; among the most active groups of 2025–26. Today includes a US public university.",
+      "countries": "Germany, Switzerland, United States",
+      "sectors": "Education, Manufacturing, Professional Services"
+    },
+    {
+      "name": "Aurora",
+      "hits": 2,
+      "profile": "Newer leak site posting long, sector-tagged write-ups with redacted item lists; seen daily in recent issues.",
+      "countries": "Germany, not disclosed",
+      "sectors": "Manufacturing"
+    },
+    {
+      "name": "Falcon",
+      "hits": 2,
+      "profile": "RedPacket Security has noted its claims are unverified.",
+      "countries": "United States",
+      "sectors": "Hospitality, Technology"
+    },
+    {
+      "name": "Aoqin",
+      "hits": 1,
+      "profile": "Aoqin / Aoqin Leaks: little-documented leak site focused on US mid-market firms; feeds use different names, merged here.",
+      "countries": "United States",
+      "sectors": "Professional Services"
+    },
+    {
+      "name": "Black X",
+      "hits": 1,
+      "profile": "Little-documented leak site; today’s only listing claims full customer card data from a Spanish hotel chain, without a sample in the feed.",
+      "countries": "Spain",
+      "sectors": "Hospitality"
+    },
+    {
+      "name": "Eclipse",
+      "hits": 1,
+      "profile": "Small leak site seen in recent issues, posting firms with long company profiles.",
+      "countries": "Italy",
+      "sectors": "Sector not disclosed"
+    },
+    {
+      "name": "MedusaLocker",
+      "hits": 1,
+      "profile": "Long-running RaaS (since 2019) relying on exposed RDP and phishing.",
+      "countries": "Spain",
+      "sectors": "Agriculture and Food Production"
+    },
+    {
+      "name": "Rhysida",
+      "hits": 1,
+      "profile": "RaaS since May 2023 (CISA advisory AA23-319A); hits healthcare, education, government and legal; publishes large file inventories, as with today’s dental-practice PHI dump.",
+      "countries": "not disclosed",
+      "sectors": "Retail & E-Commerce"
+    },
+    {
+      "name": "SafePay",
+      "hits": 1,
+      "profile": "Active since late 2024, no affiliate program; known for fast VPN/RDP intrusions with stolen credentials.",
+      "countries": "United States",
+      "sectors": "Technology"
+    },
+    {
+      "name": "Scarlettgroup",
+      "hits": 1,
+      "profile": "Emerging data-extortion crew first seen Oct 2026, hospital-heavy.",
+      "countries": "United States",
+      "sectors": "Education"
+    },
+    {
+      "name": "secp0",
+      "hits": 1,
+      "profile": "Leak site that frames postings as “security audits”, with path counts and “content-verified” evidence files.",
+      "countries": "Italy",
+      "sectors": "Manufacturing"
+    },
+    {
+      "name": "SoulGroup",
+      "hits": 1,
+      "profile": "Leak site posting anonymised government targets with deadlines; a similar unnamed US county posting ran in №91.",
+      "countries": "United States",
+      "sectors": "Government & Defense"
+    }
+  ],
+  "quality": {
+    "singleSourced": 1,
+    "claimOnly": 6,
+    "sourcesDisagree": 2,
+    "newGroups": 0
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 53
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 44
+      }
+    ],
+    "merged": 61,
+    "masked": 7,
+    "reposts": 22,
+    "nonVictims": 0,
+    "lowCoverage": false
+  },
+  "lateToPress": 0
+}
