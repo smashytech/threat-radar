@@ -18,6 +18,7 @@ the table says so.
 | [008 Security hardening](008-security-hardening) | The deploy gate, https-only links, `security.txt`, `SECURITY.md`, protected `main` | |
 | [009 Previews and speed](009-previews-and-speed) | Link previews for Slack, LinkedIn and Teams; Today page 9.9 s → 2.2 s on a slow phone | |
 | [010 Breach statistics](010-breach-statistics) | A fixed list of 17 sectors, one name per gang, and a Trends section (per month, sectors over time, top groups) on the Breaches page | |
+| [011 Victim-name check](011-victim-name-check) | An independent check of each new Breach Wire issue against the public victim list; Breach Wire waits if the list is unreachable | |
 
 **Small changes** are recorded as amendments in the spec that owns the area:
 [007 amendments](007-briefing-redesign/amendments.md) (tooltip, coffee cup, LinkedIn link,
@@ -44,6 +45,7 @@ set out in [`CLAUDE.md`](../CLAUDE.md).
 | Injected scripts anyway | A strict Content Security Policy: the browser refuses code not from this site | 001 |
 | Broken or truncated CISA feed | Strict validation and a shrink guard (refuses a catalog that suddenly loses over 10%) | 001 |
 | A victim name reaching the site | The Breach Wire gatekeeper checks every issue against that day's names; only allow-listed numeric fields are ever published | 003 |
+| A tricked publisher bot leaving a leaked name off its own list | Every new issue is also checked against Ransomware.live's public victim list before publishing; held back if the list can't be fetched | 011 |
 | Markup in feeds, `@channel` or fake links in Slack | Feeds written by an XML library after stripping forbidden characters; Slack text escaped, link previews off | 005 |
 | The Slack webhook leaking | Only in a GitHub secret, visible to the alert steps, never printed | 005 |
 | A visitor's software list | Kept only in their browser; shared stacks travel after `#`, which is never sent to a server | 004 |

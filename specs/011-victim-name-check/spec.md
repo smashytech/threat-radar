@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | **Spec ID** | 011-victim-name-check |
-| **Status** | Approved v1 ("go", 2026-11-25 10:40); FR-5a added by the owner during build |
+| **Status** | Approved v1 ("go", 2026-11-25 10:40); FR-5a added by the owner during build. Done, see [verification.md](./verification.md) |
 | **Owner** | smashytech |
 | **Builds on** | [003](../003-breach-wire-section/spec.md) (the victim-name rule), [008](../008-security-hardening/spec.md) (the deploy gate) |
 | **Followed by** | 012 (import October issues) |
