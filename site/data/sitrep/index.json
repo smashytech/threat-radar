@@ -1,6 +1,13 @@
 {
   "issues": [
     {
+      "date": "2026-11-25",
+      "tldr": "A heavy day for actively exploited bugs — CISA added five flaws to its KEV catalog (N-able Mail Assure, Drupal, Optimizely, MONAI Label, Idunno AntiCsrf) and VMware patched a new critical vCenter bug alongside an already-exploited China-nexus vCenter zero-day. Breaches piled up at South Korea's KEPCO (1.5M records), Colorado's myColorado ID app (~150K), LaLiga, the European Commission, and an unclassified CIA system, while two separate reports pointed to AI agents increasingly running attacks on their own.",
+      "items": 10,
+      "emerging": 2,
+      "actionNeeded": true
+    },
+    {
       "date": "2026-11-24",
       "tldr": "Lighter news cycle today — only 8 items survived the 48-hour relevance filter, headlined by two fresh CISA KEV additions and an actively-exploited ASP.NET RCE with no vendor patch available at all. Also notable: an unconfirmed FBI probe into a hack of the national crime database, and the $43.9B CrowdStrike–Zscaler merger. Two emerging-threat items highlight AI's growing role on both sides of the fence — autonomous exploit agents, and attacks aimed at AI inference infrastructure itself.",
       "items": 8,

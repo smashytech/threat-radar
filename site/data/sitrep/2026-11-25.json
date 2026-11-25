@@ -1,0 +1,116 @@
+{
+  "date": "2026-11-25",
+  "tldr": "A heavy day for actively exploited bugs — CISA added five flaws to its KEV catalog (N-able Mail Assure, Drupal, Optimizely, MONAI Label, Idunno AntiCsrf) and VMware patched a new critical vCenter bug alongside an already-exploited China-nexus vCenter zero-day. Breaches piled up at South Korea's KEPCO (1.5M records), Colorado's myColorado ID app (~150K), LaLiga, the European Commission, and an unclassified CIA system, while two separate reports pointed to AI agents increasingly running attacks on their own.",
+  "emerging": [
+    {
+      "title": "Unit 42 documents 10+ autonomous AI-agent intrusion campaigns",
+      "description": "Palo Alto's Unit 42 tracked 10+ campaigns (Jul–Sep 2026) where AI agents ran attacks with command intervals dropping to 1.4 seconds, pushed web shells to 40+ locations in 26 minutes, and used a platform named \"CyberStrikeAI\" found on C2 infrastructure — no specific LLM or actor was identified.",
+      "source": "Unit 42",
+      "url": "https://unit42.paloaltonetworks.com/autonomous-ai-agent-threat-campaigns/",
+      "published": "2026-11-24",
+      "cves": []
+    },
+    {
+      "title": "Check Point breach shows possible shift toward AI-paced attack operations",
+      "description": "GreyNoise theorizes the actor behind the 24-server Check Point compromise (item 4 below) operated with a tempo and multi-exploit chaining consistent with a \"mature AI-enabled offensive apparatus\" — a suspicion, not confirmed proof, but another data point alongside Unit 42's findings this week.",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/hackers-compromise-24-check-point.html",
+      "published": "2026-11-24",
+      "cves": []
+    }
+  ],
+  "items": [
+    {
+      "title": "CISA adds N-able Mail Assure flaw to KEV catalog",
+      "description": "CVE-2026-134624 (CVSS 9.3) in N-able Mail Assure was added to CISA's Known Exploited Vulnerabilities catalog Nov 23 after a breach of one N-able server; federal agencies have until Thanksgiving to patch. N-able says exploitation was limited to that server.",
+      "source": "The Record",
+      "url": "https://therecord.media/cisa-nable-cybersecurity-bug",
+      "published": "2026-11-23",
+      "cves": [
+        "CVE-2026-134624"
+      ]
+    },
+    {
+      "title": "New critical vCenter flaw patched amid separate active China-nexus exploitation",
+      "description": "Broadcom patched CVE-2026-123903 (CVSS 9.8, vmdir auth bypass, not exploited) plus four related vCenter/ESX flaws Nov 24. It's distinct from CVE-2026-123890, a separate vCenter zero-day actively exploited by suspected China-nexus group \"Armory Castle.\"",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/vmware-vcenter-hit-by-another-critical.html",
+      "published": "2026-11-24",
+      "cves": [
+        "CVE-2026-123903",
+        "CVE-2026-123890"
+      ]
+    },
+    {
+      "title": "CISA adds four more exploited flaws to KEV: Drupal, Optimizely, MONAI, Idunno AntiCsrf",
+      "description": "CISA added CVE-2026-132165 (Drupal Core), CVE-2026-132224 (Optimizely Web Experimentation), CVE-2026-133968 (MONAI Label) and CVE-2026-131914 (Idunno AntiCsrf) to its KEV catalog Nov 23–24, confirming active exploitation of each.",
+      "source": "CISA KEV Catalog (verified directly)",
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "cves": [
+        "CVE-2026-132165",
+        "CVE-2026-132224",
+        "CVE-2026-133968",
+        "CVE-2026-131914"
+      ]
+    },
+    {
+      "title": "24 Check Point management servers compromised across 22 organizations, 17 countries",
+      "description": "GreyNoise reports an actor (\"GT13\") exploited known flaws — including Citrix, Ivanti and a patched Check Point bug (CVE-2026-16232) — to compromise 24 Check Point Security Management servers at 22 organizations spanning government, energy, finance and transport. Attribution unconfirmed.",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/hackers-compromise-24-check-point.html",
+      "published": "2026-11-24",
+      "cves": [
+        "CVE-2026-16232"
+      ]
+    },
+    {
+      "title": "European Commission confirms EU Academy breach tied to AI-assisted attack",
+      "description": "The Commission confirmed names and emails of EU Academy learning-platform users were exposed in an AI-assisted cyberattack detected Oct 22. Access is suspended and the EDPS notified. A China-linked attribution reported secondhand by Euronews remains unconfirmed by the Commission itself.",
+      "source": "SecurityWeek (AP)",
+      "url": "https://www.securityweek.com/european-commission-uncovers-data-breach-in-cyberattack-investigation/",
+      "published": "2026-11-24",
+      "cves": []
+    },
+    {
+      "title": "1.5 million records exposed in KEPCO (South Korea) breach",
+      "description": "South Korean utility KEPCO disclosed breaches of its KEPCO ON customer portal (650,487 people) and SRM supplier platform (869,761 people), exposing IDs, contact and some financial details. An unattributed dark-web actor claimed the theft; KEPCO cites an \"external attacker.\"",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/1-5-million-impacted-by-data-breach-at-south-korean-electric-company-kepco/",
+      "published": "2026-11-24",
+      "cves": []
+    },
+    {
+      "title": "myColorado digital ID app breach affects ~150,000, app still down",
+      "description": "Colorado's myColorado app (2.1M users) remains offline after a breach discovered Nov 18 that the state says likely stole data on nearly 150,000 people. Exact data types undisclosed; officials urged residents to carry physical ID for Thanksgiving travel.",
+      "source": "The Record",
+      "url": "https://therecord.media/mycolorado-app-down-data-breach",
+      "published": "2026-11-24",
+      "cves": []
+    },
+    {
+      "title": "Unclassified CIA OSINT system breached",
+      "description": "An unclassified CIA system gathering open-source and commercial satellite data was breached, per an AP source citing an initial NYT report; no classified information was involved and the issue is \"resolved.\" No attribution or scope disclosed.",
+      "source": "SecurityWeek (AP)",
+      "url": "https://www.securityweek.com/an-unclassified-cia-system-was-breached-in-a-cyberattack-ap-source-says/",
+      "published": "2026-11-24",
+      "cves": []
+    },
+    {
+      "title": "LaLiga confirms theft of fans' personal data",
+      "description": "A third-party platform breach between Nov 14–16 exposed Spanish football fans' names and contact details across LaLiga and several clubs including CD Eldense and Real Zaragoza. Passwords and payment data reportedly untouched; no attribution yet, Spanish police investigating.",
+      "source": "The Record",
+      "url": "https://therecord.media/laliga-hacked-spain-top-professional-league-confirms-cyber-incident",
+      "published": "2026-11-24",
+      "cves": []
+    },
+    {
+      "title": "Unit 42 details \"Com\"-affiliated vishing campaigns hijacking cloud accounts",
+      "description": "Palo Alto's Unit 42 says Com-affiliated clusters (including ShinyHunters-linked \"Bling Libra\" and six other named groups) have run vishing/AiTM phishing waves since August, targeting US/UK/Australia finance, healthcare and legal firms to hijack Microsoft 365 and cloud accounts in real time.",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/com-affiliated-hackers-hijack-cloud.html",
+      "published": "2026-11-25",
+      "cves": []
+    }
+  ],
+  "action": "Patch/verify CVE-2026-134624 (N-able Mail Assure) and the four newly KEV-listed flaws (Drupal CVE-2026-132165, Optimizely CVE-2026-132224, MONAI Label CVE-2026-133968, Idunno AntiCsrf CVE-2026-131914) immediately. Apply Broadcom's Nov 24 vCenter/ESX updates (CVE-2026-123903 and related) and confirm you're also protected against the separately exploited CVE-2026-123890 vCenter zero-day. Check Point customers should confirm CVE-2026-16232 is patched and review management-server access logs for GT13 indicators of compromise."
+}
