@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | **Spec ID** | 011-victim-name-check |
-| **Status** | Draft v1, waiting for "go" |
+| **Status** | Approved v1 ("go", 2026-11-25 10:40); FR-5a added by the owner during build |
 | **Owner** | smashytech |
 | **Builds on** | [003](../003-breach-wire-section/spec.md) (the victim-name rule), [008](../008-security-hardening/spec.md) (the deploy gate) |
 | **Followed by** | 012 (import October issues) |
@@ -64,6 +64,7 @@ The fix is a second check whose list comes from somewhere the bot can't touch.
 - **FR-3** For each issue, fetch the source's victims for the months covering the day range (the issue's window day −2 … +1) and keep the names whose discovery date falls in that range.
 - **FR-4** Use the gatekeeper's existing matching (same normalisation, whole-word, at least 4 characters) against the **stored issue file**, which is exactly what gets published.
 - **FR-5** Skip source names that equal a group, country, region or sector name in that issue; print only how many were skipped.
+- **FR-5a** *(owner's decision during build, 2026-11-25)* Also skip source "names" that are placeholders, and count them: part of an issue word ("disclosed" in "Not disclosed"), masked placeholders ("Company #243", "Name upcoming", "unknown"…), and descriptions (start with "a"/"an", 4 or more words). The first real run flagged six issues, all because of these.
 
 **Outcomes**
 - **FR-6** **Pass:** the issue is published and `breachwire-checked` moves forward.

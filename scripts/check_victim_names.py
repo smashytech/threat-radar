@@ -141,13 +141,35 @@ def where(value: object, needle: str, path: str = "") -> list[str]:
 
 MAX_DETAILS = 5
 
+# Owner's decision 2026-11-25 (spec 011, change during build): the source lists masked
+# posts and descriptions as "victims". These are skipped and counted, never matched.
+PLACEHOLDER_WORDS = {
+    "company", "victim", "client", "target", "organisation", "organization", "org", "entity",
+    "name", "upcoming", "coming", "soon", "unknown", "undisclosed", "disclosed", "not", "redacted",
+    "hidden", "masked", "anonymous", "confidential", "private", "pending", "tba", "tbd", "n", "a", "new",
+}
+DESCRIPTION_MIN_WORDS = 4
+
+
+def placeholder(needle: str, vocab: set[str]) -> bool:
+    """True for source 'names' that aren't names: part of an issue word ("disclosed" in
+    "Not disclosed"), a masked placeholder ("Company #243", "Name upcoming"), or a
+    description ("An independent ... firm in ...": starts with a/an, 4+ words)."""
+    words = needle.split()
+    padded = f" {needle} "
+    if any(padded in f" {phrase} " for phrase in vocab):
+        return True
+    if all(w in PLACEHOLDER_WORDS or w.isdigit() for w in words):
+        return True
+    return words[0] in ("a", "an") and len(words) >= DESCRIPTION_MIN_WORDS
+
 
 def check_issue(issue: dict, names: list[str], others: list[str] = ()) -> dict:
     """`others`: the other stored issues' text, to tell how common a matched word is.
     A match is described by line number, field, word count and length: never the name."""
     haystack = _haystack(issue)
     vocab = vocabulary(issue)
-    result = {"date": issue["date"], "outcome": "pass", "checked": 0, "skipped": 0}
+    result = {"date": issue["date"], "outcome": "pass", "checked": 0, "skipped": 0, "placeholders": 0}
     matches = []
     for line, name in enumerate(names, start=1):
         needle = bw.normalize(name)
@@ -155,6 +177,9 @@ def check_issue(issue: dict, names: list[str], others: list[str] = ()) -> dict:
             continue
         if needle in vocab:
             result["skipped"] += 1
+            continue
+        if placeholder(needle, vocab):
+            result["placeholders"] += 1
             continue
         result["checked"] += 1
         if f" {needle} " in haystack:
@@ -247,7 +272,8 @@ def main(argv: list[str] | None = None, fetch=fetch_json, sleep=time.sleep, env:
 
     print(f"Victim-name check against {SOURCE_NAME}: {report['outcome']} ({len(issues)} issue(s) to check)")
     for i in report["issues"]:
-        detail = f"{i.get('checked', 0)} names checked, {i.get('skipped', 0)} skipped as issue words" if "checked" in i else ""
+        detail = (f"{i.get('checked', 0)} names checked, {i.get('skipped', 0)} skipped as issue words, "
+                  f"{i.get('placeholders', 0)} placeholders") if "checked" in i else ""
         if i["outcome"] == "found":
             detail += f"; {i['matches']} match(es)"
         print(f"  {i['date']}: {i['outcome']}" + (f" ({detail})" if detail else ""))

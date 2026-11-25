@@ -110,6 +110,29 @@ class Matching(unittest.TestCase):
         self.assertEqual(report["outcome"], "pass")
         self.assertEqual(report["issues"][0]["skipped"], 4)
 
+    def test_placeholders_are_skipped(self):
+        """Owner's decision 2026-11-25: the source lists masked posts and descriptions as 'victims'."""
+        cases = ["Disclosed", "Company #243", "COMPANY 12", "Name upcoming", "Coming soon", "unknown",
+                 "An independent asset management firm in Casablanca", "A mid-sized logistics company in Ohio"]
+        for text in cases:
+            self.assertTrue(cvn.placeholder(add_breachwire.normalize(text), set()), text)
+        self.assertTrue(cvn.placeholder("america", {"north america"}), "part of an issue word")
+
+    def test_real_looking_names_are_not_placeholders(self):
+        for text in ("Zyxwvut Holdings", "A Plus Roofing", "Company Shop Group", "Acme 2000", "Casablanca Finance"):
+            self.assertFalse(cvn.placeholder(add_breachwire.normalize(text), {"north america", "not disclosed"}), text)
+
+    def test_placeholders_in_the_issue_text_pass(self):
+        profile = "Uses titles (An independent asset management firm in Casablanca) and Name upcoming; Company #242 masked."
+        words = [("An independent asset management firm in Casablanca", "2026-11-10"), ("Name upcoming", "2026-11-10"),
+                 ("Company #242", "2026-11-10"), ("Disclosed", "2026-11-10")]
+        i = issue(profile=profile)
+        i["sectors"][0]["sector"] = "Not disclosed"
+        src = FakeSource({"2026-11": victims("2026-11-10", extra=words)})
+        report = cvn.run([i], src, sleep=lambda s: None)
+        self.assertEqual(report["outcome"], "pass")
+        self.assertEqual(report["issues"][0]["placeholders"], 4)
+
     def test_short_names_are_ignored(self):
         src = FakeSource({"2026-11": victims("2026-11-10", extra=[("GB", "2026-11-10")])})
         self.assertEqual(cvn.run([issue()], src, sleep=lambda s: None)["outcome"], "pass")
