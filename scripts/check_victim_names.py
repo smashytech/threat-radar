@@ -123,10 +123,32 @@ def vocabulary(issue: dict) -> set[str]:
     return {bw.normalize(w) for w in words}
 
 
-def check_issue(issue: dict, names: list[str]) -> dict:
-    haystack = f" {bw.normalize(json.dumps(issue, ensure_ascii=False))} "
+def _haystack(issue: dict) -> str:
+    return f" {bw.normalize(json.dumps(issue, ensure_ascii=False))} "
+
+
+def where(value: object, needle: str, path: str = "") -> list[str]:
+    """Paths of the fields whose text contains the needle, e.g. "groups[2].profile".
+    Built from the issue's own field names and positions only, never from the text."""
+    if isinstance(value, dict):
+        return [p for k, v in value.items() for p in where(v, needle, f"{path}.{k}" if path else k)]
+    if isinstance(value, list):
+        return [p for i, v in enumerate(value) for p in where(v, needle, f"{path}[{i}]")]
+    if isinstance(value, str) and f" {needle} " in f" {bw.normalize(value)} ":
+        return [path]
+    return []
+
+
+MAX_DETAILS = 5
+
+
+def check_issue(issue: dict, names: list[str], others: list[str] = ()) -> dict:
+    """`others`: the other stored issues' text, to tell how common a matched word is.
+    A match is described by line number, field, word count and length: never the name."""
+    haystack = _haystack(issue)
     vocab = vocabulary(issue)
     result = {"date": issue["date"], "outcome": "pass", "checked": 0, "skipped": 0}
+    matches = []
     for line, name in enumerate(names, start=1):
         needle = bw.normalize(name)
         if len(needle) < bw.MIN_NAME_CHARS:
@@ -135,12 +157,19 @@ def check_issue(issue: dict, names: list[str]) -> dict:
             result["skipped"] += 1
             continue
         result["checked"] += 1
-        if f" {needle} " in haystack and result["outcome"] == "pass":
-            result["outcome"], result["line"] = "found", line
+        if f" {needle} " in haystack:
+            matches.append({"line": line, "where": where(issue, needle)[:3], "words": len(needle.split()),
+                            "chars": len(needle), "inOtherIssues": sum(f" {needle} " in o for o in others)})
+    if matches:
+        result["outcome"], result["line"] = "found", matches[0]["line"]
+        result["matches"] = len(matches)
+        result["details"] = matches[:MAX_DETAILS]
     return result
 
 
-def run(issues: list[dict], fetch=fetch_json, sleep=time.sleep) -> dict:
+def run(issues: list[dict], fetch=fetch_json, sleep=time.sleep, corpus: dict[str, str] | None = None) -> dict:
+    """`corpus`: date → text of every stored issue (for how common a matched word is)."""
+    corpus = corpus or {}
     report = {"source": SOURCE_NAME, "outcome": "none", "reason": None, "issues": []}
     months: dict[tuple[int, int], list] = {}
     calls = 0
@@ -165,7 +194,8 @@ def run(issues: list[dict], fetch=fetch_json, sleep=time.sleep) -> dict:
             report["reason"] = str(err)
             report["issues"].append({"date": issue["date"], "outcome": "held"})
             continue
-        report["issues"].append(check_issue(issue, names_in_range(rows, start, end)))
+        others = [text for day, text in corpus.items() if day != issue["date"]]
+        report["issues"].append(check_issue(issue, names_in_range(rows, start, end), others))
     outcomes = {i["outcome"] for i in report["issues"]}
     report["outcome"] = "found" if "found" in outcomes else "held" if "held" in outcomes else "pass" if outcomes else "none"
     return report
@@ -212,14 +242,18 @@ def main(argv: list[str] | None = None, fetch=fetch_json, sleep=time.sleep, env:
 
     files = changed_files(args.repo, args.all)
     issues = [bw.validate_issue(json.loads((args.repo / DATA / f).read_text("utf-8"))) for f in files]
-    report = run(issues, fetch, sleep)
+    stored = bw.load_stored(args.repo / DATA)
+    report = run(issues, fetch, sleep, {day: _haystack(i) for day, i in stored.items()})
 
     print(f"Victim-name check against {SOURCE_NAME}: {report['outcome']} ({len(issues)} issue(s) to check)")
     for i in report["issues"]:
         detail = f"{i.get('checked', 0)} names checked, {i.get('skipped', 0)} skipped as issue words" if "checked" in i else ""
         if i["outcome"] == "found":
-            detail += f"; MATCH at line {i['line']} of the source list for this issue"
+            detail += f"; {i['matches']} match(es)"
         print(f"  {i['date']}: {i['outcome']}" + (f" ({detail})" if detail else ""))
+        for m in i.get("details", []):
+            print(f"      line {m['line']}: {m['words']} word(s), {m['chars']} characters, in {', '.join(m['where'])}; "
+                  f"the same text is in {m['inOtherIssues']} other issue(s)")
     if report["reason"]:
         print(f"  Held back because {report['reason']}.")
     if report["outcome"] == "found":

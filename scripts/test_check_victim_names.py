@@ -86,7 +86,15 @@ class Matching(unittest.TestCase):
         found = report["issues"][0]
         self.assertEqual(found["outcome"], "found")
         self.assertIsInstance(found["line"], int)
+        self.assertEqual(found["details"][0]["where"], ["groups[0].profile"])
+        self.assertEqual((found["details"][0]["words"], found["details"][0]["chars"]), (2, len("zyxwvut holdings")))
         self.assertNotIn("Zyxwvut", json.dumps(report))
+
+    def test_a_match_says_how_common_the_word_is(self):
+        src = FakeSource({"2026-11": victims("2026-11-10", extra=[(SECRET, "2026-11-10")])})
+        corpus = {"2026-11-01": " zyxwvut holdings ", "2026-11-02": " nothing "}
+        report = cvn.run([issue(profile=f"{SECRET} posted")], src, sleep=lambda s: None, corpus=corpus)
+        self.assertEqual(report["issues"][0]["details"][0]["inOtherIssues"], 1)
 
     def test_a_clean_issue_passes_and_reports_how_many_names_were_checked(self):
         src = FakeSource({"2026-11": victims("2026-11-10", extra=[(SECRET, "2026-11-10")])})
