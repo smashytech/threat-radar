@@ -35,4 +35,5 @@ spec's `amendments.md`: request, decision, acceptance check, verification.
   - Reports go to the owner by **LinkedIn message** (owner's choice; the link is already public in the site footer). No email address is added.
   - It covers the repository (issues, pull requests, any future discussions). It is **not** linked from the website, which has no comments or accounts; the README gets one line pointing to it.
 - **Check:** GitHub's community profile lists the code of conduct; no email address in the file; README links to it.
-- **Verified:** *(after build)*
+- **Verified:** 2026-11-25. GitHub's community profile recognises it as "Contributor Covenant" (community health 28 % → 42 %); no email address in the file; README links to it. Text checked against the official 2.1 wording (one word corrected: "email").
+
