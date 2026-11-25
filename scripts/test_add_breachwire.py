@@ -269,6 +269,14 @@ class Consistency(Base):
     def test_quality_cannot_exceed_victims(self):
         self.assert_refused(self.variant(lambda i: i["quality"].update(claimOnly=17)))
 
+    def test_new_groups_may_be_not_recorded(self):
+        """Spec 012: older issues don't record it; null means "not recorded", never a guess."""
+        issue = self.variant(lambda i: i["quality"].update(newGroups=None))
+        stored = add_breachwire.validate_issue(json.loads(issue) if isinstance(issue, str) else issue)
+        self.assertIsNone(stored["quality"]["newGroups"])
+        for bad in ("2", -1, True):
+            self.assert_refused(self.variant(lambda i, b=bad: i["quality"].update(newGroups=b)))
+
     def test_window_must_be_before_date(self):
         self.assert_refused(self.variant(lambda i: i.update(window="2026-11-06")))
 

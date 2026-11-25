@@ -202,7 +202,7 @@ function renderQuality(issue) {
   ];
   $("quality").replaceChildren(...facts.map(([label, value, hint]) => el("div", { className: "quality__fact" }, [
     el("dt", { text: label }),
-    el("dd", { text: numberFmt.format(value) }),
+    el("dd", { text: value === null ? "not recorded" : numberFmt.format(value) }),
     el("span", { className: "muted", text: hint }),
   ])));
   const h = issue.health;

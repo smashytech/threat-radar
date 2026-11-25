@@ -246,7 +246,9 @@ def validate_issue(data: object) -> dict:
     groups.sort(key=lambda g: g["hits"], reverse=True)
 
     q = check_keys(top["quality"], "quality", {"singleSourced", "claimOnly", "sourcesDisagree", "newGroups"})
-    quality = {k: check_int(q[k], f"quality.{k}") for k in ("singleSourced", "claimOnly", "sourcesDisagree", "newGroups")}
+    quality = {k: check_int(q[k], f"quality.{k}") for k in ("singleSourced", "claimOnly", "sourcesDisagree")}
+    # Spec 012: issues imported from the email archive don't record new groups; null = "not recorded".
+    quality["newGroups"] = None if q["newGroups"] is None else check_int(q["newGroups"], "quality.newGroups")
 
     h = check_keys(top["health"], "health", {"sources", "merged", "masked", "reposts", "nonVictims", "lowCoverage"})
     sources = []
@@ -287,7 +289,7 @@ def check_consistency(issue: dict) -> None:
         (victims + issue["health"]["masked"] + issue["health"]["reposts"] + issue["health"]["nonVictims"] == issue["health"]["merged"],
          "reconciliation fails: victims + masked + reposts + nonVictims must equal merged"),
         (all(v <= victims for k, v in issue["quality"].items() if k != "newGroups"), "a quality count exceeds the number of victims"),
-        (issue["quality"]["newGroups"] <= s["groups"], "quality.newGroups exceeds the number of groups"),
+        ((issue["quality"]["newGroups"] or 0) <= s["groups"], "quality.newGroups exceeds the number of groups"),
     ]
     for ok, message in rules:
         if not ok:
