@@ -161,6 +161,7 @@ jobs:
 
       # Spec 010: monthly Breach Wire numbers for the Trends section. Built from
       # the checked issues; holds numbers, sector names and group names only.
+      # Spec 013: also writes breachwire-groups.json (each gang's latest published profile).
       - name: Build the Breach Wire statistics
         run: python3 scripts/build_breach_stats.py
 

@@ -3,7 +3,7 @@
 
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { monthName, monthRows, sectorGrid, shadeLevel, topGroups, sinceLine, tabFromHash, TABS } from "../site/breach-stats-logic.js";
+import { monthName, monthRows, sectorGrid, shadeLevel, topGroups, sinceLine, tabFromHash, TABS, profileIndex } from "../site/breach-stats-logic.js";
 
 const SECTORS = ["Healthcare & life sciences", "Education", "Not disclosed", "Other"];
 const month = (m, victims, sectors, groups, newGroups = null, days = 30) =>
@@ -79,4 +79,13 @@ test("amendment A1: the address picks the tab; anything unknown opens today's is
   assert.equal(tabFromHash("#trends"), "trends");
   assert.equal(tabFromHash("#TRENDS"), "trends");
   for (const h of ["", "#", "#issue", "#nope", "#trends-x"]) assert.equal(tabFromHash(h), "issue", h);
+});
+
+test("spec 013: profiles are found by the name Trends shows; bad or missing data gives none", () => {
+  const index = profileIndex({ groups: [{ name: "Akira", profile: "P.", date: "2026-11-24", issue: 94 }, { name: 5 }, null] });
+  assert.deepEqual(index.get("Akira"), { name: "Akira", profile: "P.", date: "2026-11-24", issue: 94 });
+  assert.equal(index.get("Qilin"), undefined);
+  assert.equal(index.size, 1, "malformed entries are dropped");
+  assert.equal(profileIndex(null).size, 0);
+  assert.equal(profileIndex({ groups: "nope" }).size, 0);
 });

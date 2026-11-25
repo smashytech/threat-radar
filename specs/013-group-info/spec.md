@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | **Spec ID** | 013-group-info |
-| **Status** | Draft v1, waiting for "go" |
+| **Status** | Approved 2026-11-25 ("go" 12:39). Done, see [verification.md](./verification.md) |
 | **Owner** | smashytech |
 | **Builds on** | [003](../003-breach-wire-section/spec.md) (group profiles), [010](../010-breach-statistics/spec.md) (Trends), [011](../011-victim-name-check/spec.md) (independent name check) |
 | **Created** | 2026-11-25 |

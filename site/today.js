@@ -5,7 +5,7 @@
 // (newly exploited, Sitrep highlights, Breach Wire) and the monthly trend.
 // All the deciding is in today-logic.js (tested); this file only draws.
 
-import { el, numberFmt, formatDate, formatLongDate, formatShortDay, monthFmt, monthYearFmt, isoToDate, localToday, timeAgo, loadJSON } from "./ui.js";
+import { el, numberFmt, formatDate, formatLongDate, formatShortDay, monthFmt, monthYearFmt, isoToDate, localToday, timeAgo, loadJSON, infoTip, enableInfoTips } from "./ui.js";
 import { monthlyCounts } from "./stats.js";
 import { teaserLabel } from "./sitrep-logic.js";
 import {
@@ -13,6 +13,7 @@ import {
 } from "./today-logic.js";
 import { readStack } from "./stack-page.js";
 
+enableInfoTips(); // tap/Escape behaviour for the (i) tips (spec 007 A1)
 const $ = (id) => document.getElementById(id);
 
 // Old links (bookmarks, feeds, Slack) pointed at the Radar on the front page:
@@ -133,37 +134,6 @@ function renderKev(kev, today) {
   });
   $("today-kev").replaceChildren(...items);
 }
-
-/** A small (i) button with an explanation that shows on hover, keyboard focus or tap. */
-function infoTip(id, label, help) {
-  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-  svg.setAttribute("viewBox", "0 0 16 16");
-  svg.setAttribute("aria-hidden", "true");
-  svg.setAttribute("focusable", "false");
-  for (const [tag, attrs] of [["circle", { cx: 8, cy: 8, r: 7 }], ["path", { d: "M8 7v4.5" }], ["circle", { cx: 8, cy: 4.6, r: 0.9, class: "info-tip__dot" }]]) {
-    const node = document.createElementNS("http://www.w3.org/2000/svg", tag);
-    for (const [k, v] of Object.entries(attrs)) node.setAttribute(k, String(v));
-    svg.append(node);
-  }
-  const button = el("button", { className: "info-tip", attrs: { type: "button", "aria-label": label, "aria-expanded": "false", "aria-describedby": id } }, [svg]);
-  const bubble = el("span", { className: "info-tip__bubble", text: help, attrs: { id, role: "tooltip" } });
-  return [button, bubble];
-}
-
-// Tap or click toggles a tip (phones have no hover); clicking elsewhere or Escape closes it.
-function closeTips(except) {
-  for (const b of document.querySelectorAll('.info-tip[aria-expanded="true"]')) if (b !== except) b.setAttribute("aria-expanded", "false");
-}
-document.addEventListener("click", (event) => {
-  const button = event.target.closest?.(".info-tip");
-  closeTips(button);
-  if (button) button.setAttribute("aria-expanded", button.getAttribute("aria-expanded") === "true" ? "false" : "true");
-});
-document.addEventListener("keydown", (event) => {
-  if (event.key !== "Escape") return;
-  const open = document.querySelector('.info-tip[aria-expanded="true"]');
-  if (open) { open.setAttribute("aria-expanded", "false"); open.focus(); }
-});
 
 async function renderSitrep(sitrep, today) {
   const list = $("today-sitrep");

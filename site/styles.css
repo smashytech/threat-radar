@@ -932,3 +932,14 @@ input[type="search"]::placeholder { color: var(--muted); opacity: 0.8; }
 .trends-panel { padding: 24px 0 40px; }
 .trends-panel:focus { outline: none; }
 .trends-panel:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+
+/* ---------- Trends: (i) group profiles (spec 013) ---------- */
+.top-groups__row { position: relative; }
+.info-tip--group { width: 24px; height: 24px; margin-left: 4px; vertical-align: -6px; color: var(--accent); }
+.info-tip--group:hover, .info-tip--group[aria-expanded="true"] { background: var(--accent-soft); }
+.info-tip--group + .info-tip__bubble { left: 12px; right: auto; max-width: min(400px, 86vw); font-weight: 400; }
+.info-tip__bubble:focus-within { display: block; }
+.group-tip__name, .group-tip__profile, .group-tip__source { display: block; }
+.group-tip__name { margin-bottom: 4px; }
+.group-tip__source { margin-top: 8px; font-size: 12px; opacity: 0.85; }
+.group-tip__source a { color: inherit; text-decoration: underline; }

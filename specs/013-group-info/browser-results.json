@@ -1,0 +1,50 @@
+[
+ {
+  "id": "AC-4",
+  "name": "The profiles are fetched only when Trends is opened",
+  "ok": true,
+  "detail": "0 → 1"
+ },
+ {
+  "id": "AC-3",
+  "name": "Each top group with a profile has an (i), and only those",
+  "ok": true,
+  "detail": "10 of 10 have one"
+ },
+ {
+  "id": "AC-3",
+  "name": "Hover shows the right profile, with the issue it came from",
+  "ok": true,
+  "detail": "N0nTwo of those today (Company #242, #243, tagged “healthcare · United States, pending exposure”) were excluded as maske"
+ },
+ {
+  "id": "AC-3",
+  "name": "Keyboard: Enter opens, Tab reaches \"Open issue\" inside it, Escape closes",
+  "ok": true,
+  "detail": "true → Open issue → false"
+ },
+ {
+  "id": "AC-3",
+  "name": "\"Open issue\" goes to that day's issue",
+  "ok": true,
+  "detail": "{\"url\":\"?d=2026-11-23\",\"tab\":\"tab-issue\"}"
+ },
+ {
+  "id": "AC-4",
+  "name": "No errors or CSP violations",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "id": "AC-4",
+  "name": "360 px, dark: a tap opens the bubble inside the screen; a tap elsewhere closes it",
+  "ok": true,
+  "detail": "{\"shown\":true,\"left\":29,\"right\":339,\"page\":360,\"width\":360,\"closed\":\"false\"}"
+ },
+ {
+  "id": "AC-4",
+  "name": "Without the profiles file, Trends works and shows no (i)",
+  "ok": true,
+  "detail": "10 rows, 0 tips"
+ }
+]

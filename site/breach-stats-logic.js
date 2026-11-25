@@ -95,3 +95,11 @@ export const TABS = ["issue", "trends"];
 export function tabFromHash(hash) {
   return String(hash).toLowerCase() === "#trends" ? "trends" : "issue";
 }
+
+/** Spec 013: name → { name, profile, date, issue } from breachwire-groups.json; malformed entries dropped. */
+export function profileIndex(data) {
+  const ok = (g) => g && typeof g.name === "string" && typeof g.profile === "string"
+    && /^\d{4}-\d{2}-\d{2}$/.test(String(g.date)) && Number.isInteger(g.issue);
+  const list = data && Array.isArray(data.groups) ? data.groups.filter(ok) : [];
+  return new Map(list.map((g) => [g.name, g]));
+}

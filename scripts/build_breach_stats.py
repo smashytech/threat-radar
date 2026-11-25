@@ -24,6 +24,7 @@ import add_breachwire as bw  # noqa: E402
 
 DEFAULT_DATA = Path(__file__).resolve().parent.parent / "site" / "data"
 OUT_NAME = "breachwire-stats.json"
+GROUPS_NAME = "breachwire-groups.json"  # spec 013
 TOP_GROUPS = 15
 ALL_SECTORS = bw.SECTORS + [bw.OTHER_SECTOR]
 
@@ -37,16 +38,21 @@ def display_name(key: str, spellings: Counter) -> str:
     return min(spellings, key=lambda s: (-spellings[s], s.isupper(), s))
 
 
+def display_names(issues: dict[str, dict]) -> dict[str, str]:
+    """group_key → the name Trends shows (alias, else most used spelling)."""
+    spellings: dict[str, Counter] = defaultdict(Counter)
+    for issue in issues.values():
+        for g in issue["groups"]:
+            spellings[bw.group_key(g["name"])][g["name"]] += g["hits"]
+    return {key: display_name(key, c) for key, c in spellings.items()}
+
+
 def build(issues: dict[str, dict]) -> dict:
     by_month: dict[str, list[dict]] = defaultdict(list)
     for issue in issues.values():
         by_month[issue["window"][:7]].append(issue)
 
-    spellings: dict[str, Counter] = defaultdict(Counter)
-    for issue in issues.values():
-        for g in issue["groups"]:
-            spellings[bw.group_key(g["name"])][g["name"]] += g["hits"]
-    names = {key: display_name(key, c) for key, c in spellings.items()}
+    names = display_names(issues)
 
     months, seen = [], set()
     for month in sorted(by_month):
@@ -84,6 +90,21 @@ def build(issues: dict[str, dict]) -> dict:
     }
 
 
+def build_groups(issues: dict[str, dict]) -> dict:
+    """Spec 013: each gang's most recent non-empty profile, for the (i) in Trends.
+    Copies only the display name, the profile text and which issue it came from;
+    that text was already published in that issue and passed both name checks."""
+    names = display_names(issues)
+    latest: dict[str, dict] = {}
+    for day in sorted(issues):
+        issue = issues[day]
+        for g in issue["groups"]:
+            if g["profile"].strip():
+                key = bw.group_key(g["name"])
+                latest[key] = {"name": names[key], "profile": g["profile"], "date": issue["date"], "issue": issue["issue"]}
+    return {"groups": sorted(latest.values(), key=lambda e: (e["name"].lower(), e["name"]))}
+
+
 def to_text(stats: dict) -> str:
     return json.dumps(stats, ensure_ascii=False, indent=1, sort_keys=False) + "\n"
 
@@ -100,6 +121,9 @@ def main(argv: list[str] | None = None) -> int:
     out = args.data / OUT_NAME
     bw.write_atomic(out, to_text(stats))
     print(f"Wrote {out.name}: {stats['issues']} issues, {len(stats['months'])} months.")
+    groups = build_groups(bw.load_stored(args.data / "breachwire"))
+    bw.write_atomic(args.data / GROUPS_NAME, to_text(groups))
+    print(f"Wrote {GROUPS_NAME}: {len(groups['groups'])} group profiles.")
     return 0
 
 

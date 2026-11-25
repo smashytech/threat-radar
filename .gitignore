@@ -18,3 +18,4 @@ site/data/kev-recent.json
 
 # Breach Wire monthly statistics (spec 010), built on every deploy, never committed.
 site/data/breachwire-stats.json
+site/data/breachwire-groups.json

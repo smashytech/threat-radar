@@ -20,6 +20,7 @@ the table says so.
 | [010 Breach statistics](010-breach-statistics) | A fixed list of 17 sectors, one name per gang, and a Trends tab (per month, sectors over time, top groups) on the Breaches page | amendment A1 (Trends in its own tab) |
 | [011 Victim-name check](011-victim-name-check) | An independent check of each new Breach Wire issue against the public victim list; Breach Wire waits if the list is unreachable | |
 | [012 October import](012-october-import) | 26 Breach Wire issues from 1 October – 1 November imported from the email archive; "new groups" can be "not recorded" | |
+| [013 Group info](013-group-info) | An (i) on each gang in Trends with its latest published profile and the issue it came from | |
 
 **Small changes** are recorded as amendments in the spec that owns the area:
 [007 amendments](007-briefing-redesign/amendments.md) (tooltip, coffee cup, LinkedIn link,

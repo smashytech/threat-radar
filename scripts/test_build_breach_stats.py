@@ -121,6 +121,52 @@ class MonthsTest(unittest.TestCase):
         self.assertEqual((s["months"], s["issues"], s["from"]), ([], 0, None))
 
 
+def profiled(window, groups, issue_no=1):
+    """An issue whose groups carry the given (name, hits, profile)."""
+    i = issue(window, issue_no=issue_no, groups=[(n, h) for n, h, _ in groups])
+    for g, (_, _, p) in zip(i["groups"], groups):
+        g["profile"] = p
+    return i
+
+
+class GroupProfilesTest(unittest.TestCase):
+    """Spec 013: the latest profile per gang, for the (i) in Trends."""
+
+    def build(self, issues):
+        return stats.build_groups({i["date"]: i for i in issues})
+
+    def test_newest_non_empty_profile_wins_and_spellings_merge(self):
+        g = self.build([profiled("2026-11-01", [("Akira", V, "Old words.")], 1),
+                        profiled("2026-11-02", [("AKIRA", V, "New words.")], 2),
+                        profiled("2026-11-03", [("Akira", V, "")], 3)])
+        entry = g["groups"][0]
+        self.assertEqual((entry["name"], entry["profile"], entry["issue"]), ("Akira", "New words.", 2))
+        self.assertEqual(entry["date"], (date(2026, 11, 2) + timedelta(days=1)).isoformat(), "the issue's date, for the link")
+
+    def test_a_gang_never_profiled_has_no_entry(self):
+        g = self.build([profiled("2026-11-01", [("Akira", V - 1, "Words."), ("Qilin", 1, "")])])
+        self.assertEqual([e["name"] for e in g["groups"]], ["Akira"])
+
+    def test_names_match_trends(self):
+        issues = [profiled("2026-11-01", [("The Gentlemen", V, "A.")], 1), profiled("2026-11-02", [("THE GENTLEMEN", V, "B.")], 2),
+                  profiled("2026-11-03", [("The Gentlemen", V, "")], 3)]
+        trends = stats.build({i["date"]: i for i in issues})
+        self.assertEqual(self.build(issues)["groups"][0]["name"], trends["months"][0]["groups"][0]["name"])
+
+    def test_only_allow_listed_fields(self):
+        """AC-2: nothing but name, profile, date and issue number."""
+        i = profiled("2026-11-01", [("Akira", V, "Words.")])
+        i["groups"][0]["countries"] = "PLANTED-COUNTRY"
+        i["groups"][0]["sectors"] = "PLANTED-SECTOR"
+        text = json.dumps(self.build([i]))
+        self.assertNotIn("PLANTED", text)
+        self.assertEqual(set(self.build([i])["groups"][0]), {"name", "profile", "date", "issue"})
+
+    def test_same_issues_same_bytes(self):
+        issues = [profiled("2026-11-01", [("Akira", V - 1, "A."), ("Qilin", 1, "Q.")], 1), profiled("2026-11-02", [("Play", V, "P.")], 2)]
+        self.assertEqual(stats.to_text(self.build(issues)), stats.to_text(self.build(list(reversed(issues)))))
+
+
 class CliTest(unittest.TestCase):
     def test_writes_next_to_the_breachwire_folder(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -130,6 +176,8 @@ class CliTest(unittest.TestCase):
             out = json.loads((data / "breachwire-stats.json").read_text("utf-8"))
             self.assertEqual(out["issues"], 1)
             self.assertEqual(add_breachwire.check(data / "breachwire"), 1, "the gatekeeper's folder stays clean")
+            groups = json.loads((data / "breachwire-groups.json").read_text("utf-8"))
+            self.assertEqual(len(groups["groups"]), len(VALID["groups"]))
 
 
 if __name__ == "__main__":

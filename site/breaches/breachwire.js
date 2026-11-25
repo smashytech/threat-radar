@@ -9,10 +9,10 @@
 // Issue text is untrusted (AI-copied from an email built from leak-site data),
 // so it only reaches the page as text via el() (textContent). See ui.js.
 
-import { el, svgEl, numberFmt, formatDate, formatLongDate, formatShortDay, localToday, loadJSON } from "../ui.js";
+import { el, svgEl, numberFmt, formatDate, formatLongDate, formatShortDay, localToday, loadJSON, infoTip, enableInfoTips } from "../ui.js";
 import { pickIssueDate } from "../sitrep-logic.js";
 import { swedenStatus, regionTotals, ransomwareKev, chartBars, archiveNote } from "../breachwire-logic.js";
-import { monthRows, sectorGrid, shadeLevel, topGroups, sinceLine, monthName, tabFromHash, TABS } from "../breach-stats-logic.js";
+import { monthRows, sectorGrid, shadeLevel, topGroups, sinceLine, monthName, tabFromHash, TABS, profileIndex } from "../breach-stats-logic.js";
 import { inStack } from "../stack-logic.js";
 import { readStack, renderStackLine } from "../stack-page.js";
 
@@ -20,6 +20,7 @@ const $ = (id) => document.getElementById(id);
 const stack = readStack();
 
 async function init() {
+  enableInfoTips();
   setupTabs();
   renderStackLine($("stack-line"), stack, "../exploited/#mystack");
   // KEV loads in parallel: the "Known ransomware use" panel works even before any issue exists.
@@ -81,10 +82,14 @@ function setupTabs() {
 // ---------- Trends (spec 010) ----------
 
 let trendsLoading = null;
+let profiles = new Map();
 function loadTrends() {
   trendsLoading ??= (async () => {
     try {
+      // Spec 013: the gangs' profiles come with the statistics; Trends works without them.
+      const profilesPromise = loadJSON("../data/breachwire-groups.json", { optional: true }).catch(() => null);
       const stats = await loadJSON("../data/breachwire-stats.json", { optional: true });
+      profiles = profileIndex(await profilesPromise);
       if (!stats || !Array.isArray(stats.months) || !stats.months.length) {
         $("trends-status").textContent = "No statistics yet.";
         return;
@@ -148,12 +153,26 @@ const MOVES = {
   same: () => ["same", "–", "same rank"],
 };
 
+/** Spec 013: an (i) with the gang's latest published profile, or nothing if there is none. */
+function groupTip(name, rank) {
+  const p = profiles.get(name);
+  if (!p) return [];
+  return infoTip(`group-tip-${rank}`, `About ${name}`, [
+    el("strong", { className: "group-tip__name", text: name }),
+    el("span", { className: "group-tip__profile", text: p.profile }),
+    el("span", { className: "group-tip__source" }, [
+      document.createTextNode(`From Breach Wire №${p.issue} · ${formatShortDay(p.date)} · `),
+      el("a", { text: "Open issue", attrs: { href: `?d=${encodeURIComponent(p.date)}` } }),
+    ]),
+  ], { className: "info-tip--group" });
+}
+
 function renderTopGroups(stats, month) {
   const items = topGroups(stats, month, 10).map((g) => {
     const mark = g.move ? MOVES[g.move.kind](g.move) : null;
     return el("li", { className: "top-groups__row" }, [
       el("span", { className: "top-groups__rank", text: String(g.rank) }),
-      el("span", { className: "top-groups__name", text: g.name }),
+      el("span", { className: "top-groups__name" }, [document.createTextNode(g.name), ...groupTip(g.name, g.rank)]),
       el("span", { className: "top-groups__hits", text: `${numberFmt.format(g.hits)} · ${g.share.toFixed(1)} %` }),
       mark ? el("span", { className: `move move--${mark[0]}`, text: mark[1], attrs: { title: mark[2], "aria-label": mark[2] } })
         : el("span", { className: "move" }),

@@ -98,3 +98,48 @@ export async function loadJSON(path, { optional = false } = {}) {
     throw err;
   }
 }
+
+// ---------- (i) info tips (spec 007 A1; shared with Breaches → Trends, spec 013) ----------
+
+/**
+ * A small (i) button with a bubble that shows on hover, keyboard focus or tap.
+ * `content` is text or a list of nodes (always built with el(), never HTML).
+ * Call enableInfoTips() once per page for tap-to-toggle and Escape.
+ */
+export function infoTip(id, label, content, { className = "" } = {}) {
+  const svg = document.createElementNS(SVG_NS, "svg");
+  svg.setAttribute("viewBox", "0 0 16 16");
+  svg.setAttribute("aria-hidden", "true");
+  svg.setAttribute("focusable", "false");
+  for (const [tag, attrs] of [["circle", { cx: 8, cy: 8, r: 7 }], ["path", { d: "M8 7v4.5" }], ["circle", { cx: 8, cy: 4.6, r: 0.9, class: "info-tip__dot" }]]) {
+    const node = document.createElementNS(SVG_NS, tag);
+    for (const [k, v] of Object.entries(attrs)) node.setAttribute(k, String(v));
+    svg.append(node);
+  }
+  const button = el("button", { className: `info-tip ${className}`.trim(), attrs: { type: "button", "aria-label": label, "aria-expanded": "false", "aria-describedby": id } }, [svg]);
+  const bubble = typeof content === "string"
+    ? el("span", { className: "info-tip__bubble", text: content, attrs: { id, role: "tooltip" } })
+    : el("span", { className: "info-tip__bubble", attrs: { id, role: "tooltip" } }, content);
+  return [button, bubble];
+}
+
+let infoTipsEnabled = false;
+/** Tap or click toggles a tip (phones have no hover); clicking elsewhere or Escape closes it. */
+export function enableInfoTips() {
+  if (infoTipsEnabled) return;
+  infoTipsEnabled = true;
+  const closeTips = (except) => {
+    for (const b of document.querySelectorAll('.info-tip[aria-expanded="true"]')) if (b !== except) b.setAttribute("aria-expanded", "false");
+  };
+  document.addEventListener("click", (event) => {
+    if (event.target.closest?.(".info-tip__bubble")) return; // clicks inside an open bubble (its link) keep it open
+    const button = event.target.closest?.(".info-tip");
+    closeTips(button);
+    if (button) button.setAttribute("aria-expanded", button.getAttribute("aria-expanded") === "true" ? "false" : "true");
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape") return;
+    const open = document.querySelector('.info-tip[aria-expanded="true"]');
+    if (open) { open.setAttribute("aria-expanded", "false"); open.focus(); }
+  });
+}

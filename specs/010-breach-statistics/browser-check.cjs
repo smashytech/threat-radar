@@ -46,7 +46,7 @@ async function open(browser, opts = {}, route, hash = '#trends') {
     const s = await p.evaluate(() => ({
       row: [...document.querySelectorAll('#trend-months tr')[0].children].map((c) => c.textContent.trim()),
       sectors: [...document.querySelectorAll('#sector-grid tbody tr')].map((r) => [r.querySelector('th').textContent, [...r.querySelectorAll('td .shade__share')].pop().textContent]),
-      groups: [...document.querySelectorAll('#top-groups li')].map((li) => [li.querySelector('.top-groups__name').textContent, li.querySelector('.top-groups__hits').textContent]),
+      groups: [...document.querySelectorAll('#top-groups li')].map((li) => [li.querySelector('.top-groups__name').firstChild.textContent, li.querySelector('.top-groups__hits').textContent]),
       since: document.getElementById('trends-since').textContent,
     }));
     const top = Object.entries(m.sectors).filter(([k]) => k !== 'Other').sort((a, b) => b[1] - a[1])[0];
@@ -71,7 +71,7 @@ async function open(browser, opts = {}, route, hash = '#trends') {
     const { ctx, p } = await open(browser, { viewport: { width: 1280, height: 900 } },
       (r) => r.fulfill({ contentType: 'application/json', body: JSON.stringify(data) }));
     await p.waitForSelector('#trends:not([hidden])');
-    const read = () => p.evaluate(() => [...document.querySelectorAll('#top-groups li')].map((li) => [li.querySelector('.top-groups__name').textContent, li.querySelector('.move').textContent]));
+    const read = () => p.evaluate(() => [...document.querySelectorAll('#top-groups li')].map((li) => [li.querySelector('.top-groups__name').firstChild.textContent, li.querySelector('.move').textContent]));
     const nov = await read();
     await p.selectOption('#groups-month', '2026-10');
     const oct = await read();
