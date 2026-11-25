@@ -44,3 +44,10 @@ spec's `amendments.md`: request, decision, acceptance check, verification.
 - **Decision:** owner chose option C, **accept and document** the four header findings (GitHub Pages can't set headers; Cloudflare in front, or moving hosting, were offered and declined). `SECURITY.md` gets "Scanner findings we accept", with the reason for each and when to revisit. The DMARC finding is not accepted: the owner adds SPF and DMARC records at the domain registrar (the domain sends no email, so both say "reject").
 - **Check:** `SECURITY.md` explains each header finding; after the owner's DNS change, web-check no longer reports "No DMARC record".
 - **Verified:** *(header part after build; DMARC after the owner's DNS change)*
+
+## H6 · Licence (2026-11-25)
+
+- **Request:** readiness check before sharing: "no licence". Owner: "What license do you recommend?", then chose MIT with the data excluded, copyright holder "smashytech".
+- **Decision:** `LICENSE` holds the standard MIT text (so GitHub recognises it). The README's new "Licence" section says the data in `site/data/` is not covered: it stays under its sources' terms (CISA KEV, Ransomware.live, RansomLook).
+- **Check:** GitHub's community profile shows the MIT licence; the README states the data exclusion.
+- **Verified:** *(after push)*

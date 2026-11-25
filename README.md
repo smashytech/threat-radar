@@ -78,3 +78,13 @@ verification report. [`specs/`](specs) lists them all, with what each one change
 Data: CISA KEV catalog (US government work, public domain); leak-site statistics via
 [Ransomware.live](https://www.ransomware.live/) and [RansomLook](https://www.ransomlook.io/).
 Not affiliated with CISA.
+
+## Licence
+
+The code and documentation are released under the [MIT licence](LICENSE).
+
+The data in `site/data/` is **not** covered by it. It comes from the sources
+named in the site footer (the CISA Known Exploited Vulnerabilities catalog,
+Ransomware.live and RansomLook) and stays under their own terms; Ransomware.live's
+data, for example, is free for non-commercial use with attribution.
+
