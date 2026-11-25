@@ -1,0 +1,560 @@
+{
+ "_note": "Every sector label seen in Breach Wire issues 3-25 Nov 2026, with the victims it covered and the sector it must map to (spec 010 AC-1). Reviewed by the owner in verification.md.",
+ "labels": [
+  {
+   "label": "Not disclosed",
+   "victims": 130,
+   "sector": "Not disclosed"
+  },
+  {
+   "label": "Manufacturing",
+   "victims": 108,
+   "sector": "Manufacturing & industrial"
+  },
+  {
+   "label": "Healthcare",
+   "victims": 89,
+   "sector": "Healthcare & life sciences"
+  },
+  {
+   "label": "Mixed",
+   "victims": 64,
+   "sector": "Other"
+  },
+  {
+   "label": "Professional Services",
+   "victims": 62,
+   "sector": "Professional services"
+  },
+  {
+   "label": "Retail & E-Commerce",
+   "victims": 62,
+   "sector": "Retail & e-commerce"
+  },
+  {
+   "label": "Technology",
+   "victims": 61,
+   "sector": "Technology & telecom"
+  },
+  {
+   "label": "Sector not disclosed",
+   "victims": 34,
+   "sector": "Not disclosed"
+  },
+  {
+   "label": "Financial Services",
+   "victims": 31,
+   "sector": "Financial services & insurance"
+  },
+  {
+   "label": "Other",
+   "victims": 31,
+   "sector": "Other"
+  },
+  {
+   "label": "Education",
+   "victims": 24,
+   "sector": "Education"
+  },
+  {
+   "label": "Transportation",
+   "victims": 17,
+   "sector": "Transportation & logistics"
+  },
+  {
+   "label": "Professional services",
+   "victims": 16,
+   "sector": "Professional services"
+  },
+  {
+   "label": "Hospitality",
+   "victims": 14,
+   "sector": "Hospitality & leisure"
+  },
+  {
+   "label": "Construction",
+   "victims": 11,
+   "sector": "Construction & real estate"
+  },
+  {
+   "label": "Government & Defense",
+   "victims": 10,
+   "sector": "Government & public sector"
+  },
+  {
+   "label": "Energy & Utilities",
+   "victims": 9,
+   "sector": "Energy, utilities & resources"
+  },
+  {
+   "label": "Not stated",
+   "victims": 9,
+   "sector": "Not disclosed"
+  },
+  {
+   "label": "Agriculture and Food Production",
+   "victims": 7,
+   "sector": "Food & agriculture"
+  },
+  {
+   "label": "Government",
+   "victims": 6,
+   "sector": "Government & public sector"
+  },
+  {
+   "label": "Financial services",
+   "victims": 5,
+   "sector": "Financial services & insurance"
+  },
+  {
+   "label": "Non-profit",
+   "victims": 4,
+   "sector": "Non-profit & associations"
+  },
+  {
+   "label": "Real estate",
+   "victims": 4,
+   "sector": "Construction & real estate"
+  },
+  {
+   "label": "Agriculture & Food Production",
+   "victims": 3,
+   "sector": "Food & agriculture"
+  },
+  {
+   "label": "Biopharmaceutical",
+   "victims": 2,
+   "sector": "Healthcare & life sciences"
+  },
+  {
+   "label": "Energy",
+   "victims": 2,
+   "sector": "Energy, utilities & resources"
+  },
+  {
+   "label": "Energy & utilities",
+   "victims": 2,
+   "sector": "Energy, utilities & resources"
+  },
+  {
+   "label": "Food & beverage",
+   "victims": 2,
+   "sector": "Food & agriculture"
+  },
+  {
+   "label": "Food production",
+   "victims": 2,
+   "sector": "Food & agriculture"
+  },
+  {
+   "label": "Insurance",
+   "victims": 2,
+   "sector": "Financial services & insurance"
+  },
+  {
+   "label": "Investment advisory",
+   "victims": 2,
+   "sector": "Financial services & insurance"
+  },
+  {
+   "label": "Pharmaceutical",
+   "victims": 2,
+   "sector": "Healthcare & life sciences"
+  },
+  {
+   "label": "Advertising & marketing",
+   "victims": 1,
+   "sector": "Professional services"
+  },
+  {
+   "label": "Advertising technology",
+   "victims": 1,
+   "sector": "Professional services"
+  },
+  {
+   "label": "Aerospace & defense",
+   "victims": 1,
+   "sector": "Manufacturing & industrial"
+  },
+  {
+   "label": "Audience measurement",
+   "victims": 1,
+   "sector": "Professional services"
+  },
+  {
+   "label": "Automotive",
+   "victims": 1,
+   "sector": "Manufacturing & industrial"
+  },
+  {
+   "label": "Banking",
+   "victims": 1,
+   "sector": "Financial services & insurance"
+  },
+  {
+   "label": "Biopharmaceutical neuroscien",
+   "victims": 1,
+   "sector": "Healthcare & life sciences"
+  },
+  {
+   "label": "Biopharmaceutical t cell imm",
+   "victims": 1,
+   "sector": "Healthcare & life sciences"
+  },
+  {
+   "label": "Biotechnology",
+   "victims": 1,
+   "sector": "Healthcare & life sciences"
+  },
+  {
+   "label": "Bus transport",
+   "victims": 1,
+   "sector": "Transportation & logistics"
+  },
+  {
+   "label": "Business Services",
+   "victims": 1,
+   "sector": "Professional services"
+  },
+  {
+   "label": "Connected tv advertising age",
+   "victims": 1,
+   "sector": "Professional services"
+  },
+  {
+   "label": "Construction / luxury-retail fit-out",
+   "victims": 1,
+   "sector": "Construction & real estate"
+  },
+  {
+   "label": "Debt recovery",
+   "victims": 1,
+   "sector": "Financial services & insurance"
+  },
+  {
+   "label": "Digital marketing & web development",
+   "victims": 1,
+   "sector": "Professional services"
+  },
+  {
+   "label": "Diversified",
+   "victims": 1,
+   "sector": "Other"
+  },
+  {
+   "label": "Diversified manufacturing",
+   "victims": 1,
+   "sector": "Manufacturing & industrial"
+  },
+  {
+   "label": "Email deliverability",
+   "victims": 1,
+   "sector": "Technology & telecom"
+  },
+  {
+   "label": "Employee benefits consulting",
+   "victims": 1,
+   "sector": "Professional services"
+  },
+  {
+   "label": "Engineering",
+   "victims": 1,
+   "sector": "Professional services"
+  },
+  {
+   "label": "Engineering & procurement",
+   "victims": 1,
+   "sector": "Professional services"
+  },
+  {
+   "label": "Engineering services",
+   "victims": 1,
+   "sector": "Professional services"
+  },
+  {
+   "label": "Environmental services",
+   "victims": 1,
+   "sector": "Energy, utilities & resources"
+  },
+  {
+   "label": "Equipment dealer",
+   "victims": 1,
+   "sector": "Wholesale & distribution"
+  },
+  {
+   "label": "Financial",
+   "victims": 1,
+   "sector": "Financial services & insurance"
+  },
+  {
+   "label": "Financial advisory",
+   "victims": 1,
+   "sector": "Financial services & insurance"
+  },
+  {
+   "label": "Financial planning & insurance",
+   "victims": 1,
+   "sector": "Financial services & insurance"
+  },
+  {
+   "label": "Financial solutions",
+   "victims": 1,
+   "sector": "Financial services & insurance"
+  },
+  {
+   "label": "Fintech",
+   "victims": 1,
+   "sector": "Financial services & insurance"
+  },
+  {
+   "label": "Fitness / leisure",
+   "victims": 1,
+   "sector": "Hospitality & leisure"
+  },
+  {
+   "label": "Food",
+   "victims": 1,
+   "sector": "Food & agriculture"
+  },
+  {
+   "label": "Food supply",
+   "victims": 1,
+   "sector": "Food & agriculture"
+  },
+  {
+   "label": "Franchise",
+   "victims": 1,
+   "sector": "Retail & e-commerce"
+  },
+  {
+   "label": "Gaming",
+   "victims": 1,
+   "sector": "Hospitality & leisure"
+  },
+  {
+   "label": "HVAC services",
+   "victims": 1,
+   "sector": "Construction & real estate"
+  },
+  {
+   "label": "Health",
+   "victims": 1,
+   "sector": "Healthcare & life sciences"
+  },
+  {
+   "label": "Healthcare / biopharma",
+   "victims": 1,
+   "sector": "Healthcare & life sciences"
+  },
+  {
+   "label": "Healthcare technology",
+   "victims": 1,
+   "sector": "Healthcare & life sciences"
+  },
+  {
+   "label": "Hotels",
+   "victims": 1,
+   "sector": "Hospitality & leisure"
+  },
+  {
+   "label": "Industrial distribution",
+   "victims": 1,
+   "sector": "Wholesale & distribution"
+  },
+  {
+   "label": "Industrial property manageme",
+   "victims": 1,
+   "sector": "Construction & real estate"
+  },
+  {
+   "label": "Information & media",
+   "victims": 1,
+   "sector": "Media & publishing"
+  },
+  {
+   "label": "Insurance agency",
+   "victims": 1,
+   "sector": "Financial services & insurance"
+  },
+  {
+   "label": "Investment holding",
+   "victims": 1,
+   "sector": "Financial services & insurance"
+  },
+  {
+   "label": "Labor union",
+   "victims": 1,
+   "sector": "Non-profit & associations"
+  },
+  {
+   "label": "Legal",
+   "victims": 1,
+   "sector": "Professional services"
+  },
+  {
+   "label": "Legal services / eDiscovery",
+   "victims": 1,
+   "sector": "Professional services"
+  },
+  {
+   "label": "Life-sciences cloud / document services",
+   "victims": 1,
+   "sector": "Healthcare & life sciences"
+  },
+  {
+   "label": "Live-entertainment data & publishing",
+   "victims": 1,
+   "sector": "Media & publishing"
+  },
+  {
+   "label": "Management consulting",
+   "victims": 1,
+   "sector": "Professional services"
+  },
+  {
+   "label": "Manufacturing / retail",
+   "victims": 1,
+   "sector": "Manufacturing & industrial"
+  },
+  {
+   "label": "Market research recruitment",
+   "victims": 1,
+   "sector": "Professional services"
+  },
+  {
+   "label": "Marketing technology",
+   "victims": 1,
+   "sector": "Professional services"
+  },
+  {
+   "label": "Media",
+   "victims": 1,
+   "sector": "Media & publishing"
+  },
+  {
+   "label": "Medical devices",
+   "victims": 1,
+   "sector": "Healthcare & life sciences"
+  },
+  {
+   "label": "Medical supplies manufacture",
+   "victims": 1,
+   "sector": "Healthcare & life sciences"
+  },
+  {
+   "label": "Mining & Chemicals",
+   "victims": 1,
+   "sector": "Energy, utilities & resources"
+  },
+  {
+   "label": "Non-profit / social services",
+   "victims": 1,
+   "sector": "Non-profit & associations"
+  },
+  {
+   "label": "Non-profit membership organisation",
+   "victims": 1,
+   "sector": "Non-profit & associations"
+  },
+  {
+   "label": "Nonprofit membership organiz",
+   "victims": 1,
+   "sector": "Non-profit & associations"
+  },
+  {
+   "label": "Online education",
+   "victims": 1,
+   "sector": "Education"
+  },
+  {
+   "label": "Pharma wholesale",
+   "victims": 1,
+   "sector": "Healthcare & life sciences"
+  },
+  {
+   "label": "Private security services",
+   "victims": 1,
+   "sector": "Professional services"
+  },
+  {
+   "label": "Real estate & construction",
+   "victims": 1,
+   "sector": "Construction & real estate"
+  },
+  {
+   "label": "Real estate development",
+   "victims": 1,
+   "sector": "Construction & real estate"
+  },
+  {
+   "label": "Restaurant chain",
+   "victims": 1,
+   "sector": "Hospitality & leisure"
+  },
+  {
+   "label": "Restaurants",
+   "victims": 1,
+   "sector": "Hospitality & leisure"
+  },
+  {
+   "label": "Senior living / care",
+   "victims": 1,
+   "sector": "Healthcare & life sciences"
+  },
+  {
+   "label": "Service provider",
+   "victims": 1,
+   "sector": "Professional services"
+  },
+  {
+   "label": "Sports governance",
+   "victims": 1,
+   "sector": "Non-profit & associations"
+  },
+  {
+   "label": "Stage equipment",
+   "victims": 1,
+   "sector": "Hospitality & leisure"
+  },
+  {
+   "label": "Technology / manufacturing",
+   "victims": 1,
+   "sector": "Technology & telecom"
+  },
+  {
+   "label": "Telecom / ISP",
+   "victims": 1,
+   "sector": "Technology & telecom"
+  },
+  {
+   "label": "Telecom / pay-TV",
+   "victims": 1,
+   "sector": "Technology & telecom"
+  },
+  {
+   "label": "Textile",
+   "victims": 1,
+   "sector": "Manufacturing & industrial"
+  },
+  {
+   "label": "Transportation & logistics",
+   "victims": 1,
+   "sector": "Transportation & logistics"
+  },
+  {
+   "label": "Transportation / logistics",
+   "victims": 1,
+   "sector": "Transportation & logistics"
+  },
+  {
+   "label": "Wholesale / distribution",
+   "victims": 1,
+   "sector": "Wholesale & distribution"
+  },
+  {
+   "label": "Wholesale / textiles",
+   "victims": 1,
+   "sector": "Wholesale & distribution"
+  }
+ ]
+}

@@ -88,27 +88,27 @@
   ],
   "sectors": [
     {
-      "sector": "Retail & E-Commerce",
+      "sector": "Retail & e-commerce",
       "count": 4
     },
     {
-      "sector": "Technology",
+      "sector": "Technology & telecom",
       "count": 4
     },
     {
-      "sector": "Healthcare",
+      "sector": "Healthcare & life sciences",
       "count": 3
     },
     {
-      "sector": "Professional Services",
+      "sector": "Professional services",
       "count": 3
     },
     {
-      "sector": "Financial Services",
+      "sector": "Financial services & insurance",
       "count": 2
     },
     {
-      "sector": "Construction",
+      "sector": "Construction & real estate",
       "count": 1
     },
     {
@@ -116,7 +116,7 @@
       "count": 1
     },
     {
-      "sector": "Manufacturing",
+      "sector": "Manufacturing & industrial",
       "count": 1
     },
     {
@@ -124,7 +124,7 @@
       "count": 1
     },
     {
-      "sector": "Transportation",
+      "sector": "Transportation & logistics",
       "count": 1
     }
   ],

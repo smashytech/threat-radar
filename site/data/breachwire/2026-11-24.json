@@ -148,27 +148,27 @@
   ],
   "sectors": [
     {
-      "sector": "Sector not disclosed",
+      "sector": "Not disclosed",
       "count": 18
     },
     {
-      "sector": "Manufacturing",
+      "sector": "Manufacturing & industrial",
       "count": 13
     },
     {
-      "sector": "Professional Services",
+      "sector": "Professional services",
       "count": 7
     },
     {
-      "sector": "Healthcare",
+      "sector": "Healthcare & life sciences",
       "count": 3
     },
     {
-      "sector": "Agriculture and Food Production",
+      "sector": "Food & agriculture",
       "count": 2
     },
     {
-      "sector": "Retail & E-Commerce",
+      "sector": "Retail & e-commerce",
       "count": 2
     },
     {
@@ -176,15 +176,15 @@
       "count": 1
     },
     {
-      "sector": "Energy & Utilities",
+      "sector": "Energy, utilities & resources",
       "count": 1
     },
     {
-      "sector": "Technology",
+      "sector": "Technology & telecom",
       "count": 1
     },
     {
-      "sector": "Transportation",
+      "sector": "Transportation & logistics",
       "count": 1
     }
   ],
@@ -281,7 +281,7 @@
       "sectors": "Healthcare"
     },
     {
-      "name": "Inc Ransom",
+      "name": "INC Ransom",
       "hits": 1,
       "profile": "INC Ransom, active since mid-2023; spear-phishing and exploitation of Citrix/FortiGate edge devices; heavy US healthcare and manufacturing focus.",
       "countries": "United States",

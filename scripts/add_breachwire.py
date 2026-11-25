@@ -18,7 +18,10 @@ must never reach the site, so this script:
 Usage:
   python3 scripts/add_breachwire.py issue.json --forbid /tmp/bw-victims.txt
   python3 scripts/add_breachwire.py --check        # validate everything stored (CI)
-  python3 scripts/add_breachwire.py --rebuild      # re-apply sector rules to stored issues
+  python3 scripts/add_breachwire.py --rebuild      # re-apply the sector and group rules to stored issues
+
+Spec 010: sector labels are mapped onto a fixed list of 17 sectors (+ Other),
+and group names are cleaned up, so statistics over time count like with like.
 
 Standard library only.
 """
@@ -41,8 +44,7 @@ REGIONS = {"North America", "Europe", "Middle East", "Africa", "Latin America & 
 UNATTRIBUTED = "Unattributed"
 MAX_COUNT = 100_000
 MIN_NAME_CHARS = 4  # shorter names (e.g. "Q3") would cause false alarms
-MAX_SECTORS = 40         # most sectors shown on the page; the rest are folded into "Other"
-MAX_RAW_SECTORS = 1_000  # sanity cap on the list as it arrives, before folding
+MAX_RAW_SECTORS = 1_000  # sanity cap on the list as it arrives, before mapping
 OTHER_SECTOR = "Other"
 
 # Links and domain names are never allowed: no leak-site addresses, no (masked) victim domains.
@@ -97,29 +99,62 @@ def check_list(value: object, where: str, high: int) -> list:
     return value
 
 
-RETAIL_SECTOR = "Retail & E-Commerce"
-# Shop-like words. Matched against the label's MAIN part only (the text before " / "),
-# so "Construction / luxury-retail fit-out" stays Construction.
-RETAIL_RE = re.compile(
-    r"retail|e-?commerce|\bshops?\b|\bstores?\b|fashion|apparel|footwear|athleisure|grocer|supermarket"
-    r"|jewel|eyewear|consumer goods|consumer electronics|golf equipment|sporting goods",
-    re.IGNORECASE,
-)
+# ---------- Sectors (spec 010) ----------
+#
+# The fixed list. A label the publisher copies from the email ("Biopharmaceutical",
+# "Telecom / ISP", "Sector not disclosed"...) is matched against SECTOR_RULES in
+# order; the FIRST rule that matches wins, so the order matters ("Advertising
+# technology" must reach Professional services before Technology & telecom, and
+# "Hospitality" must not be caught by "hospital"). Only the label's main part,
+# the text before " / ", is used. Anything no rule recognises counts as Other and
+# is printed, so a new sector or rule can be added on purpose (a small-change
+# amendment to spec 010) and re-applied with --rebuild.
+
+SECTORS = [
+    "Manufacturing & industrial", "Healthcare & life sciences", "Professional services",
+    "Retail & e-commerce", "Technology & telecom", "Financial services & insurance", "Education",
+    "Transportation & logistics", "Construction & real estate", "Government & public sector",
+    "Energy, utilities & resources", "Food & agriculture", "Hospitality & leisure",
+    "Media & publishing", "Wholesale & distribution", "Non-profit & associations", "Not disclosed",
+]
+
+SECTOR_RULES = [(sector, re.compile(pattern, re.IGNORECASE)) for sector, pattern in [
+    ("Not disclosed", r"^(sector )?not (disclosed|stated|known|specified)|^unknown|^undisclosed|^n/?a$"),
+    ("Healthcare & life sciences", r"health|medical|\bhospitals?\b|clinic|pharma|biotech|biopharm|life.?science|senior living|dental|care home"),
+    ("Financial services & insurance", r"financ|bank|insur|invest|fintech|\bdebt\b|credit|wealth|payment"),
+    ("Education", r"educat|school|universit|college|academ"),
+    ("Non-profit & associations", r"non.?profit|charit|\bunion\b|association|membership|church|religio|\bngo\b|sports governance"),
+    ("Professional services", r"professional|advertis|marketing|audience measurement|market research|\blegal\b|\blaw\b|consult"
+                              r"|accounting|engineering|recruit|staffing|security services|business services|service provider"),
+    ("Energy, utilities & resources", r"energy|utilit|\boil\b|\bgas\b|mining|chemical|environmental|\bwaste\b|\bwater\b"),
+    ("Construction & real estate", r"construct|real estate|property|building|\bhvac\b|architect|housing"),
+    ("Transportation & logistics", r"transport|logistic|shipping|freight|airline|aviation|\bbus\b|\brail|trucking|maritime"),
+    ("Food & agriculture", r"\bfood|agricultur|\bfarm|beverage|dairy|seafood"),
+    ("Wholesale & distribution", r"wholesale|distribut|dealer"),
+    ("Manufacturing & industrial", r"manufactur|industrial|aerospace|automotive|textile|factory"),
+    ("Government & public sector", r"government|municipal|public sector|public administration|\bcounty\b"),
+    ("Media & publishing", r"\bmedia\b|publish|broadcast|\bnews|\btv\b|\bradio\b|\bfilm"),
+    ("Hospitality & leisure", r"hospitality|hotel|restaurant|leisure|fitness|gaming|casino|\bsports?\b|entertainment|travel|touris|stage equipment"),
+    ("Technology & telecom", r"technolog|software|\bit\b|saas|cloud|telecom|\bisp\b|\bdata\b|cyber|\bemail|internet|\btech\b|digital"),
+    ("Retail & e-commerce", r"retail|e-?commerce|\bshops?\b|\bstores?\b|fashion|apparel|footwear|athleisure|grocer|supermarket"
+                            r"|jewel|eyewear|consumer goods|consumer electronics|golf equipment|sporting goods|franchise"),
+]]
+assert {sector for sector, _ in SECTOR_RULES} == set(SECTORS)
 
 
-def normalize_sector(label: str) -> str:
-    """Put every shop-like label ("Bed retail", "Online fashion"...) under one Retail sector."""
+def map_sector(label: str) -> str:
+    """The fixed sector for a label from the email, or Other."""
     main = label.split(" / ")[0]
-    return RETAIL_SECTOR if RETAIL_RE.search(main) else label
+    for sector, pattern in SECTOR_RULES:
+        if pattern.search(main):
+            return sector
+    return OTHER_SECTOR
 
 
-def merge_sectors(sectors: list[dict]) -> list[dict]:
-    """Normalize labels and add up entries that end up with the same label."""
-    totals: dict[str, int] = {}
-    for s in sectors:
-        label = normalize_sector(s["sector"])
-        totals[label] = totals.get(label, 0) + s["count"]
-    return [{"sector": label, "count": count} for label, count in totals.items()]
+def unmapped_labels(sectors: list[dict]) -> list[str]:
+    """Labels that land in Other only because no rule knows them (not a literal "Other" or "Mixed")."""
+    return sorted({s["sector"] for s in sectors
+                   if map_sector(s["sector"]) == OTHER_SECTOR and s["sector"].lower() not in {"other", "mixed"}})
 
 
 def sort_sectors(sectors: list[dict]) -> list[dict]:
@@ -127,22 +162,30 @@ def sort_sectors(sectors: list[dict]) -> list[dict]:
     return sorted(sectors, key=lambda x: (-x["count"], x["sector"]))
 
 
-def fold_sectors(sectors: list[dict]) -> list[dict]:
-    """Keep the page's sector list readable without losing a single victim.
+def merge_sectors(sectors: list[dict]) -> list[dict]:
+    """Map every label onto the fixed list and add up counts that land on the same sector."""
+    totals: dict[str, int] = {}
+    for s in sectors:
+        sector = map_sector(s["sector"])
+        totals[sector] = totals.get(sector, 0) + s["count"]
+    return sort_sectors([{"sector": sector, "count": count} for sector, count in totals.items()])
 
-    A busy day can bring dozens of one-off sector labels ("Golf equipment",
-    "Jewelry retail"...). If there are more than MAX_SECTORS, the biggest
-    MAX_SECTORS - 1 are kept and everything else is added together under
-    "Other" (merged with any "Other" the issue already had). The total
-    is unchanged, so the sector sum still equals the victim count.
-    """
-    sectors = sort_sectors(sectors)
-    if len(sectors) <= MAX_SECTORS:
-        return sectors
-    named = [s for s in sectors if s["sector"].lower() != OTHER_SECTOR.lower()]
-    keep = named[:MAX_SECTORS - 1]
-    rest = sum(s["count"] for s in sectors) - sum(s["count"] for s in keep)
-    return sort_sectors(keep + [{"sector": OTHER_SECTOR, "count": rest}])
+
+# ---------- Group names (spec 010) ----------
+#
+# The same gang arrives as "The Gentlemen" and "THE GENTLEMEN", "Brain Cipher" and
+# "BrainCipher". group_key() ignores case, spaces and punctuation, so statistics
+# count them once. GROUP_ALIASES fixes the stored spelling where the gang's own
+# name is known to differ from the most common spelling in the digests.
+
+GROUP_ALIASES = {
+    "incransom": "INC Ransom",
+}
+
+
+def group_key(name: str) -> str:
+    folded = unicodedata.normalize("NFKD", name)
+    return "".join(ch for ch in folded.lower() if ch.isalnum())
 
 
 # ---------- Validation ----------
@@ -182,19 +225,23 @@ def validate_issue(data: object) -> dict:
         x = check_keys(x, f"sectors[{n}]", {"sector", "count"})
         sectors.append({"sector": check_str(x["sector"], f"sectors[{n}].sector", 2, 80),
                         "count": check_int(x["count"], f"sectors[{n}].count", 1)})
-    sectors = fold_sectors(merge_sectors(sectors))
+    sectors = merge_sectors(sectors)
 
     groups = []
     for n, g in enumerate(check_list(top["groups"], "groups", 120), 1):
         where = f"groups[{n}]"
         g = check_keys(g, where, {"name", "hits", "profile", "countries", "sectors"})
+        name = check_str(g["name"], f"{where}.name", 1, 60)
         groups.append({
-            "name": check_str(g["name"], f"{where}.name", 1, 60),
+            "name": GROUP_ALIASES.get(group_key(name), name),
             "hits": check_int(g["hits"], f"{where}.hits", 1),
             "profile": check_str(g["profile"], f"{where}.profile", 0, 900),
             "countries": check_str(g["countries"], f"{where}.countries", 0, 200),
             "sectors": check_str(g["sectors"], f"{where}.sectors", 0, 200),
         })
+    keys = [group_key(g["name"]) for g in groups]
+    if len(set(keys)) != len(keys):
+        raise IssueError("a group is listed twice under different spellings; merge the rows and recount stats.groups")
     groups.sort(key=lambda g: g["name"].lower())
     groups.sort(key=lambda g: g["hits"], reverse=True)
 
@@ -264,11 +311,14 @@ def load_names(path: Path) -> list[str]:
     return [line.strip() for line in lines if line.strip()]
 
 
-def name_guard(issue: dict, names: list[str]) -> None:
+def name_guard(issue: dict, names: list[str], raw: object = None) -> None:
+    """Refuse the issue if any victim name appears in it. `raw` is the publisher's
+    input as it arrived: sector labels are mapped onto fixed sectors (spec 010),
+    so a name used as a label would otherwise vanish quietly instead of being caught."""
     if len(names) < issue["stats"]["victims"]:
         raise IssueError(f"the victim-name list has {len(names)} names but the issue has "
                          f"{issue['stats']['victims']} victims; every victim must be listed")
-    haystack = f" {normalize(json.dumps(issue, ensure_ascii=False))} "
+    haystack = f" {normalize(json.dumps(issue, ensure_ascii=False))} {normalize(json.dumps(raw, ensure_ascii=False))} "
     for name in names:
         needle = normalize(name)
         if len(needle) >= MIN_NAME_CHARS and f" {needle} " in haystack:
@@ -314,7 +364,10 @@ def publish(source: Path, forbid: Path, out_dir: Path) -> str:
     except (OSError, UnicodeDecodeError, json.JSONDecodeError) as err:
         raise IssueError(f"{source} is not readable JSON: {err}") from err
     issue = validate_issue(data)
-    name_guard(issue, load_names(forbid))
+    name_guard(issue, load_names(forbid), raw=data)
+    unknown = unmapped_labels(data["sectors"])
+    if unknown:
+        print("Sector labels no rule recognises (counted as Other): " + "; ".join(unknown))
     issues = load_stored(out_dir)
     issues[issue["date"]] = issue
     index = build_index(issues)
@@ -342,7 +395,7 @@ def check(out_dir: Path) -> int:
 
 
 def rebuild(out_dir: Path) -> int:
-    """Re-run the current rules (sector merging and folding) over every stored issue.
+    """Re-run the current rules (sector mapping, group names) over every stored issue.
 
     Only reshapes what is already stored and already passed the name guard;
     every check still runs, and totals are unchanged.

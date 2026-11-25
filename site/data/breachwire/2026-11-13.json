@@ -102,35 +102,31 @@
       "count": 2
     },
     {
-      "sector": "Healthcare",
+      "sector": "Healthcare & life sciences",
       "count": 2
     },
     {
-      "sector": "Manufacturing",
+      "sector": "Manufacturing & industrial",
       "count": 2
     },
     {
-      "sector": "Technology",
+      "sector": "Professional services",
       "count": 2
     },
     {
-      "sector": "Transportation",
+      "sector": "Technology & telecom",
       "count": 2
     },
     {
-      "sector": "Advertising technology",
+      "sector": "Transportation & logistics",
+      "count": 2
+    },
+    {
+      "sector": "Energy, utilities & resources",
       "count": 1
     },
     {
-      "sector": "Energy",
-      "count": 1
-    },
-    {
-      "sector": "Engineering services",
-      "count": 1
-    },
-    {
-      "sector": "Government",
+      "sector": "Government & public sector",
       "count": 1
     },
     {
@@ -138,7 +134,7 @@
       "count": 1
     },
     {
-      "sector": "Retail & E-Commerce",
+      "sector": "Retail & e-commerce",
       "count": 1
     }
   ],
@@ -186,7 +182,7 @@
       "sectors": "Healthcare"
     },
     {
-      "name": "Inc Ransom",
+      "name": "INC Ransom",
       "hits": 1,
       "profile": "Prolific RaaS active since July 2023; MITRE G1032. Uses valid accounts and public-facing exploits, exfiltrates with RClone/MEGA/Restic. Many of today’s Ransomware.live Inc records were re-listings already covered in №80.",
       "countries": "India",

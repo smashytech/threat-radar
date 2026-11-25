@@ -133,95 +133,63 @@
   ],
   "sectors": [
     {
-      "sector": "Not stated",
+      "sector": "Not disclosed",
       "count": 6
     },
     {
-      "sector": "Technology",
+      "sector": "Technology & telecom",
       "count": 6
     },
     {
-      "sector": "Retail & E-Commerce",
-      "count": 4
-    },
-    {
-      "sector": "Healthcare",
-      "count": 3
-    },
-    {
-      "sector": "Manufacturing",
-      "count": 3
+      "sector": "Manufacturing & industrial",
+      "count": 5
     },
     {
       "sector": "Professional services",
+      "count": 5
+    },
+    {
+      "sector": "Healthcare & life sciences",
+      "count": 4
+    },
+    {
+      "sector": "Retail & e-commerce",
+      "count": 4
+    },
+    {
+      "sector": "Non-profit & associations",
       "count": 3
     },
     {
-      "sector": "Real estate",
+      "sector": "Construction & real estate",
       "count": 2
     },
     {
-      "sector": "Aerospace & defense",
-      "count": 1
-    },
-    {
-      "sector": "Automotive",
-      "count": 1
-    },
-    {
-      "sector": "Diversified",
-      "count": 1
+      "sector": "Energy, utilities & resources",
+      "count": 2
     },
     {
       "sector": "Education",
       "count": 1
     },
     {
-      "sector": "Energy",
+      "sector": "Financial services & insurance",
       "count": 1
     },
     {
-      "sector": "Energy & utilities",
+      "sector": "Government & public sector",
       "count": 1
     },
     {
-      "sector": "Engineering",
+      "sector": "Hospitality & leisure",
       "count": 1
     },
     {
-      "sector": "Engineering & procurement",
+      "sector": "Other",
       "count": 1
     },
     {
-      "sector": "Financial services",
-      "count": 1
-    },
-    {
-      "sector": "Government",
-      "count": 1
-    },
-    {
-      "sector": "Healthcare / biopharma",
-      "count": 1
-    },
-    {
-      "sector": "Labor union",
-      "count": 1
-    },
-    {
-      "sector": "Non-profit",
-      "count": 1
-    },
-    {
-      "sector": "Sports governance",
-      "count": 1
-    },
-    {
-      "sector": "Stage equipment",
-      "count": 1
-    },
-    {
-      "sector": "Transportation",
+      "sector": "Transportation & logistics",
       "count": 1
     }
   ],
@@ -269,7 +237,7 @@
       "sectors": "Technology, Transportation"
     },
     {
-      "name": "Inc Ransom",
+      "name": "INC Ransom",
       "hits": 2,
       "profile": "RaaS since mid-2023 (MITRE G1032); valid accounts, edge-device exploits.",
       "countries": "United States, Italy",

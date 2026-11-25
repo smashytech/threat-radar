@@ -72,15 +72,15 @@
       "count": 4
     },
     {
-      "sector": "Technology",
+      "sector": "Technology & telecom",
       "count": 3
     },
     {
-      "sector": "Professional Services",
+      "sector": "Professional services",
       "count": 2
     },
     {
-      "sector": "Retail & E-Commerce",
+      "sector": "Retail & e-commerce",
       "count": 2
     },
     {
@@ -88,19 +88,19 @@
       "count": 1
     },
     {
-      "sector": "Energy & Utilities",
+      "sector": "Energy, utilities & resources",
       "count": 1
     },
     {
-      "sector": "Financial Services",
+      "sector": "Financial services & insurance",
       "count": 1
     },
     {
-      "sector": "Healthcare",
+      "sector": "Healthcare & life sciences",
       "count": 1
     },
     {
-      "sector": "Hospitality",
+      "sector": "Hospitality & leisure",
       "count": 1
     }
   ],

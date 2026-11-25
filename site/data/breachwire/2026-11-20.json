@@ -119,66 +119,42 @@
   "sectors": [
     {
       "sector": "Professional services",
-      "count": 8
+      "count": 12
     },
     {
-      "sector": "Healthcare",
+      "sector": "Healthcare & life sciences",
+      "count": 7
+    },
+    {
+      "sector": "Manufacturing & industrial",
       "count": 6
     },
     {
-      "sector": "Manufacturing",
-      "count": 6
-    },
-    {
-      "sector": "Construction",
+      "sector": "Construction & real estate",
       "count": 3
     },
     {
-      "sector": "Food production",
+      "sector": "Food & agriculture",
+      "count": 3
+    },
+    {
+      "sector": "Not disclosed",
       "count": 2
     },
     {
-      "sector": "Not stated",
-      "count": 2
-    },
-    {
-      "sector": "Advertising & marketing",
+      "sector": "Government & public sector",
       "count": 1
     },
     {
-      "sector": "Biotechnology",
+      "sector": "Hospitality & leisure",
       "count": 1
     },
     {
-      "sector": "Digital marketing & web development",
+      "sector": "Retail & e-commerce",
       "count": 1
     },
     {
-      "sector": "Food & beverage",
-      "count": 1
-    },
-    {
-      "sector": "Government",
-      "count": 1
-    },
-    {
-      "sector": "Hospitality",
-      "count": 1
-    },
-    {
-      "sector": "Legal services / eDiscovery",
-      "count": 1
-    },
-    {
-      "sector": "Management consulting",
-      "count": 1
-    },
-    {
-      "sector": "Retail & E-Commerce",
-      "count": 1
-    },
-    {
-      "sector": "Telecom / ISP",
+      "sector": "Technology & telecom",
       "count": 1
     }
   ],
@@ -191,7 +167,7 @@
       "sectors": "Professional services, Healthcare, Construction"
     },
     {
-      "name": "Inc Ransom",
+      "name": "INC Ransom",
       "hits": 5,
       "profile": "RaaS since mid-2023 (MITRE G1032); valid accounts, edge-device exploits.",
       "countries": "United States, France, Japan, not disclosed",

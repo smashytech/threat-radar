@@ -131,71 +131,107 @@ class NameGuard(Base):
         self.assert_refused(VALID)
 
 
-class SectorFolding(Base):
-    """A day with too many one-off sector labels is published, with the small ones folded into "Other"."""
-
-    def test_short_list_untouched(self):
-        sectors = [{"sector": f"Sector {n:02}", "count": 1} for n in range(add_breachwire.MAX_SECTORS)]
-        self.assertEqual(add_breachwire.fold_sectors(sectors), sectors)
-
-    def test_long_list_folded(self):
-        big = [{"sector": "Healthcare", "count": 12}, {"sector": "Manufacturing", "count": 6}]
-        small = [{"sector": f"Niche {n:02}", "count": 1} for n in range(59)]  # 61 labels, like issue 86
-        folded = add_breachwire.fold_sectors(big + small)
-        self.assertEqual(len(folded), add_breachwire.MAX_SECTORS)
-        self.assertEqual(sum(s["count"] for s in folded), 18 + 59)  # no victim lost
-        self.assertEqual(folded[0], {"sector": "Other", "count": 22})  # 59 small - 37 kept; biggest, so first
-        self.assertEqual(folded[1:3], big)
-
-    def test_existing_other_merged(self):
-        sectors = [{"sector": "Other", "count": 2}] + [{"sector": f"Niche {n:02}", "count": 1} for n in range(45)]
-        folded = add_breachwire.fold_sectors(sectors)
-        self.assertEqual(len(folded), add_breachwire.MAX_SECTORS)
-        self.assertEqual([s["sector"] for s in folded].count("Other"), 1)
-        self.assertEqual(sum(s["count"] for s in folded), 47)
-
-    def test_issue_published_and_stored_folded(self):
-        def many_sectors(i):  # 16 victims spread over 16 labels
-            i["sectors"] = [{"sector": f"Niche {n:02}", "count": 1} for n in range(16)]
-        with mock.patch.object(add_breachwire, "MAX_SECTORS", 5):
-            self.assertEqual(self.publish(self.variant(many_sectors)), 0)
-            stored = json.loads((self.out / "2026-11-06.json").read_text("utf-8"))
-            self.assertEqual(len(stored["sectors"]), 5)
-            self.assertIn({"sector": "Other", "count": 12}, stored["sectors"])
-            self.assertEqual(run("--check", "--out", str(self.out)), 0)
+SECTOR_LABELS = json.loads((FIXTURES / "breachwire_sector_labels.json").read_text("utf-8"))["labels"]
 
 
-class RetailMerging(Base):
-    """Shop-like sector labels all count as one Retail sector."""
+class SectorList(Base):
+    """Spec 010: every sector label is mapped onto a fixed list of 17 sectors (+ Other)."""
 
-    def test_shop_like_labels(self):
-        for label in ["Bed retail", "Online department store reta", "Online fashion", "Online grocery delivery",
-                      "Jewelry retail", "Eyewear", "Consumer goods", "Golf equipment", "Retail & e-commerce"]:
-            self.assertEqual(add_breachwire.normalize_sector(label), "Retail & E-Commerce", label)
+    def test_seventeen_sectors_plus_other(self):
+        self.assertEqual(len(add_breachwire.SECTORS), 17)
+        self.assertNotIn("Other", add_breachwire.SECTORS)
+        self.assertEqual(len({s.lower() for s in add_breachwire.SECTORS}), 17, "no near-duplicates")
 
-    def test_other_labels_untouched(self):
-        for label in ["Healthcare", "Restaurants", "Construction / luxury-retail fit-out", "Online health",
-                      "Manufacturing / retail", "Data storage"]:
-            self.assertEqual(add_breachwire.normalize_sector(label), label)
+    def test_every_real_label_lands_in_the_intended_sector(self):
+        """AC-1: all 111 labels from 3-25 Nov 2026 (the owner reviews this table)."""
+        wrong = [(x["label"], add_breachwire.map_sector(x["label"]), x["sector"]) for x in SECTOR_LABELS
+                 if add_breachwire.map_sector(x["label"]) != x["sector"]]
+        self.assertEqual(wrong, [], "label, got, expected")
+        self.assertEqual(len(SECTOR_LABELS), 111)
 
-    def test_merged_counts_added_up(self):
+    def test_hardly_anything_lands_in_other_because_of_the_rules(self):
+        """AC-1 (as refined during build): labels that were already "Other"/"Mixed" can't be recovered."""
+        lost = {"Other", "Mixed"}
+        total = sum(x["victims"] for x in SECTOR_LABELS)
+        by_rules = sum(x["victims"] for x in SECTOR_LABELS
+                       if x["label"] not in lost and add_breachwire.map_sector(x["label"]) == "Other")
+        self.assertLessEqual(by_rules / total, 0.02)
+
+    def test_only_the_main_part_counts(self):
+        self.assertEqual(add_breachwire.map_sector("Construction / luxury-retail fit-out"), "Construction & real estate")
+        self.assertEqual(add_breachwire.map_sector("Manufacturing / retail"), "Manufacturing & industrial")
+
+    def test_tricky_words(self):
+        self.assertEqual(add_breachwire.map_sector("Hospitality"), "Hospitality & leisure", "not 'hospital'")
+        self.assertEqual(add_breachwire.map_sector("Advertising technology"), "Professional services", "marketing before technology")
+        self.assertEqual(add_breachwire.map_sector("Fintech"), "Financial services & insurance", "finance before technology")
+        self.assertEqual(add_breachwire.map_sector("Industrial distribution"), "Wholesale & distribution")
+        self.assertEqual(add_breachwire.map_sector("Bed retail"), "Retail & e-commerce")
+        self.assertEqual(add_breachwire.map_sector("Golf equipment"), "Retail & e-commerce")
+
+    def test_unknown_label_goes_to_other_and_is_reported(self):
+        self.assertEqual(add_breachwire.map_sector("Zeppelin chartering"), "Other")
+        self.assertEqual(add_breachwire.unmapped_labels([{"sector": "Zeppelin chartering", "count": 2},
+                                                          {"sector": "Healthcare", "count": 1},
+                                                          {"sector": "Other", "count": 1}]), ["Zeppelin chartering"])
+
+    def test_counts_landing_on_the_same_sector_are_added(self):
         merged = add_breachwire.merge_sectors([
             {"sector": "Retail & E-Commerce", "count": 2}, {"sector": "Bed retail", "count": 1},
-            {"sector": "Online fashion", "count": 1}, {"sector": "Healthcare", "count": 3}])
-        self.assertEqual(merged, [{"sector": "Retail & E-Commerce", "count": 4}, {"sector": "Healthcare", "count": 3}])
+            {"sector": "Healthcare", "count": 3}, {"sector": "Biotechnology", "count": 1}, {"sector": "Mixed", "count": 2}])
+        self.assertEqual(merged, [{"sector": "Healthcare & life sciences", "count": 4},
+                                  {"sector": "Retail & e-commerce", "count": 3}, {"sector": "Other", "count": 2}])
 
-    def test_rebuild_reapplies_rules(self):
+    def test_published_issue_is_stored_with_fixed_sectors_and_reports_unknown_labels(self):
+        def labels(i):
+            i["sectors"] = [{"sector": "Healthcare", "count": 10}, {"sector": "Zeppelin chartering", "count": i["stats"]["victims"] - 10}]
+        self.inbox.write_text(json.dumps(self.variant(labels)), "utf-8")
+        out = io.StringIO()
+        with redirect_stdout(out):  # run() swallows output; call main() directly to see the warning
+            code = add_breachwire.main([str(self.inbox), "--out", str(self.out), "--forbid", str(self.names)])
+        self.assertEqual(code, 0)
+        stored = json.loads((self.out / "2026-11-06.json").read_text("utf-8"))
+        self.assertTrue({s["sector"] for s in stored["sectors"]} <= set(add_breachwire.SECTORS) | {"Other"})
+        self.assertIn("Zeppelin chartering", out.getvalue(), "unknown labels are printed so the list can grow")
+
+    def test_rebuild_maps_stored_issues(self):
         self.publish(VALID)
         path = self.out / "2026-11-06.json"
         old = json.loads(path.read_text("utf-8"))
-        old["sectors"] = [s for s in old["sectors"] if s["sector"] != "Retail & E-Commerce"]
-        old["sectors"] += [{"sector": "Apparel retail", "count": 1}, {"sector": "Online fashion", "count": 1}]
+        old["sectors"] = [{"sector": "Not stated", "count": 1}, {"sector": "Sector not disclosed", "count": old["stats"]["victims"] - 1}]
         path.write_text(json.dumps(old), "utf-8")  # as stored by an older version of the rules
         self.assertNotEqual(run("--check", "--out", str(self.out)), 0)
         self.assertEqual(run("--rebuild", "--out", str(self.out)), 0)
         self.assertEqual(run("--check", "--out", str(self.out)), 0)
         stored = json.loads(path.read_text("utf-8"))
-        self.assertIn({"sector": "Retail & E-Commerce", "count": 2}, stored["sectors"])
+        self.assertEqual(stored["sectors"], [{"sector": "Not disclosed", "count": old["stats"]["victims"]}])
+
+    def test_name_guard_still_sees_the_raw_label(self):
+        """A victim name used as a sector label must be refused, not quietly mapped to a sector."""
+        self.assert_refused(self.variant(lambda i: i["sectors"][0].update(sector="Woodgrove Bank")))
+
+
+class GroupNames(Base):
+    """Spec 010: one gang is never counted as two."""
+
+    def test_key_ignores_case_spaces_and_punctuation(self):
+        k = add_breachwire.group_key
+        self.assertEqual(k("The Gentlemen"), k("THE GENTLEMEN"))
+        self.assertEqual(k("Brain Cipher"), k("BrainCipher"))
+        self.assertEqual(k("SilentRansomGroup"), k("Silent Ransom Group"))
+        self.assertNotEqual(k("Play"), k("Playa"))
+
+    def test_alias_sets_the_stored_name(self):
+        def spelled(i):
+            i["groups"][0]["name"] = "INC RANSOM"
+        self.assertEqual(self.publish(self.variant(spelled)), 0)
+        stored = json.loads((self.out / "2026-11-06.json").read_text("utf-8"))
+        self.assertIn("INC Ransom", [g["name"] for g in stored["groups"]])
+
+    def test_same_gang_twice_in_one_issue_is_refused(self):
+        def twice(i):
+            i["groups"][1]["name"] = i["groups"][0]["name"].upper()
+        self.assert_refused(self.variant(twice))
 
 
 class Consistency(Base):

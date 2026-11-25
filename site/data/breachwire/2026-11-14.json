@@ -77,23 +77,23 @@
       "count": 18
     },
     {
-      "sector": "Manufacturing",
+      "sector": "Manufacturing & industrial",
       "count": 4
     },
     {
-      "sector": "Professional Services",
+      "sector": "Professional services",
       "count": 4
     },
     {
-      "sector": "Retail & E-Commerce",
+      "sector": "Retail & e-commerce",
       "count": 3
     },
     {
-      "sector": "Government & Defense",
+      "sector": "Government & public sector",
       "count": 1
     },
     {
-      "sector": "Hospitality",
+      "sector": "Hospitality & leisure",
       "count": 1
     }
   ],
@@ -113,7 +113,7 @@
       "sectors": "Manufacturing, Professional Services"
     },
     {
-      "name": "Inc Ransom",
+      "name": "INC Ransom",
       "hits": 2,
       "profile": "Active since mid-2023; double extortion; known for exploiting edge devices and spear-phishing; history of healthcare, education and public-sector victims in the U.S., UK and Australia.",
       "countries": "United States",

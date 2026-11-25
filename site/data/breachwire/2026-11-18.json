@@ -108,67 +108,47 @@
   ],
   "sectors": [
     {
-      "sector": "Healthcare",
-      "count": 12
+      "sector": "Healthcare & life sciences",
+      "count": 13
     },
     {
-      "sector": "Manufacturing",
+      "sector": "Manufacturing & industrial",
       "count": 6
     },
     {
-      "sector": "Professional Services",
+      "sector": "Technology & telecom",
+      "count": 4
+    },
+    {
+      "sector": "Construction & real estate",
       "count": 3
     },
     {
-      "sector": "Technology",
+      "sector": "Professional services",
       "count": 3
     },
     {
-      "sector": "Construction",
+      "sector": "Financial services & insurance",
       "count": 2
     },
     {
-      "sector": "Financial Services",
+      "sector": "Food & agriculture",
       "count": 2
     },
     {
-      "sector": "Government",
+      "sector": "Government & public sector",
       "count": 2
     },
     {
-      "sector": "Construction / luxury-retail fit-out",
-      "count": 1
-    },
-    {
-      "sector": "Equipment dealer",
-      "count": 1
-    },
-    {
-      "sector": "Food & beverage",
-      "count": 1
-    },
-    {
-      "sector": "Food supply",
-      "count": 1
-    },
-    {
-      "sector": "Healthcare technology",
-      "count": 1
-    },
-    {
-      "sector": "Non-profit",
-      "count": 1
-    },
-    {
-      "sector": "Non-profit membership organisation",
-      "count": 1
-    },
-    {
-      "sector": "Telecom / pay-TV",
-      "count": 1
+      "sector": "Non-profit & associations",
+      "count": 2
     },
     {
       "sector": "Transportation & logistics",
+      "count": 1
+    },
+    {
+      "sector": "Wholesale & distribution",
       "count": 1
     }
   ],
@@ -272,7 +252,7 @@
       "sectors": "Manufacturing"
     },
     {
-      "name": "Inc Ransom",
+      "name": "INC Ransom",
       "hits": 1,
       "profile": "Prolific RaaS since mid-2023 (MITRE G1032); edge-device exploits and spear-phishing; global victim set.",
       "countries": "Taiwan",

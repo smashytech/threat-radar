@@ -117,123 +117,63 @@
       "count": 16
     },
     {
-      "sector": "Healthcare",
+      "sector": "Healthcare & life sciences",
+      "count": 8
+    },
+    {
+      "sector": "Manufacturing & industrial",
       "count": 6
     },
     {
-      "sector": "Manufacturing",
+      "sector": "Financial services & insurance",
       "count": 5
+    },
+    {
+      "sector": "Hospitality & leisure",
+      "count": 5
+    },
+    {
+      "sector": "Professional services",
+      "count": 4
+    },
+    {
+      "sector": "Technology & telecom",
+      "count": 4
     },
     {
       "sector": "Education",
       "count": 3
     },
     {
-      "sector": "Technology",
-      "count": 3
-    },
-    {
-      "sector": "Government & Defense",
+      "sector": "Construction & real estate",
       "count": 2
     },
     {
-      "sector": "Hospitality",
+      "sector": "Energy, utilities & resources",
       "count": 2
     },
     {
-      "sector": "Professional Services",
+      "sector": "Government & public sector",
       "count": 2
     },
     {
-      "sector": "Retail & E-Commerce",
+      "sector": "Retail & e-commerce",
       "count": 2
     },
     {
-      "sector": "Bus transport",
+      "sector": "Food & agriculture",
       "count": 1
     },
     {
-      "sector": "Energy & Utilities",
+      "sector": "Media & publishing",
       "count": 1
     },
     {
-      "sector": "Environmental services",
+      "sector": "Transportation & logistics",
       "count": 1
     },
     {
-      "sector": "Financial",
-      "count": 1
-    },
-    {
-      "sector": "Financial Services",
-      "count": 1
-    },
-    {
-      "sector": "Financial solutions",
-      "count": 1
-    },
-    {
-      "sector": "Fitness / leisure",
-      "count": 1
-    },
-    {
-      "sector": "Food",
-      "count": 1
-    },
-    {
-      "sector": "Hotels",
-      "count": 1
-    },
-    {
-      "sector": "Information & media",
-      "count": 1
-    },
-    {
-      "sector": "Insurance agency",
-      "count": 1
-    },
-    {
-      "sector": "Investment holding",
-      "count": 1
-    },
-    {
-      "sector": "Life-sciences cloud / document services",
-      "count": 1
-    },
-    {
-      "sector": "Medical devices",
-      "count": 1
-    },
-    {
-      "sector": "Private security services",
-      "count": 1
-    },
-    {
-      "sector": "Real estate & construction",
-      "count": 1
-    },
-    {
-      "sector": "Real estate development",
-      "count": 1
-    },
-    {
-      "sector": "Restaurant chain",
-      "count": 1
-    },
-    {
-      "sector": "Service provider",
-      "count": 1
-    },
-    {
-      "sector": "Technology / manufacturing",
-      "count": 1
-    },
-    {
-      "sector": "Textile",
-      "count": 1
-    },
-    {
-      "sector": "Wholesale / distribution",
+      "sector": "Wholesale & distribution",
       "count": 1
     }
   ],

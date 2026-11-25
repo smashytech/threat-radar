@@ -153,11 +153,11 @@
   ],
   "sectors": [
     {
-      "sector": "Manufacturing",
+      "sector": "Manufacturing & industrial",
       "count": 7
     },
     {
-      "sector": "Technology",
+      "sector": "Technology & telecom",
       "count": 6
     },
     {
@@ -165,15 +165,15 @@
       "count": 5
     },
     {
-      "sector": "Financial services",
+      "sector": "Financial services & insurance",
       "count": 4
     },
     {
-      "sector": "Healthcare",
+      "sector": "Healthcare & life sciences",
       "count": 4
     },
     {
-      "sector": "Retail & E-Commerce",
+      "sector": "Retail & e-commerce",
       "count": 3
     },
     {
@@ -181,31 +181,31 @@
       "count": 2
     },
     {
-      "sector": "Transportation",
+      "sector": "Transportation & logistics",
       "count": 2
+    },
+    {
+      "sector": "Construction & real estate",
+      "count": 1
     },
     {
       "sector": "Education",
       "count": 1
     },
     {
-      "sector": "Energy & utilities",
+      "sector": "Energy, utilities & resources",
       "count": 1
     },
     {
-      "sector": "Hospitality",
+      "sector": "Hospitality & leisure",
       "count": 1
     },
     {
-      "sector": "Media",
+      "sector": "Media & publishing",
       "count": 1
     },
     {
-      "sector": "Not stated",
-      "count": 1
-    },
-    {
-      "sector": "Real estate",
+      "sector": "Not disclosed",
       "count": 1
     }
   ],

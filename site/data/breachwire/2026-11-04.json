@@ -73,15 +73,15 @@
   ],
   "sectors": [
     {
-      "sector": "Manufacturing",
+      "sector": "Manufacturing & industrial",
       "count": 4
     },
     {
-      "sector": "Professional Services",
+      "sector": "Professional services",
       "count": 4
     },
     {
-      "sector": "Healthcare",
+      "sector": "Healthcare & life sciences",
       "count": 3
     },
     {
@@ -89,15 +89,15 @@
       "count": 3
     },
     {
-      "sector": "Financial Services",
+      "sector": "Financial services & insurance",
       "count": 2
     },
     {
-      "sector": "Technology",
+      "sector": "Technology & telecom",
       "count": 2
     },
     {
-      "sector": "Government & Defense",
+      "sector": "Government & public sector",
       "count": 1
     },
     {
@@ -105,7 +105,7 @@
       "count": 1
     },
     {
-      "sector": "Retail & E-Commerce",
+      "sector": "Retail & e-commerce",
       "count": 1
     }
   ],

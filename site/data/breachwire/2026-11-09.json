@@ -102,11 +102,11 @@
       "count": 7
     },
     {
-      "sector": "Manufacturing",
+      "sector": "Manufacturing & industrial",
       "count": 3
     },
     {
-      "sector": "Healthcare",
+      "sector": "Healthcare & life sciences",
       "count": 2
     },
     {
@@ -114,23 +114,23 @@
       "count": 2
     },
     {
-      "sector": "Professional Services",
+      "sector": "Professional services",
       "count": 2
     },
     {
-      "sector": "Retail & E-Commerce",
+      "sector": "Retail & e-commerce",
       "count": 2
     },
     {
-      "sector": "Agriculture and Food Production",
+      "sector": "Food & agriculture",
       "count": 1
     },
     {
-      "sector": "Hospitality",
+      "sector": "Hospitality & leisure",
       "count": 1
     },
     {
-      "sector": "Transportation",
+      "sector": "Transportation & logistics",
       "count": 1
     }
   ],
@@ -150,7 +150,7 @@
       "sectors": "Professional Services, Manufacturing, Technology, Healthcare"
     },
     {
-      "name": "INC RANSOM",
+      "name": "INC Ransom",
       "hits": 3,
       "profile": "RaaS active since Aug 2023 (991 claimed victims). Prolific, with heavy US healthcare and professional-services targeting. Commonly reported initial access is via exposed edge devices and stolen credentials. Today's three posts were logged by Ransomware.live only.",
       "countries": "US, CA, DE, GB",

@@ -53,35 +53,31 @@
   ],
   "sectors": [
     {
-      "sector": "Retail & E-Commerce",
+      "sector": "Retail & e-commerce",
       "count": 7
     },
     {
-      "sector": "Manufacturing",
-      "count": 4
+      "sector": "Manufacturing & industrial",
+      "count": 5
     },
     {
-      "sector": "Healthcare",
+      "sector": "Financial services & insurance",
       "count": 2
     },
     {
-      "sector": "Construction",
+      "sector": "Healthcare & life sciences",
+      "count": 2
+    },
+    {
+      "sector": "Construction & real estate",
       "count": 1
     },
     {
-      "sector": "Diversified manufacturing",
+      "sector": "Hospitality & leisure",
       "count": 1
     },
     {
-      "sector": "Financial advisory",
-      "count": 1
-    },
-    {
-      "sector": "Financial planning & insurance",
-      "count": 1
-    },
-    {
-      "sector": "Live-entertainment data & publishing",
+      "sector": "Media & publishing",
       "count": 1
     },
     {
@@ -89,15 +85,11 @@
       "count": 1
     },
     {
-      "sector": "Professional Services",
+      "sector": "Professional services",
       "count": 1
     },
     {
-      "sector": "Restaurants",
-      "count": 1
-    },
-    {
-      "sector": "Technology",
+      "sector": "Technology & telecom",
       "count": 1
     }
   ],
@@ -124,7 +116,7 @@
       "sectors": "Manufacturing, healthcare, technology"
     },
     {
-      "name": "Inc Ransom",
+      "name": "INC Ransom",
       "hits": 1,
       "profile": "Double-extortion operation active since mid-2023; exploits edge devices and spear-phishing; heavy on healthcare, education and public sector.",
       "countries": "ID",

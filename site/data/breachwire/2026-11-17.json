@@ -208,163 +208,67 @@
   ],
   "sectors": [
     {
-      "sector": "Retail & E-Commerce",
-      "count": 18
+      "sector": "Healthcare & life sciences",
+      "count": 22
     },
     {
-      "sector": "Healthcare",
-      "count": 14
+      "sector": "Retail & e-commerce",
+      "count": 19
+    },
+    {
+      "sector": "Financial services & insurance",
+      "count": 16
     },
     {
       "sector": "Other",
       "count": 13
     },
     {
-      "sector": "Manufacturing",
+      "sector": "Manufacturing & industrial",
       "count": 11
     },
     {
-      "sector": "Financial Services",
-      "count": 9
+      "sector": "Professional services",
+      "count": 11
     },
     {
-      "sector": "Technology",
-      "count": 7
+      "sector": "Technology & telecom",
+      "count": 8
     },
     {
-      "sector": "Professional Services",
-      "count": 5
+      "sector": "Construction & real estate",
+      "count": 4
     },
     {
-      "sector": "Construction",
-      "count": 3
-    },
-    {
-      "sector": "Energy & Utilities",
-      "count": 3
-    },
-    {
-      "sector": "Agriculture and Food Production",
-      "count": 2
-    },
-    {
-      "sector": "Biopharmaceutical",
-      "count": 2
-    },
-    {
-      "sector": "Education",
-      "count": 2
-    },
-    {
-      "sector": "Government & Defense",
-      "count": 2
-    },
-    {
-      "sector": "Insurance",
-      "count": 2
-    },
-    {
-      "sector": "Investment advisory",
-      "count": 2
+      "sector": "Energy, utilities & resources",
+      "count": 4
     },
     {
       "sector": "Not disclosed",
+      "count": 4
+    },
+    {
+      "sector": "Education",
+      "count": 3
+    },
+    {
+      "sector": "Food & agriculture",
       "count": 2
     },
     {
-      "sector": "Pharmaceutical",
+      "sector": "Government & public sector",
       "count": 2
     },
     {
-      "sector": "Sector not disclosed",
+      "sector": "Non-profit & associations",
       "count": 2
     },
     {
-      "sector": "Transportation",
+      "sector": "Transportation & logistics",
       "count": 2
     },
     {
-      "sector": "Audience measurement",
-      "count": 1
-    },
-    {
-      "sector": "Banking",
-      "count": 1
-    },
-    {
-      "sector": "Biopharmaceutical neuroscien",
-      "count": 1
-    },
-    {
-      "sector": "Biopharmaceutical t cell imm",
-      "count": 1
-    },
-    {
-      "sector": "Connected tv advertising age",
-      "count": 1
-    },
-    {
-      "sector": "Debt recovery",
-      "count": 1
-    },
-    {
-      "sector": "Email deliverability",
-      "count": 1
-    },
-    {
-      "sector": "Employee benefits consulting",
-      "count": 1
-    },
-    {
-      "sector": "Fintech",
-      "count": 1
-    },
-    {
-      "sector": "Franchise",
-      "count": 1
-    },
-    {
-      "sector": "Health",
-      "count": 1
-    },
-    {
-      "sector": "Industrial distribution",
-      "count": 1
-    },
-    {
-      "sector": "Industrial property manageme",
-      "count": 1
-    },
-    {
-      "sector": "Legal",
-      "count": 1
-    },
-    {
-      "sector": "Market research recruitment",
-      "count": 1
-    },
-    {
-      "sector": "Marketing technology",
-      "count": 1
-    },
-    {
-      "sector": "Medical supplies manufacture",
-      "count": 1
-    },
-    {
-      "sector": "Mining & Chemicals",
-      "count": 1
-    },
-    {
-      "sector": "Non-profit",
-      "count": 1
-    },
-    {
-      "sector": "Nonprofit membership organiz",
-      "count": 1
-    },
-    {
-      "sector": "Online education",
+      "sector": "Wholesale & distribution",
       "count": 1
     }
   ],

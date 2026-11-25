@@ -153,15 +153,23 @@
   ],
   "sectors": [
     {
-      "sector": "Mixed",
+      "sector": "Other",
       "count": 22
     },
     {
-      "sector": "Healthcare",
-      "count": 9
+      "sector": "Healthcare & life sciences",
+      "count": 11
     },
     {
-      "sector": "Professional Services",
+      "sector": "Construction & real estate",
+      "count": 3
+    },
+    {
+      "sector": "Hospitality & leisure",
+      "count": 3
+    },
+    {
+      "sector": "Professional services",
       "count": 3
     },
     {
@@ -169,43 +177,15 @@
       "count": 2
     },
     {
-      "sector": "Hospitality",
+      "sector": "Manufacturing & industrial",
       "count": 2
     },
     {
-      "sector": "Manufacturing",
+      "sector": "Technology & telecom",
       "count": 2
     },
     {
-      "sector": "Technology",
-      "count": 2
-    },
-    {
-      "sector": "Construction",
-      "count": 1
-    },
-    {
-      "sector": "Gaming",
-      "count": 1
-    },
-    {
-      "sector": "HVAC services",
-      "count": 1
-    },
-    {
-      "sector": "Pharma wholesale",
-      "count": 1
-    },
-    {
-      "sector": "Real estate",
-      "count": 1
-    },
-    {
-      "sector": "Senior living / care",
-      "count": 1
-    },
-    {
-      "sector": "Transportation",
+      "sector": "Transportation & logistics",
       "count": 1
     }
   ],
@@ -260,7 +240,7 @@
       "sectors": "Technology"
     },
     {
-      "name": "INC RANSOM",
+      "name": "INC Ransom",
       "hits": 1,
       "profile": "Active since Aug 2023 (992 claims).",
       "countries": "US, CA, DE, GB",

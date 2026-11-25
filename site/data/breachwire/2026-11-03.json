@@ -157,11 +157,11 @@
       "count": 31
     },
     {
-      "sector": "Financial Services",
+      "sector": "Financial services & insurance",
       "count": 2
     },
     {
-      "sector": "Manufacturing",
+      "sector": "Manufacturing & industrial",
       "count": 2
     },
     {
@@ -169,7 +169,7 @@
       "count": 1
     },
     {
-      "sector": "Healthcare",
+      "sector": "Healthcare & life sciences",
       "count": 1
     },
     {
@@ -177,15 +177,15 @@
       "count": 1
     },
     {
-      "sector": "Professional Services",
+      "sector": "Professional services",
       "count": 1
     },
     {
-      "sector": "Retail & E-Commerce",
+      "sector": "Retail & e-commerce",
       "count": 1
     },
     {
-      "sector": "Transportation",
+      "sector": "Transportation & logistics",
       "count": 1
     }
   ],

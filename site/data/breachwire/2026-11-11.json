@@ -178,65 +178,49 @@
   ],
   "sectors": [
     {
-      "sector": "Mixed",
-      "count": 42
+      "sector": "Other",
+      "count": 43
     },
     {
-      "sector": "Healthcare",
+      "sector": "Healthcare & life sciences",
       "count": 9
     },
     {
-      "sector": "Manufacturing",
+      "sector": "Manufacturing & industrial",
+      "count": 6
+    },
+    {
+      "sector": "Technology & telecom",
       "count": 5
     },
     {
-      "sector": "Technology",
-      "count": 5
-    },
-    {
-      "sector": "Professional Services",
+      "sector": "Professional services",
       "count": 4
     },
     {
-      "sector": "Retail & E-Commerce",
+      "sector": "Non-profit & associations",
       "count": 2
     },
     {
-      "sector": "Energy & Utilities",
+      "sector": "Retail & e-commerce",
+      "count": 2
+    },
+    {
+      "sector": "Transportation & logistics",
+      "count": 2
+    },
+    {
+      "sector": "Energy, utilities & resources",
       "count": 1
     },
     {
-      "sector": "Manufacturing / retail",
-      "count": 1
-    },
-    {
-      "sector": "Non-profit",
-      "count": 1
-    },
-    {
-      "sector": "Non-profit / social services",
-      "count": 1
-    },
-    {
-      "sector": "Other",
-      "count": 1
-    },
-    {
-      "sector": "Transportation",
-      "count": 1
-    },
-    {
-      "sector": "Transportation / logistics",
-      "count": 1
-    },
-    {
-      "sector": "Wholesale / textiles",
+      "sector": "Wholesale & distribution",
       "count": 1
     }
   ],
   "groups": [
     {
-      "name": "INC RANSOM",
+      "name": "INC Ransom",
       "hits": 44,
       "profile": "Active since mid-2023 (992 claims). All 44 today come from one RansomLook re-index that Ransomware.live has not indexed.",
       "countries": "US, CA, DE, GB; today also SE, TH, IN",
