@@ -3,25 +3,25 @@
   "id": "AC-6",
   "name": "Per-month row: days, victims, per day, Sweden, groups match the stats file",
   "ok": true,
-  "detail": "[\"November 2026 so far\",\"23\",\"906\",\"39.4\",\"5\",\"83\"]"
+  "detail": "[\"November 2026 so far\",\"24\",\"925\",\"38.5\",\"5\",\"83\"]"
  },
  {
   "id": "AC-6",
   "name": "Sector grid: 17 sectors + Other, largest first, Other last, shares add up",
   "ok": true,
-  "detail": "Not disclosed 19.1 % … Other 10.6 %"
+  "detail": "Not disclosed 18.9 % … Other 10.6 %"
  },
  {
   "id": "AC-6",
   "name": "Top groups: 10, the busiest first, with claims and share",
   "ok": true,
-  "detail": "[[\"N0n\",\"101 · 11.1 %\"],[\"The Gentlemen\",\"84 · 9.3 %\"],[\"INC Ransom\",\"78 · 8.6 %\"]]"
+  "detail": "[[\"N0n\",\"101 · 10.9 %\"],[\"The Gentlemen\",\"84 · 9.1 %\"],[\"INC Ransom\",\"78 · 8.4 %\"]]"
  },
  {
   "id": "AC-6",
   "name": "A note says where the statistics start",
   "ok": true,
-  "detail": "Statistics from 2 November 2026, 23 daily issues."
+  "detail": "Statistics from 1 October 2026, 49 daily issues."
  },
  {
   "id": "AC-7",
@@ -42,16 +42,52 @@
   "detail": "3 columns, 18 marks"
  },
  {
-  "id": "AC-7",
-  "name": "The daily issue is on screen while Trends is still loading",
+  "id": "A1",
+  "name": "Default: today's issue is shown, Trends is closed and no statistics are fetched",
+  "ok": true,
+  "detail": "{\"issue\":true,\"trends\":true,\"selected\":\"tab-issue\"}"
+ },
+ {
+  "id": "A1",
+  "name": "Clicking Trends loads the statistics once, hides the issue and sets #trends in the address",
+  "ok": true,
+  "detail": "{\"hash\":\"#trends\",\"issueHidden\":true,\"requests\":1}"
+ },
+ {
+  "id": "A1",
+  "name": "The back button returns to today's issue",
   "ok": true,
   "detail": ""
  },
  {
-  "id": "AC-7",
-  "name": "Without the stats file the issue still shows and Trends stays hidden",
+  "id": "A1",
+  "name": "Keyboard: arrow keys and Home switch tabs and move focus",
   "ok": true,
-  "detail": "{\"issue\":true,\"trends\":true}"
+  "detail": "tab-trends #trends false | tab-issue "
+ },
+ {
+  "id": "A1",
+  "name": "One tab stop for the tab list (the selected tab)",
+  "ok": true,
+  "detail": "1"
+ },
+ {
+  "id": "A1",
+  "name": "No errors while switching tabs",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "id": "A1",
+  "name": "#trends opens straight to Trends, full width, without the archive sidebar",
+  "ok": true,
+  "detail": "{\"selected\":\"tab-trends\",\"archive\":true,\"width\":1088}"
+ },
+ {
+  "id": "AC-7",
+  "name": "Without the stats file, Trends says so and the page keeps working",
+  "ok": true,
+  "detail": "{\"status\":\"No statistics yet.\",\"trends\":true}"
  },
  {
   "id": "AC-7",

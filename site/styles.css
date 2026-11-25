@@ -920,3 +920,15 @@ input[type="search"]::placeholder { color: var(--muted); opacity: 0.8; }
 .move { font-size: 13px; text-align: right; }
 .move--new { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--accent); }
 .archive__note { font-size: 13px; margin: 10px 0 0; }
+
+/* ---------- Breaches tabs (spec 010 amendment A1) ---------- */
+.tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--border); margin-top: 24px; }
+.tabs__tab {
+  font: inherit; font-size: 15px; font-weight: 600; color: var(--text-2); background: none; border: 0;
+  border-bottom: 3px solid transparent; padding: 10px 14px; margin-bottom: -1px; cursor: pointer;
+}
+.tabs__tab:hover { color: var(--text); }
+.tabs__tab[aria-selected="true"] { color: var(--accent); border-bottom-color: var(--accent); }
+.trends-panel { padding: 24px 0 40px; }
+.trends-panel:focus { outline: none; }
+.trends-panel:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }

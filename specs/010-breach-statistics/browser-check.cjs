@@ -24,14 +24,14 @@ function twoMonths() {
   return { ...real, from: '2026-10-01', months: [oct, n] };
 }
 
-async function open(browser, opts = {}, route) {
+async function open(browser, opts = {}, route, hash = '#trends') {
   const ctx = await browser.newContext(opts);
   const p = await ctx.newPage();
   const errors = [];
   p.on('console', (m) => { if (m.type() === 'error') errors.push(m.text()); });
   p.on('pageerror', (e) => errors.push(String(e)));
   if (route) await p.route(/breachwire-stats\.json$/, route);
-  await p.goto(PAGE, { waitUntil: 'networkidle' });
+  await p.goto(PAGE + hash, { waitUntil: 'networkidle' });
   return { ctx, p, errors };
 }
 
@@ -84,28 +84,54 @@ async function open(browser, opts = {}, route) {
     await ctx.close();
   }
 
-  // AC-7: the issue appears before Trends loads
+  // Amendment A1: tabs. The issue tab is the default and fetches no statistics;
+  // Trends loads on first open; #trends opens it directly; keyboard and back button work.
   {
-    let issueShownFirst = null;
-    const ctx = await browser.newContext();
-    const p = await ctx.newPage();
-    await p.route(/breachwire-stats\.json$/, async (r) => {
-      await new Promise((res) => setTimeout(res, 1500));
-      await r.continue();
-    });
-    await p.goto(PAGE);
-    await p.waitForSelector('#issue-body:not([hidden])');
-    issueShownFirst = await p.evaluate(() => document.getElementById('trends').hidden);
+    const { ctx, p, errors } = await open(browser, { viewport: { width: 1280, height: 900 } }, undefined, '');
+    const statsRequests = [];
+    p.on('request', (r) => { if (/breachwire-stats\.json$/.test(r.url())) statsRequests.push(r.url()); });
+    const before = await p.evaluate(() => ({
+      issue: !document.getElementById('panel-issue').hidden && !document.getElementById('issue-body').hidden,
+      trends: document.getElementById('panel-trends').hidden,
+      selected: document.querySelector('[role=tab][aria-selected=true]').id,
+    }));
+    check('A1', "Default: today's issue is shown, Trends is closed and no statistics are fetched",
+      before.issue && before.trends && before.selected === 'tab-issue' && statsRequests.length === 0, JSON.stringify(before));
+    await p.click('#tab-trends');
     await p.waitForSelector('#trends:not([hidden])');
-    check('AC-7', 'The daily issue is on screen while Trends is still loading', issueShownFirst === true);
+    const after = await p.evaluate(() => ({ hash: location.hash, issueHidden: document.getElementById('panel-issue').hidden }));
+    check('A1', 'Clicking Trends loads the statistics once, hides the issue and sets #trends in the address',
+      statsRequests.length === 1 && after.issueHidden && after.hash === '#trends', JSON.stringify({ ...after, requests: statsRequests.length }));
+    await p.goBack();
+    await p.waitForFunction(() => !document.getElementById('panel-issue').hidden);
+    check('A1', "The back button returns to today's issue", await p.evaluate(() => document.getElementById('panel-trends').hidden));
+    await p.focus('#tab-issue');
+    await p.keyboard.press('ArrowRight');
+    const kb1 = await p.evaluate(() => [document.activeElement.id, location.hash, document.getElementById('panel-trends').hidden]);
+    await p.keyboard.press('Home');
+    const kb2 = await p.evaluate(() => [document.activeElement.id, location.hash]);
+    check('A1', 'Keyboard: arrow keys and Home switch tabs and move focus', kb1[0] === 'tab-trends' && kb1[1] === '#trends' && kb1[2] === false
+      && kb2[0] === 'tab-issue' && kb2[1] === '', `${kb1.join(' ')} | ${kb2.join(' ')}`);
+    const tabStops = await p.evaluate(() => [...document.querySelectorAll('[role=tab]')].filter((t) => t.tabIndex === 0).length);
+    check('A1', 'One tab stop for the tab list (the selected tab)', tabStops === 1, tabStops);
+    check('A1', 'No errors while switching tabs', errors.length === 0, errors.join(' | '));
+    await ctx.close();
+  }
+  {
+    const { ctx, p } = await open(browser, { viewport: { width: 1280, height: 900 } });
+    await p.waitForSelector('#trends:not([hidden])');
+    const s = await p.evaluate(() => ({ selected: document.querySelector('[role=tab][aria-selected=true]').id,
+      archive: document.querySelector('.archive').offsetParent === null, width: document.getElementById('trends').offsetWidth }));
+    check('A1', '#trends opens straight to Trends, full width, without the archive sidebar',
+      s.selected === 'tab-trends' && s.archive && s.width > 900, JSON.stringify(s));
     await ctx.close();
   }
 
-  // AC-7: Trends missing → the page still works
+  // AC-7: Trends missing → a short message, nothing breaks
   {
     const { ctx, p, errors } = await open(browser, {}, (r) => r.fulfill({ status: 404, body: '' }));
-    const s = await p.evaluate(() => ({ issue: !document.getElementById('issue-body').hidden, trends: document.getElementById('trends').hidden }));
-    check('AC-7', 'Without the stats file the issue still shows and Trends stays hidden', s.issue && s.trends, JSON.stringify(s));
+    const s = await p.evaluate(() => ({ status: document.getElementById('trends-status').textContent, trends: document.getElementById('trends').hidden }));
+    check('AC-7', 'Without the stats file, Trends says so and the page keeps working', s.trends && /No statistics yet/.test(s.status) && errors.filter((e) => !/404/.test(e)).length === 0, JSON.stringify(s));
     await ctx.close();
   }
 

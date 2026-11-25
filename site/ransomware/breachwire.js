@@ -12,7 +12,7 @@
 import { el, svgEl, numberFmt, formatDate, formatLongDate, formatShortDay, localToday, loadJSON } from "../ui.js";
 import { pickIssueDate } from "../sitrep-logic.js";
 import { swedenStatus, regionTotals, ransomwareKev, chartBars, archiveNote } from "../breachwire-logic.js";
-import { monthRows, sectorGrid, shadeLevel, topGroups, sinceLine, monthName } from "../breach-stats-logic.js";
+import { monthRows, sectorGrid, shadeLevel, topGroups, sinceLine, monthName, tabFromHash, TABS } from "../breach-stats-logic.js";
 import { inStack } from "../stack-logic.js";
 import { readStack, renderStackLine } from "../stack-page.js";
 
@@ -20,6 +20,7 @@ const $ = (id) => document.getElementById(id);
 const stack = readStack();
 
 async function init() {
+  setupTabs();
   renderStackLine($("stack-line"), stack, "../exploited/#mystack");
   // KEV loads in parallel: the "Known ransomware use" panel works even before any issue exists.
   const kevPromise = loadJSON("../data/kev.json", { optional: true });
@@ -41,22 +42,61 @@ async function init() {
     console.error(err);
     $("issue-line").textContent = "Couldn't load Breach Wire. Please try refreshing the page.";
   }
-  // Spec 010 NFR-3: Trends is fetched only after the issue is on the page.
-  const trends = loadTrends();
   renderKev(await kevPromise);
-  await trends;
+}
+
+// ---------- Tabs (spec 010 amendment A1) ----------
+// "Today's issue" and "Trends". #trends in the address opens Trends; the statistics
+// are fetched the first time Trends is shown, so the issue is never delayed.
+
+function showTab(name, { focus = false, push = false } = {}) {
+  for (const tab of TABS) {
+    const button = $(`tab-${tab}`), panel = $(`panel-${tab}`), on = tab === name;
+    button.setAttribute("aria-selected", String(on));
+    button.tabIndex = on ? 0 : -1;
+    panel.hidden = !on;
+    if (on && focus) button.focus();
+  }
+  if (push) {
+    const url = `${location.pathname}${location.search}${name === "trends" ? "#trends" : ""}`;
+    history.pushState(null, "", url);
+  }
+  if (name === "trends") loadTrends();
+}
+
+function setupTabs() {
+  for (const tab of TABS) $(`tab-${tab}`).addEventListener("click", () => showTab(tab, { push: tabFromHash(location.hash) !== tab }));
+  $("tab-issue").parentElement.addEventListener("keydown", (event) => {
+    const current = TABS.indexOf(tabFromHash(location.hash));
+    const next = { ArrowRight: current + 1, ArrowLeft: current - 1, Home: 0, End: TABS.length - 1 }[event.key];
+    if (next === undefined) return;
+    event.preventDefault();
+    const name = TABS[(next + TABS.length) % TABS.length];
+    showTab(name, { focus: true, push: name !== TABS[current] });
+  });
+  window.addEventListener("popstate", () => showTab(tabFromHash(location.hash)));
+  showTab(tabFromHash(location.hash));
 }
 
 // ---------- Trends (spec 010) ----------
 
-async function loadTrends() {
-  try {
-    const stats = await loadJSON("../data/breachwire-stats.json", { optional: true });
-    if (!stats || !Array.isArray(stats.months) || !stats.months.length) return;
-    renderTrends(stats);
-  } catch (err) {
-    console.error(err); // Trends is extra; the issue above stays usable.
-  }
+let trendsLoading = null;
+function loadTrends() {
+  trendsLoading ??= (async () => {
+    try {
+      const stats = await loadJSON("../data/breachwire-stats.json", { optional: true });
+      if (!stats || !Array.isArray(stats.months) || !stats.months.length) {
+        $("trends-status").textContent = "No statistics yet.";
+        return;
+      }
+      renderTrends(stats);
+      $("trends-status").hidden = true;
+    } catch (err) {
+      console.error(err); // Trends is extra; today's issue stays usable.
+      $("trends-status").textContent = "Couldn't load the statistics. Please try refreshing the page.";
+    }
+  })();
+  return trendsLoading;
 }
 
 function renderTrends(stats) {

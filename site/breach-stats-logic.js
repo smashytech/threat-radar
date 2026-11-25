@@ -89,3 +89,9 @@ export function sinceLine(stats) {
   const [y, m, d] = stats.from.split("-").map(Number);
   return `Statistics from ${d} ${MONTHS[m - 1]} ${y}, ${stats.issues} daily ${stats.issues === 1 ? "issue" : "issues"}.`;
 }
+
+/** Amendment A1: the Breaches page's two tabs, picked by the address (#trends). */
+export const TABS = ["issue", "trends"];
+export function tabFromHash(hash) {
+  return String(hash).toLowerCase() === "#trends" ? "trends" : "issue";
+}

@@ -3,7 +3,7 @@
 
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { monthName, monthRows, sectorGrid, shadeLevel, topGroups, sinceLine } from "../site/breach-stats-logic.js";
+import { monthName, monthRows, sectorGrid, shadeLevel, topGroups, sinceLine, tabFromHash, TABS } from "../site/breach-stats-logic.js";
 
 const SECTORS = ["Healthcare & life sciences", "Education", "Not disclosed", "Other"];
 const month = (m, victims, sectors, groups, newGroups = null, days = 30) =>
@@ -72,4 +72,11 @@ test("an unchanged rank is marked as the same", () => {
 test("the note says where the statistics start", () => {
   assert.equal(sinceLine(STATS), "Statistics from 1 October 2026, 54 daily issues.");
   assert.equal(sinceLine({ ...STATS, from: null, issues: 0, months: [] }), "No statistics yet.");
+});
+
+test("amendment A1: the address picks the tab; anything unknown opens today's issue", () => {
+  assert.deepEqual(TABS, ["issue", "trends"]);
+  assert.equal(tabFromHash("#trends"), "trends");
+  assert.equal(tabFromHash("#TRENDS"), "trends");
+  for (const h of ["", "#", "#issue", "#nope", "#trends-x"]) assert.equal(tabFromHash(h), "issue", h);
 });

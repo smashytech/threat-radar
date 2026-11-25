@@ -63,7 +63,14 @@
     </div>
   </div>
 
-  <main class="sitrep-layout">
+  <main class="breaches">
+    <!-- Amendment A1 (spec 010): two tabs. #trends in the address opens Trends. -->
+    <div class="tabs" role="tablist" aria-label="Breaches views">
+      <button type="button" class="tabs__tab" role="tab" id="tab-issue" aria-controls="panel-issue" aria-selected="true">Today's issue</button>
+      <button type="button" class="tabs__tab" role="tab" id="tab-trends" aria-controls="panel-trends" aria-selected="false" tabindex="-1">Trends</button>
+    </div>
+
+    <div class="sitrep-layout" id="panel-issue" role="tabpanel" aria-labelledby="tab-issue">
     <article class="sitrep" id="issue" tabindex="-1" aria-labelledby="issue-heading">
       <h2 class="visually-hidden" id="issue-heading">Issue</h2>
       <p class="notice" id="notice" hidden></p>
@@ -105,33 +112,6 @@
         </section>
       </div>
 
-      <!-- Spec 010: month-by-month numbers, loaded after the issue so it never delays it. -->
-      <section class="band trends" id="trends" aria-labelledby="trends-h" hidden>
-        <h3 class="section-title" id="trends-h">Trends <span class="muted">month by month</span></h3>
-        <p class="muted trends__since" id="trends-since"></p>
-
-        <h4 class="trends__sub" id="months-h">Per month</h4>
-        <div class="table-scroll" role="region" aria-labelledby="months-h" tabindex="0">
-          <table class="trend-table">
-            <thead><tr><th scope="col">Month</th><th scope="col">Days</th><th scope="col">Claimed victims</th><th scope="col">Per day</th><th scope="col">Sweden</th><th scope="col">Groups</th></tr></thead>
-            <tbody id="trend-months"></tbody>
-          </table>
-        </div>
-
-        <h4 class="trends__sub" id="sector-grid-h">Sectors over time <span class="muted">share of each month's claimed victims</span></h4>
-        <div class="table-scroll" role="region" aria-labelledby="sector-grid-h" tabindex="0">
-          <table class="trend-table sector-grid" id="sector-grid"></table>
-        </div>
-
-        <div class="trends__groups-head">
-          <h4 class="trends__sub" id="top-groups-h">Top groups</h4>
-          <label class="trends__picker">Month <select id="groups-month"></select></label>
-        </div>
-        <ol class="top-groups" id="top-groups" aria-labelledby="top-groups-h"></ol>
-
-        <p class="method">How the trends are counted: a month is the month the claims were posted on the leak sites (UTC), not the day the digest went out. These are claims, not confirmed breaches. Sectors are grouped into a fixed list of 17 so they stay comparable over time; one gang written in different ways counts once. ▲ ▼ compare a group's rank with the month before; <strong>new</strong> means the group was not seen in any earlier month.</p>
-      </section>
-
       <section class="band" aria-labelledby="kev-h">
         <h3 class="section-title" id="kev-h">Known ransomware use <span class="muted">from CISA's KEV catalog</span></h3>
         <p class="muted kev-ransom__lede" id="kev-ransom-lede">Vulnerabilities CISA has confirmed ransomware gangs exploit, newest first.</p>
@@ -155,6 +135,36 @@
       <ol class="archive__list" id="archive"></ol>
       <p class="muted archive__note" id="archive-note" hidden></p>
     </aside>
+    </div>
+
+    <div class="trends-panel" id="panel-trends" role="tabpanel" aria-labelledby="tab-trends" tabindex="0" hidden>
+      <p class="muted" id="trends-status">Loading statistics…</p>
+        <section class="trends" id="trends" aria-labelledby="trends-h" hidden>
+          <h3 class="section-title" id="trends-h">Trends <span class="muted">month by month</span></h3>
+          <p class="muted trends__since" id="trends-since"></p>
+
+          <h4 class="trends__sub" id="months-h">Per month</h4>
+          <div class="table-scroll" role="region" aria-labelledby="months-h" tabindex="0">
+            <table class="trend-table">
+              <thead><tr><th scope="col">Month</th><th scope="col">Days</th><th scope="col">Claimed victims</th><th scope="col">Per day</th><th scope="col">Sweden</th><th scope="col">Groups</th></tr></thead>
+              <tbody id="trend-months"></tbody>
+            </table>
+          </div>
+
+          <h4 class="trends__sub" id="sector-grid-h">Sectors over time <span class="muted">share of each month's claimed victims</span></h4>
+          <div class="table-scroll" role="region" aria-labelledby="sector-grid-h" tabindex="0">
+            <table class="trend-table sector-grid" id="sector-grid"></table>
+          </div>
+
+          <div class="trends__groups-head">
+            <h4 class="trends__sub" id="top-groups-h">Top groups</h4>
+            <label class="trends__picker">Month <select id="groups-month"></select></label>
+          </div>
+          <ol class="top-groups" id="top-groups" aria-labelledby="top-groups-h"></ol>
+
+          <p class="method">How the trends are counted: a month is the month the claims were posted on the leak sites (UTC), not the day the digest went out. These are claims, not confirmed breaches. Sectors are grouped into a fixed list of 17 so they stay comparable over time; one gang written in different ways counts once. ▲ ▼ compare a group's rank with the month before; <strong>new</strong> means the group was not seen in any earlier month.</p>
+        </section>
+    </div>
   </main>
 
   <!-- site-footer -->

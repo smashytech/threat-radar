@@ -17,13 +17,14 @@ the table says so.
 | [007 Briefing redesign](007-briefing-redesign) | The Today front page, light and dark mode, self-hosted fonts, shared header and footer | 009 (faster Today page); amendments A1–A5 |
 | [008 Security hardening](008-security-hardening) | The deploy gate, https-only links, `security.txt`, `SECURITY.md`, protected `main` | |
 | [009 Previews and speed](009-previews-and-speed) | Link previews for Slack, LinkedIn and Teams; Today page 9.9 s → 2.2 s on a slow phone | |
-| [010 Breach statistics](010-breach-statistics) | A fixed list of 17 sectors, one name per gang, and a Trends section (per month, sectors over time, top groups) on the Breaches page | |
+| [010 Breach statistics](010-breach-statistics) | A fixed list of 17 sectors, one name per gang, and a Trends tab (per month, sectors over time, top groups) on the Breaches page | amendment A1 (Trends in its own tab) |
 | [011 Victim-name check](011-victim-name-check) | An independent check of each new Breach Wire issue against the public victim list; Breach Wire waits if the list is unreachable | |
 | [012 October import](012-october-import) | 26 Breach Wire issues from 1 October – 1 November imported from the email archive; "new groups" can be "not recorded" | |
 
 **Small changes** are recorded as amendments in the spec that owns the area:
 [007 amendments](007-briefing-redesign/amendments.md) (tooltip, coffee cup, LinkedIn link,
-page headings, phone menu) and [housekeeping](housekeeping.md) for repo-wide changes
+page headings, phone menu), [010 amendments](010-breach-statistics/amendments.md) (Trends tab)
+and [housekeeping](housekeeping.md) for repo-wide changes
 (commit identity, README). How a change is sized (feature, small change, trivial) is
 set out in [`CLAUDE.md`](../CLAUDE.md).
 
