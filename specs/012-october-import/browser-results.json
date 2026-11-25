@@ -1,0 +1,80 @@
+[
+ {
+  "id": "AC-6",
+  "name": "Per-month row: days, victims, per day, Sweden, groups match the stats file",
+  "ok": true,
+  "detail": "[\"November 2026 so far\",\"23\",\"906\",\"39.4\",\"5\",\"83\"]"
+ },
+ {
+  "id": "AC-6",
+  "name": "Sector grid: 17 sectors + Other, largest first, Other last, shares add up",
+  "ok": true,
+  "detail": "Not disclosed 19.1 % … Other 10.6 %"
+ },
+ {
+  "id": "AC-6",
+  "name": "Top groups: 10, the busiest first, with claims and share",
+  "ok": true,
+  "detail": "[[\"N0n\",\"101 · 11.1 %\"],[\"The Gentlemen\",\"84 · 9.3 %\"],[\"INC Ransom\",\"78 · 8.6 %\"]]"
+ },
+ {
+  "id": "AC-6",
+  "name": "A note says where the statistics start",
+  "ok": true,
+  "detail": "Statistics from 2 November 2026, 23 daily issues."
+ },
+ {
+  "id": "AC-7",
+  "name": "No errors or CSP violations in the console",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "id": "AC-6",
+  "name": "The month picker changes the groups list; November shows ▲/▼/new marks, October (first month) none",
+  "ok": true,
+  "detail": "Nov: [[\"N0n\",\"▲13\"],[\"The Gentlemen\",\"▲11\"],[\"INC Ransom\",\"▲9\"]] · Oct: [[\"Aoqin\",\"\"],[\"Play\",\"\"]]"
+ },
+ {
+  "id": "AC-6",
+  "name": "Two months give two grid columns and a change mark in each November cell",
+  "ok": true,
+  "detail": "3 columns, 18 marks"
+ },
+ {
+  "id": "AC-7",
+  "name": "The daily issue is on screen while Trends is still loading",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "id": "AC-7",
+  "name": "Without the stats file the issue still shows and Trends stays hidden",
+  "ok": true,
+  "detail": "{\"issue\":true,\"trends\":true}"
+ },
+ {
+  "id": "AC-7",
+  "name": "360 px with six months: no page-wide sideways scroll; the sector grid scrolls in its own box",
+  "ok": true,
+  "detail": "{\"page\":360,\"width\":360,\"boxScrolls\":true,\"bg\":\"rgb(14, 17, 22)\"}"
+ },
+ {
+  "id": "AC-7",
+  "name": "Keyboard: Tab reaches the per-month table, the sector grid and the month picker",
+  "ok": true,
+  "detail": "months-h → sector-grid-h → groups-month → A"
+ },
+ {
+  "id": "AC-7",
+  "name": "Dark theme applies (device setting)",
+  "ok": true,
+  "detail": "rgb(14, 17, 22)"
+ },
+ {
+  "id": "AC-7",
+  "name": "CSP on the Breaches page is unchanged and the same as the other pages",
+  "ok": true,
+  "detail": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'"
+ }
+]

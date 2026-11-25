@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | **Spec ID** | 012-october-import |
-| **Status** | Draft v1, waiting for "go" |
+| **Status** | Approved 2026-11-25 ("go" 10:57). Done, see [verification.md](./verification.md) |
 | **Owner** | smashytech |
 | **Builds on** | [003](../003-breach-wire-section/spec.md) (gatekeeper), [010](../010-breach-statistics/spec.md) (statistics), [011](../011-victim-name-check/spec.md) (independent name check) |
 | **Created** | 2026-11-25 |

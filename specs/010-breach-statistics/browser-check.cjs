@@ -45,7 +45,7 @@ async function open(browser, opts = {}, route) {
     const m = real.months[real.months.length - 1];
     const s = await p.evaluate(() => ({
       row: [...document.querySelectorAll('#trend-months tr')[0].children].map((c) => c.textContent.trim()),
-      sectors: [...document.querySelectorAll('#sector-grid tbody tr')].map((r) => [r.querySelector('th').textContent, r.querySelector('td .shade__share').textContent]),
+      sectors: [...document.querySelectorAll('#sector-grid tbody tr')].map((r) => [r.querySelector('th').textContent, [...r.querySelectorAll('td .shade__share')].pop().textContent]),
       groups: [...document.querySelectorAll('#top-groups li')].map((li) => [li.querySelector('.top-groups__name').textContent, li.querySelector('.top-groups__hits').textContent]),
       since: document.getElementById('trends-since').textContent,
     }));
