@@ -43,7 +43,7 @@ spec's `amendments.md`: request, decision, acceptance check, verification.
 - **Request:** "how do i fix these suggestions by web-check.xyz?" (missing CSP, HSTS, X-Frame-Options and X-Content-Type-Options headers; no DMARC record).
 - **Decision:** owner chose option C, **accept and document** the four header findings (GitHub Pages can't set headers; Cloudflare in front, or moving hosting, were offered and declined). `SECURITY.md` gets "Scanner findings we accept", with the reason for each and when to revisit. The DMARC finding is not accepted: the owner adds SPF and DMARC records at the domain registrar (the domain sends no email, so both say "reject").
 - **Check:** `SECURITY.md` explains each header finding; after the owner's DNS change, web-check no longer reports "No DMARC record".
-- **Verified:** *(header part after build; DMARC after the owner's DNS change)*
+- **Verified:** 2026-11-25. `SECURITY.md` has "Scanner findings we accept" with the reason for each header finding. The owner added the SPF and DMARC records at the registrar and confirmed web-check no longer reports "No DMARC record" (21:26).
 
 ## H6 · Licence (2026-11-25)
 
