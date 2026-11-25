@@ -892,3 +892,30 @@ input[type="search"]::placeholder { color: var(--muted); opacity: 0.8; }
   width: 1.2em; height: 1.2em; margin-right: 0.3em; vertical-align: -0.25em;
   fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
 }
+
+/* ---------- Breaches: Trends (spec 010) ---------- */
+.trends__since { margin: -6px 0 12px; }
+.trends__sub { font-size: 16px; margin: 22px 0 10px; }
+.trends__groups-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 16px; }
+.trends__picker { font-size: 14px; color: var(--text-2); display: inline-flex; align-items: center; gap: 8px; }
+.table-scroll { overflow-x: auto; max-width: 100%; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); }
+.trend-table { border-collapse: collapse; width: 100%; font-size: 14px; font-variant-numeric: tabular-nums; }
+.trend-table th, .trend-table td { padding: 8px 12px; text-align: right; white-space: nowrap; border-bottom: 1px solid var(--border); }
+.trend-table th[scope="row"], .trend-table thead th:first-child { text-align: left; }
+.trend-table thead th { font-weight: 600; color: var(--text-2); background: var(--surface-2); }
+.trend-table tbody tr:last-child > * { border-bottom: 0; }
+.sector-grid { width: auto; min-width: 60%; }
+.sector-grid th[scope="row"] { position: sticky; left: 0; background: var(--surface); z-index: 1; }
+.shade--1 { background: color-mix(in srgb, var(--accent) 8%, transparent); }
+.shade--2 { background: color-mix(in srgb, var(--accent) 16%, transparent); }
+.shade--3 { background: color-mix(in srgb, var(--accent) 26%, transparent); }
+.shade--4 { background: color-mix(in srgb, var(--accent) 38%, transparent); }
+.change { font-size: 12px; color: var(--text-2); }
+.top-groups { list-style: none; margin: 0; padding: 0; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); }
+.top-groups__row { display: grid; grid-template-columns: 3ch 1fr auto 4ch; gap: 12px; align-items: baseline; padding: 8px 12px; border-bottom: 1px solid var(--border); font-variant-numeric: tabular-nums; }
+.top-groups__row:last-child { border-bottom: 0; }
+.top-groups__rank { color: var(--text-2); text-align: right; }
+.top-groups__name { font-weight: 600; overflow-wrap: anywhere; }
+.top-groups__hits { color: var(--text-2); font-size: 14px; white-space: nowrap; }
+.move { font-size: 13px; text-align: right; }
+.move--new { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--accent); }

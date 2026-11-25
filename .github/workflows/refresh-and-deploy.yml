@@ -86,7 +86,7 @@ jobs:
           python3 -m unittest discover -s scripts -p "test_*.py" -v
           python3 scripts/add_sitrep.py --check   # every published Sitrep issue must still be valid
           python3 scripts/add_breachwire.py --check   # every Breach Wire issue must still be valid
-          node --test tests/stats.test.mjs tests/site.test.mjs tests/sitrep.test.mjs tests/breachwire.test.mjs tests/stack.test.mjs tests/presets.test.mjs tests/stack-store.test.mjs tests/opml.test.mjs tests/ui.test.mjs tests/contrast.test.mjs tests/theme.test.mjs tests/today.test.mjs
+          node --test tests/stats.test.mjs tests/site.test.mjs tests/sitrep.test.mjs tests/breachwire.test.mjs tests/stack.test.mjs tests/presets.test.mjs tests/stack-store.test.mjs tests/opml.test.mjs tests/ui.test.mjs tests/contrast.test.mjs tests/theme.test.mjs tests/today.test.mjs tests/breach-stats.test.mjs
           env LC_ALL=sv_SE.UTF-8 LANG=sv_SE.UTF-8 node --test tests/ui.test.mjs   # dates stay English in a Swedish setting
 
       - name: Fetch and validate the KEV catalog
@@ -125,6 +125,11 @@ jobs:
       # six fields) instead of the full 1.4 MB file. Derived, never committed.
       - name: Build the Today page's catalog slice
         run: python3 scripts/build_recent.py
+
+      # Spec 010: monthly Breach Wire numbers for the Trends section. Built from
+      # the checked issues; holds numbers, sector names and group names only.
+      - name: Build the Breach Wire statistics
+        run: python3 scripts/build_breach_stats.py
 
       - name: Package the site for GitHub Pages
         uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0

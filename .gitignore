@@ -15,3 +15,6 @@ site/feeds/*.xml
 site/feeds/vendors/
 site/feeds/vendors.json
 site/data/kev-recent.json
+
+# Breach Wire monthly statistics (spec 010), built on every deploy, never committed.
+site/data/breachwire-stats.json

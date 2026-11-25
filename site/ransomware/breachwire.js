@@ -12,6 +12,7 @@
 import { el, svgEl, numberFmt, formatDate, formatLongDate, formatShortDay, localToday, loadJSON } from "../ui.js";
 import { pickIssueDate } from "../sitrep-logic.js";
 import { swedenStatus, regionTotals, ransomwareKev, chartBars } from "../breachwire-logic.js";
+import { monthRows, sectorGrid, shadeLevel, topGroups, sinceLine, monthName } from "../breach-stats-logic.js";
 import { inStack } from "../stack-logic.js";
 import { readStack, renderStackLine } from "../stack-page.js";
 
@@ -40,7 +41,85 @@ async function init() {
     console.error(err);
     $("issue-line").textContent = "Couldn't load Breach Wire. Please try refreshing the page.";
   }
+  // Spec 010 NFR-3: Trends is fetched only after the issue is on the page.
+  const trends = loadTrends();
   renderKev(await kevPromise);
+  await trends;
+}
+
+// ---------- Trends (spec 010) ----------
+
+async function loadTrends() {
+  try {
+    const stats = await loadJSON("../data/breachwire-stats.json", { optional: true });
+    if (!stats || !Array.isArray(stats.months) || !stats.months.length) return;
+    renderTrends(stats);
+  } catch (err) {
+    console.error(err); // Trends is extra; the issue above stays usable.
+  }
+}
+
+function renderTrends(stats) {
+  $("trends-since").textContent = sinceLine(stats);
+
+  $("trend-months").replaceChildren(...monthRows(stats, localToday()).map((r) => el("tr", {}, [
+    el("th", { attrs: { scope: "row" } }, [document.createTextNode(r.label), ...(r.soFar ? [el("span", { className: "muted", text: " so far" })] : [])]),
+    el("td", { text: numberFmt.format(r.days) }),
+    el("td", { text: numberFmt.format(r.victims) }),
+    el("td", { text: r.perDay.toFixed(1) }),
+    el("td", { text: numberFmt.format(r.sweden) }),
+    el("td", { text: numberFmt.format(r.groupCount) }),
+  ])));
+
+  const grid = sectorGrid(stats);
+  const head = el("tr", {}, [el("th", { attrs: { scope: "col" }, text: "Sector" }),
+    ...grid.months.map((m) => el("th", { attrs: { scope: "col" }, text: monthName(m, { short: true }) + " " + m.slice(2, 4) }))]);
+  const body = grid.rows.map((row) => el("tr", {}, [
+    el("th", { attrs: { scope: "row" }, text: row.sector }),
+    ...row.cells.map((c) => el("td", { className: `shade shade--${shadeLevel(c.share)}`, attrs: { title: `${numberFmt.format(c.count)} claimed victims` } }, [
+      el("span", { className: "shade__share", text: `${c.share.toFixed(1)} %` }),
+      ...(c.change === null ? [] : [changeMark(c.change)]),
+    ])),
+  ]));
+  $("sector-grid").replaceChildren(
+    el("caption", { className: "visually-hidden", text: "Each sector's share of the month's claimed victims, and the change from the month before in percentage points" }),
+    el("thead", {}, [head]), el("tbody", {}, body));
+
+  const picker = $("groups-month");
+  picker.replaceChildren(...[...grid.months].reverse().map((m) => el("option", { attrs: { value: m }, text: monthName(m) })));
+  const draw = () => renderTopGroups(stats, picker.value);
+  picker.addEventListener("change", draw);
+  draw();
+  $("trends").hidden = false;
+}
+
+function changeMark(points) {
+  if (points === 0) return el("span", { className: "change change--same", text: " ±0", attrs: { "aria-label": "unchanged" } });
+  const up = points > 0;
+  return el("span", { className: `change change--${up ? "up" : "down"}`, text: ` ${up ? "▲" : "▼"}${Math.abs(points).toFixed(1)}`,
+    attrs: { "aria-label": `${up ? "up" : "down"} ${Math.abs(points).toFixed(1)} points` } });
+}
+
+const MOVES = {
+  new: () => ["new", "new", "first seen this month"],
+  entered: () => ["entered", "▲", "back in the top list"],
+  up: (m) => ["up", `▲${m.by}`, `up ${m.by}`],
+  down: (m) => ["down", `▼${m.by}`, `down ${m.by}`],
+  same: () => ["same", "–", "same rank"],
+};
+
+function renderTopGroups(stats, month) {
+  const items = topGroups(stats, month, 10).map((g) => {
+    const mark = g.move ? MOVES[g.move.kind](g.move) : null;
+    return el("li", { className: "top-groups__row" }, [
+      el("span", { className: "top-groups__rank", text: String(g.rank) }),
+      el("span", { className: "top-groups__name", text: g.name }),
+      el("span", { className: "top-groups__hits", text: `${numberFmt.format(g.hits)} · ${g.share.toFixed(1)} %` }),
+      mark ? el("span", { className: `move move--${mark[0]}`, text: mark[1], attrs: { title: mark[2], "aria-label": mark[2] } })
+        : el("span", { className: "move" }),
+    ]);
+  });
+  $("top-groups").replaceChildren(...items);
 }
 
 function showNotice(text) {

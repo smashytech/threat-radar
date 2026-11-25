@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | **Spec ID** | 010-breach-statistics |
-| **Status** | Approved v1 (owner confirmed the choices, 2026-11-25 10:21). In progress |
+| **Status** | Approved v1 (owner confirmed the choices, 2026-11-25 10:21). Done, see [verification.md](./verification.md) |
 | **Owner** | smashytech |
 | **Builds on** | [003](../003-breach-wire-section/spec.md), [008](../008-security-hardening/spec.md) |
 | **Followed by** | 011 (independent victim-name check), 012 (import October issues) |
