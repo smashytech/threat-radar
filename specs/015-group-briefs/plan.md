@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | **Spec** | [spec.md](./spec.md) |
-| **Status** | Draft v1, waiting for "go" |
+| **Status** | Approved 2026-11-25 ("go" 21:30). In progress |
 
 ```
  content/group-briefs.json  (written once, reviewed by the owner)  ─┐

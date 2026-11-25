@@ -96,10 +96,20 @@ export function tabFromHash(hash) {
   return String(hash).toLowerCase() === "#trends" ? "trends" : "issue";
 }
 
-/** Spec 013: name → { name, profile, date, issue } from breachwire-groups.json; malformed entries dropped. */
-export function profileIndex(data) {
-  const ok = (g) => g && typeof g.name === "string" && typeof g.profile === "string"
-    && /^\d{4}-\d{2}-\d{2}$/.test(String(g.date)) && Number.isInteger(g.issue);
+/** Spec 015: name → { name, brief?, firstSeen, activeDays, latestIssue } from breachwire-groups.json. */
+export function groupIndex(data) {
+  const day = (v) => /^\d{4}-\d{2}-\d{2}$/.test(String(v));
+  const ok = (g) => g && typeof g.name === "string" && (g.brief === undefined || typeof g.brief === "string")
+    && day(g.firstSeen) && day(g.latestIssue) && g.activeDays && typeof g.activeDays === "object";
   const list = data && Array.isArray(data.groups) ? data.groups.filter(ok) : [];
   return new Map(list.map((g) => [g.name, g]));
+}
+
+/** Spec 015: "First seen 2 Oct 2026 · active on 21 of 25 days in October" for the picked month. */
+export function factsLine(group, ym, daysCovered) {
+  const [y, m, d] = group.firstSeen.split("-").map(Number);
+  const first = `First seen ${d} ${MONTHS[m - 1].slice(0, 3)} ${y}`;
+  const active = group.activeDays[ym];
+  if (!active || !daysCovered) return first;
+  return `${first} · active on ${active} of ${daysCovered} days in ${MONTHS[Number(ym.slice(5)) - 1]}`;
 }

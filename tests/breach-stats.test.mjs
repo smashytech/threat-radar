@@ -3,7 +3,7 @@
 
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { monthName, monthRows, sectorGrid, shadeLevel, topGroups, sinceLine, tabFromHash, TABS, profileIndex } from "../site/breach-stats-logic.js";
+import { monthName, monthRows, sectorGrid, shadeLevel, topGroups, sinceLine, tabFromHash, TABS, groupIndex, factsLine } from "../site/breach-stats-logic.js";
 
 const SECTORS = ["Healthcare & life sciences", "Education", "Not disclosed", "Other"];
 const month = (m, victims, sectors, groups, newGroups = null, days = 30) =>
@@ -81,11 +81,20 @@ test("amendment A1: the address picks the tab; anything unknown opens today's is
   for (const h of ["", "#", "#issue", "#nope", "#trends-x"]) assert.equal(tabFromHash(h), "issue", h);
 });
 
-test("spec 013: profiles are found by the name Trends shows; bad or missing data gives none", () => {
-  const index = profileIndex({ groups: [{ name: "Akira", profile: "P.", date: "2026-11-24", issue: 94 }, { name: 5 }, null] });
-  assert.deepEqual(index.get("Akira"), { name: "Akira", profile: "P.", date: "2026-11-24", issue: 94 });
-  assert.equal(index.get("Qilin"), undefined);
-  assert.equal(index.size, 1, "malformed entries are dropped");
-  assert.equal(profileIndex(null).size, 0);
-  assert.equal(profileIndex({ groups: "nope" }).size, 0);
+test("spec 015: group info is found by the name Trends shows; malformed entries are dropped", () => {
+  const ok = { name: "Akira", brief: "B.", firstSeen: "2026-10-02", activeDays: { "2026-10": 21 }, latestIssue: "2026-11-24" };
+  const index = groupIndex({ groups: [ok, { ...ok, name: "Qilin", brief: undefined }, { name: 5 }, { ...ok, name: "X", firstSeen: "soon" }, null] });
+  assert.deepEqual(index.get("Akira"), ok);
+  assert.equal(index.get("Qilin").brief, undefined, "facts only is fine");
+  assert.equal(index.size, 2);
+  assert.equal(groupIndex(null).size, 0);
+  assert.equal(groupIndex({ groups: "nope" }).size, 0);
+});
+
+test("spec 015: the facts line follows the picked month", () => {
+  const g = { firstSeen: "2026-10-02", activeDays: { "2026-10": 21, "2026-11": 23 } };
+  assert.equal(factsLine(g, "2026-10", 25), "First seen 2 Oct 2026 · active on 21 of 25 days in October");
+  assert.equal(factsLine(g, "2026-11", 24), "First seen 2 Oct 2026 · active on 23 of 24 days in November");
+  assert.equal(factsLine({ ...g, activeDays: { "2026-11": 1 } }, "2026-11", 24), "First seen 2 Oct 2026 · active on 1 of 24 days in November");
+  assert.equal(factsLine(g, "2026-12", 0), "First seen 2 Oct 2026");
 });

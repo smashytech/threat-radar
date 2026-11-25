@@ -1,0 +1,94 @@
+{
+ "akira": {
+  "name": "Akira",
+  "brief": "Ransomware group active since March 2023, linked by researchers to former Conti members. Often gets in through VPN and edge-device weaknesses."
+ },
+ "aoqin": {
+  "name": "Aoqin",
+  "brief": "Leak site first tracked in November 2026. Posts company size and revenue with payment deadlines. Little public reporting so far."
+ },
+ "boobaproject": {
+  "name": "Booba Project",
+  "brief": "Smaller leak site tracked since July 2026, also posting as \"Booba Team\". Lists a sector and stolen-data size only. Little public reporting."
+ },
+ "braincipher": {
+  "name": "Brain Cipher",
+  "brief": "Ransomware group active since mid-2024, built on leaked LockBit code. Demands ransoms in Monero; often posts bare listings without details."
+ },
+ "climax": {
+  "name": "CLIMAX",
+  "brief": "Leak site first seen in November 2026. Posts only a sector and a website, without samples. Little public reporting so far."
+ },
+ "emperador": {
+  "name": "Emperador",
+  "brief": "Ransomware-as-a-service first seen in August 2026, at first aimed at Asia-Pacific municipal and government targets. Offers affiliates up to 90%."
+ },
+ "everest": {
+  "name": "Everest",
+  "brief": "Russian-speaking extortion group active since 2020. Also sells network access to other criminals; often uses stolen logins and remote desktop."
+ },
+ "incransom": {
+  "name": "INC Ransom",
+  "brief": "Prolific ransomware-as-a-service since mid-2023, focused on healthcare, government and education in North America and Europe."
+ },
+ "krybit": {
+  "name": "Krybit",
+  "brief": "Ransomware-as-a-service launched in March 2026, with lockers for Windows, Linux, ESXi and NAS. Known for a public feud with a rival group."
+ },
+ "lockbit5": {
+  "name": "LockBit5",
+  "brief": "LockBit 5.0: the September 2025 relaunch of the long-running LockBit operation after its 2024 takedown. Targets Windows, Linux and ESXi."
+ },
+ "medusalocker": {
+  "name": "MedusaLocker",
+  "brief": "Ransomware operation active since 2019, not the same as Medusa. Usually gets in through exposed remote desktop and phishing."
+ },
+ "n0n": {
+  "name": "N0n",
+  "brief": "Data-extortion group tracked since September 2026. Posts anonymised \"Company #NN\" teasers before naming victims, often with data inventories."
+ },
+ "nightspire": {
+  "name": "Nightspire",
+  "brief": "Double-extortion group active since March 2025 that quickly claimed hundreds of victims. Known for ransom deadlines as short as two days."
+ },
+ "panzer": {
+  "name": "Panzer",
+  "brief": "Ransomware-as-a-service tracked since August 2026; early claims focused on Indonesia. Little public reporting so far."
+ },
+ "pixelleaks": {
+  "name": "PixelLeaks",
+  "brief": "Leak site first seen in November 2026, posting batches of \"verified records\" notices with short deadlines. Treat its claims with caution."
+ },
+ "play": {
+  "name": "Play",
+  "brief": "Closed ransomware group (also PlayCrypt) active since 2022. Known for exploiting Fortinet and Exchange flaws and for partial encryption."
+ },
+ "qilin": {
+  "name": "Qilin",
+  "brief": "Ransomware-as-a-service (also Agenda) active since 2022, written in Go and Rust. One of the most prolific leak sites of 2025–26."
+ },
+ "rhysida": {
+  "name": "Rhysida",
+  "brief": "Ransomware-as-a-service active since mid-2023. Gets in through phishing and remote access, and auctions stolen data in \"lots\"."
+ },
+ "safepay": {
+  "name": "SafePay",
+  "brief": "Ransomware group active since late 2024 that runs attacks in-house, without affiliates. Often enters via Cisco firewalls and stolen VPN logins."
+ },
+ "soul": {
+  "name": "Soul",
+  "brief": "Site first seen in November 2026, posting company profiles without proof of stolen data. Its claims are unverified."
+ },
+ "thegentlemen": {
+  "name": "The Gentlemen",
+  "brief": "Ransomware-as-a-service since mid-2025 (also Storm-2697), with lockers for Windows, Linux and NAS and a 90% share for affiliates."
+ },
+ "vortex": {
+  "name": "Vortex",
+  "brief": "Data-extortion site first seen in November 2026, claiming Microsoft 365 and Salesforce data. Some of its claims have been called fabricated."
+ },
+ "wallstreet": {
+  "name": "Wallstreet",
+  "brief": "Smaller leak site tracked since June 2026, with no independent public profile yet. Recent claims centred on European engineering firms."
+ }
+}

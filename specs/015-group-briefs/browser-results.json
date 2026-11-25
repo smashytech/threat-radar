@@ -1,0 +1,62 @@
+[
+ {
+  "id": "AC-4",
+  "name": "The profiles are fetched only when Trends is opened",
+  "ok": true,
+  "detail": "0 → 1"
+ },
+ {
+  "id": "AC-3",
+  "name": "Each top group has an (i)",
+  "ok": true,
+  "detail": "10 of 10 have one"
+ },
+ {
+  "id": "AC-3",
+  "name": "Hover shows the written brief, the facts for the picked month and the latest issue",
+  "ok": true,
+  "detail": "N0nData-extortion group tracked since September 2026. Posts anonymised \"Company #NN\" teasers before naming victims, often with data inventories.First seen 1 Oct 2026 · active on 14 of 24 days in Novem"
+ },
+ {
+  "id": "AC-3",
+  "name": "Keyboard: Enter opens, Tab reaches the latest-issue link inside it, Escape closes",
+  "ok": true,
+  "detail": "true → Latest issue: Mon 23 Nov → → false"
+ },
+ {
+  "id": "AC-3",
+  "name": "The latest-issue link goes to that day's issue",
+  "ok": true,
+  "detail": "{\"url\":\"?d=2026-11-23\",\"tab\":\"tab-issue\"}"
+ },
+ {
+  "id": "AC-4",
+  "name": "No errors or CSP violations",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "id": "AC-3",
+  "name": "Picking October changes the facts to October",
+  "ok": true,
+  "detail": "The GentlemenRansomware-as-a-service since mid-2025 (also Storm-2697), with lockers for Windows, Linux and NAS and a 90% share for affiliates.First seen 1 Oct 2"
+ },
+ {
+  "id": "AC-3",
+  "name": "A gang without a brief shows its name, facts and link only",
+  "ok": true,
+  "detail": "group-tip__name,group-tip__facts,group-tip__source"
+ },
+ {
+  "id": "AC-4",
+  "name": "360 px, dark: a tap opens the bubble inside the screen; a tap elsewhere closes it",
+  "ok": true,
+  "detail": "{\"shown\":true,\"left\":29,\"right\":331,\"page\":360,\"width\":360,\"closed\":\"false\"}"
+ },
+ {
+  "id": "AC-4",
+  "name": "Without the profiles file, Trends works and shows no (i)",
+  "ok": true,
+  "detail": "10 rows, 0 tips"
+ }
+]

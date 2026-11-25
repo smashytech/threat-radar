@@ -129,42 +129,72 @@ def profiled(window, groups, issue_no=1):
     return i
 
 
-class GroupProfilesTest(unittest.TestCase):
-    """Spec 013: the latest profile per gang, for the (i) in Trends."""
+class GroupFactsTest(unittest.TestCase):
+    """Spec 015: per gang, a written brief (if any) and facts computed from the issues. No ledger text."""
 
-    def build(self, issues):
-        return stats.build_groups({i["date"]: i for i in issues})
+    def build(self, issues, briefs=None):
+        return stats.build_groups({i["date"]: i for i in issues}, briefs or {})
 
-    def test_newest_non_empty_profile_wins_and_spellings_merge(self):
-        g = self.build([profiled("2026-11-01", [("Akira", V, "Old words.")], 1),
-                        profiled("2026-11-02", [("AKIRA", V, "New words.")], 2),
-                        profiled("2026-11-03", [("Akira", V, "")], 3)])
-        entry = g["groups"][0]
-        self.assertEqual((entry["name"], entry["profile"], entry["issue"]), ("Akira", "New words.", 2))
-        self.assertEqual(entry["date"], (date(2026, 11, 2) + timedelta(days=1)).isoformat(), "the issue's date, for the link")
+    def test_facts_first_seen_days_active_and_latest_issue(self):
+        g = self.build([issue("2026-10-30", issue_no=1, groups=[("Akira", V)]),
+                        issue("2026-11-01", issue_no=2, groups=[("AKIRA", V - 1), ("Qilin", 1)]),
+                        issue("2026-11-02", issue_no=3, groups=[("Akira", V)])])
+        akira = next(e for e in g["groups"] if e["name"] == "Akira")
+        self.assertEqual(akira["firstSeen"], "2026-10-30", "the day its first claims were posted")
+        self.assertEqual(akira["activeDays"], {"2026-10": 1, "2026-11": 2})
+        self.assertEqual(akira["latestIssue"], "2026-11-03", "the send date of the newest issue that lists it")
+        qilin = next(e for e in g["groups"] if e["name"] == "Qilin")
+        self.assertEqual((qilin["firstSeen"], qilin["activeDays"]), ("2026-11-01", {"2026-11": 1}))
 
-    def test_a_gang_never_profiled_has_no_entry(self):
-        g = self.build([profiled("2026-11-01", [("Akira", V - 1, "Words."), ("Qilin", 1, "")])])
-        self.assertEqual([e["name"] for e in g["groups"]], ["Akira"])
+    def test_brief_is_attached_by_group_key(self):
+        briefs = {"akira": {"name": "Akira", "brief": "Ransomware group active since 2023."}}
+        g = self.build([issue("2026-11-01", groups=[("Akira", V - 1), ("Qilin", 1)])], briefs)
+        by_name = {e["name"]: e for e in g["groups"]}
+        self.assertEqual(by_name["Akira"]["brief"], "Ransomware group active since 2023.")
+        self.assertNotIn("brief", by_name["Qilin"], "no brief: facts only")
+
+    def test_no_ledger_text_reaches_the_file(self):
+        i = issue("2026-11-01", groups=[("Akira", V)])
+        i["groups"][0].update(profile="PLANTED-PROFILE", countries="PLANTED-COUNTRY", sectors="PLANTED-SECTOR")
+        g = self.build([i])
+        self.assertNotIn("PLANTED", json.dumps(g))
+        self.assertEqual(set(g["groups"][0]), {"name", "firstSeen", "activeDays", "latestIssue"})
 
     def test_names_match_trends(self):
-        issues = [profiled("2026-11-01", [("The Gentlemen", V, "A.")], 1), profiled("2026-11-02", [("THE GENTLEMEN", V, "B.")], 2),
-                  profiled("2026-11-03", [("The Gentlemen", V, "")], 3)]
+        issues = [issue("2026-11-01", issue_no=1, groups=[("The Gentlemen", V)]), issue("2026-11-02", issue_no=2, groups=[("THE GENTLEMEN", V)]),
+                  issue("2026-11-03", issue_no=3, groups=[("The Gentlemen", V)])]
         trends = stats.build({i["date"]: i for i in issues})
         self.assertEqual(self.build(issues)["groups"][0]["name"], trends["months"][0]["groups"][0]["name"])
 
-    def test_only_allow_listed_fields(self):
-        """AC-2: nothing but name, profile, date and issue number."""
-        i = profiled("2026-11-01", [("Akira", V, "Words.")])
-        i["groups"][0]["countries"] = "PLANTED-COUNTRY"
-        i["groups"][0]["sectors"] = "PLANTED-SECTOR"
-        text = json.dumps(self.build([i]))
-        self.assertNotIn("PLANTED", text)
-        self.assertEqual(set(self.build([i])["groups"][0]), {"name", "profile", "date", "issue"})
-
     def test_same_issues_same_bytes(self):
-        issues = [profiled("2026-11-01", [("Akira", V - 1, "A."), ("Qilin", 1, "Q.")], 1), profiled("2026-11-02", [("Play", V, "P.")], 2)]
+        issues = [issue("2026-11-01", issue_no=1, groups=[("Akira", V - 1), ("Qilin", 1)]), issue("2026-11-02", issue_no=2, groups=[("Play", V)])]
         self.assertEqual(stats.to_text(self.build(issues)), stats.to_text(self.build(list(reversed(issues)))))
+
+
+class BriefsFileTest(unittest.TestCase):
+    """Spec 015 FR-1: the written briefs follow the format rules."""
+
+    def test_the_real_briefs_file_is_valid(self):
+        briefs = stats.load_briefs(stats.BRIEFS)
+        for key, entry in briefs.items():
+            self.assertEqual(key, add_breachwire.group_key(entry["name"]))
+
+    def test_format_rules(self):
+        ok = {"akira": {"name": "Akira", "brief": "Ransomware group active since 2023, often entering through VPN appliances."}}
+        self.assertEqual(stats.validate_briefs(ok), ok)
+        bad = [
+            {"akira": {"name": "Akira", "brief": "x" * 161}},                                  # too long
+            {"akira": {"name": "Akira", "brief": "Posts on akira2xyz.onion daily."}},          # leak-site address
+            {"akira": {"name": "Akira", "brief": "See https://example.org for more."}},        # web address
+            {"akira": {"name": "Akira", "brief": "Hit example.com last week."}},               # domain
+            {"akira": {"name": "Akira", "brief": "<b>bold</b>"}},                              # markup
+            {"akira": {"name": "Akira", "brief": ""}},                                         # empty
+            {"qilin": {"name": "Akira", "brief": "Fine text."}},                               # key doesn't match name
+            {"akira": {"name": "Akira", "brief": "Fine text.", "extra": "x"}},                 # unknown field
+        ]
+        for b in bad:
+            with self.assertRaises(stats.BriefError, msg=json.dumps(b)):
+                stats.validate_briefs(b)
 
 
 class CliTest(unittest.TestCase):
@@ -172,12 +202,13 @@ class CliTest(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             data = Path(tmp)
             write(data / "breachwire", [issue("2026-11-01")])
-            self.assertEqual(stats.main(["--data", str(data)]), 0)
+            self.assertEqual(stats.main(["--data", str(data), "--briefs", str(data / "none.json")]), 0)
             out = json.loads((data / "breachwire-stats.json").read_text("utf-8"))
             self.assertEqual(out["issues"], 1)
             self.assertEqual(add_breachwire.check(data / "breachwire"), 1, "the gatekeeper's folder stays clean")
             groups = json.loads((data / "breachwire-groups.json").read_text("utf-8"))
             self.assertEqual(len(groups["groups"]), len(VALID["groups"]))
+            self.assertTrue(all("profile" not in g for g in groups["groups"]))
 
 
 if __name__ == "__main__":

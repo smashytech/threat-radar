@@ -15,6 +15,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 from collections import Counter, defaultdict
 from pathlib import Path
@@ -24,7 +25,8 @@ import add_breachwire as bw  # noqa: E402
 
 DEFAULT_DATA = Path(__file__).resolve().parent.parent / "site" / "data"
 OUT_NAME = "breachwire-stats.json"
-GROUPS_NAME = "breachwire-groups.json"  # spec 013
+GROUPS_NAME = "breachwire-groups.json"  # spec 013, reworked in spec 015
+BRIEFS = Path(__file__).resolve().parent.parent / "content" / "group-briefs.json"  # spec 015, written by hand
 TOP_GROUPS = 15
 ALL_SECTORS = bw.SECTORS + [bw.OTHER_SECTOR]
 
@@ -90,19 +92,65 @@ def build(issues: dict[str, dict]) -> dict:
     }
 
 
-def build_groups(issues: dict[str, dict]) -> dict:
-    """Spec 013: each gang's most recent non-empty profile, for the (i) in Trends.
-    Copies only the display name, the profile text and which issue it came from;
-    that text was already published in that issue and passed both name checks."""
+class BriefError(ValueError):
+    """content/group-briefs.json breaks a format rule (spec 015)."""
+
+
+BRIEF_MAX = 160
+BRIEF_FIELDS = {"name", "brief"}
+# A brief must not point anywhere: no web addresses, domains or leak-site (.onion) addresses.
+ADDRESS_RE = re.compile(r"https?://|www\.|\.onion\b|\b[a-z0-9-]+\.[a-z]{2,}\b", re.I)
+MARKUP_RE = re.compile(r"[<>{}\x00-\x1f]")
+
+
+def validate_briefs(data: object) -> dict:
+    """Spec 015 FR-1: {group key: {"name", "brief"}}, each brief one or two plain sentences."""
+    if not isinstance(data, dict):
+        raise BriefError("the briefs file must be an object keyed by group")
+    for key, entry in data.items():
+        if not isinstance(entry, dict) or set(entry) != BRIEF_FIELDS:
+            raise BriefError(f"{key}: needs exactly the fields name and brief")
+        name, brief = entry["name"], entry["brief"]
+        if not isinstance(name, str) or bw.group_key(name) != key:
+            raise BriefError(f"{key}: the key must be the group key of its name")
+        if not isinstance(brief, str) or not brief.strip():
+            raise BriefError(f"{key}: empty brief")
+        if len(brief) > BRIEF_MAX:
+            raise BriefError(f"{key}: brief is {len(brief)} characters (at most {BRIEF_MAX})")
+        if ADDRESS_RE.search(brief):
+            raise BriefError(f"{key}: briefs may not contain web addresses or domains")
+        if MARKUP_RE.search(brief) or MARKUP_RE.search(name):
+            raise BriefError(f"{key}: plain text only")
+    return data
+
+
+def load_briefs(path: Path) -> dict:
+    if not path.exists():
+        return {}
+    return validate_briefs(json.loads(path.read_text("utf-8")))
+
+
+def build_groups(issues: dict[str, dict], briefs: dict) -> dict:
+    """Spec 015: per gang, its written brief (if any) and facts from the issues:
+    first day its claims were posted, days active per month, newest issue listing it.
+    No text from the emails (ledger profiles) is copied."""
     names = display_names(issues)
-    latest: dict[str, dict] = {}
+    first, latest, active = {}, {}, defaultdict(Counter)
     for day in sorted(issues):
         issue = issues[day]
-        for g in issue["groups"]:
-            if g["profile"].strip():
-                key = bw.group_key(g["name"])
-                latest[key] = {"name": names[key], "profile": g["profile"], "date": issue["date"], "issue": issue["issue"]}
-    return {"groups": sorted(latest.values(), key=lambda e: (e["name"].lower(), e["name"]))}
+        for key in {bw.group_key(g["name"]) for g in issue["groups"]}:
+            first.setdefault(key, issue["window"])
+            first[key] = min(first[key], issue["window"])
+            latest[key] = max(latest.get(key, ""), issue["date"])
+            active[key][issue["window"][:7]] += 1
+    out = []
+    for key in names:
+        entry = {"name": names[key]}
+        if key in briefs:
+            entry["brief"] = briefs[key]["brief"]
+        entry.update(firstSeen=first[key], activeDays=dict(sorted(active[key].items())), latestIssue=latest[key])
+        out.append(entry)
+    return {"groups": sorted(out, key=lambda e: (e["name"].lower(), e["name"]))}
 
 
 def to_text(stats: dict) -> str:
@@ -112,6 +160,7 @@ def to_text(stats: dict) -> str:
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--data", type=Path, default=DEFAULT_DATA, help="the site's data folder")
+    parser.add_argument("--briefs", type=Path, default=BRIEFS, help="the written group briefs (spec 015)")
     args = parser.parse_args(argv)
     try:
         stats = build(bw.load_stored(args.data / "breachwire"))
@@ -121,9 +170,15 @@ def main(argv: list[str] | None = None) -> int:
     out = args.data / OUT_NAME
     bw.write_atomic(out, to_text(stats))
     print(f"Wrote {out.name}: {stats['issues']} issues, {len(stats['months'])} months.")
-    groups = build_groups(bw.load_stored(args.data / "breachwire"))
+    try:
+        briefs = load_briefs(args.briefs)
+    except (BriefError, json.JSONDecodeError) as err:
+        print(f"Refused: {args.briefs.name}: {err}", file=sys.stderr)
+        return 1
+    groups = build_groups(bw.load_stored(args.data / "breachwire"), briefs)
     bw.write_atomic(args.data / GROUPS_NAME, to_text(groups))
-    print(f"Wrote {GROUPS_NAME}: {len(groups['groups'])} group profiles.")
+    with_brief = sum("brief" in g for g in groups["groups"])
+    print(f"Wrote {GROUPS_NAME}: {len(groups['groups'])} groups, {with_brief} with a written brief.")
     return 0
 
 

@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | **Spec ID** | 015-group-briefs |
-| **Status** | Draft v1, waiting for "go" |
+| **Status** | Approved 2026-11-25 ("go" 21:30). In progress |
 | **Owner** | smashytech |
 | **Replaces** | [013](../013-group-info/spec.md)'s source of text (the newest ledger profile) |
 | **Created** | 2026-11-25 |
