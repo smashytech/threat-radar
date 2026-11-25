@@ -105,10 +105,14 @@ export function groupIndex(data) {
   return new Map(list.map((g) => [g.name, g]));
 }
 
-/** Spec 015: "First seen 2 Oct 2026 · active on 21 of 25 days in October" for the picked month. */
-export function factsLine(group, ym, daysCovered) {
+/**
+ * Spec 015: "In Breach Wire since 2 Oct 2026 · active on 21 of 25 days in October" for the picked month.
+ * `since` is the first day of our records: a gang seen that day may well be older.
+ */
+export function factsLine(group, ym, daysCovered, since) {
   const [y, m, d] = group.firstSeen.split("-").map(Number);
-  const first = `First seen ${d} ${MONTHS[m - 1].slice(0, 3)} ${y}`;
+  const date = `${d} ${MONTHS[m - 1].slice(0, 3)} ${y}`;
+  const first = group.firstSeen === since ? `In Breach Wire since our records began (${date})` : `In Breach Wire since ${date}`;
   const active = group.activeDays[ym];
   if (!active || !daysCovered) return first;
   return `${first} · active on ${active} of ${daysCovered} days in ${MONTHS[Number(ym.slice(5)) - 1]}`;

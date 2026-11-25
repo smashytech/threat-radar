@@ -65,7 +65,7 @@ async function open(browser, opts = {}, route) {
     const g = byName.get(first.name);
     const month = latest.month, monthName = new Date(month + '-01T00:00:00Z').toLocaleString('en', { month: 'long', timeZone: 'UTC' });
     check('AC-3', 'Hover shows the written brief, the facts for the picked month and the latest issue',
-      hover.visible && hover.text.includes(g.brief) && hover.text.includes('First seen') && hover.text.includes(`days in ${monthName}`)
+      hover.visible && hover.text.includes(g.brief) && hover.text.includes('In Breach Wire since') && hover.text.includes(`days in ${monthName}`)
       && hover.text.includes('Latest issue') && !/From Breach Wire №/.test(hover.text), hover.text.slice(0, 200));
     await p.screenshot({ path: path.join(OUT, 'tip-desktop.png'), clip: { x: 0, y: (await tip.boundingBox()).y - 200, width: 1280, height: 420 } });
 

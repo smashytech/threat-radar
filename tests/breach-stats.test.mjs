@@ -91,10 +91,11 @@ test("spec 015: group info is found by the name Trends shows; malformed entries 
   assert.equal(groupIndex({ groups: "nope" }).size, 0);
 });
 
-test("spec 015: the facts line follows the picked month", () => {
+test("spec 015: the facts line follows the picked month and says when our records began", () => {
   const g = { firstSeen: "2026-10-02", activeDays: { "2026-10": 21, "2026-11": 23 } };
-  assert.equal(factsLine(g, "2026-10", 25), "First seen 2 Oct 2026 · active on 21 of 25 days in October");
-  assert.equal(factsLine(g, "2026-11", 24), "First seen 2 Oct 2026 · active on 23 of 24 days in November");
-  assert.equal(factsLine({ ...g, activeDays: { "2026-11": 1 } }, "2026-11", 24), "First seen 2 Oct 2026 · active on 1 of 24 days in November");
-  assert.equal(factsLine(g, "2026-12", 0), "First seen 2 Oct 2026");
+  assert.equal(factsLine(g, "2026-10", 25, "2026-10-01"), "In Breach Wire since 2 Oct 2026 · active on 21 of 25 days in October");
+  assert.equal(factsLine(g, "2026-11", 24, "2026-10-01"), "In Breach Wire since 2 Oct 2026 · active on 23 of 24 days in November");
+  assert.equal(factsLine({ ...g, firstSeen: "2026-10-01" }, "2026-11", 24, "2026-10-01"),
+    "In Breach Wire since our records began (1 Oct 2026) · active on 23 of 24 days in November");
+  assert.equal(factsLine(g, "2026-12", 0, "2026-10-01"), "In Breach Wire since 2 Oct 2026");
 });

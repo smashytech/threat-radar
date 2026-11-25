@@ -160,14 +160,16 @@ function groupTip(name, rank, month, daysCovered) {
   return infoTip(`group-tip-${rank}`, `About ${name}`, [
     el("strong", { className: "group-tip__name", text: name }),
     ...(g.brief ? [el("span", { className: "group-tip__brief", text: g.brief })] : []),
-    el("span", { className: "group-tip__facts", text: factsLine(g, month, daysCovered) }),
+    el("span", { className: "group-tip__facts", text: factsLine(g, month, daysCovered, statsFrom) }),
     el("span", { className: "group-tip__source" }, [
       el("a", { text: `Latest issue: ${formatShortDay(g.latestIssue)} →`, attrs: { href: `?d=${encodeURIComponent(g.latestIssue)}` } }),
     ]),
   ], { className: "info-tip--group" });
 }
 
+let statsFrom = null;
 function renderTopGroups(stats, month) {
+  statsFrom = stats.from;
   const daysCovered = stats.months.find((m) => m.month === month)?.days ?? 0;
   const items = topGroups(stats, month, 10).map((g) => {
     const mark = g.move ? MOVES[g.move.kind](g.move) : null;
