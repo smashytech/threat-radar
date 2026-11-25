@@ -40,6 +40,23 @@ specs under [`specs/`](specs).
   If the list can't be fetched, Breach Wire waits for the next run; the rest of
   the site still updates.
 
+## Scanner findings we accept
+
+Website scanners (for example web-check.xyz) report these for zelin.se. They are
+known and accepted: GitHub Pages, which hosts the site, does not let a site set
+its own response headers, and moving hosting isn't worth it for these.
+
+| Scanner finding | Why it is accepted |
+|---|---|
+| Missing Content-Security-Policy | The policy **is** in place, as a `<meta>` tag in every page; browsers enforce it. Scanners only read response headers, so they can't see it. A test checks that every page carries it |
+| Missing Strict-Transport-Security / No HSTS | GitHub Pages already forces https and redirects http. Without HSTS, only a visitor's very first visit over plain http could be intercepted before that redirect |
+| Missing X-Frame-Options | Can't be set with a tag. Framing ("clickjacking") needs something worth clicking; the site has no logins, forms or actions |
+| Missing X-Content-Type-Options | Can't be set with a tag. Every file is served from this repository, and the CSP allows scripts from this site only |
+
+If the site ever gets logins, forms or user content, these need real headers:
+put a proxy such as Cloudflare in front, or move to hosting that reads a
+`_headers` file.
+
 ## A victim name reached the repository
 
 What to do when the independent check reports *"A victim name was found in

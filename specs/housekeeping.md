@@ -37,3 +37,10 @@ spec's `amendments.md`: request, decision, acceptance check, verification.
 - **Check:** GitHub's community profile lists the code of conduct; no email address in the file; README links to it.
 - **Verified:** 2026-11-25. GitHub's community profile recognises it as "Contributor Covenant" (community health 28 % → 42 %); no email address in the file; README links to it. Text checked against the official 2.1 wording (one word corrected: "email").
 
+
+## H5 · Accepted scanner findings (2026-11-25)
+
+- **Request:** "how do i fix these suggestions by web-check.xyz?" (missing CSP, HSTS, X-Frame-Options and X-Content-Type-Options headers; no DMARC record).
+- **Decision:** owner chose option C, **accept and document** the four header findings (GitHub Pages can't set headers; Cloudflare in front, or moving hosting, were offered and declined). `SECURITY.md` gets "Scanner findings we accept", with the reason for each and when to revisit. The DMARC finding is not accepted: the owner adds SPF and DMARC records at the domain registrar (the domain sends no email, so both say "reject").
+- **Check:** `SECURITY.md` explains each header finding; after the owner's DNS change, web-check no longer reports "No DMARC record".
+- **Verified:** *(header part after build; DMARC after the owner's DNS change)*
