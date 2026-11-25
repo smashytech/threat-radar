@@ -26,3 +26,13 @@ spec's `amendments.md`: request, decision, acceptance check, verification.
 - **Request:** "have we drifted from spec driven development?" Owner approved the three classes: feature, small change, trivial.
 - **Decision:** the rule is in `CLAUDE.md`; this file and the spec 007 amendments record the changes made without a spec before the rule existed.
 - **Check:** future changes name their class before code is written.
+
+## H4 · Code of conduct (2026-11-25)
+
+- **Request:** "we need a code of conduct document as well. Don't know if it should be linked somewhere on the page as well or not?"
+- **Decision:**
+  - `CODE_OF_CONDUCT.md` in the repo root, using the **Contributor Covenant 2.1** (owner's choice), with its required credit line.
+  - Reports go to the owner by **LinkedIn message** (owner's choice; the link is already public in the site footer). No email address is added.
+  - It covers the repository (issues, pull requests, any future discussions). It is **not** linked from the website, which has no comments or accounts; the README gets one line pointing to it.
+- **Check:** GitHub's community profile lists the code of conduct; no email address in the file; README links to it.
+- **Verified:** *(after build)*

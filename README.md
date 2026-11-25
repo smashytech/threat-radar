@@ -45,6 +45,7 @@ text, and loads nothing from other servers. The automation uses pinned actions w
 minimal permissions, and the deploy gate keeps the bots in their lane.
 
 Found a problem? Please report it privately: see [SECURITY.md](SECURITY.md).
+Taking part in issues or pull requests? See the [code of conduct](CODE_OF_CONDUCT.md).
 
 ## Run it yourself
 
