@@ -161,6 +161,19 @@ class IssueFeeds(unittest.TestCase):
         flagged = [e.findtext(f"{ATOM}title") for e in es if "action needed" in e.findtext(f"{ATOM}title").lower()]
         self.assertEqual(flagged, ["Cyber Sitrep, Fri 2 Oct 2026 (action needed)"])
 
+    def test_breachwire_credits_its_sources(self):
+        """Spec 005 amendment A1: Ransomware.live's terms ask for the source, with a link, wherever its data is shown."""
+        index = {"issues": [breachwire(76, "2026-11-07"), breachwire(73, "2026-11-04", sweden=1)]}
+        feed = assert_valid_atom(self, build_feeds.breachwire_feed(index, BASE))
+        ns = {"a": "http://www.w3.org/2005/Atom"}
+        self.assertIn("Source: Ransomware.live (https://www.ransomware.live/) and RansomLook (https://www.ransomlook.io/)", feed.find("a:rights", ns).text)
+        entries = feed.findall("a:entry", ns)
+        self.assertTrue(entries)
+        for e in entries:
+            self.assertTrue(e.find("a:summary", ns).text.endswith("Source: Ransomware.live and RansomLook."))
+            related = [l.get("href") for l in e.findall("a:link[@rel='related']", ns)]
+            self.assertEqual(related, ["https://www.ransomware.live/", "https://www.ransomlook.io/"])
+
     def test_breachwire_stats_only_never_names(self):
         index = {"issues": [breachwire(76, "2026-11-07"), breachwire(73, "2026-11-04", sweden=1)]}
         index["issues"][0]["victimNames"] = ["Northwind Traders"]  # planted: must never be published

@@ -26,7 +26,7 @@ the table says so.
 
 **Small changes** are recorded as amendments in the spec that owns the area:
 [007 amendments](007-briefing-redesign/amendments.md) (tooltip, coffee cup, LinkedIn link,
-page headings, phone menu), [003 amendments](003-breach-wire-section/amendments.md) (`/breaches/` address), [010 amendments](010-breach-statistics/amendments.md) (Trends tab)
+page headings, phone menu), [003 amendments](003-breach-wire-section/amendments.md) (`/breaches/` address), [005 amendments](005-feeds-and-alerts/amendments.md) (source credit in feed and alerts), [010 amendments](010-breach-statistics/amendments.md) (Trends tab)
 and [housekeeping](housekeeping.md) for repo-wide changes
 (commit identity, README). How a change is sized (feature, small change, trivial) is
 set out in [`CLAUDE.md`](../CLAUDE.md).

@@ -131,6 +131,14 @@ class IssueMessages(unittest.TestCase):
             self.assertIn(part, shown)
         self.assertIsNone(notify_slack.sitrep_message([], BASE))
 
+    def test_breachwire_alert_credits_its_sources(self):
+        """Spec 005 amendment A1: the alert names Ransomware.live and RansomLook, linked."""
+        msg = notify_slack.breachwire_message([breachwire(76, "2026-11-07")], BASE)
+        last = msg["blocks"][-1]
+        self.assertEqual(last["type"], "context")
+        self.assertEqual(last["elements"][0]["text"],
+                         "Source: <https://www.ransomware.live/|Ransomware.live> and <https://www.ransomlook.io/|RansomLook>")
+
     def test_breachwire_with_sweden_hit_and_no_names(self):
         issue = breachwire(73, "2026-11-04", sweden=1)
         issue["victimNames"] = ["Northwind Traders"]  # planted: must never be sent

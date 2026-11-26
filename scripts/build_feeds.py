@@ -122,8 +122,9 @@ def timestamp(iso_day: str) -> str:
     return f"{iso_day}T00:00:00Z"
 
 
-def atom_feed(feed_id: str, title: str, subtitle: str, self_url: str, site_url: str, items: list[dict]) -> bytes:
-    """items: dicts with id, title, link, day, summary and optional categories."""
+def atom_feed(feed_id: str, title: str, subtitle: str, self_url: str, site_url: str, items: list[dict],
+              rights: str | None = None) -> bytes:
+    """items: dicts with id, title, link, day, summary and optional categories and related (links)."""
     feed = ET.Element(f"{{{ATOM_NS}}}feed")
     sub(feed, "id", TAG + feed_id)
     sub(feed, "title", title)
@@ -132,6 +133,8 @@ def atom_feed(feed_id: str, title: str, subtitle: str, self_url: str, site_url: 
     sub(feed, "link", rel="alternate", type="text/html", href=site_url)
     newest = max((item["day"] for item in items), default=EMPTY_FEED_DATE)
     sub(feed, "updated", timestamp(newest))
+    if rights:
+        sub(feed, "rights", rights)
     author = sub(feed, "author")
     sub(author, "name", "Threat Radar")
     for item in items:
@@ -139,6 +142,8 @@ def atom_feed(feed_id: str, title: str, subtitle: str, self_url: str, site_url: 
         sub(entry, "id", TAG + item["id"])
         sub(entry, "title", item["title"])
         sub(entry, "link", rel="alternate", type="text/html", href=item["link"])
+        for href in item.get("related", []):
+            sub(entry, "link", rel="related", type="text/html", href=href)
         sub(entry, "published", timestamp(item["day"]))
         sub(entry, "updated", timestamp(item["day"]))
         for term in item.get("categories", []):
@@ -229,6 +234,14 @@ def sitrep_feed(index: dict, base: str) -> bytes:
                      "The daily cybersecurity situation report.", f"{base}feeds/sitrep.xml", f"{base}sitrep/", items)
 
 
+# Spec 005 amendment A1: Ransomware.live's terms ask for the source, with a link,
+# wherever its data is shown. RansomLook is credited the same way.
+BREACHWIRE_SOURCES = ["https://www.ransomware.live/", "https://www.ransomlook.io/"]
+BREACHWIRE_RIGHTS = ("Leak-site data: Source: Ransomware.live (https://www.ransomware.live/) and "
+                     "RansomLook (https://www.ransomlook.io/). Non-commercial use.")
+BREACHWIRE_CREDIT = "Source: Ransomware.live and RansomLook."
+
+
 def breachwire_feed(index: dict, base: str) -> bytes:
     items = []
     for i in latest(index, BREACHWIRE_FIELDS):
@@ -243,11 +256,13 @@ def breachwire_feed(index: dict, base: str) -> bytes:
             "day": i["date"],
             "summary": f"{plural(victims, 'claimed victim', 'claimed victims')} across {plural(countries, 'country', 'countries')}, "
                        f"posted by {plural(groups, 'group', 'groups')}. {sweden_text} "
-                       f"Leak-site claims from {long_day(i['window'])} (UTC). Statistics only, never victim names.",
+                       f"Leak-site claims from {long_day(i['window'])} (UTC). Statistics only, never victim names. "
+                       f"{BREACHWIRE_CREDIT}",
+            "related": BREACHWIRE_SOURCES,
         })
     return atom_feed("feeds/breachwire", "Threat Radar: Breach Wire",
                      "Daily ransomware and extortion leak-site statistics and threat groups. Never victim names.",
-                     f"{base}feeds/breachwire.xml", f"{base}breaches/", items)
+                     f"{base}feeds/breachwire.xml", f"{base}breaches/", items, rights=BREACHWIRE_RIGHTS)
 
 
 # ---------- Command line ----------
