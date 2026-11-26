@@ -1,0 +1,328 @@
+{
+  "date": "2026-11-26",
+  "issue": 95,
+  "window": "2026-11-25",
+  "stats": {
+    "victims": 76,
+    "groups": 18,
+    "countries": 14,
+    "regions": 6
+  },
+  "sweden": 0,
+  "regions": [
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 21
+        },
+        {
+          "country": "Canada",
+          "flag": "🇨🇦",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "region": "Europe",
+      "countries": [
+        {
+          "country": "United Kingdom",
+          "flag": "🇬🇧",
+          "count": 6
+        },
+        {
+          "country": "Germany",
+          "flag": "🇩🇪",
+          "count": 1
+        },
+        {
+          "country": "Italy",
+          "flag": "🇮🇹",
+          "count": 1
+        },
+        {
+          "country": "North Macedonia",
+          "flag": "🇲🇰",
+          "count": 1
+        },
+        {
+          "country": "Poland",
+          "flag": "🇵🇱",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Middle East",
+      "countries": [
+        {
+          "country": "Palestine",
+          "flag": "🇵🇸",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Latin America & Caribbean",
+      "countries": [
+        {
+          "country": "Mexico",
+          "flag": "🇲🇽",
+          "count": 3
+        },
+        {
+          "country": "Peru",
+          "flag": "🇵🇪",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Asia",
+      "countries": [
+        {
+          "country": "Indonesia",
+          "flag": "🇮🇩",
+          "count": 1
+        },
+        {
+          "country": "Japan",
+          "flag": "🇯🇵",
+          "count": 1
+        },
+        {
+          "country": "Philippines",
+          "flag": "🇵🇭",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Oceania",
+      "countries": [
+        {
+          "country": "Australia",
+          "flag": "🇦🇺",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Unattributed",
+      "countries": [
+        {
+          "country": "Country not disclosed",
+          "flag": "🏳️",
+          "count": 32
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Not disclosed",
+      "count": 34
+    },
+    {
+      "sector": "Manufacturing & industrial",
+      "count": 8
+    },
+    {
+      "sector": "Retail & e-commerce",
+      "count": 8
+    },
+    {
+      "sector": "Financial services & insurance",
+      "count": 6
+    },
+    {
+      "sector": "Education",
+      "count": 4
+    },
+    {
+      "sector": "Technology & telecom",
+      "count": 4
+    },
+    {
+      "sector": "Professional services",
+      "count": 3
+    },
+    {
+      "sector": "Energy, utilities & resources",
+      "count": 2
+    },
+    {
+      "sector": "Food & agriculture",
+      "count": 2
+    },
+    {
+      "sector": "Healthcare & life sciences",
+      "count": 2
+    },
+    {
+      "sector": "Transportation & logistics",
+      "count": 2
+    },
+    {
+      "sector": "Hospitality & leisure",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "The Gentlemen",
+      "hits": 27,
+      "profile": "RaaS (aka Storm-2697) since mid-2025; Go-based locker for Windows/Linux/NAS/BSD, 90% affiliate split, domain-wide deployment via Group Policy.",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "N0n",
+      "hits": 22,
+      "profile": "Data-extortion site (emerged Sept 2026) that first posts bulk “Company #NNN” placeholders, then reveals names when unpaid (DeXpose has tracked its placeholder claims).",
+      "countries": "Canada, Mexico, Philippines, United Kingdom, United States",
+      "sectors": "Energy & Utilities, Financial Services, Healthcare, Manufacturing, Retail & E-Commerce, Sector not disclosed, Technology, Transportation"
+    },
+    {
+      "name": "Aurora",
+      "hits": 4,
+      "profile": "Newer leak site posting long, sector-tagged write-ups with redacted item lists; seen daily in recent issues.",
+      "countries": "Germany, United Kingdom, United States, not disclosed",
+      "sectors": "Agriculture and Food Production, Manufacturing, Retail & E-Commerce"
+    },
+    {
+      "name": "Space Bears",
+      "hits": 4,
+      "profile": "Data-extortion brand seen since April 2024, corporate-style leak pages; reported links to the Phobos ecosystem. Four names posted together around 02:22–04:44 UTC.",
+      "countries": "Australia, Mexico, North Macedonia, Poland",
+      "sectors": "Energy & Utilities, Professional Services, Sector not disclosed (feed: Other), Technology"
+    },
+    {
+      "name": "Qilin",
+      "hits": 3,
+      "profile": "Prolific RaaS (aka Agenda) since 2022; Rust/Go lockers, VMware ESXi targeting, double extortion. Two US colleges today, listed with no description.",
+      "countries": "United States, not disclosed",
+      "sectors": "Education, Manufacturing"
+    },
+    {
+      "name": "Climax",
+      "hits": 2,
+      "profile": "Little-documented leak site (Ransomware.live: “ClimaxInc”); posts name plus a sector line only. Feeds merged.",
+      "countries": "Indonesia, Peru",
+      "sectors": "Manufacturing, Retail & E-Commerce"
+    },
+    {
+      "name": "Dark Project",
+      "hits": 2,
+      "profile": "Leak site posting boilerplate “fell victim to a cyberattack” notices with volume claims.",
+      "countries": "Japan, United States",
+      "sectors": "Manufacturing, Sector not disclosed (feed: Other)"
+    },
+    {
+      "name": "SilentRansomGroup",
+      "hits": 2,
+      "profile": "SilentRansomGroup (aka Luna Moth / Chatty Spider, ex-Conti team): data extortion without encryption, known for callback-phishing and helpdesk vishing against US law firms. RansomLook tracks its site as “leakeddata”.",
+      "countries": "United States",
+      "sectors": "Professional Services"
+    },
+    {
+      "name": "Anubis",
+      "hits": 1,
+      "profile": "RaaS active since December 2024 with an optional destructive “wipe mode”; heavy healthcare focus.",
+      "countries": "United States",
+      "sectors": "Healthcare"
+    },
+    {
+      "name": "BrainCipher",
+      "hits": 1,
+      "profile": "Active since July 2024; uses a leaked LockBit Black builder (Windows and Linux).",
+      "countries": "not disclosed",
+      "sectors": "Sector not disclosed (feed: Other)"
+    },
+    {
+      "name": "Inception",
+      "hits": 1,
+      "profile": "Little-documented extortion brand (no Ransomware.live profile).",
+      "countries": "Canada",
+      "sectors": "Hospitality"
+    },
+    {
+      "name": "Interlock",
+      "hits": 1,
+      "profile": "Ransomware group since September 2024; double extortion against healthcare, education and government in North America and Europe.",
+      "countries": "United States",
+      "sectors": "Education"
+    },
+    {
+      "name": "MedusaLocker",
+      "hits": 1,
+      "profile": "Long-running RaaS (since 2019) relying on exposed RDP and phishing; its site mixes auto-generated “emails extracted” stubs, like today’s, with real dumps.",
+      "countries": "Italy",
+      "sectors": "Sector not disclosed"
+    },
+    {
+      "name": "PayoutsKing",
+      "hits": 1,
+      "profile": "",
+      "countries": "not disclosed",
+      "sectors": "not disclosed"
+    },
+    {
+      "name": "PixelLeaks",
+      "hits": 1,
+      "profile": "Posts descriptive, often unnamed targets with publication deadlines and itemised record lists. Today a Nablus (Palestine) engineering firm.",
+      "countries": "Palestine",
+      "sectors": "Manufacturing"
+    },
+    {
+      "name": "Rhysida",
+      "hits": 1,
+      "profile": "RaaS since May 2023 (CISA advisory AA23-319A); publishes large file inventories, as with today’s 322 GB engineering dump.",
+      "countries": "not disclosed",
+      "sectors": "Manufacturing"
+    },
+    {
+      "name": "Scarlettgroup",
+      "hits": 1,
+      "profile": "",
+      "countries": "United Kingdom",
+      "sectors": "Education"
+    },
+    {
+      "name": "SilentVault",
+      "hits": 1,
+      "profile": "Little-documented leak site using masked names plus revenue/headcount and proof deadlines. Six masked teasers excluded today; one named UK food maker.",
+      "countries": "United Kingdom",
+      "sectors": "Agriculture and Food Production"
+    }
+  ],
+  "quality": {
+    "singleSourced": 30,
+    "claimOnly": 12,
+    "sourcesDisagree": 1,
+    "newGroups": 0
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 71
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 92
+      }
+    ],
+    "merged": 100,
+    "masked": 24,
+    "reposts": 0,
+    "nonVictims": 0,
+    "lowCoverage": false
+  },
+  "lateToPress": 0
+}
