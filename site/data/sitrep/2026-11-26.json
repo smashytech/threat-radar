@@ -1,0 +1,117 @@
+{
+  "date": "2026-11-26",
+  "tldr": "A heavy exploitation day: CISA added 12 actively-exploited CVEs to its KEV catalog, including a critical Drupal RCE (\"Fail2Install\") with a Nov 27 federal patch deadline and an N-able Mail Assure bug that caused a week-long email outage. Separately, 1Password, FinCEN, and FIFA all disclosed breaches, and a suspected AI-automated campaign (\"GT13\") hit 24 Check Point management servers across 22 organizations.",
+  "emerging": [
+    {
+      "title": "Autonomous AI agents now running full attacks at machine speed",
+      "description": "Unit 42 tracked 10+ real-world campaigns (Jul–Sep 2026) where an \"AI-native offensive security platform\" called CyberStrikeAI handled recon, credential theft, and lateral movement after a human set the objective — one run executed ~8,000 commands over 12 days.",
+      "source": "Unit 42",
+      "url": "https://unit42.paloaltonetworks.com/autonomous-ai-agent-threat-campaigns/",
+      "published": "2026-11-24",
+      "cves": []
+    },
+    {
+      "title": "Chinese state hackers adopt AI attack framework \"Artex\"",
+      "description": "Microsoft says Salt Typhoon and Crystal Typhoon have integrated \"Artex,\" an AI platform that automates recon, credential attacks, and web exploitation at machine speed (no new techniques, just compressed timelines). Cisco Talos separately documented closely similar agentic-framework tradecraft it calls \"ARTEX\" in unrelated intrusion research published the same week.",
+      "source": "The Record (citing Microsoft)",
+      "url": "https://therecord.media/microsoft-china-salt-typhoon-using-artex-ai-tool",
+      "published": "2026-11-25",
+      "cves": []
+    }
+  ],
+  "items": [
+    {
+      "title": "Drupal \"Fail2Install\" RCE actively exploited, added to CISA KEV",
+      "description": "CVE-2026-132165 (CVSS 9.8), a pre-auth RCE in Drupal's core installer found by Anthropic's OSS Scanner, has been exploited in the wild since Nov 19. CISA added it to KEV with a Nov 27 federal remediation deadline. Patch: 11.4.13/11.3.22/10.6.22.",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/drupal-flaw-found-by-anthropic-scanner-exploited-in-attacks/",
+      "published": "2026-11-25",
+      "cves": [
+        "CVE-2026-132165"
+      ]
+    },
+    {
+      "title": "N-able Mail Assure SSRF caused a week-long email outage, added to KEV",
+      "description": "CVE-2026-134624, an SSRF flaw in N-able Mail Assure/SpamExperts, was exploited to breach a single server, causing roughly a week of email-filtering outages. Added to CISA KEV on Nov 23; N-able says no exploitation beyond that one server.",
+      "source": "The Record",
+      "url": "https://therecord.media/cisa-nable-cybersecurity-bug",
+      "published": "2026-11-24",
+      "cves": [
+        "CVE-2026-134624"
+      ]
+    },
+    {
+      "title": "GeoServer flaws under active scanning/exploitation attempts",
+      "description": "watchTowr's honeypots observed real-world exploitation attempts against two of six chained GeoServer CVEs (CVE-2026-120705, CVE-2026-129243) that together enable unauthenticated RCE. No confirmed compromises yet. Patch to 2.27.7/2.28.6/3.0.2.",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/hackers-exploit-two-geoserver-flaws-as.html",
+      "published": "2026-11-25",
+      "cves": [
+        "CVE-2026-120705",
+        "CVE-2026-129243"
+      ]
+    },
+    {
+      "title": "CISA adds 10 more actively exploited flaws to KEV",
+      "description": "New entries cover Mitel MiCollab (5 CVEs incl. OS command injection), Danfoss AK-SM 800A refrigeration controllers (3 CVEs), Vates Xen Orchestra, and HPE/Juniper Session Smart Conductor/Router — all confirmed exploited per CISA.",
+      "source": "CISA",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/11/25/cisa-adds-10-known-exploited-vulnerabilities-catalog",
+      "published": "2026-11-25",
+      "cves": []
+    },
+    {
+      "title": "Critical VMware vCenter auth-bypass patched (not yet exploited)",
+      "description": "CVE-2026-123903 (CVSS 9.8) in VMware Directory Service could allow authentication bypass; part of a 23-flaw VMSA-2026-0011 batch. No in-the-wild exploitation confirmed, but patch urgently — a separate vCenter zero-day was exploited earlier this month.",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/vmware-vcenter-hit-by-another-critical.html",
+      "published": "2026-11-24",
+      "cves": [
+        "CVE-2026-123903"
+      ]
+    },
+    {
+      "title": "Suspected AI-automated campaign hits 24 Check Point servers",
+      "description": "GreyNoise's \"GT13\" campaign compromised 24 Check Point management servers at 22 organizations across 17 countries (finance, energy, government), exploiting a patched Check Point flaw (CVE-2026-16232) and a Rejetto HFS bug (CVE-2026-61500). Researchers suspect agentic AI tooling automated the operation.",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/hackers-compromise-24-check-point.html",
+      "published": "2026-11-25",
+      "cves": [
+        "CVE-2026-16232",
+        "CVE-2026-61500"
+      ]
+    },
+    {
+      "title": "1Password discloses breach via compromised employee GitHub account",
+      "description": "An attacker reached source code and 1Password's CI/CD pipeline, stealing customer names, emails, account IDs, and tokens from invitation/recovery emails. Vault contents and recovery keys were not accessed; only a small number of users were individually notified. (Single-source report.)",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/1password-hacked-customer-data-and.html",
+      "published": "2026-11-26",
+      "cves": []
+    },
+    {
+      "title": "US Treasury's FinCEN takes systems offline after intrusion",
+      "description": "FinCEN disclosed \"unauthorized access to a limited subset of its systems\" and took some offline as a precaution, extending BSA filing deadlines to Dec 30. No attacker or data impact confirmed yet.",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/us-treasurys-fincen-takes-some-systems.html",
+      "published": "2026-11-25",
+      "cves": []
+    },
+    {
+      "title": "FIFA confirms breach after \"Handsome Boy Hacking Club\" extortion attempt",
+      "description": "A newly surfaced group claims to have stolen 12+ GB (ID, financial, and legal records) and posted it after a failed extortion bid; FIFA confirms only \"a limited set\" of personal/business data was accessed and has not verified the group's claims. (Single-source report.)",
+      "source": "The Record",
+      "url": "https://therecord.media/fifa-data-breach-limited",
+      "published": "2026-11-25",
+      "cves": []
+    },
+    {
+      "title": "ShinyHunters claims comeback as new \"Inception\" extortion group denies ties",
+      "description": "A ShinyHunters-linked account resurfaced with a new leak site; a separate group, \"Inception,\" lists AMD, PepsiCo, Lucid Motors, Henry Schein, and Cigna as victims (unverified). Okta tracks related activity as \"O-UNC-053\" since March.",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/shinyhunters-claims-comeback-new-inception-group-rejects-alleged-ties/",
+      "published": "2026-11-25",
+      "cves": []
+    }
+  ],
+  "action": "Patch Drupal core to 11.4.13/11.3.22/10.6.22 before the Nov 27 federal deadline if exposed. Patch N-able Mail Assure, GeoServer (2.27.7/2.28.6/3.0.2), VMware vCenter/VCF (VMSA-2026-0011), Mitel MiCollab, Danfoss AK-SM 800A, Xen Orchestra, and Juniper/HPE Session Smart devices if any are in your environment. Review GitHub/CI-CD access controls in light of the 1Password incident."
+}

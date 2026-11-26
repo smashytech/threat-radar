@@ -1,6 +1,13 @@
 {
   "issues": [
     {
+      "date": "2026-11-26",
+      "tldr": "A heavy exploitation day: CISA added 12 actively-exploited CVEs to its KEV catalog, including a critical Drupal RCE (\"Fail2Install\") with a Nov 27 federal patch deadline and an N-able Mail Assure bug that caused a week-long email outage. Separately, 1Password, FinCEN, and FIFA all disclosed breaches, and a suspected AI-automated campaign (\"GT13\") hit 24 Check Point management servers across 22 organizations.",
+      "items": 10,
+      "emerging": 2,
+      "actionNeeded": true
+    },
+    {
       "date": "2026-11-25",
       "tldr": "A heavy day for actively exploited bugs — CISA added five flaws to its KEV catalog (N-able Mail Assure, Drupal, Optimizely, MONAI Label, Idunno AntiCsrf) and VMware patched a new critical vCenter bug alongside an already-exploited China-nexus vCenter zero-day. Breaches piled up at South Korea's KEPCO (1.5M records), Colorado's myColorado ID app (~150K), LaLiga, the European Commission, and an unclassified CIA system, while two separate reports pointed to AI agents increasingly running attacks on their own.",
       "items": 10,
