@@ -1,6 +1,13 @@
 {
   "issues": [
     {
+      "date": "2026-11-27",
+      "tldr": "AI-driven offensive tooling dominated the cycle: Switzerland and Italy confirmed autonomous AI agents breached critical-infrastructure operators, and Accenture flagged suspected AI-assisted exploitation of Mitel's MiCollab zero-days. CISA added 15 actively exploited CVEs to its KEV catalog in 48 hours, while 1Password, FinCEN, and FIFA all disclosed breaches.",
+      "items": 10,
+      "emerging": 2,
+      "actionNeeded": true
+    },
+    {
       "date": "2026-11-26",
       "tldr": "A heavy exploitation day: CISA added 12 actively-exploited CVEs to its KEV catalog, including a critical Drupal RCE (\"Fail2Install\") with a Nov 27 federal patch deadline and an N-able Mail Assure bug that caused a week-long email outage. Separately, 1Password, FinCEN, and FIFA all disclosed breaches, and a suspected AI-automated campaign (\"GT13\") hit 24 Check Point management servers across 22 organizations.",
       "items": 10,
