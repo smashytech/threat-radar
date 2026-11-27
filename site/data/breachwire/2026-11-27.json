@@ -1,0 +1,270 @@
+{
+  "date": "2026-11-27",
+  "issue": 96,
+  "window": "2026-11-26",
+  "stats": {
+    "victims": 33,
+    "groups": 14,
+    "countries": 10,
+    "regions": 4
+  },
+  "sweden": 0,
+  "regions": [
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 13
+        },
+        {
+          "country": "Canada",
+          "flag": "🇨🇦",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Europe",
+      "countries": [
+        {
+          "country": "Austria",
+          "flag": "🇦🇹",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Latin America & Caribbean",
+      "countries": [
+        {
+          "country": "Guadeloupe",
+          "flag": "🇬🇵",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Asia",
+      "countries": [
+        {
+          "country": "Indonesia",
+          "flag": "🇮🇩",
+          "count": 2
+        },
+        {
+          "country": "South Korea",
+          "flag": "🇰🇷",
+          "count": 1
+        },
+        {
+          "country": "Vietnam",
+          "flag": "🇻🇳",
+          "count": 1
+        },
+        {
+          "country": "Singapore",
+          "flag": "🇸🇬",
+          "count": 1
+        },
+        {
+          "country": "India",
+          "flag": "🇮🇳",
+          "count": 1
+        },
+        {
+          "country": "Hong Kong",
+          "flag": "🇭🇰",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Unattributed",
+      "countries": [
+        {
+          "country": "Country not disclosed",
+          "flag": "🏳️",
+          "count": 10
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Not disclosed",
+      "count": 5
+    },
+    {
+      "sector": "Technology & telecom",
+      "count": 5
+    },
+    {
+      "sector": "Financial services & insurance",
+      "count": 4
+    },
+    {
+      "sector": "Professional services",
+      "count": 4
+    },
+    {
+      "sector": "Retail & e-commerce",
+      "count": 4
+    },
+    {
+      "sector": "Manufacturing & industrial",
+      "count": 3
+    },
+    {
+      "sector": "Education",
+      "count": 2
+    },
+    {
+      "sector": "Healthcare & life sciences",
+      "count": 2
+    },
+    {
+      "sector": "Energy, utilities & resources",
+      "count": 1
+    },
+    {
+      "sector": "Food & agriculture",
+      "count": 1
+    },
+    {
+      "sector": "Government & public sector",
+      "count": 1
+    },
+    {
+      "sector": "Hospitality & leisure",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "Inception",
+      "hits": 5,
+      "profile": "Little-documented extortion brand (no Ransomware.live profile) that posts household-name US firms with long data inventories and 24–48-h Tox deadlines; RedPacket has called its claims unverified (№87).",
+      "countries": "United States",
+      "sectors": "Financial Services, Manufacturing, Retail & E-Commerce, Sector not disclosed (feed: Other), Technology"
+    },
+    {
+      "name": "Orova",
+      "hits": 5,
+      "profile": "Leak site first seen 2026-07-07 (Ransomware.live; maps it to Valid Accounts, T1078); posts batches of Asian SMEs with company blurbs only. Today five names at 13:52–13:54 UTC.",
+      "countries": "Hong Kong, India, Indonesia, Singapore, Vietnam",
+      "sectors": "Healthcare, Manufacturing, Retail & E-Commerce, Technology"
+    },
+    {
+      "name": "PixelLeaks",
+      "hits": 5,
+      "profile": "Posts sector-only teasers, then names the organisation, with fixed publication deadlines and itemised record lists. Today it posted five sector teasers at 09:19 UTC (RansomLook) and named all five at 23:16–23:32 UTC (deadline 30 Nov).",
+      "countries": "Canada, United States, not disclosed",
+      "sectors": "Financial Services, Professional Services, Technology"
+    },
+    {
+      "name": "Rhysida",
+      "hits": 4,
+      "profile": "RaaS since May 2023 (CISA advisory AA23-319A); hits healthcare, education, government and legal; publishes large file inventories, as with today’s 1.87 TB library dump.",
+      "countries": "Guadeloupe, United States, not disclosed",
+      "sectors": "Agriculture and Food Production, Education, Professional Services"
+    },
+    {
+      "name": "Aurora",
+      "hits": 2,
+      "profile": "Newer leak site posting long write-ups with registry details and partly redacted item lists; seen daily in recent issues.",
+      "countries": "Austria, not disclosed",
+      "sectors": "Hospitality, Professional Services"
+    },
+    {
+      "name": "Everest",
+      "hits": 2,
+      "profile": "Russian-speaking extortion crew active since late 2020; also sells initial access; valid-credential/RDP intrusions. Listings often carry “[AI generated]” profiles and no proof.",
+      "countries": "South Korea, not disclosed",
+      "sectors": "Manufacturing, Technology"
+    },
+    {
+      "name": "Puppeteer",
+      "hits": 2,
+      "profile": "Not tracked by Ransomware.live (its group API returns 404). Today two bare domain listings on RansomLook only.",
+      "countries": "not disclosed",
+      "sectors": "Sector not disclosed"
+    },
+    {
+      "name": "The Gentlemen",
+      "hits": 2,
+      "profile": "RaaS since mid-2025; Go-based locker, domain-wide deployment via Group Policy. Today’s two names are RansomLook-only.",
+      "countries": "not disclosed",
+      "sectors": "Sector not disclosed"
+    },
+    {
+      "name": "Anubis",
+      "hits": 1,
+      "profile": "RaaS active since December 2024 with an optional destructive “wipe mode”; heavy healthcare focus.",
+      "countries": "United States",
+      "sectors": "Retail & E-Commerce"
+    },
+    {
+      "name": "Dark Project",
+      "hits": 1,
+      "profile": "",
+      "countries": "United States",
+      "sectors": "Education"
+    },
+    {
+      "name": "HYFLOCK",
+      "hits": 1,
+      "profile": "",
+      "countries": "Indonesia",
+      "sectors": "Government & Defense"
+    },
+    {
+      "name": "MetaEncryptor",
+      "hits": 1,
+      "profile": "Ransomware group first seen mid-2023 (Ransomware.live); targets mid-to-large firms in legal, technology, logistics, manufacturing and finance; AES-256/RSA-2048 encryption, double extortion.",
+      "countries": "United States",
+      "sectors": "Healthcare"
+    },
+    {
+      "name": "Qilin",
+      "hits": 1,
+      "profile": "Prolific RaaS (aka Agenda) since 2022; Rust/Go lockers, VMware ESXi targeting, double extortion. Quiet today, with one posting.",
+      "countries": "United States",
+      "sectors": "Retail & E-Commerce"
+    },
+    {
+      "name": "Whitearmor",
+      "hits": 1,
+      "profile": "Data-theft site tracked since Oct 2026; earlier claims include Colombian clinics (№93).",
+      "countries": "United States",
+      "sectors": "Energy & Utilities"
+    }
+  ],
+  "quality": {
+    "singleSourced": 4,
+    "claimOnly": 20,
+    "sourcesDisagree": 2,
+    "newGroups": 0
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 32
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 38
+      }
+    ],
+    "merged": 41,
+    "masked": 6,
+    "reposts": 1,
+    "nonVictims": 1,
+    "lowCoverage": false
+  },
+  "lateToPress": 0
+}
