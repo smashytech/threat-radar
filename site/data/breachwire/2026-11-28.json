@@ -1,0 +1,248 @@
+{
+  "date": "2026-11-28",
+  "issue": 97,
+  "window": "2026-11-27",
+  "stats": {
+    "victims": 22,
+    "groups": 12,
+    "countries": 10,
+    "regions": 4
+  },
+  "sweden": 0,
+  "regions": [
+    {
+      "region": "North America",
+      "countries": [
+        {
+          "country": "United States",
+          "flag": "🇺🇸",
+          "count": 5
+        },
+        {
+          "country": "Canada",
+          "flag": "🇨🇦",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Europe",
+      "countries": [
+        {
+          "country": "United Kingdom",
+          "flag": "🇬🇧",
+          "count": 1
+        },
+        {
+          "country": "Germany",
+          "flag": "🇩🇪",
+          "count": 1
+        },
+        {
+          "country": "Netherlands",
+          "flag": "🇳🇱",
+          "count": 1
+        },
+        {
+          "country": "Italy",
+          "flag": "🇮🇹",
+          "count": 1
+        },
+        {
+          "country": "Switzerland",
+          "flag": "🇨🇭",
+          "count": 1
+        },
+        {
+          "country": "Belgium",
+          "flag": "🇧🇪",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Latin America & Caribbean",
+      "countries": [
+        {
+          "country": "Colombia",
+          "flag": "🇨🇴",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Asia",
+      "countries": [
+        {
+          "country": "India",
+          "flag": "🇮🇳",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "region": "Unattributed",
+      "countries": [
+        {
+          "country": "Country not disclosed",
+          "flag": "🏳️",
+          "count": 8
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Not disclosed",
+      "count": 7
+    },
+    {
+      "sector": "Professional services",
+      "count": 5
+    },
+    {
+      "sector": "Manufacturing & industrial",
+      "count": 3
+    },
+    {
+      "sector": "Education",
+      "count": 1
+    },
+    {
+      "sector": "Energy, utilities & resources",
+      "count": 1
+    },
+    {
+      "sector": "Financial services & insurance",
+      "count": 1
+    },
+    {
+      "sector": "Food & agriculture",
+      "count": 1
+    },
+    {
+      "sector": "Healthcare & life sciences",
+      "count": 1
+    },
+    {
+      "sector": "Hospitality & leisure",
+      "count": 1
+    },
+    {
+      "sector": "Technology & telecom",
+      "count": 1
+    }
+  ],
+  "groups": [
+    {
+      "name": "iah6477",
+      "hits": 6,
+      "profile": "Extortion brand first seen August 2026, almost entirely US targets; posts bare company slugs with no description or file proof (RansomLook shows only “status: public | hosting: preparing…”). RansomLook spells it “iah647”; merged as one group. Today six slugs between 08:43 and 15:09 UTC.",
+      "countries": "United States, Canada, not disclosed",
+      "sectors": "Manufacturing, Technology, Professional Services, Agriculture and Food Production, Sector not disclosed (feed: Other)"
+    },
+    {
+      "name": "INC Ransom",
+      "hits": 3,
+      "profile": "Extortion/RaaS operation active since mid-2023; spear-phishing and exploitation of edge devices such as Citrix NetScaler (CVE-2023-3519); heavy on healthcare, education and professional services. Today a Lloyd’s-market insurer among three postings.",
+      "countries": "United Kingdom, Italy, United States",
+      "sectors": "Financial Services, Hospitality, Professional Services"
+    },
+    {
+      "name": "Majinahanashi",
+      "hits": 3,
+      "profile": "Little-documented leak site tracked only by RansomLook; posts names with scheduled publication dates (30 Nov) and occasional attachments, no sector or country.",
+      "countries": "not disclosed",
+      "sectors": "Sector not disclosed"
+    },
+    {
+      "name": "SoulGroup",
+      "hits": 2,
+      "profile": "Leak site (RansomLook: “soul”) posting profile cards with sector, location, headcount, revenue and a countdown deadline; today’s cards contain inconsistencies (Egyptian firm tagged Colombia; a description naming a different company).",
+      "countries": "Colombia (feed), United States",
+      "sectors": "Manufacturing"
+    },
+    {
+      "name": "Anubis",
+      "hits": 1,
+      "profile": "RaaS active since December 2024 with an optional destructive “wipe mode”; one-line teasers.",
+      "countries": "not disclosed",
+      "sectors": "Sector not disclosed"
+    },
+    {
+      "name": "Barracuda",
+      "hits": 1,
+      "profile": "Little-documented data-leak brand (Ransomware.live only today); posts accusatory notes that the victim ignored disclosure emails.",
+      "countries": "not disclosed",
+      "sectors": "Professional Services"
+    },
+    {
+      "name": "Bravox",
+      "hits": 1,
+      "profile": "Little-documented leak site; today one Swiss electrical-engineering firm with company blurb only.",
+      "countries": "Switzerland",
+      "sectors": "Energy & Utilities"
+    },
+    {
+      "name": "DireWolf",
+      "hits": 1,
+      "profile": "Ransomware group active since May 2025; Go-based encryptor, double extortion; manufacturing and technology targets in Asia, Europe and the US.",
+      "countries": "Netherlands",
+      "sectors": "Professional Services"
+    },
+    {
+      "name": "Qilin",
+      "hits": 1,
+      "profile": "Prolific RaaS (aka Agenda) since 2022; Rust/Go lockers, VMware ESXi targeting, double extortion. One posting today, with a mismatched domain.",
+      "countries": "Belgium",
+      "sectors": "Education"
+    },
+    {
+      "name": "Rhysida",
+      "hits": 1,
+      "profile": "RaaS since May 2023 (CISA advisory AA23-319A); publishes large file inventories, as with today’s 408 GB ERP-consultancy dump.",
+      "countries": "India",
+      "sectors": "Professional Services"
+    },
+    {
+      "name": "Space Bears",
+      "hits": 1,
+      "profile": "Extortion group active since April 2024, linked to the Phobos ecosystem; corporate-styled leak site with detailed victim write-ups.",
+      "countries": "Germany",
+      "sectors": "Healthcare"
+    },
+    {
+      "name": "The Gentlemen",
+      "hits": 1,
+      "profile": "RaaS since mid-2025; Go-based locker, domain-wide deployment via Group Policy. Today’s name is RansomLook-only.",
+      "countries": "not disclosed",
+      "sectors": "Sector not disclosed"
+    }
+  ],
+  "quality": {
+    "singleSourced": 6,
+    "claimOnly": 20,
+    "sourcesDisagree": 3,
+    "newGroups": 0
+  },
+  "health": {
+    "sources": [
+      {
+        "source": "Ransomware.live",
+        "ok": true,
+        "records": 19
+      },
+      {
+        "source": "RansomLook",
+        "ok": true,
+        "records": 22
+      }
+    ],
+    "merged": 25,
+    "masked": 0,
+    "reposts": 3,
+    "nonVictims": 0,
+    "lowCoverage": false
+  },
+  "lateToPress": 0
+}
